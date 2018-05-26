@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?> 
+<Context displayName="HalfOf73" docBase="HalfOf73" path="/HalfOf73" reloadable="true">
+
+
+  <!--              MySQL(範例程式會用到的DataSource)              -->
+
+  <Resource name="jdbc/HO73" type="javax.sql.DataSource"
+      username="root" password="Do!ngPassW0rd"
+      driverClassName="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://35.165.226.129:6603/ho73"
+      connectionProperties="useSSL=true;useUnicode=yes;characterEncoding=utf8;"
+      maxActive="8"
+      maxIdle="4"
+      maxWait="5000" 
+    />
+    
+
+</Context>

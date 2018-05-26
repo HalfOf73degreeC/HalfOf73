@@ -1,0 +1,2 @@
+衛生紙|data/images/micky.jpg|data/comments/comment1.txt|2018-05-18 00:00:00|2018-05-18 00:00:00|100|0|箱|0|1|0
+泡麵|data/images/kitty.jpg|data/comments/comment2.txt|2018-05-18 00:00:00|2018-05-18 00:00:00|100|0|箱|0|1|0
