@@ -9,5 +9,6 @@ public interface GoodsDao {
 	GoodsBean_HO73 getGoodsBean(int goodsUid);
 	List<GoodsBean_HO73> getAllGoods();
 	int update(GoodsBean_HO73 gb);
+	int updateViews(int goodsViews);
 	int delete(int goodsUid);
 }

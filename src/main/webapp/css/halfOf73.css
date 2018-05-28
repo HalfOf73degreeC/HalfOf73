@@ -36,3 +36,26 @@
     font-style: normal;
     font-size: 18px;
 }
+.goodsImageSize {
+	width:350px;
+	height:350px;
+	text-align:  center;
+}
+
+.goodsImageSize img{
+	width:auto;
+	height:300px;
+	margin:25px;
+	text-align:  center;
+}
+.goodsDetailImageSize {
+	width:500px;
+	height:500px;
+	text-align:  center;
+}
+
+.goodsDetailImageSize img{
+	width:auto;
+	height:500px;
+	text-align:  center;
+}

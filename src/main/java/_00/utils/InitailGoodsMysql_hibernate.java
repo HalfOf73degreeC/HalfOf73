@@ -24,9 +24,9 @@ public class InitailGoodsMysql_hibernate {
 			String[] sa = line.split("\\|");
 			String goodsName = sa[0].trim();
 			String imgPath = sa[1].trim();
-			Blob goodsImg = SystemUtils2018.fileToBlob(imgPath);
+			byte[] goodsImg = DBUtils.fileToBytes(imgPath);
 			String articlePath = sa[2].trim();
-			Clob goodsArticle = SystemUtils2018.fileToClob(articlePath);
+			char[] goodsArticle = DBUtils.fileToChars(articlePath, "utf-8");
 			String startTime = sa[3].trim();
 			Timestamp goodsStartTime = new Timestamp(System.currentTimeMillis());
 			goodsStartTime = Timestamp.valueOf(startTime);
@@ -38,12 +38,12 @@ public class InitailGoodsMysql_hibernate {
 			String goodsSize = sa[7].trim();
 			Integer goodsState = Integer.parseInt(sa[8].trim());
 			Integer funUid = Integer.parseInt(sa[9].trim());
-			Integer views = Integer.parseInt(sa[10].trim());
+			Integer goodsViews = Integer.parseInt(sa[10].trim());
 			Timestamp insertDate = new Timestamp(System.currentTimeMillis());
 			String goodsIntro = sa[11].trim();
 			Integer goodsPrice = ((int)(Math.random()*50))*10;
 			GoodsBean_HO73 gb = new GoodsBean_HO73(null, goodsName, goodsImg, goodsIntro, goodsArticle, goodsStartTime, goodsEndTime, 
-					goodsStock, goodsSafeStock, goodsSize, goodsPrice, goodsState, funUid, views, insertDate);
+					goodsStock, goodsSafeStock, goodsSize, goodsPrice, goodsState, funUid, goodsViews, insertDate);
 			System.out.println(gb);
 			mdao.save(gb);
 			System.out.println("新增一筆紀錄:" + gb.getGoodsName());
