@@ -96,6 +96,29 @@ public class GoodsDaoImpl implements GoodsDao {
 		}
 		return count;
 	}
+	
+
+
+	@Override
+	public int updateViews(int goodsView) {
+		int count = 0;
+		Session session = factory.openSession();
+		Transaction tx = null;
+		GoodsBean_HO73 gb = new GoodsBean_HO73();
+		try {
+			tx = session.beginTransaction();
+			gb.setGoodsView(goodsView);
+			session.update("GoodsBean_HO73",gb);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				tx.rollback();
+			System.out.println(e.getMessage());
+		} finally {
+			session.close();
+		}
+		return count;
+	}
 
 	@Override
 	public int delete(int goodsUid) {
