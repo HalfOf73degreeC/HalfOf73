@@ -1,16 +1,12 @@
 package foundation;
 
 import java.io.IOException;
-import java.sql.Clob;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.FoundationBean_HO73;
+import model.repository.FoundationDao;
+import model.repository.impl.FoundationDaoImpl;
 
 @WebServlet("/foundation/registerFoundation_HO73.do")
 public class RegisterFoundation_HO73 extends HttpServlet {
@@ -53,27 +51,11 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 			e.printStackTrace();
 		}
 		String funAllowOrg = request.getParameter("funAllowOrg");
-		String funIntent_String = request.getParameter("funIntent");
-		Clob funIntent_Clob = null;
-		try {
-			funIntent_Clob.setString(1, funIntent_String);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		String funIntent = request.getParameter("funIntent");
 		String[] funArea = request.getParameterValues("funArea");
 		String[] funServiceUser = request.getParameterValues("funServiceUser");
 		String[] funService = request.getParameterValues("funService");
 		String funArticle = request.getParameter("funArticle");
-		Clob funArticle_Clob = null;
-		try {
-			funArticle_Clob.setString(1, funIntent_String);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String funInsertDate = request.getParameter("funInsertDate");
 		String funImage = request.getParameter("funImage");
 		
 		// 2. 進行必要的資料轉換
@@ -102,18 +84,22 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 //			RequestDispatcher rd = request.getRequestDispatcher("memberZone.jsp");
 //			rd.forward(request, response);
 //			return;
+		
+		
 //		}
+		java.sql.Date jqd = new java.sql.Date(funCreateDate.getTime());
 		// 4. 進行 Business Logic 運算
-		FoundationBean_HO73 fb = new FoundationBean_HO73(funAccount,  funName,  funIdcard,  funImage,
-				  funCeo,  funContact,  funTel,  funFax,
-				 funDomain,  funEmail, funEmail2,  funAddress,funFounder,
-				funCreateDate,  funAllowOrg,  funIntent_Clob,  funArticle_Clob, funArea,
-				 funServiceUser,  funService);
+		FoundationBean_HO73 fb = new FoundationBean_HO73(funAccount, funName, funIdcard, funImage,
+				funCeo, funContact, funTel, funFax, funDomain, funEmail, funEmail2, 
+				funAddress, funFounder, jqd, funAllowOrg, funIntent, funArticle, funArea, funServiceUser,
+				funService);
 		
 		
-		FoundationDAO fdio = new FoundationDAO();
-		fdio.update(fb);
-		session.setAttribute("memAccount", fb);
+		FoundationDao fdao = new FoundationDaoImpl();
+		fdao.saveOrUpdate(fb);
+		fb = fdao.getOneFoundation(funAccount);
+		System.out.println(fb.getFunAccount());
+		session.setAttribute("foundationBean", fb);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
 		response.sendRedirect("foundation_register.jsp");
 		return;

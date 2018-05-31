@@ -9,23 +9,23 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
-import model.GoodsBean_HO73;
-import model.repository.GoodsDao;
+import model.FoundationBean_HO73;
+import model.repository.FoundationDao;
 
-public class GoodsDaoImpl implements GoodsDao {
+public class FoundationDaoImpl implements FoundationDao {
 	SessionFactory factory;
 
-	public GoodsDaoImpl() {
+	public FoundationDaoImpl() {
 		factory = HibernateUtil.getSessionFactory();
 	}
 
 	@Override
-	public void save(GoodsBean_HO73 gb) {
+	public void save(FoundationBean_HO73 fb) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.save(gb); // session.update(object), session.delete(object);
+			session.save(fb); // session.update(object), session.delete(object);
 			tx.commit();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -38,13 +38,13 @@ public class GoodsDaoImpl implements GoodsDao {
 
 	// get資料庫單筆資料
 	@Override
-	public GoodsBean_HO73 getOneGoods(int goodsUid) {
+	public FoundationBean_HO73 getOneFoundation(String funAccount) {
 		Session session = factory.openSession();
-		GoodsBean_HO73 gb = null;
+		FoundationBean_HO73 fb = null;
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			gb = (GoodsBean_HO73) session.get(GoodsBean_HO73.class, goodsUid);
+			fb = (FoundationBean_HO73) session.get(FoundationBean_HO73.class, funAccount);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -53,20 +53,20 @@ public class GoodsDaoImpl implements GoodsDao {
 		} finally {
 			session.close();
 		}
-		return gb;
+		return fb;
 	}
 
 	// select 全部資料
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GoodsBean_HO73> getAllGoods() {
-		List<GoodsBean_HO73> allGoods = new ArrayList<GoodsBean_HO73>();
+	public List<FoundationBean_HO73> getAllFoundation() {
+		List<FoundationBean_HO73> allFoundation = new ArrayList<FoundationBean_HO73>();
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			Query query = session.createQuery("From GoodsBean_HO73");
-			allGoods = query.getResultList();
+			Query query = session.createQuery("From FoundationBean_HO73");
+			allFoundation = query.getResultList();
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -75,17 +75,17 @@ public class GoodsDaoImpl implements GoodsDao {
 		} finally {
 			session.close();
 		}
-		return allGoods;
+		return allFoundation;
 	}
 
 	@Override
-	public int update(GoodsBean_HO73 gb) {
+	public int update(FoundationBean_HO73 fb) {
 		int count = 0;
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.update("GoodsBean_HO73",gb);
+			session.update("FoundationBean_HO73",fb);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -98,17 +98,20 @@ public class GoodsDaoImpl implements GoodsDao {
 	}
 	
 
+	@Override
+	public int delete(String funAccount) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
-	public int updateViews(int goodsView) {
+	public int saveOrUpdate(FoundationBean_HO73 fb) {
 		int count = 0;
 		Session session = factory.openSession();
 		Transaction tx = null;
-		GoodsBean_HO73 gb = new GoodsBean_HO73();
 		try {
 			tx = session.beginTransaction();
-			gb.setGoodsView(goodsView);
-			session.update("GoodsBean_HO73",gb);
+			session.saveOrUpdate("FoundationBean_HO73",fb);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -118,12 +121,6 @@ public class GoodsDaoImpl implements GoodsDao {
 			session.close();
 		}
 		return count;
-	}
-
-	@Override
-	public int delete(int goodsUid) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

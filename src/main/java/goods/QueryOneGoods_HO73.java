@@ -21,7 +21,7 @@ public class QueryOneGoods_HO73 extends HttpServlet {
 			throws ServletException, IOException {
 		GoodsDao gdao = new GoodsDaoImpl();
 		Integer goodsUid = Integer.parseInt(request.getParameter("goodsUid"));
-		GoodsBean_HO73 gb = gdao.getGoodsBean(goodsUid);
+		GoodsBean_HO73 gb = gdao.getOneGoods(goodsUid);
 		request.setAttribute("goodsBean", gb);
 		RequestDispatcher rd = request.getRequestDispatcher("/goods/goodsDetail.jsp");
 		rd.forward(request, response);

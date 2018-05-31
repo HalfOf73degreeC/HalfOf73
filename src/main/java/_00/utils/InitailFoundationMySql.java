@@ -46,7 +46,7 @@ public class InitailFoundationMySql {
 					+ " funIdcard       varchar(20),"
 					+ " funImage        varchar(225),"
 					+ " funGroup        varchar(50),"
-					+ " funDetail       LongText DEFAULT NULL,"
+					+ " funDetail       varchar(2000),"
 					+ " funCeo          varchar(50),"
 					+ " funContact      varchar(50),"
 					+ " funTel          varchar(20),"
@@ -59,8 +59,8 @@ public class InitailFoundationMySql {
 					+ " funFounder      varchar(50),"
 					+ " funCreateDate   datetime,"
 					+ " funAllowOrg     varchar(200),"
-					+ " funIntent       LongText DEFAULT NULL,"
-					+ " funArticle      LongText DEFAULT NULL,"
+					+ " funIntent       varchar(2000),"
+					+ " funArticle      varchar(2000),"
 					+ " funArea         varchar(50),"
 					+ " funServiceUser  varchar(150),"
 					+ " funService      varchar(150),"
@@ -89,7 +89,6 @@ public class InitailFoundationMySql {
 					String[] sa = line.split("\\|");
 					FoundationBean_HO73 bean = new FoundationBean_HO73();
 					bean.setFunAccount(sa[0]);
-					bean.setFunPassword(sa[1]);
 					bean.setFunName(sa[2]);
 					bean.setFunIdcard(sa[3]);
 					bean.setFunImage(sa[4]);
@@ -136,16 +135,15 @@ public class InitailFoundationMySql {
 	
 	static public int saveFoundation(FoundationBean_HO73 mb, Connection con) {
 		String sql = "INSERT INTO Foundation_HO73 "
-				+ "VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		int n = 0;
 		try (PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, mb.getFunAccount());
-			pstmt.setString(2, mb.getFunPassword());
 			pstmt.setString(3, mb.getFunName());
 			pstmt.setString(4, mb.getFunIdcard());
 			pstmt.setString(5, mb.getFunImage());
 			pstmt.setString(6, mb.getFunGroup());	
-			pstmt.setClob(7, mb.getFunDetail());
+			pstmt.setString(7, mb.getFunDetail());
 			pstmt.setString(8, mb.getFunCeo());
 			pstmt.setString(9, mb.getFunContact());
 			pstmt.setString(10, mb.getFunTel());
@@ -160,8 +158,8 @@ public class InitailFoundationMySql {
 			cd.setTime(mb.getFunCreateDate().getTime());
 			pstmt.setDate(18, cd);
 			pstmt.setString(19, mb.getFunAllowOrg());
-			pstmt.setClob(20, mb.getFunIntent());
-			pstmt.setClob(21, mb.getFunArticle());
+			pstmt.setString(20, mb.getFunIntent());
+			pstmt.setString(21, mb.getFunArticle());
 			pstmt.setString(22, mb.getFunArea());
 			pstmt.setString(23, mb.getFunServiceUser());
 			pstmt.setString(24, mb.getFunService());
