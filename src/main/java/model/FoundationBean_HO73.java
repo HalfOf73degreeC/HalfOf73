@@ -77,18 +77,21 @@ public class FoundationBean_HO73 implements Serializable {
 		  this.funArea = " ";
 		}
 		String funArea_String = "";
+		if(funArea != null)
 		for (String s : funArea) {
 			funArea_String += s + ",";
 		}
 		this.funArea = funArea_String;
 
 		String funServiceUser_String = "";
+		if(funServiceUser != null)
 		for (String s : funServiceUser) {
 			funServiceUser_String += s + ",";
 		}
 		this.funServiceUser = funServiceUser_String;
 
 		String funService_String = "";
+		if(funService != null)
 		for (String s : funService) {
 			funService_String += s + ",";
 		}

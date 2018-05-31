@@ -87,7 +87,10 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		
 		
 //		}
-		java.sql.Date jqd = new java.sql.Date(funCreateDate.getTime());
+		java.sql.Date jqd=null;
+		System.out.println(funCreateDate);
+		if(funCreateDate != null)
+		jqd = new java.sql.Date(funCreateDate.getTime());
 		// 4. 進行 Business Logic 運算
 		FoundationBean_HO73 fb = new FoundationBean_HO73(funAccount, funName, funIdcard, funImage,
 				funCeo, funContact, funTel, funFax, funDomain, funEmail, funEmail2, 

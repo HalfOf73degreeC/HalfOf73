@@ -216,7 +216,7 @@
 												</span>
 												<!-- <textarea class="form-control" placeholder="黃中平" rows="1"></textarea> -->
 												<input type="text" name="funFounder" class="form-control" placeholder=""
-													value="${param.funFounder}${fun.funFounder}"
+													value="${fun.funFounder}"
 													style="z-index: 1">
 											</div>
 											<div class="input-group input-group-lg">
@@ -237,7 +237,7 @@
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funAllowOrg" class="form-control" placeholder=""
-													value="${param.funAllowOrg}${fun.funAllowOrg}"
+													value="${fun.funAllowOrg}"
 													style="z-index: 1">
 											</div>
 										</div>
@@ -257,8 +257,7 @@
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 185px;">
-											<textarea  name="funIntent" class="form-control" placeholder="" rows="7"
-												value="${param.funIntent}${fun.funIntent}"></textarea>
+											<textarea  name="funIntent" class="form-control" placeholder="" rows="7">${fun.funIntent}</textarea>
 										</div>
 									</div>
 								</div>
@@ -282,13 +281,47 @@
 										<div class="panel-body" style="height: 95px;">
 											<div class="input-group input-group-lg">
 												<div class="checkbox-group">
-													<input type="checkbox" name="funArea" value="北部">
-													北部 <input type="checkbox" name="funArea" value="中部">
-													中部 <input type="checkbox" name="funArea" value="南部">
-													南部 <input type="checkbox" name="funArea" value="東部">
-													東部 <input type="checkbox" name="funArea" value="外島">
-													外島 <input type="checkbox" name="funArea" value="不分區">
-													不分區
+												<c:if test="${fun.funArea.contains('北部')}">													
+													<input type="checkbox" name="funArea" value="北部" checked>北部
+												</c:if>
+												<c:if test="${!fun.funArea.contains('北部')}">
+													<input type="checkbox" name="funArea" value="北部">北部
+												</c:if>
+
+												<c:if test="${fun.funArea.contains('中部')}">								
+													<input type="checkbox" name="funArea" value="中部" checked>中部
+												</c:if>
+												<c:if test="${!fun.funArea.contains('中部')}">								
+													<input type="checkbox" name="funArea" value="中部">中部
+												</c:if>
+
+												<c:if test="${fun.funArea.contains('南部')}">
+													<input type="checkbox" name="funArea" value="南部" checked>南部
+												</c:if>
+												<c:if test="${!fun.funArea.contains('南部')}">								
+													<input type="checkbox" name="funArea" value="南部">南部
+												</c:if>
+												
+												<c:if test="${fun.funArea.contains('東部')}">
+													<input type="checkbox" name="funArea" value="東部" checked>東部
+												</c:if>
+												<c:if test="${!fun.funArea.contains('東部')}">								
+													<input type="checkbox" name="funArea" value="東部">東部
+												</c:if>
+												
+												<c:if test="${fun.funArea.contains('外島')}">
+													<input type="checkbox" name="funArea" value="外島" checked>外島
+												</c:if>
+												<c:if test="${!fun.funArea.contains('外島')}">								
+													<input type="checkbox" name="funArea" value="外島">外島
+												</c:if>
+												
+												<c:if test="${fun.funArea.contains('不分區')}">
+													<input type="checkbox" name="funArea" value="不分區" checked>不分區
+												</c:if>
+												<c:if test="${!fun.funArea.contains('不分區')}">								
+													<input type="checkbox" name="funArea" value="不分區">不分區
+												</c:if>
 												</div>
 											</div>
 										</div>
@@ -310,14 +343,52 @@
 										<div class="panel-body" style="height: 95px;">
 											<div class="input-group input-group-lg">
 												<div class="checkbox-group">
-													<input type="checkbox" name="funServiceUser" value="老人">
-													老人 <input type="checkbox" name="funServiceUser"
-														value="身心障礙者"> 身心障礙者 <input type="checkbox"
-														name="funServiceUser" value="兒童(含青少年)"> 兒童(含青少年) <input
-														type="checkbox" name="funServiceUser" value="婦女">
-													婦女 <input type="checkbox" name="funServiceUser" value="家庭">
-													家庭 <input type="checkbox" name="funServiceUser" value="其他">
-													其他
+												<c:if test="${fun.funServiceUser.contains('老人')}">
+													<input type="checkbox" name="funServiceUser" value="老人" checked>老人
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('老人')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="老人">老人
+												</c:if>
+                                                <c:if test="${fun.funServiceUser.contains('身心障礙者')}">
+													<input type="checkbox" name="funServiceUser" value="身心障礙者" checked>身心障礙者
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('身心障礙者')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="身心障礙者">身心障礙者
+												</c:if>
+                                                
+                                                <c:if test="${fun.funServiceUser.contains('兒童(含青少年)')}">
+													<input type="checkbox" name="funServiceUser" value="兒童(含青少年)" checked>兒童(含青少年)
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('兒童(含青少年)')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="兒童(含青少年)">兒童(含青少年)
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('婦女')}">
+													<input type="checkbox" name="funServiceUser" value="婦女" checked>婦女
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('婦女')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="婦女">婦女
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('家庭')}">
+													<input type="checkbox" name="funServiceUser" value="家庭" checked>家庭
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('家庭')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="家庭">家庭
+												</c:if>
+
+                                                 <c:if test="${fun.funServiceUser.contains('其他')}">
+													<input type="checkbox" name="funServiceUser" value="其他" checked>其他
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('其他')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="其他">其他
+												</c:if>
 												</div>
 											</div>
 										</div>
@@ -334,27 +405,114 @@
 											</a>
 										</h4>
 									</div>
-									<div id="collapseOne1" class="panel-collapse collapse in"
+                                    <div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 165px;">
 											<div class="input-group input-group-lg">
 												<div class="checkbox-group">
-													<input type="checkbox" name="funService" value="兒童福利">
-													兒童福利 <input type="checkbox" name="funService" value="少年福利">
-													少年福利 <input type="checkbox" name="funService" value="婦女福利">
-													婦女福利 <input type="checkbox" name="funService"
-														value="身心障礙者福利"> 身心障礙者福利 <input type="checkbox"
-														name="funService" value="老人福利"> 老人福利 <input
-														type="checkbox" name="funService" value="急難救助">
-													急難救助 <input type="checkbox" name="funService"
-														value="低收入戶補助"> 低收入戶補助 <input type="checkbox"
-														name="funService" value="醫療補助"> 醫療補助 <input
-														type="checkbox" name="funService" value="清寒獎學金">
-													清寒獎學金 <input type="checkbox" name="funService" value="志願服務">
-													志願服務 <input type="checkbox" name="funService" value="臨時捐助">
-													臨時捐助 <input type="checkbox" name="funService"
-														value="災害(變)救助"> 災害(變)救助 <input type="checkbox"
-														name="funService" value="其他社會福利支出"> 其他社會福利支出
+                                                <c:if test="${fun.funServiceUser.contains('兒童福利')}">
+													<input type="checkbox" name="funServiceUser" value="兒童福利" checked>兒童福利
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('兒童福利')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="兒童福利">兒童福利
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('少年福利')}">
+													<input type="checkbox" name="funServiceUser" value="少年福利" checked>少年福利
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('少年福利')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="少年福利">少年福利
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('婦女福利')}">
+													<input type="checkbox" name="funServiceUser" value="婦女福利" checked>婦女福利
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('婦女福利')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="婦女福利">婦女福利
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('身心障礙者福利')}">
+													<input type="checkbox" name="funServiceUser" value="身心障礙者福利" checked>身心障礙者福利
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('身心障礙者福利')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="身心障礙者福利">身心障礙者福利
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('老人福利')}">
+													<input type="checkbox" name="funServiceUser" value="老人福利" checked>老人福利
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('老人福利')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="老人福利">老人福利
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('急難救助')}">
+													<input type="checkbox" name="funServiceUser" value="急難救助" checked>急難救助
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('急難救助')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="急難救助">急難救助
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('低收入戶補助')}">
+													<input type="checkbox" name="funServiceUser" value="低收入戶補助" checked>低收入戶補助
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('低收入戶補助')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="低收入戶補助">低收入戶補助
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('醫療補助')}">
+													<input type="checkbox" name="funServiceUser" value="醫療補助" checked>醫療補助
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('醫療補助')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="醫療補助">醫療補助
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('清寒獎學金')}">
+													<input type="checkbox" name="funServiceUser" value="清寒獎學金" checked>清寒獎學金
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('清寒獎學金')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="清寒獎學金">清寒獎學金
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('志願服務')}">
+													<input type="checkbox" name="funServiceUser" value="志願服務" checked>志願服務
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('志願服務')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="志願服務">志願服務
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('臨時捐助')}">
+													<input type="checkbox" name="funServiceUser" value="臨時捐助" checked>臨時捐助
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('臨時捐助')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="臨時捐助">臨時捐助
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('災害(變)救助')}">
+													<input type="checkbox" name="funServiceUser" value="災害(變)救助" checked>災害(變)救助
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('災害(變)救助')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="災害(變)救助">災害(變)救助
+												</c:if>
+
+                                                <c:if test="${fun.funServiceUser.contains('其他社會福利支出')}">
+													<input type="checkbox" name="funServiceUser" value="其他社會福利支出" checked>其他社會福利支出
+												</c:if>
+												<c:if test="${!fun.funServiceUser.contains('其他社會福利支出')}">
+													 <input type="checkbox" name="funServiceUser"
+													 value="其他社會福利支出">其他社會福利支出
+												</c:if>
 												</div>
 											</div>
 										</div>
@@ -374,8 +532,7 @@
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 427px;">
-											<textarea  name="funArticle" class="form-control" placeholder="" rows="19"
-												value="${param.funArticle}${fun.funArticle}"></textarea>
+											<textarea  name="funArticle" class="form-control" placeholder="" rows="19">${fun.funArticle}</textarea>
 										</div>
 									</div>
 								</div>
