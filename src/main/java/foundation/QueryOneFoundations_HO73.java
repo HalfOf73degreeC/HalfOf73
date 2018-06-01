@@ -1,7 +1,6 @@
 package foundation;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import member.MemberDAO;
 import model.FoundationBean_HO73;
 import model.MemberBean_HO73;
+import model.repository.FoundationDao;
+import model.repository.impl.FoundationDaoImpl;
 
 
 
@@ -22,11 +23,11 @@ public class QueryOneFoundations_HO73 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		FoundationDAO fdao = new FoundationDAO();
+		FoundationDao fdao = new FoundationDaoImpl();
 		String funAccount = (String) request.getSession().getAttribute("memAccount");
 		System.out.println("funAccount= "+funAccount);
 		FoundationBean_HO73 fb;
-		if(fdao.getOneFoundation(funAccount).getFunAccount()!=null) {
+		if(fdao.getOneFoundation(funAccount) !=null) {
 			fb = fdao.getOneFoundation(funAccount);
 		}else{
 			MemberDAO mdao = new MemberDAO();			

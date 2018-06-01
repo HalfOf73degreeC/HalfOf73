@@ -30,7 +30,7 @@ public class RetrievePictureServlet extends HttpServlet {
 			}
 		}
 		GoodsDao gdao = new GoodsDaoImpl();
-		GoodsBean_HO73 bean = gdao.getGoodsBean(pid);
+		GoodsBean_HO73 bean = gdao.getOneGoods(pid);
 		try(
 				OutputStream os = response.getOutputStream();
 				ByteArrayInputStream bais = new ByteArrayInputStream(bean.getGoodsImg());
