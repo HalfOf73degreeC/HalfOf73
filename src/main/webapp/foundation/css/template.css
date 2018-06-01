@@ -67,6 +67,52 @@ a img {
 a[class*="glyphicon-"] {
 	text-decoration: none;
 }
+/* =============== CHARITY GROUP INFO LAYOUT =============== */
+.content_nosplit_left {
+	text-align: left;
+	position: relative;
+	left: 25%;
+	/*clear: both;*/
+	width: 720px;
+	margin: 0;
+	/*float: left;*/
+}
+
+.content_nosplit_left article h2 {
+	font-size: 12pt;
+	font-weight: bold;
+	background: none;
+	border-bottom: 1px dotted #ccc;
+	margin: 0 0 15px 0;
+	padding: 0 0 10px 0;
+}
+
+.content_nosplit_left article h3 {
+	font-size: 11pt;
+	margin: 0 0 10px 0;
+}
+
+.content_nosplit_left article table {
+	margin: 0 0 15px 0;
+	border-top: 1px dotted #CCC;
+}
+
+.content_nosplit_left article table th {
+	color: #666;
+	padding: 5px;
+	text-align: right;
+	vertical-align: top;
+	border-bottom: 1px dotted #CCC;
+}
+
+.content_nosplit_left article table td {
+	padding: 5px;
+	border-bottom: 1px dotted #CCC;
+}
+
+.content_nosplit_left article ul {
+	margin: 0 0 0 20px;
+}
 /* =============== DEFAULT HTML - HEADING STYLES =============== */
 h1, h2, h3, h4, h5, h6 {
 	margin: 5px 0 10px;
