@@ -1,38 +1,20 @@
 package news;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.hibernate.Session;
 
-public interface newsDao extends Session{
+
+
+public interface newsDao{
 
 	void save(NewsBean_HO73 nb);
-    void saveOrUpdate(Object object);
-
-	void saveOrUpdate(String entityName, Object object);
-
-	@Override
-	default void update(Object object) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	default void update(String entityName, Object object) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	default void delete(Object object) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	default void delete(String entityName, Object object) {
-		// TODO Auto-generated method stub
-		
-	}
+	void saveOrUpdate(NewsBean_HO73 nb);
+	List<NewsBean_HO73> getAllNews();
+	NewsBean_HO73 getOneNew(Integer newsUid);
+	int merge(NewsBean_HO73 nb);
+	int delete(Integer newsUid);
+    
 	
 }
