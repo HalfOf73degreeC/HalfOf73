@@ -96,7 +96,8 @@ public class FoundationDAO {
 			pstmt.setString(4, fb.getFunIdcard());
 			pstmt.setString(5, fb.getFunImage());
 			pstmt.setString(6, fb.getFunGroup());
-			SerialClob clob=null;
+			char[] ch= {};
+			SerialClob clob=new SerialClob(ch);
 			if(fb.getFunDetail()!=null) 
 				clob = new SerialClob(fb.getFunDetail());
 			pstmt.setClob(7, clob);
