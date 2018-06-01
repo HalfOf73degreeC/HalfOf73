@@ -104,7 +104,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		System.out.println(fb.getFunAccount());
 		session.setAttribute("foundationBean", fb);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
-		response.sendRedirect("foundation_register.jsp");
+		response.sendRedirect("foundation_detail.jsp");
 		return;
 	}
 	
