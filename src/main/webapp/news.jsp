@@ -93,7 +93,7 @@
 <script>
 	$(document).ready(
 			$("#somedivS").empty();
-		    $.getJSON('allBooks.json',function(categoriesJson) {
+		    $.getJSON('../_03/allBooks.json',function(categoriesJson) {
 		    	var $row;
 		    	$.each(categoriesJson,function(index, element) {
 				    if(index % 3==0){
