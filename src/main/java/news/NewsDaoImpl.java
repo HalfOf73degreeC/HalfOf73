@@ -9,7 +9,6 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
-import model.GoodsBean_HO73;
 
 public class NewsDaoImpl implements newsDao {
 	SessionFactory factory;
