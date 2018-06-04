@@ -324,7 +324,7 @@
     	<div class="container">
     		<h2 class="nino-sectionHeading">
 				<span class="nino-subHeading-2">
-			    <br><a href="news.jsp">了解更多</a>
+			    <br><a href="news/news.jsp">了解更多</a>
 			    </span>
 			</h2>
 		</div>

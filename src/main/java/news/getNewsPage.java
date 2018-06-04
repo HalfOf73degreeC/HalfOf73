@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class getMemberPage
  */
-@WebServlet("/nwes/getMemberPage")
+@WebServlet("/getNewsPage")
 public class getNewsPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

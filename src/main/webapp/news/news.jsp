@@ -17,36 +17,33 @@
 <!-- favicon -->
 <link rel="shortcut icon" href="../images/ico/like.png">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="images/ico/apple-touch-icon-144-precomposed.png">
+	href="../images/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="images/ico/apple-touch-icon-114-precomposed.png">
+	href="../images/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="images/ico/apple-touch-icon-72-precomposed.png">
+	href="../images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
-	href="images/ico/apple-touch-icon-57-precomposed.png">
+	href="../images/ico/apple-touch-icon-57-precomposed.png">
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="css/materialdesignicons.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="css/jquery.mCustomScrollbar.min.css" />
-<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
-<link rel="stylesheet" type="text/css" href="css/unslider.css" />
-<link rel="stylesheet" type="text/css" href="css/template.css" />
-<link rel="stylesheet" type="text/css" href="css/halfOf73.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css" />
+<link rel="stylesheet" type="text/css" href="../css/unslider.css" />
+<link rel="stylesheet" type="text/css" href="../css/template.css" />
+<link rel="stylesheet" type="text/css" href="../css/halfOf73.css" />
 
 <!-- javascript -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.hoverdir.js"></script>
-<script type="text/javascript" src="js/modernizr.custom.97074.js"></script>
-<script type="text/javascript"
-	src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="js/unslider-min.js"></script>
-<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.hoverdir.js"></script>
+<script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
+<script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../js/unslider-min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
 
 </head>
 <body>
@@ -98,38 +95,39 @@
 	</section>
 	<!--/#nino-latestBlog-->
 	<script>
-	$(document).ready(
-			var xhr = new XMLHttpRequest();			
-			xhr.open("GET", "getNewsPage", true);
-			xhr.open("GET", "getMemberPage?page=" + page, true);
-			xhr.send();
-// 			xhr.onreadystatechange = function(){
-// 				if(xhr.status == 200 && xhr.readyState == 4){
-// 					var str = "<table border='1'>";
-// 					var arr = JSON.parse(xhr.responseText);
-// 					for(var i = 0; i < arr.length; i++){ 
-// 						var obj = arr[i];
-			$("#somedivS").empty();
-		    $.getJSON('../_03/allBooks.json',function(categoriesJson) {
-		    	var $row;
-		    	$.each(categoriesJson,function(index, element) {
-				    if(index % 3==0){
-				    	$row = $('<div class="row">').appendTo($('#somedivS'));
-				    }
+	$(document).ready(function() {
+		var xhr = new XMLHttpRequest();
+		xhr.open("Get", "getNewsPage", true);
+		xhr.send();
+		xhr.onreadystatechange = 
+		function() {
+			if (xhr.status == 200 && xhr.readyState == 4) {
+				var str = "<table border='1'>";
+				var arr = JSON.parse(xhr.responseText);
+				for (var i = 0; i < arr.length; i++) {
+					var news = arr[i];
+				    var $row;
+					if(i % 3==0){
+						$row = $('<div class="row">').appendTo($('#somedivS'));
+					}
 				    var $divcol = $('<div class="col-md-4 col-sm-4">').appendTo($row);
 				    	var $article = $('<article>').appendTo($divcol);
 				    		var $articleThumb = $('<div class="articleThumb">').appendTo($article);
-				    			var $goodsImageSize = $('<div class="goodsImageSize">').appendTo($articleThumb)
-								.append("<img style='width: 300px;' src='../../ch00/util/GetImage?no=" + element.bookId + "'>");
+				    			var $goodsImageSize = $('<div class="newsImageSize">').appendTo($articleThumb)
+								.append("<img style='width: 300px;' src='" + news.newsImg + "'>");
 							var $articleTitle = $('<h3 class="articleTitle">').appendTo($article)
-							.html(element.title);
+							.html(news.newsName);
 							var $articlePrice = $('<h3 class="articleTitle" style="text-align: right;">').appendTo($article)
-				    		.html(element.price);
+				    		.html(news.newsImgIntro);
 							var $articleMeta = $('<div class="articleMeta">').appendTo($article)
-							.html(element.author + "(JQuery版)");	
-		    	});
-			});
-	);
+							.html(news.newsArticle + "(JQuery版)");	
+				}
+			}
+		}
+	});
+
+	
+	
 </script>
 </body>
 </html>

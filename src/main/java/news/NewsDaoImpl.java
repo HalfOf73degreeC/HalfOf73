@@ -61,7 +61,7 @@ public class NewsDaoImpl implements newsDao {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			Query query = session.createQuery("From GoodsBean_HO73");
+			Query query = session.createQuery("From NewsBean_HO73");
 			allNews = query.getResultList();
 			tx.commit();
 		} catch (Exception e) {
