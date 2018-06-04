@@ -61,6 +61,17 @@
 								class="mdi mdi-cart-outline nino-icon"></i></a></li>
 						<li><a href="#" class="nino-search"><i
 								class="mdi mdi-magnify nino-icon"></i></a></li>
+							<c:set var="fun" value="${foundationBean}"></c:set>
+						<c:if test = "${not empty fun.funAccount}">					
+							<li><a href="" style="padding: 9px 5px 5px;">
+									<img src="${fun.funImage}"
+									style="border-radius:50%; max-width: 30px; height: auto;">
+								</a>
+							</li>
+						</c:if>
+						<c:if test = "${empty fun.funAccount}">
+									<li><a href=""></a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
@@ -85,12 +96,14 @@
 <!-- 					</a> -->
 <!-- 					<g:plusone size="small" count="false"></g:plusone> -->
 <!-- 				</div>  -->
-				<div class="col-md-6">
-					<div class="text-center">
-						<img src=""
-						style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 85%; height: auto;">	
-					</div>
-				</div>
+<!-- 				<div class="col-md-6"> -->
+<!-- 					<div class="text-center"> -->
+<!-- 						<a href="" style="padding: 9px 5px 5px;"> -->
+<%-- 									<img src="${fun.funImage}" --%>
+<!-- 									style="border-radius:50%; max-width: 150px; height: auto;"> -->
+<!-- 								</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 				<div class="article_author">
 <!-- 					<a href="#">臺北榮民總醫院 社會工作室</a> -->
 				</div>

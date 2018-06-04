@@ -61,6 +61,17 @@
 								class="mdi mdi-cart-outline nino-icon"></i></a></li>
 						<li><a href="#" class="nino-search"><i
 								class="mdi mdi-magnify nino-icon"></i></a></li>
+		<c:set var="fun" value="${foundationBean}"></c:set>
+						<c:if test = "${not empty fun.funAccount}">					
+							<li><a href="" style="padding: 9px 5px 5px;">
+									<img src="${fun.funImage}"
+									style="border-radius:50%; max-width: 30px; height: auto;">
+								</a>
+							</li>
+						</c:if>
+						<c:if test = "${empty fun.funAccount}">
+									<li><a href=""></a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
@@ -71,11 +82,11 @@
 	<!-- Testimonial
     ================================================== -->
 	<Form Action="registerFoundation_HO73.do" method="POST">
-		<c:set var="fun" value="${foundationBean}"></c:set>
+	<input type="hidden" name="funImage" value="${fun.funImage}">
 		<section id="nino-whatWeDo">
 			<div class="container">
 				<h2 class="nino-sectionHeading">
-					<span class="nino-subHeading">基金會申請</span>
+					<span class="nino-subHeading" width="350px">基金會申請</span>
 				</h2>
 				<div class="sectionContent">
 					<div class="row">
@@ -542,10 +553,18 @@
 
 				</div>
 				<div class="input-group input-group-lg" style="padding: 30px 0px">
+				<c:if test = "${empty funAccount}">	
 					<span class="input-group-btn" align="center">
 						<button class="btn btn-success" type="submit"
 							style="width: 200px; z-index: 1">申請</button>
 					</span>
+				</c:if>
+				<c:if test = "${not empty funAccount}">	
+					<span class="input-group-btn" align="center">
+						<button class="btn btn-success" type="submit"
+							style="width: 200px; z-index: 1">更新</button>
+					</span>
+				</c:if>
 				</div>
 			</div>
 		</section>
