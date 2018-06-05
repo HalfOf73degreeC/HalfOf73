@@ -8,9 +8,9 @@
 	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
 	crossorigin="anonymous">
 <head>
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/styles.css'
-	type="text/css" />
+<!-- <link rel='stylesheet' -->
+<%-- 	href='${pageContext.request.contextPath}/css/styles.css' --%>
+<!-- 	type="text/css" /> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -41,7 +41,7 @@
 
 </head>
 
-<body>
+<body onload="initialize()">
 	<!-- Header-->
 	<!-- Story About Us
     ================================================== -->
@@ -162,10 +162,11 @@
 						<td>
 							${fun.funAddress}
 						</td>
+						<input  id="funAddress" type="text" value="${fun.funAddress}" style="visibility:hidden"></input>
 					</tr>
 				</table>
 					<div class="mapWrap">
-					<iframe width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.tw/maps?hl=zh-TW&amp;q=%E8%87%BA%E5%8C%97%E5%B8%82%E7%9F%B3%E7%89%8C%E8%B7%AF%E4%BA%8C%E6%AE%B5201%E8%99%9F&amp;ie=UTF8&amp;hq=&amp;hnear=%E8%87%BA%E5%8C%97%E5%B8%82%E7%9F%B3%E7%89%8C%E8%B7%AF%E4%BA%8C%E6%AE%B5201%E8%99%9F&amp;gl=tw&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+						<div id="map" style="width: 600px; height: 400px;"></div>
 				    </div>
 				<h3>基本資料 </h3>
 				<table border="0" cellspacing="1" cellpadding="0" width="100%">
@@ -367,5 +368,33 @@
 		<!--[if lt IE 9]>
 	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCw9eOBahNDm7_9km8-qvhuH7YjRK8scwU"></script>
+<script type="text/javascript">
+
+var geocoder;
+var map;
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var mapOptions = {
+    zoom: 17
+  }
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  codeAddress();
+}
+function codeAddress() {
+  var address = document.getElementById('funAddress').value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == 'OK') {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+</script>
 </body>
 </html>
