@@ -12,7 +12,7 @@
 	<title>${subTitle}</title>
 
 	<!-- favicon -->
-    <link rel="shortcut icon" href="images/ico/like.png">
+    <link rel="shortcut icon" href="images/ico/logo_haifof73c-01.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
@@ -85,7 +85,8 @@
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
-						<i class="glyphicon glyphicon-heart"></i>
+<!-- 						<i class="glyphicon glyphicon-heart"></i> -->
+							<img src ="images/ico/logo_haifof73c-01.png" width="150px">
 							<span class="nino-subHeading"><br>Half of 73°C</span>
 							<br>
 						</h2>
