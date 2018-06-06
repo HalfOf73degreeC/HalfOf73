@@ -123,4 +123,26 @@ public class FoundationDaoImpl implements FoundationDao {
 		return count;
 	}
 
+	@Override
+	public FoundationBean_HO73 getOneFunId(String funIdcard) {
+		System.out.println(funIdcard);
+		Session session = factory.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		FoundationBean_HO73 fb = null;
+		String hql = "Select * from foundation f where f.funIdcard = :funIdcard ";
+		@SuppressWarnings("unchecked")
+		List<Object> list = session.createQuery(hql).//指定欄位使用[]
+				setParameter("funIdcard", funIdcard).
+				getResultList();
+		System.out.println(list.size());
+			for(Object obj : list){
+				System.out.print(obj + "　");
+				fb=(FoundationBean_HO73)obj;
+			}
+
+			tx.commit();
+			factory.close();
+		return fb;
+	}
+
 }

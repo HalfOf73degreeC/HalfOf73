@@ -168,7 +168,9 @@
 					<div class="mapWrap">
 						<div id="map" style="width: 600px; height: 400px;"></div>
 				    </div>
+				<div style="padding-top:20px;">
 				<h3>基本資料 </h3>
+				</div>
 				<table border="0" cellspacing="1" cellpadding="0" width="100%">
 					<tr>
 						<th width="12%">創辦人</th>
