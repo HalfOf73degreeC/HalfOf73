@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Andrew Huang
+=======
+Built-By: PC-26
+>>>>>>> 2e404bdb9dd8469281ecc7e80ee638dde555f938
 Build-Jdk: 1.8.0_162
 Created-By: Maven Integration for Eclipse
 
