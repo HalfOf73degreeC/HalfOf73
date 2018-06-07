@@ -85,9 +85,9 @@ jQuery(function($) {
 		$('html, body').animate({scrollTop : 0},300);
 		return false;
 	});
-	/*===========ä½¿ç”¨ text-overflow: ellipsis; å±¬æ€§æ™‚ã€æ–‡å­—åªèƒ½å–®è¡Œå‡ºç¾ã€‚è‹¥æ˜¯æƒ³è¦å¤šè¡Œæ–‡å­—...===========*/
+	/*===========Ê¹ÓÃ text-overflow: ellipsis; ŒÙÐÔ•r¡¢ÎÄ×ÖÖ»ÄÜ†ÎÐÐ³ö¬F¡£ÈôÊÇÏëÒª¶àÐÐÎÄ×Ö...===========*/
 	$(function(){
-    var len = 50; // è¶…éŽ50å€‹å­—ä»¥"..."å–ä»£
+    var len = 50; // ³¬ß^50‚€×ÖÒÔ"..."È¡´ú
     $(".articleDesc").each(function(i){
         if($(this).text().length>len){
             $(this).attr("title",$(this).text());
@@ -95,6 +95,7 @@ jQuery(function($) {
             $(this).text(text);
         }
     });
+
 });
 	 
 });

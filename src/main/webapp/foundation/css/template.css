@@ -396,7 +396,7 @@ img.img-full-width {
 }
 #nino-navbar .nino-iconsGroup li a {
 	border: none;
-	font-size: 18px;
+	font-size: 13px;
 }
 #nino-navbar1 .navbar-brand {
 	color: #fff;
@@ -1177,6 +1177,9 @@ div.pp_default .pp_social {
 
 }
 @media (max-width: 992px) {
+	#nino-navbar .navbar-nav > li > a {
+       margin: 0 6px;
+	}
 	section {
 		padding: 45px 0;
 	}	

@@ -12,7 +12,7 @@
 	<title>${subTitle}</title>
 
 	<!-- favicon -->
-    <link rel="shortcut icon" href="images/ico/logo_haifof73c-01.png">
+    <link rel="shortcut icon" href="images/ico/like.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
@@ -27,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="css/template.css" />
 </head>
 <body data-target="#nino-navbar" data-spy="scroll">
-
+<c:set var="mem" value="${memberBean}"></c:set>
 	<!-- Header
     ================================================== -->
 	<header id="nino-header" >
@@ -37,7 +37,7 @@
 
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nino-navbar-collapse">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nino-navbar-collapse" style="padding-right: 65px">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -52,29 +52,23 @@
 							<ul class="nav navbar-nav">
 							<!-- 	<li class="active"><a href="#nino-header"><i class="glyphicon glyphicon-home"></i><span class="sr-only">(current)</span></a></li> -->
 								<li><a href="#nino-latestBlog">最新消息</a></li>
-								<li><a href="foundation/foundation_detail.jsp">關於基金會</a></li>
+								<li><a href="foundation/foundation_detail.jsp">基金會</a></li>
 								<li><a href="#nino-ourTeam">捐款募資</a></li>
-								<li><a href="#nino-ourTeam">志工相助</a></li>
 								<li><a href="#nino-portfolio">愛的傳遞</a></li>
 								<li><a href="#nino-whatWeDo">關於本站</a></li>		
-								<c:if test = "${not empty memAccount}">					
-									<li><a href="member/queryOneMembers_HO73.do">會員專區</a></li>
-								</c:if>
-								<c:if test = "${empty memAccount}">
-									<li><a href="member/login">google登入</a></li>
-								</c:if>
-								<c:if test = "${not empty memAccount}">	
-									<li><a href="member/logout">登出</a></li>
-								</c:if>
+<%-- 								<c:if test = "${not empty memAccount}">					 --%>
+<!-- 									<li><a href="member/queryOneMembers_HO73.do">會員專區</a></li> -->
+<%-- 								</c:if> --%>
+<%-- 								<c:if test = "${empty memAccount}"> --%>
+<!-- 									<li><a href="member/login">google登入</a></li> -->
+<%-- 								</c:if> --%>
+<%-- 								<c:if test = "${not empty memAccount}">	 --%>
+<!-- 									<li><a href="member/logout">登出</a></li> -->
+<%-- 								</c:if> --%>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						
-						<div class="nino-menuItem pull-right">							
-							<ul class="nino-iconsGroup nav navbar-nav">
-								<li><a href="supplyBox.jsp"><i class="mdi mdi-cart-outline nino-icon"></i></a></li>
-								<li><a href="#" class="nino-search"><i class="mdi mdi-magnify nino-icon"></i></a></li>
-							</ul>
-						</div>
+						<div class="nino-menuItem pull-right" w3-include-html="navbar_right.jsp"></div>
 					</div>	
 				</div><!-- /.container-fluid -->
 			</nav>
@@ -650,103 +644,10 @@
 			</div>
     	</div>
     </section><!--/#nino-whatWeDo-->
-    <footer id="footer">
-        <div class="container">
-        	<div class="row">
-        		<div class="col-md-4">
-        			<div class="colInfo">
-	        			<div class="footerLogo">
-	        				<a href="#" >Half of 73°C</a>	
-	        			</div>
-	        			<p>
-	        				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-	        			</p>
-	        			<div class="nino-followUs">
-	        				<div class="totalFollow"><span>15k</span> followers</div>
-	        				<div class="socialNetwork">
-	        					<span class="text">Follow Us: </span>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-facebook"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-twitter"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-instagram"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-pinterest"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-google-plus"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-youtube-play"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-dribbble"></i></a>
-	        					<a href="" class="nino-icon"><i class="mdi mdi-tumblr"></i></a>
-	        				</div>
-	        			</div>
-	        			<form action="" class="nino-subscribeForm">
-	        				<div class="input-group input-group-lg">
-								<input type="email" class="form-control" placeholder="Your Email" required>
-								<span class="input-group-btn">
-									<button class="btn btn-success" type="submit">Subscribe</button>
-								</span>
-							</div>
-	        			</form>
-        			</div>
-        		</div>
-        		<div class="col-md-4 col-sm-6">
-        			<div class="colInfo">
-	        			<h3 class="nino-colHeading">Blogs</h3>
-	        			<ul class="listArticles">
-	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="#"><img src="images/our-blog/img-4.jpg" alt=""></a>
-	        					<div class="info">
-	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
-	        						<div class="date">Jan 9, 2016</div>
-	        					</div>
-	        				</li>
-	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="#"><img src="images/our-blog/img-5.jpg" alt=""></a>
-	        					<div class="info">
-	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
-	        						<div class="date">Jan 9, 2016</div>
-	        					</div>
-	        				</li>
-	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="#"><img src="images/our-blog/img-6.jpg" alt=""></a>
-	        					<div class="info">
-	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
-	        						<div class="date">Jan 9, 2016</div>
-	        					</div>
-	        				</li>
-	        			</ul>
-        			</div>
-        		</div>
-        		<div class="col-md-4 col-sm-6">
-        			<div class="colInfo">
-	        			<h3 class="nino-colHeading">instagram</h3>
-	        			<div class="instagramImages clearfix">
-	        				<a href="#"><img src="images/instagram/img-1.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-2.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-6.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-7.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-8.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-9.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-	        				<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-	        			</div>
-	        			<a href="#" class="morePhoto">View more photos</a>
-        			</div>
-        		</div>
-        	</div>
-			<div class="nino-copyright">Copyright &copy; 2018 <a target="_blank" href="http://www.ninodezign.com/" title="Ninodezign.com - Top quality open source resources for web developer and web designer">halfof73.com</a>. All Rights Reserved. 
-			<br>
-<!-- 			<br/> MoGo free PSD template by <a href="https://www.behance.net/laaqiq">Laaqiq</a></div> -->
-        </div>
-    </footer><!--/#footer-->
+ 	<!--footer-->
 
-    <!-- Search Form - Display when click magnify icon in menu
-    ================================================== -->
-    <form action="" id="nino-searchForm">
-    	<input type="text" placeholder="Search..." class="form-control nino-searchInput">
-    	<i class="mdi mdi-close nino-close"></i>
-    </form><!--/#nino-searchForm-->
 	
+ 	<div w3-include-html="footer.html"></div>
     <!-- Scroll to top
     ================================================== -->
 	<a href="#" id="nino-scrollToTop">Go to Top</a>
@@ -761,6 +662,10 @@
 	<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="js/unslider-min.js"></script>
 	<script type="text/javascript" src="js/template.js"></script>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
+	</script>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>

@@ -62,7 +62,7 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 	    Gson gson = new Gson();
 	    GoogleBean_HO73 gbj = gson.fromJson(jsonIdentity, GoogleBean_HO73.class);
 	    // From this map, extract the relevant profile info and store it in the session.
-	    request.getSession().setAttribute("memAccount", gbj.getId());
+//	    request.getSession().setAttribute("memAccount", gbj.getId());
 //	    request.getSession().setAttribute("memName", userIdResult.get("name"));
 //	    request.getSession().setAttribute("memEmail", userIdResult.get("email"));
 //	    request.getSession().setAttribute("memPicUrl", userIdResult.get("picture"));
@@ -87,8 +87,8 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
-	    response.sendRedirect("queryOneMembers_HO73.do");
+		request.getSession().setAttribute("memberBean", mb);
+	    response.sendRedirect("../index.jsp");
 	}
 
 }
