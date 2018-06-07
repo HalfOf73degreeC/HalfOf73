@@ -83,13 +83,14 @@ a[class*="glyphicon-"] {
 	font-weight: bold;
 	background: none;
 	border-bottom: 1px dotted #ccc;
-	margin: 0 0 15px 0;
-	padding: 0 0 10px 0;
+	width:85%;
+	margin: 0 0 5px 0;
+	padding: 0 0 5px 0;
 }
 
 .content_nosplit_left article h3 {
 	font-size: 11pt;
-	margin: 0 0 10px 0;
+	margin:0px;
 }
 
 .content_nosplit_left article table {
@@ -1247,7 +1248,7 @@ div.pp_default .pp_social {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
 	
 	/* =============== HOVER EFFECT =============== */
 	.nino-hoverEffect .item {

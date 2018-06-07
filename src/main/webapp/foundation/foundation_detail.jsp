@@ -16,7 +16,7 @@
 <meta name="description" content="">
 <meta name="author" content="ninodezign.com, ninodezign@gmail.com">
 <meta name="copyright" content="ninodezign.com">
-<title>會員專區-基金會申請</title>
+<title>會員專區-基金會資訊</title>
 
 <!-- favicon -->
 <link rel="shortcut icon" href="images/ico/like.png">
@@ -51,7 +51,7 @@
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="index.html">Half of 73°C - 基金會資訊</a>
+					<a class="navbar-brand" href="../index.jsp">Half of 73°C</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="nino-menuItem pull-right">
@@ -84,7 +84,13 @@
    <section id="nino-latestBlog">
    <c:set var="fun" value="${foundationBean}"></c:set>
 	<div class="content_nosplit_left">
-		<article>
+	
+		<article>			
+			<a href="${fun.funDomain}" style="padding: 9px 5px 5px;">
+			<img src="${fun.funImage}"
+			style="border-radius:50%; max-width: 100px; height: auto; float:right;">
+			</a>
+			<br><br>
 			<h2>${fun.funName}</h2>
 			<div class="article_info">
 <!-- 				<div class="article_share">分享 -->
@@ -104,21 +110,11 @@
 <!-- 								</a> -->
 <!-- 					</div> -->
 <!-- 				</div> -->
-				<div class="article_author">
-<!-- 					<a href="#">臺北榮民總醫院 社會工作室</a> -->
-				</div>
+
 				<div class="article_date">
 				<h3 align="right">更新日期: ${fun.insertDate}</h3>
 				</div>
-		    <div class="article_fb">
-	
-<!-- 					<iframe src="http://www.facebook.com/widgets/like.php?href=http://www.npo.org.tw/npolist_detail.asp?id=6731" scrolling="no" -->
-<!-- 					 frameborder="0" style="border:none; width:450px; height:25px"></iframe> -->
-				</div>
-			</div>
-			
-				<h3>聯絡資訊
-				</h3>
+			    <div style="padding-top:0px;"><h3>聯絡資訊</h3></div>
 				<table border="0" cellspacing="1" cellpadding="0" width="100%" >
 					<tr>
 						<th width="12%">機構名稱</th>
@@ -219,8 +215,15 @@
 						    ${fun.funService.replaceAll(","," ")}
 						</td>
 					</tr>
-	
+				</div>
 				</table>
+				<c:if test = "${not empty fun.funAccount}">	
+					<span class="input-group-btn" align="right">
+					  <a href="../foundation/queryOneFoundation_HO73.do">
+						<button class="btn btn-success"style=" background:#95e1d3; border-color: #95e1d3;width: 200px; z-index: 1">更新</button>
+					  </a>
+					</span>
+				</c:if>
 			</section>
 		</article>
 	</div>

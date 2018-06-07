@@ -23,10 +23,10 @@ public class EachFoundationPage extends HttpServlet{
 		FoundationDao fdao = new FoundationDaoImpl();
 
 		String funIdcard = request.getParameter("funIdcard");
-		FoundationBean_HO73 fb = fdao.getOneFunId(funIdcard);
+		FoundationBean_HO73 fb = fdao.getOneFoundation(funIdcard);
 
-		System.out.println("愛心馬: " + funIdcard);
-		System.out.println(fb.getFunAccount());
+		System.out.println("愛心碼: " + funIdcard);
+		System.out.println("基金會帳號"+fb.getFunAccount());
 		request.setAttribute("foundationBean", fb);
 		RequestDispatcher rd = request.getRequestDispatcher("/foundation/foundation_detail.jsp");
 		rd.forward(request, response);

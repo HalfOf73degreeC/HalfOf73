@@ -125,7 +125,7 @@
 				    	var $article = $('<article>').appendTo($divcol);
 				    		var $articleThumb = $('<div class="articleThumb">').appendTo($article);
 				    			var $wow = $('<div class="focus wow bounceIn">').appendTo($articleThumb);
-				    				var $image = $("<img style='width: 225px; border-radius:50%;' src='" + foundation.funImage + "'>").appendTo($wow);
+				    				var $image = $("<img style='width: 225px; border-radius:5%;' src='" + foundation.funImage + "'>").appendTo($wow);
 
 				    		var $line = $('<div style="border-bottom: 1px solid #e5e5e5;">').appendTo($article);
 				    			var $articleTitle = $('<h3 class="articleTitle">').appendTo($line);   

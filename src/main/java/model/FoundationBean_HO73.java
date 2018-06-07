@@ -133,7 +133,7 @@ public class FoundationBean_HO73 implements Serializable {
 		this.insertDate = insertDate;
 	}
 
-	@Id
+	
 	public String getFunAccount() {
 		return funAccount;
 	}
@@ -149,7 +149,7 @@ public class FoundationBean_HO73 implements Serializable {
 	public void setFunName(String funName) {
 		this.funName = funName;
 	}
-
+	@Id
 	public String getFunIdcard() {
 		return funIdcard;
 	}
