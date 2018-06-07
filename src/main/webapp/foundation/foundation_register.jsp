@@ -553,13 +553,13 @@
 
 				</div>
 				<div class="input-group input-group-lg" style="padding: 30px 0px">
-				<c:if test = "${empty funAccount}">	
+				<c:if test = "${empty fun.funAccount}">	
 					<span class="input-group-btn" align="center">
 						<button class="btn btn-success" type="submit"
 							style="width: 200px; z-index: 1">申請</button>
 					</span>
 				</c:if>
-				<c:if test = "${not empty funAccount}">	
+				<c:if test = "${not empty fun.funAccount}">	
 					<span class="input-group-btn" align="center">
 						<button class="btn btn-success" type="submit"
 							style="width: 200px; z-index: 1">更新</button>

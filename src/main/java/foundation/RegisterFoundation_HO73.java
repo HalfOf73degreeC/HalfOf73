@@ -100,8 +100,8 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		
 		FoundationDao fdao = new FoundationDaoImpl();
 		fdao.saveOrUpdate(fb);
-		fb = fdao.getOneFoundation(funAccount);
-		System.out.println(fb.getFunAccount());
+		fb = fdao.getOneFoundation(funIdcard);
+		System.out.println(fb.getFunIdcard());
 		session.setAttribute("foundationBean", fb);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
 		response.sendRedirect("foundation_detail.jsp");

@@ -38,13 +38,13 @@ public class FoundationDaoImpl implements FoundationDao {
 
 	// get資料庫單筆資料
 	@Override
-	public FoundationBean_HO73 getOneFoundation(String funAccount) {
+	public FoundationBean_HO73 getOneFoundation(String funIdcard) {
 		Session session = factory.openSession();
 		FoundationBean_HO73 fb = null;
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			fb = (FoundationBean_HO73) session.get(FoundationBean_HO73.class, funAccount);
+			fb = (FoundationBean_HO73) session.get(FoundationBean_HO73.class, funIdcard);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -122,5 +122,6 @@ public class FoundationDaoImpl implements FoundationDao {
 		}
 		return count;
 	}
+
 
 }
