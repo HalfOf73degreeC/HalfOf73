@@ -27,23 +27,25 @@
 
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="../css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="../css/jquery.mCustomScrollbar.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css" />
 <link rel="stylesheet" type="text/css" href="../css/unslider.css" />
 <link rel="stylesheet" type="text/css" href="../css/template.css" />
 <link rel="stylesheet" type="text/css" href="../css/halfOf73.css" />
+	<!-- javascript -->
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.hoverdir.js"></script>
+	<script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
+	<script type="text/javascript"
+		src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="../js/unslider-min.js"></script>
 
-<!-- javascript -->
-<script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
-<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/jquery.hoverdir.js"></script>
-<script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
-<script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="../js/unslider-min.js"></script>
-<script type="text/javascript" src="../js/template.js"></script>
 
 </head>
 <body>
@@ -95,39 +97,68 @@
 	</section>
 	<!--/#nino-latestBlog-->
 	<script>
-	$(document).ready(function() {
-		var xhr = new XMLHttpRequest();
-		xhr.open("Get", "getNewsPage", true);
-		xhr.send();
-		xhr.onreadystatechange = 
-		function() {
-			if (xhr.status == 200 && xhr.readyState == 4) {
-				var str = "<table border='1'>";
-				var arr = JSON.parse(xhr.responseText);
-				for (var i = 0; i < arr.length; i++) {
-					var news = arr[i];
-				    var $row;
-					if(i % 3==0){
-						$row = $('<div class="row">').appendTo($('#somedivS'));
-					}
-				    var $divcol = $('<div class="col-md-4 col-sm-4">').appendTo($row);
-				    	var $article = $('<article>').appendTo($divcol);
-				    		var $articleThumb = $('<div class="articleThumb">').appendTo($article);
-				    			var $goodsImageSize = $('<div class="newsImageSize">').appendTo($articleThumb)
-								.append("<img style='width: 300px;' src='" + news.newsImg + "'>");
-							var $articleTitle = $('<h3 class="articleTitle">').appendTo($article)
-							.html(news.newsName);
-							var $articlePrice = $('<h3 class="articleTitle" style="text-align: right;">').appendTo($article)
-				    		.html(news.newsImgIntro);
-							var $articleMeta = $('<div class="articleMeta">').appendTo($article)
-							.html(news.newsArticle + "(JQuery版)");	
-				}
-			}
-		}
-	});
-
-	
-	
-</script>
+		$(document)
+				.ready(
+						function() {
+							var xhr = new XMLHttpRequest();
+							xhr.open("Get", "getNewsPage", true);
+							xhr.send();
+							xhr.onreadystatechange = function() {
+								if (xhr.status == 200 && xhr.readyState == 4) {
+									var arr = JSON.parse(xhr.responseText);
+									for (var i = 0; i < arr.length; i++) {
+										var news = arr[i];
+										var $row;
+										if (i % 3 == 0) {
+											$row = $('<div class="row">')
+													.appendTo($('#somedivS'));
+										}
+										var $divcol = $(
+												'<div class="col-md-4 col-sm-4" style="margin-top: 30px">')
+												.appendTo($row);
+										var $article = $('<article>').appendTo(
+												$divcol);
+										var $articleThumb = $(
+												'<div class="articleThumb">')
+												.appendTo($article);
+										var $goodsImageSize = $(
+												'<div class="newsImageSize">')
+												.appendTo($articleThumb)
+												.append(
+														"<img style='width: 300px;' src='" + news.newsImg + "'>");
+										var $divdate = $('<div class="date">')
+												.appendTo($articleThumb)
+												.append(
+														'<span class="text" style="font: bolder 20px 微軟正黑體">'
+																+ news.insertMonth
+																+ '</span>')
+												.append(
+														'<span class="number">'
+																+ news.insertDay
+																+ '</span>');
+										var $newsTitle = $(
+												'<h3 class="articleTitle">')
+												.appendTo($article).html(
+														news.newsName);
+										var $newsArticle = $(
+												'<p class="articleDesc">')
+												.appendTo($article).html(
+														news.newsArticle);
+										var $articleMeta = $(
+												'<div class="articleMeta">')
+												.appendTo($article).append(
+														'<a href="#"><i class="mdi mdi-eye nino-icon"></i>'
+																+ news.newsView
+																+ '</a>')
+												.append(
+														'<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
+																+ news.newsUid
+																+ '</a>')
+									}
+								}
+							}
+						});
+	</script>
+	<script type="text/javascript" src="../js/template.js"></script>
 </body>
 </html>

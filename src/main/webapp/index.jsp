@@ -72,7 +72,7 @@
 					</div>	
 				</div><!-- /.container-fluid -->
 			</nav>
-
+	
 			<section id="nino-slider" class="carousel slide container" data-ride="carousel">
 				
 				<!-- Wrapper for slides -->

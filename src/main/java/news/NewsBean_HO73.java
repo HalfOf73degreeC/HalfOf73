@@ -1,6 +1,8 @@
 package news;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,8 @@ public class NewsBean_HO73 {
 	String      newsImgIntro;
 	String      newsArticle;;
 	Integer		newsView;
-	Timestamp	insertDate;
+	String  	insertMonth;
+	String 		insertDay;
 	public NewsBean_HO73() {
 		super();
 	}
@@ -28,6 +31,12 @@ public class NewsBean_HO73 {
 		this.newsImg = newsImg;
 		this.newsImgIntro = newsImgIntro;
 		this.newsArticle = newsArticle;
+		Date now = new Date();
+		SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMM");
+		insertMonth = dateFormatMonth.format(now);
+		SimpleDateFormat dateFormatDay = new SimpleDateFormat("d");
+		insertDay = dateFormatDay.format(now);
+		newsView = 0;
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -69,12 +78,21 @@ public class NewsBean_HO73 {
 	public void setNewsView(Integer newsView) {
 		this.newsView = newsView;
 	}
-	public Timestamp getInsertDate() {
-		return insertDate;
+	public String getInsertMonth() {
+		return insertMonth;
 	}
-	public void setInsertDate(Timestamp insertDate) {
-		this.insertDate = insertDate;
+
+	public void setInsertMonth(String insertMonth) {
+		this.insertMonth = insertMonth;
 	}
+
+	public String getInsertDay() {
+		return insertDay;
+	}
+
+	public void setInsertDay(String insertDay) {
+		this.insertDay = insertDay;
+	}	
 	
 
 	
