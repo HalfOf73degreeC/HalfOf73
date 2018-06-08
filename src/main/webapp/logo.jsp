@@ -6,5 +6,4 @@
 	<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 	<span class="icon-bar"></span> <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="${pageContext.request.contextPath}">Half
-	of 73°C</a>
+<a class="navbar-brand" href="${pageContext.request.contextPath}">Half of 73°C</a>

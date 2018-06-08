@@ -43,11 +43,3 @@
 		</li>
 	</c:if>
 </ul>
-<!-- Search Form - Display when click magnify icon in menu
-    ================================================== -->
-<form action="" id="nino-searchForm">
-	<input type="text" placeholder="Search..."
-		class="form-control nino-searchInput"> <i
-		class="mdi mdi-close nino-close"></i>
-</form>
-<!--/#nino-searchForm-->
