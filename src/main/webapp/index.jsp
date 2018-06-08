@@ -36,15 +36,7 @@
 				<div class="container">
 
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nino-navbar-collapse" style="padding-right: 65px">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="">Half of 73°C</a>
-					</div>
+					<div class="navbar-header" w3-include-html="logo.jsp"></div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
