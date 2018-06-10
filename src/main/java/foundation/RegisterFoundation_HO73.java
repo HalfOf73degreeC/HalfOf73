@@ -1,6 +1,7 @@
 package foundation;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import member.MemberDAO;
 import model.FoundationBean_HO73;
+import model.MemberBean_HO73;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
 
@@ -29,7 +32,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		Map<String, String> errorMsg = new HashMap<>();
 		request.setAttribute("ErrorMsg", errorMsg);
 		// 1. 讀取使用者輸入資料
-		String funAccount = (String) request.getSession().getAttribute("memAccount");
+		String funAccount = request.getParameter("funAccount");
 		String funName = request.getParameter("funName");
 		String funIdcard = request.getParameter("funIdcard");
 		String funCeo = request.getParameter("funCeo");
@@ -57,6 +60,12 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		String[] funService = request.getParameterValues("funService");
 		String funArticle = request.getParameter("funArticle");
 		String funImage = request.getParameter("funImage");
+		//另將基金會會員於Member的table新增memType == 2，表示其為基金會會員。
+		MemberBean_HO73 mb = new MemberBean_HO73();
+		mb.setMemAccount(funAccount);
+		mb.setMemType(2);
+		MemberDAO mdao = new MemberDAO();
+		mdao.update_fun(mb);
 		
 		// 2. 進行必要的資料轉換
 		// int experience = 0;
@@ -96,7 +105,6 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 				funCeo, funContact, funTel, funFax, funDomain, funEmail, funEmail2, 
 				funAddress, funFounder, jqd, funAllowOrg, funIntent, funArticle, funArea, funServiceUser,
 				funService);
-		
 		
 		FoundationDao fdao = new FoundationDaoImpl();
 		fdao.saveOrUpdate(fb);

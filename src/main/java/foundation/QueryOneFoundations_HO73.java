@@ -24,18 +24,20 @@ public class QueryOneFoundations_HO73 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		FoundationDao fdao = new FoundationDaoImpl();
-		String funAccount = (String) request.getSession().getAttribute("memAccount");
-		System.out.println("funAccount= "+funAccount);
+		String funIdcard = request.getParameter("funIdcard");
+		String funAccount = request.getParameter("funAccount");
 		FoundationBean_HO73 fb;
-		if(fdao.getOneFoundation(funAccount) !=null) {
-			fb = fdao.getOneFoundation(funAccount);
+		if(fdao.getOneFoundation(funIdcard) !=null) {
+			fb = fdao.getOneFoundation(funIdcard);
+			System.out.println("funIdcard= "+funIdcard);
+			System.out.println("funArea= "+fb.getFunArea());
 		}else{
 			MemberDAO mdao = new MemberDAO();			
 			MemberBean_HO73 mb = mdao.getOneMember(funAccount);
 			String funName=mb.getMemName();
 			String funImage=mb.getMemPicUrl();
 			String funEmail=mb.getMemEmail();
-			fb = new FoundationBean_HO73(funAccount, funName, funImage, funEmail);
+			fb = new FoundationBean_HO73(funIdcard, funName, funImage, funEmail);
 //			try {
 //				fdao.saveFoundationBean(fb);
 //				System.out.println("新建一筆foundation: " + funAccount);
@@ -44,6 +46,7 @@ public class QueryOneFoundations_HO73 extends HttpServlet {
 //				e.printStackTrace();
 //			}
 		}		
+
 		request.setAttribute("foundationBean", fb);
 		RequestDispatcher rd = request.getRequestDispatcher("/foundation/foundation_register.jsp");
 		rd.forward(request, response);

@@ -8,9 +8,9 @@
 	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
 	crossorigin="anonymous">
 <head>
-<!-- <link rel='stylesheet' -->
-<%-- 	href='${pageContext.request.contextPath}/css/styles.css' --%>
-<!-- 	type="text/css" /> -->
+<link rel='stylesheet'
+	href='${pageContext.request.contextPath}/css/styles.css'
+	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -54,27 +54,10 @@
 					<a class="navbar-brand" href="../index.jsp">Half of 73°C</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="nino-menuItem pull-right">
+					<div class="nino-menuItem pull-right" w3-include-html="../navbar_right.jsp"></div>
+			    	</div>
 					<!-- /.navbar-collapse -->
-					<ul class="nino-iconsGroup nav navbar-nav">
-						<li><a href="supplyBox.html"><i
-								class="mdi mdi-cart-outline nino-icon"></i></a></li>
-						<li><a href="#" class="nino-search"><i
-								class="mdi mdi-magnify nino-icon"></i></a></li>
-							<c:set var="fun" value="${foundationBean}"></c:set>
-						<c:if test = "${not empty fun.funAccount}">					
-							<li><a href="" style="padding: 9px 5px 5px;">
-									<img src="${fun.funImage}"
-									style="border-radius:50%; max-width: 30px; height: auto;">
-								</a>
-							</li>
-						</c:if>
-						<c:if test = "${empty fun.funAccount}">
-									<li><a href=""></a></li>
-						</c:if>
-					</ul>
-				</div>
-			</div>
+
 			<!-- /.container-fluid -->
 		</nav>
 	</header>
@@ -119,6 +102,7 @@
 					<tr>
 						<th width="12%">機構名稱</th>
 						<td width="88%">${fun.funName}</td>
+						<input  id="funName" type="text" value="${fun.funName}" style="visibility:hidden"></input>
 					</tr>
 					<tr>
 						<th>愛心碼</th>
@@ -145,6 +129,7 @@
 						<th>網址</th>
 						<td>
 							<A href="${fun.funDomain}" target="_blank">${fun.funDomain}</A>
+							<input  id="funDomain" type="text" value="${fun.funDomain}" style="visibility:hidden"></input>
 						</td>
 					</tr>
 					<tr>
@@ -217,135 +202,29 @@
 					</tr>
 				</div>
 				</table>
-				<c:if test = "${not empty fun.funAccount}">	
+<%-- 			<c:set var="mem" value="${memberBean}"></c:set> --%>
+<%-- 				<c:if test = "${mem.memType == 2}">	 --%>
 					<span class="input-group-btn" align="right">
-					  <a href="../foundation/queryOneFoundation_HO73.do">
-						<button class="btn btn-success"style=" background:#95e1d3; border-color: #95e1d3;width: 200px; z-index: 1">更新</button>
+					  <a href="../foundation/queryOneFoundation_HO73.do?funIdcard=${fun.funIdcard}">
+						<button class="btn btn-success"style=" background:#95e1d3; border-color: #95e1d3;width: 200px; z-index: 1">返回更新</button>
 					  </a>
 					</span>
-				</c:if>
+<%-- 				</c:if> --%>
 			</section>
 		</article>
 	</div>
 </section>
 		<!--/#nino-whatWeDo-->
-		<!-- Footer
-    ================================================== -->
-		<footer id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="colInfo">
-							<div class="footerLogo">
-								<a href="#">Half of 73°C</a>
-							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<div class="nino-followUs">
-								<div class="totalFollow">
-									<span>15k</span> followers
-								</div>
-								<div class="socialNetwork">
-									<span class="text">Follow Us: </span> <a href=""
-										class="nino-icon"><i class="mdi mdi-facebook"></i></a> <a
-										href="" class="nino-icon"><i class="mdi mdi-twitter"></i></a>
-									<a href="" class="nino-icon"><i class="mdi mdi-instagram"></i></a>
-									<a href="" class="nino-icon"><i class="mdi mdi-pinterest"></i></a>
-									<a href="" class="nino-icon"><i class="mdi mdi-google-plus"></i></a>
-									<a href="" class="nino-icon"><i
-										class="mdi mdi-youtube-play"></i></a> <a href="" class="nino-icon"><i
-										class="mdi mdi-dribbble"></i></a> <a href="" class="nino-icon"><i
-										class="mdi mdi-tumblr"></i></a>
-								</div>
-							</div>
-							<form action="" class="nino-subscribeForm">
-								<div class="input-group input-group-lg">
-									<input type="email" class="form-control"
-										placeholder="Your Email"> <span
-										class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="colInfo">
-							<h3 class="nino-colHeading">Blogs</h3>
-							<ul class="listArticles">
-								<li layout="row" class="verticalCenter"><a
-									class="articleThumb fsr" href="#"><img
-										src="images/our-blog/img-4.jpg" alt=""></a>
-									<div class="info">
-										<h3 class="articleTitle">
-											<a href="#">Lorem ipsum dolor sit amet, consectetur
-												adipiscing</a>
-										</h3>
-										<div class="date">Jan 9, 2016</div>
-									</div></li>
-								<li layout="row" class="verticalCenter"><a
-									class="articleThumb fsr" href="#"><img
-										src="images/our-blog/img-5.jpg" alt=""></a>
-									<div class="info">
-										<h3 class="articleTitle">
-											<a href="#">Lorem ipsum dolor sit amet, consectetur
-												adipiscing</a>
-										</h3>
-										<div class="date">Jan 9, 2016</div>
-									</div></li>
-								<li layout="row" class="verticalCenter"><a
-									class="articleThumb fsr" href="#"><img
-										src="images/our-blog/img-6.jpg" alt=""></a>
-									<div class="info">
-										<h3 class="articleTitle">
-											<a href="#">Lorem ipsum dolor sit amet, consectetur
-												adipiscing</a>
-										</h3>
-										<div class="date">Jan 9, 2016</div>
-									</div></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="colInfo">
-							<h3 class="nino-colHeading">instagram</h3>
-							<div class="instagramImages clearfix">
-								<a href="#"><img src="images/instagram/img-1.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-2.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-6.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-7.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-8.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-9.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-								<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-							</div>
-							<a href="#" class="morePhoto">View more photos</a>
-						</div>
-					</div>
-				</div>
-				<div class="nino-copyright">
-					Copyright &copy; 2018 <a target="_blank"
-						href="http://www.ninodezign.com/"
-						title="Ninodezign.com - Top quality open source resources for web developer and web designer">halfof73.com</a>.
-					All Rights Reserved. <br>
-					<!-- 			<br/> MoGo free PSD template by <a href="https://www.behance.net/laaqiq">Laaqiq</a></div> -->
-				</div>
-		</footer>
+		<div w3-include-html="../footer.html"></div>
 		<!--/#footer-->
 
 		<!-- Search Form - Display when click magnify icon in menu
     ================================================== -->
-		<form action="" id="nino-searchForm">
-			<input type="text" placeholder="Search..."
-				class="form-control nino-searchInput"> <i
-				class="mdi mdi-close nino-close"></i>
-		</form>
+<!-- 		<form action="" id="nino-searchForm"> -->
+<!-- 			<input type="text" placeholder="Search..." -->
+<!-- 				class="form-control nino-searchInput"> <i -->
+<!-- 				class="mdi mdi-close nino-close"></i> -->
+<!-- 		</form> -->
 		<!--/#nino-searchForm-->
 
 		<!-- Scroll to top
@@ -364,7 +243,10 @@
 			src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript" src="js/unslider-min.js"></script>
 		<script type="text/javascript" src="js/template.js"></script>
-
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
+			<script>
+				w3.includeHTML();
+			</script>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -373,11 +255,16 @@
 		<!--[if lt IE 9]>
 	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
+</body>
+</html>
 <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCw9eOBahNDm7_9km8-qvhuH7YjRK8scwU"></script>
 <script type="text/javascript">
 
 var geocoder;
 var map;
+var name = document.getElementById('funName').value;
+var website = document.getElementById('funDomain').value;
+console.log(name);
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var mapOptions = {
@@ -391,10 +278,18 @@ function codeAddress() {
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
+      window.setTimeout(function() {
       var marker = new google.maps.Marker({
           map: map,
-          position: results[0].geometry.location
+          position: results[0].geometry.location,
+          icon:'../images/ico/logo_haifof73c-01_opt.png',
+          title: name,
+          animation: google.maps.Animation.DROP
       });
+		marker.addListener('click', function() {
+			window.open(website);
+		  });
+      }, 1000);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
