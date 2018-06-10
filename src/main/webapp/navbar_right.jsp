@@ -17,9 +17,9 @@
 			</div>
 			<ul class="dropdown-menu dropdown-menu-right"
 				style="margin-top: 5.5px; background-color: rgba(56, 56, 56, 0.55);">
-				<li><a href="member/memberZone.jsp"
+				<li><a href="${pageContext.request.contextPath}/member/memberZone.jsp"
 					style="font-size: 13px; color: white;">會員專區</a></li>
-				<li><a href="member/logout"
+				<li><a href="${pageContext.request.contextPath}/member/logout"
 					style="font-size: 13px; color: white;">登出</a></li>
 				<!-- 							            <li><a href="#">Something else here</a></li> -->
 				<!-- 							            <li role="separator" class="divider"></li> -->
@@ -37,7 +37,7 @@
 				aria-haspopup="true" aria-expanded="false">登入</div>
 			<ul class="dropdown-menu dropdown-menu-right"
 				style="margin-top: 15px; background-color: rgba(56, 56, 56, 0.55);">
-				<li><a href="member/login"
+				<li><a href="${pageContext.request.contextPath}/member/login"
 					style="font-size: 13px; color: white;">GOOGLE登入</a></li>
 			</ul>
 		</li>

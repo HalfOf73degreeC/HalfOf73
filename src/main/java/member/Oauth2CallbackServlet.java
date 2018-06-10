@@ -88,7 +88,8 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 			}
 		}
 		request.getSession().setAttribute("memberBean", mb);
-	    response.sendRedirect("../index.jsp");
+//	    response.sendRedirect("../index.jsp");
+	    response.getWriter().print("<script type='text/javascript'>history.back()</script>");
 	}
 
 }

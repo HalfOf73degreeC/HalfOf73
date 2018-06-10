@@ -35,16 +35,16 @@
 <link rel="stylesheet" type="text/css" href="../css/unslider.css" />
 <link rel="stylesheet" type="text/css" href="../css/template.css" />
 <link rel="stylesheet" type="text/css" href="../css/halfOf73.css" />
-	<!-- javascript -->
-	<script type="text/javascript" src="../js/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.hoverdir.js"></script>
-	<script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
-	<script type="text/javascript"
-		src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script type="text/javascript" src="../js/unslider-min.js"></script>
+<!-- javascript -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.hoverdir.js"></script>
+<script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
+<script type="text/javascript"
+	src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../js/unslider-min.js"></script>
 
 
 </head>
@@ -54,15 +54,7 @@
 			style="background-color: rgba(243, 129, 129, 0.8);">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#nino-navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.jsp">Half Of 73°C</a>
-				</div>
+				<div class="navbar-header" w3-include-html="../logo.jsp"></div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="nino-menuItem pull-right">
@@ -75,12 +67,8 @@
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
-					<ul class="nino-iconsGroup nav navbar-nav">
-						<li><a href="supplyBox.html"><i
-								class="mdi mdi-cart-outline nino-icon"></i></a></li>
-						<li><a href="#" class="nino-search"><i
-								class="mdi mdi-magnify nino-icon"></i></a></li>
-					</ul>
+					<div class="nino-menuItem pull-right"
+						w3-include-html="../navbar_right.jsp"></div>
 				</div>
 			</div>
 		</nav>
@@ -96,6 +84,10 @@
 		</div>
 	</section>
 	<!--/#nino-latestBlog-->
+	<!--footer-->
+
+
+	<div w3-include-html="../footer.html"></div>
 	<script>
 		$(document)
 				.ready(
@@ -160,5 +152,9 @@
 						});
 	</script>
 	<script type="text/javascript" src="../js/template.js"></script>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
+	</script>
 </body>
 </html>
