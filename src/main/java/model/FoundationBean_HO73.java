@@ -1,6 +1,6 @@
 package model;
 
-import java.io.Serializable;
+
 import java.sql.Timestamp;
 import java.sql.Date;
 
@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class FoundationBean_HO73 implements Serializable {
+public class FoundationBean_HO73{
 	String funAccount;
 	String funName;
 	String funIdcard;
@@ -41,9 +41,9 @@ public class FoundationBean_HO73 implements Serializable {
 
 	}
 
-	public FoundationBean_HO73(String funAccount, String funName, String funImage, String funEmail) {
+	public FoundationBean_HO73(String funIdcard, String funName, String funImage, String funEmail) {
 		super();
-		this.funAccount = funAccount;
+		this.funIdcard = funIdcard;
 		this.funName = funName;
 		this.funImage = funImage;
 		this.funEmail = funEmail;
