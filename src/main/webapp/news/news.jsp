@@ -75,14 +75,21 @@
 	</header>
 	<!--header 結束，內容開始  -->
 	<!-- 下列敘述設定變數funcName的值為SHO，top.jsp 會用到此變數 -->
+
 	<section id="nino-latestBlog">
 		<div class="container">
-			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">最新消息</span>
-			</h2>
+			<!-- 			<h2 class="nino-sectionHeading"> -->
+			<!-- 				<span class="nino-subHeading">最新消息</span> -->
+			<!-- 			</h2> -->
+			<div align="center">
+				<img id="loadingGif"
+					src="${pageContext.request.contextPath}/images/loadingGif.gif"></img>
+			</div>
 			<div class="sectionContent" id='somedivS'></div>
 		</div>
 	</section>
+
+
 	<!--/#nino-latestBlog-->
 	<!--footer-->
 
@@ -98,6 +105,7 @@
 							xhr.onreadystatechange = function() {
 								if (xhr.status == 200 && xhr.readyState == 4) {
 									var arr = JSON.parse(xhr.responseText);
+									$(loadingGif).hide();
 									for (var i = 0; i < arr.length; i++) {
 										var news = arr[i];
 										var $row;
