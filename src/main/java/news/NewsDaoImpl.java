@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
 
-public class NewsDaoImpl implements newsDao {
+public class NewsDaoImpl implements NewsDao {
 	SessionFactory factory;
 	
 	public NewsDaoImpl() {

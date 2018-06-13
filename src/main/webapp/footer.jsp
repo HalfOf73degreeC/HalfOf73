@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
    <footer id="footer">
         <div class="container">
         	<div class="row">
@@ -65,18 +67,18 @@
         			<div class="colInfo">
 	        			<h3 class="nino-colHeading">instagram</h3>
 	        			<div class="instagramImages clearfix">
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-1.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-2.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-3.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-4.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-5.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-6.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-7.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-8.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-9.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-3.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-4.jpg" alt=""></a>
-	        				<a href="#"><img src="/HalfOf73/images/instagram/img-5.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-1.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-2.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-3.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-4.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-5.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-6.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-7.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-8.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-9.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-3.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-4.jpg" alt=""></a>
+	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-5.jpg" alt=""></a>
 	        			</div>
 	        			<a href="#" class="morePhoto">View more photos</a>
         			</div>
