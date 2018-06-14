@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-import model.bean.PayBox;
 import model.bean.PaymentOut;
 import model.repository.PaymentOutDao;
 

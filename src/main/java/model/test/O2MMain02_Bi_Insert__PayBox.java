@@ -10,8 +10,8 @@ import org.hibernate.Transaction;
 import _00.utils.HibernateUtil;
 import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
-import model.bean.PaymentIn;
 import model.bean.PaymentOut;
+import model.bean.PaymentIn;
 
 //雙向一對多: 由購物車(Cart)來找出其內所有商品項目(Item)，也可以由商品項目(Item)
 //           找到購物車(Cart)。
@@ -58,15 +58,15 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PayBox pb = new PayBox();
 		pb.setPayBoxName("範例捐款箱");pb.setFoundationBean(fb);
 		
-		PaymentIn 	pD1 = new PaymentIn(pb, "高國華", 500000);
-		PaymentIn 	pD2 = new PaymentIn(pb, "高嘉瑜", 250000);
-		PaymentIn 	pD3 = new PaymentIn(pb, "明明是矮冬瓜", 5000);
-		PaymentOut		pC1 = new PaymentOut(pb, "高國華花", 100000);
-		PaymentOut 	pC2 = new PaymentOut(pb, "高嘉瑜花", 150000);
-		PaymentOut 	pC3 = new PaymentOut(pb, "明明是矮冬花", 500000);
-		Set<PaymentIn> PaymentInSet = new LinkedHashSet<PaymentIn>();
+		PaymentOut 	pD1 = new PaymentOut(pb, "高國華", 500000);
+		PaymentOut 	pD2 = new PaymentOut(pb, "高嘉瑜", 250000);
+		PaymentOut 	pD3 = new PaymentOut(pb, "明明是矮冬瓜", 5000);
+		PaymentIn		pC1 = new PaymentIn(pb, "高國華花", 100000);
+		PaymentIn 	pC2 = new PaymentIn(pb, "高嘉瑜花", 150000);
+		PaymentIn 	pC3 = new PaymentIn(pb, "明明是矮冬花", 500000);
+		Set<PaymentOut> PaymentInSet = new LinkedHashSet<PaymentOut>();
 		PaymentInSet.add(pD1); PaymentInSet.add(pD2);PaymentInSet.add(pD3);
-		Set<PaymentOut> PaymentOutSet = new LinkedHashSet<PaymentOut>();
+		Set<PaymentIn> PaymentOutSet = new LinkedHashSet<PaymentIn>();
 		PaymentOutSet.add(pC1);PaymentOutSet.add(pC2);PaymentOutSet.add(pC3);
 		
 		
@@ -76,15 +76,15 @@ public class O2MMain02_Bi_Insert__PayBox {
 		//------------------------------------
 		PayBox pb2 = new PayBox();
 		pb2.setPayBoxName("範例捐款箱2");pb2.setFoundationBean(fb);
-		PaymentIn 	pD4 = new PaymentIn(pb2, "黃", 1500000);
-		PaymentIn 	pD5 = new PaymentIn(pb2, "安", 255555);
-		PaymentIn 	pD6 = new PaymentIn(pb2, "正", 499);
-		PaymentOut		pC4 = new PaymentOut(pb2, "高國華花", 9999);
-		PaymentOut 	pC5 = new PaymentOut(pb2, "高嘉瑜花", 14999);
-		PaymentOut 	pC6 = new PaymentOut(pb2, "明明是矮冬花", 499999);
-		Set<PaymentIn> PaymentInSet2 = new LinkedHashSet<PaymentIn>();
+		PaymentOut 	pD4 = new PaymentOut(pb2, "黃", 1500000);
+		PaymentOut 	pD5 = new PaymentOut(pb2, "安", 255555);
+		PaymentOut 	pD6 = new PaymentOut(pb2, "正", 499);
+		PaymentIn		pC4 = new PaymentIn(pb2, "高國華花", 9999);
+		PaymentIn 	pC5 = new PaymentIn(pb2, "高嘉瑜花", 14999);
+		PaymentIn 	pC6 = new PaymentIn(pb2, "明明是矮冬花", 499999);
+		Set<PaymentOut> PaymentInSet2 = new LinkedHashSet<PaymentOut>();
 		PaymentInSet2.add(pD4); PaymentInSet2.add(pD5);PaymentInSet2.add(pD6);
-		Set<PaymentOut> PaymentOutSet2 = new LinkedHashSet<PaymentOut>();
+		Set<PaymentIn> PaymentOutSet2 = new LinkedHashSet<PaymentIn>();
 		PaymentOutSet2.add(pC4);PaymentOutSet2.add(pC5);PaymentOutSet2.add(pC6);
 		
 		pb2.setPaymentIn(PaymentInSet2);
@@ -107,16 +107,16 @@ public class O2MMain02_Bi_Insert__PayBox {
 		session.save(fb2);
 		session.save(pb);
 		session.save(pb2); 
-		for(PaymentIn PaymentIn: PaymentInSet){
+		for(PaymentOut PaymentIn: PaymentInSet){
 			session.save(PaymentIn);
 		}
-		for(PaymentIn PaymentIn2: PaymentInSet2){
+		for(PaymentOut PaymentIn2: PaymentInSet2){
 			session.save(PaymentIn2);
 		}
-		for(PaymentOut PaymentOut: PaymentOutSet){
+		for(PaymentIn PaymentOut: PaymentOutSet){
 			session.save(PaymentOut);
 		}
-		for(PaymentOut PaymentOut2: PaymentOutSet2){
+		for(PaymentIn PaymentOut2: PaymentOutSet2){
 			session.save(PaymentOut2);
 		}
 		//Commit transaction

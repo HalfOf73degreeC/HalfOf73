@@ -6,8 +6,8 @@ import org.hibernate.Transaction;
 
 import _00.utils.HibernateUtil;
 import model.bean.PayBox;
-import model.bean.PaymentIn;
 import model.bean.PaymentOut;
+import model.bean.PaymentIn;
 
 
 public class O2MMain02_Bi_Query_PatBox {
@@ -28,18 +28,18 @@ public class O2MMain02_Bi_Query_PatBox {
 		// 查詢特定的Cart物件，在找出其內所有Items
 		System.out.println("查詢特定的PayBox物件，在找出其內所有 捐款:");
 		PayBox pb = session.get(PayBox.class, 1); 
-		for(PaymentIn PaymentIn: pb.getPaymentIn()){
+		for(PaymentOut PaymentIn: pb.getPaymentIn()){
 			System.out.println("發現ㄧ筆捐款: " + PaymentIn.toString());
 		}
 		System.out.println("查詢特定的PayBox物件，在找出其內所有 花費:");
-		for(PaymentOut PaymentOut: pb.getPaymentOut()){
+		for(PaymentIn PaymentOut: pb.getPaymentOut()){
 			System.out.println("發現ㄧ筆花費: " + PaymentOut.toString());
 		}
 		System.out.println("================================");
 		// 查詢特定的Item物件，由它找出對應的Cart
 		System.out.println("查詢特定的Item物件，由它找出對應的Cart:");
 		Integer itemKey = 3;
-		PaymentIn PaymentIn = session.get(PaymentIn.class, itemKey); 
+		PaymentOut PaymentIn = session.get(PaymentOut.class, itemKey); 
 		PayBox pbfind = PaymentIn.getPayBoxNumber();
 		System.out.println("捐款id=" + itemKey + "的捐款箱為" + pbfind.toString());
 		

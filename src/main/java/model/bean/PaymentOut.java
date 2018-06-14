@@ -2,7 +2,6 @@ package model.bean;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,30 +14,31 @@ import javax.persistence.Table;
 @Table(name="PaymentOut")
 public class PaymentOut {
 	Integer 	Id;
-	PayBox	 	payBoxNumber;
-	String 		MemAccount;
-	Integer 	payAmount;
-	String 		payMemBankId;
-	String 		payMemAccount;
-	Date 		payDate;
+	PayBox 		payBoxNumber;
+	String 		payIdcard;
+	String 		payForName;
+	String 		payForDetail;
+	Integer 	payForCost;	
+	String 		receipt;
+	Date 		insertDate;
 	
-	public PaymentOut(PayBox payBoxNumber, String memAccount, Integer payAmount) {
+	public PaymentOut(PayBox payBoxNumber, String payForName, Integer payForCost) {
 		super();
 		this.payBoxNumber = payBoxNumber;
-		MemAccount = memAccount;
-		this.payAmount = payAmount;
+		this.payForName = payForName;
+		this.payForCost = payForCost;
 	}
-	
-	public PaymentOut(Integer id, PayBox payBoxNumber, String memAccount, Integer payAmount, String payMemBankId,
-			String payMemAccount, Date payDate) {
+	public PaymentOut(Integer id, PayBox payBoxNumber, String payIdcard, String payForName, String payForDetail,
+			Integer payForCost, String receipt, Date insertDate) {
 		super();
 		Id = id;
 		this.payBoxNumber = payBoxNumber;
-		MemAccount = memAccount;
-		this.payAmount = payAmount;
-		this.payMemBankId = payMemBankId;
-		this.payMemAccount = payMemAccount;
-		this.payDate = payDate;
+		this.payIdcard = payIdcard;
+		this.payForName = payForName;
+		this.payForDetail = payForDetail;
+		this.payForCost = payForCost;
+		this.receipt = receipt;
+		this.insertDate = insertDate;
 	}
 	public PaymentOut() {
 		super();
@@ -74,77 +74,85 @@ public class PaymentOut {
 		this.payBoxNumber = payBoxNumber;
 	}
 	/**
-	 * @return the memAccount
+	 * @return the payIdcard
 	 */
-	public String getMemAccount() {
-		return MemAccount;
+	public String getPayIdcard() {
+		return payIdcard;
 	}
 	/**
-	 * @param memAccount the memAccount to set
+	 * @param payIdcard the payIdcard to set
 	 */
-	public void setMemAccount(String memAccount) {
-		MemAccount = memAccount;
+	public void setPayIdcard(String payIdcard) {
+		this.payIdcard = payIdcard;
 	}
 	/**
-	 * @return the payAmount
+	 * @return the payForName
 	 */
-	public Integer getPayAmount() {
-		return payAmount;
+	public String getPayForName() {
+		return payForName;
 	}
 	/**
-	 * @param payAmount the payAmount to set
+	 * @param payForName the payForName to set
 	 */
-	public void setPayAmount(Integer payAmount) {
-		this.payAmount = payAmount;
+	public void setPayForName(String payForName) {
+		this.payForName = payForName;
 	}
 	/**
-	 * @return the payMemBankId
+	 * @return the payForDetail
 	 */
-	public String getPayMemBankId() {
-		return payMemBankId;
+	public String getPayForDetail() {
+		return payForDetail;
 	}
 	/**
-	 * @param payMemBankId the payMemBankId to set
+	 * @param payForDetail the payForDetail to set
 	 */
-	public void setPayMemBankId(String payMemBankId) {
-		this.payMemBankId = payMemBankId;
+	public void setPayForDetail(String payForDetail) {
+		this.payForDetail = payForDetail;
 	}
 	/**
-	 * @return the payMemAccount
+	 * @return the payForCost
 	 */
-	public String getPayMemAccount() {
-		return payMemAccount;
+	public Integer getPayForCost() {
+		return payForCost;
 	}
 	/**
-	 * @param payMemAccount the payMemAccount to set
+	 * @param payForCost the payForCost to set
 	 */
-	public void setPayMemAccount(String payMemAccount) {
-		this.payMemAccount = payMemAccount;
+	public void setPayForCost(Integer payForCost) {
+		this.payForCost = payForCost;
 	}
 	/**
-	 * @return the payDate
+	 * @return the receipt
 	 */
-	public Date getPayDate() {
-		return payDate;
+	public String getReceipt() {
+		return receipt;
 	}
 	/**
-	 * @param payDate the payDate to set
+	 * @param receipt the receipt to set
 	 */
-	public void setPayDate(Date payDate) {
-		this.payDate = payDate;
+	public void setReceipt(String receipt) {
+		this.receipt = receipt;
 	}
-
+	/**
+	 * @return the insertDate
+	 */
+	public Date getInsertDate() {
+		return insertDate;
+	}
+	/**
+	 * @param insertDate the insertDate to set
+	 */
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
+		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
 				+ "]";
 	}
-	
-	
-	
 	
 	
 }

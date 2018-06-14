@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import model.bean.PayBox;
 import model.bean.PaymentIn;
-import model.bean.PaymentOut;
 import model.repository.PaymentInDao;
 
 @Repository("piDao")
