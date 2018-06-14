@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Blob;
+import java.sql.Clob;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -21,11 +23,36 @@ public class MemberBean_HO73 implements Serializable {
 	Timestamp insertDate;		//新增日期
 	Integer memStatus;			//狀態		"0:無效		1:有效"
 	String memPicUrl;			//會員頭像的URL
-	
+	Blob memPhoto;           //更換頭像
+	String fileName;            //頭像檔名
 	
 	public MemberBean_HO73() {
 		super();
 	}
+//======================================================================
+	public MemberBean_HO73(Blob memPhoto, String fileName) {
+		super();
+		this.memPhoto = memPhoto;
+		this.fileName = fileName;
+	}
+
+	public Blob getMemPhoto() {
+		return memPhoto;
+	}
+
+	public void setMemPhoto(Blob memPhoto) {
+		this.memPhoto = memPhoto;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+//======================================================================
+
 	public MemberBean_HO73(String memAccount, String memName, String memEmail, String memPicUrl) {
 		super();
 		this.memAccount = memAccount;

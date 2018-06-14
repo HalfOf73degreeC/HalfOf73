@@ -111,7 +111,9 @@ public class InitailMemberMySql {
 					+ " memWhySupply varchar(225),"
 					+ " insertDate datetime, " 
 					+ " memStatus int,"
-					+ " memPicUrl varchar(225))  "
+					+ " memPicUrl varchar(225),  "
+					+ " memPhoto  LongBlob, "
+					+ " fileName  varchar(20)) " 
 					+ " ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci " ;
 
 			try {

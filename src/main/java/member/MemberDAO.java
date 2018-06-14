@@ -136,10 +136,29 @@ public class MemberDAO {
 		}
 		return n;
 	}
+	public int update_photo(MemberBean_HO73 mb) {
+		int n = 0;
+		String sql = "UPDATE Member_HO73 set memPhoto = ?"
+				+ " WHERE memAccount = ?";
+		try (
+		    Connection con = ds.getConnection();
+		    PreparedStatement pstmt = con.prepareStatement(sql);		
+		) {
+			pstmt.setBlob(1, mb.getMemPhoto());
+			pstmt.setString(2, mb.getFileName());
+			n = pstmt.executeUpdate();
+			System.out.println("修改記錄成功, memAccount=" + mb.getMemAccount());
+		} catch (SQLException ex) {
+			ex.printStackTrace() ;
+			
+		}
+		return n;
+		
+	}
 	
 	public int update_fun(MemberBean_HO73 mb) {
 		int n = 0;
-		String sql = "UPDATE Member_HO73 set memType = ?"
+		String sql = "UPDATE Member_HO73 set memPhoto = ?, fileName = ?"
 				+ " WHERE memAccount = ?";
 		try (
 		    Connection con = ds.getConnection();
