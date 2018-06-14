@@ -7,19 +7,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="paymentDetail_ANNO_BI")
-public class paymentDetail {
+@Table(name="PaymentOut")
+public class PaymentOut {
 	Integer 	Id;
-	Integer 	payBoxNumber;
+	PayBox	 	payBoxNumber;
 	String 		MemAccount;
 	Integer 	payAmount;
 	String 		payMemBankId;
 	String 		payMemAccount;
 	Date 		payDate;
-	public paymentDetail(Integer id, Integer payBoxNumber, String memAccount, Integer payAmount, String payMemBankId,
+	
+	public PaymentOut(PayBox payBoxNumber, String memAccount, Integer payAmount) {
+		super();
+		this.payBoxNumber = payBoxNumber;
+		MemAccount = memAccount;
+		this.payAmount = payAmount;
+	}
+	
+	public PaymentOut(Integer id, PayBox payBoxNumber, String memAccount, Integer payAmount, String payMemBankId,
 			String payMemAccount, Date payDate) {
 		super();
 		Id = id;
@@ -30,7 +40,7 @@ public class paymentDetail {
 		this.payMemAccount = payMemAccount;
 		this.payDate = payDate;
 	}
-	public paymentDetail() {
+	public PaymentOut() {
 		super();
 	}
 	/**
@@ -38,7 +48,6 @@ public class paymentDetail {
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="cart_id")
 	public Integer getId() {
 		return Id;
 	}
@@ -51,13 +60,17 @@ public class paymentDetail {
 	/**
 	 * @return the payBoxNumber
 	 */
-	public Integer getPayBoxNumber() {
+	@ManyToOne  // 多對ㄧ，多方(Item類別)內有個儲存ㄧ方(Cart類別)物件參考的實例變數
+	// @JoinColumn: 定義多方(Items)所對應表格中的外來鍵為何。省略此註釋，
+	// Hibernate會自動產生ㄧ個外來鍵，預設名稱為: 此性質名稱_外來鍵對應的主鍵名稱
+	@JoinColumn(name="fk_payBoxNumber", nullable=true)  
+	public PayBox getPayBoxNumber() {
 		return payBoxNumber;
 	}
 	/**
 	 * @param payBoxNumber the payBoxNumber to set
 	 */
-	public void setPayBoxNumber(Integer payBoxNumber) {
+	public void setPayBoxNumber(PayBox payBoxNumber) {
 		this.payBoxNumber = payBoxNumber;
 	}
 	/**
@@ -119,6 +132,15 @@ public class paymentDetail {
 	 */
 	public void setPayDate(Date payDate) {
 		this.payDate = payDate;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
+				+ "]";
 	}
 	
 	

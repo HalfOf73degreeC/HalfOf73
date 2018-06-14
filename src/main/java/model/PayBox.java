@@ -1,20 +1,26 @@
 package model;
 
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name = "PayBox_ANNO_BI")
+@Table(name = "PayBox")
 public class PayBox {
 	private Integer payBoxNumber;
 	private String payBoxName;
+	private Integer balance;
 	private String payBoxDetail;
 	private String payBankId;
 	private String payATMAccount;
@@ -22,6 +28,8 @@ public class PayBox {
 	private Integer viewTimes;
 	private Integer payBoxType;
 	private FoundationBean_HO73 foundationBean;
+	private Set<PaymentIn> paymentIn = new LinkedHashSet<>();
+	private Set<PaymentOut> paymentOut = new LinkedHashSet<>();
 	
 	public PayBox() {
 		super();
@@ -74,6 +82,17 @@ public class PayBox {
 		this.payBoxName = payBoxName;
 	}
 
+
+	public Integer getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Integer balance) {
+		this.balance = balance;
+	}
+
+
+
 	public String getPayBoxDetail() {
 		return payBoxDetail;
 	}
@@ -125,14 +144,28 @@ public class PayBox {
 	@ManyToOne  // 多對ㄧ，多方(Item類別)內有個儲存ㄧ方(Cart類別)物件參考的實例變數
 	// @JoinColumn: 定義多方(Items)所對應表格中的外來鍵為何。省略此註釋，
 	// Hibernate會自動產生ㄧ個外來鍵，預設名稱為: 此性質名稱_外來鍵對應的主鍵名稱
-	@JoinColumn(name="fk_payIdcard ", nullable=false)  
-	public FoundationBean_HO73 getFunAnno() {
+	@JoinColumn(name="fk_payIdcard ", nullable=true)  
+	public FoundationBean_HO73 getFoundationBean() {
 		return foundationBean;
 	}
 
-	public void setFunAnno(FoundationBean_HO73 foundationBean) {
+	public void setFoundationBean(FoundationBean_HO73 foundationBean) {
 		this.foundationBean = foundationBean;
 	}
 	
-	
+
+	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL}) 
+	public Set<PaymentIn> getPaymentIn() {
+		return paymentIn;
+	}
+	public void setPaymentIn(Set<PaymentIn> paymentIn) {
+		this.paymentIn = paymentIn;
+	}
+	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL}) 
+	public Set<PaymentOut> getPaymentOut() {
+		return paymentOut;
+	}
+	public void setPaymentOut(Set<PaymentOut> paymentOut) {
+		this.paymentOut = paymentOut;
+	}
 }

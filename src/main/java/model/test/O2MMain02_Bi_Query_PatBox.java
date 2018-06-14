@@ -3,11 +3,14 @@ package model.test;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import _00.utils.HibernateUtil;
-import model.FoundationBean_HO73;
-import model.PayBox;
 
-public class O2MMain02_Bi_Query {
+import _00.utils.HibernateUtil;
+import model.PayBox;
+import model.PaymentIn;
+import model.PaymentOut;
+
+
+public class O2MMain02_Bi_Query_PatBox {
 
 	public static void main(String[] args) {
 		
@@ -23,18 +26,22 @@ public class O2MMain02_Bi_Query {
 		//開啟交易
 		tx = session.beginTransaction();
 		// 查詢特定的Cart物件，在找出其內所有Items
-		System.out.println("查詢特定的Foundation物件，在找出其內所有payBox:");
-		FoundationBean_HO73 fb = session.get(FoundationBean_HO73.class,"499"); 
-		for(PayBox payBox: fb.getPayBox()){
-			System.out.println("發現ㄧ個payBox，id=" + payBox.getPayBoxNumber());
+		System.out.println("查詢特定的PayBox物件，在找出其內所有 捐款:");
+		PayBox pb = session.get(PayBox.class, 1); 
+		for(PaymentIn PaymentIn: pb.getPaymentIn()){
+			System.out.println("發現ㄧ筆捐款: " + PaymentIn.toString());
+		}
+		System.out.println("查詢特定的PayBox物件，在找出其內所有 花費:");
+		for(PaymentOut PaymentOut: pb.getPaymentOut()){
+			System.out.println("發現ㄧ筆花費: " + PaymentOut.toString());
 		}
 		System.out.println("================================");
 		// 查詢特定的Item物件，由它找出對應的Cart
-		System.out.println("查詢特定的payBox物件，由它找出對應的Foundation:");
-		int payBoxKey = 1;
-		PayBox pb = session.get(PayBox.class, payBoxKey); 
-		String foundationName = pb.getFoundationBean().getFunName();
-		System.out.println("payBox id=" + payBoxKey + "的購物車為" + foundationName);
+		System.out.println("查詢特定的Item物件，由它找出對應的Cart:");
+		Integer itemKey = 3;
+		PaymentIn PaymentIn = session.get(PaymentIn.class, itemKey); 
+		PayBox pbfind = PaymentIn.getPayBoxNumber();
+		System.out.println("捐款id=" + itemKey + "的捐款箱為" + pbfind.toString());
 		
 		tx.commit();
 		}catch(Exception e){
