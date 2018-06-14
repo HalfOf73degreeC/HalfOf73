@@ -345,11 +345,11 @@ public class FoundationBean_HO73{
 	}
 
 	@OneToMany(mappedBy="funAnno", cascade={CascadeType.ALL}) 
-	public Set<PayBox> getPayBox() {
+	public Set<PayBox> getPayBoxAnno() {
 		return payBox;
 	}
 
-	public void setPayBox(Set<PayBox> payBox) {
+	public void setPayBoxAnno(Set<PayBox> payBox) {
 		this.payBox = payBox;
 	}
 
