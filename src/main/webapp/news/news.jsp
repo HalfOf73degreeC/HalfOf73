@@ -75,16 +75,13 @@
 	</header>
 	<!--header 結束，內容開始  -->
 	<!-- 下列敘述設定變數funcName的值為SHO，top.jsp 會用到此變數 -->
-
+	<section id="nino-whatWeDo"></section>
 	<section id="nino-latestBlog">
-		<div class="container">
+		<div class="container" >
 			<!-- 			<h2 class="nino-sectionHeading"> -->
 			<!-- 				<span class="nino-subHeading">最新消息</span> -->
 			<!-- 			</h2> -->
-			<div align="center">
-				<img id="loadingGif"
-					src="${pageContext.request.contextPath}/images/loadingGif.gif"></img>
-			</div>
+			<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>
 			<div class="sectionContent" id='somedivS'></div>
 		</div>
 	</section>
@@ -94,8 +91,9 @@
 	<!--footer-->
 
 
-	<div w3-include-html="../footer.html"></div>
+	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<script>
+	var newslist;
 		$(document)
 				.ready(
 						function() {
@@ -104,10 +102,10 @@
 							xhr.send();
 							xhr.onreadystatechange = function() {
 								if (xhr.status == 200 && xhr.readyState == 4) {
-									var arr = JSON.parse(xhr.responseText);
+									newslist = JSON.parse(xhr.responseText);
 									$(loadingGif).hide();
-									for (var i = 0; i < arr.length; i++) {
-										var news = arr[i];
+									for (var i = 0; i < newslist.length; i++) {
+										var news = newslist[i];
 										var $row;
 										if (i % 3 == 0) {
 											$row = $('<div class="row">')
@@ -137,7 +135,7 @@
 																+ news.insertDay
 																+ '</span>');
 										var $newsTitle = $(
-												'<h3 class="articleTitle">')
+												'<h3 class="articleTitle" style="cursor:pointer">')
 												.appendTo($article).html(
 														news.newsName);
 										var $newsArticle = $(
@@ -154,10 +152,59 @@
 														'<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
 																+ news.newsUid
 																+ '</a>')
-									}
+																
+										$("h3#articleTitle").click(function (){
+											console.log('foo');
+											var news = newslist[i];
+											$("#nino-whatWeDo").empty();
+											var $container = $('<div class="container">')
+											.appendTo($nino-whatWeDo);
+											var newstitle = $('<h2 class="nino-sectionHeading" style="text-align:left">'
+													+'<span class="nino-subHeading" style="text-align:left"><h1>'
+													+news.newsName+'<h1></span>	'
+													+'</h2>').appendTo(container);
+											var newsinsterday = $('<div class="articleMeta" style="text-align:right;">'
+													+'<a style="text-align:right; color:gray;">'
+													+ news.insertMonth +news.insertDay + '日</a>'
+													+'</div>').appendTo(container);
+											var newsviews = $('<div id="nino-latestBlog" style="text-align:left">'
+													+'<article>'
+													+'<div class="articleMeta">'
+													+'<a><i class="mdi mdi-eye nino-icon"></i>'
+													+ news.newsView + '</a>'
+													+'<a><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
+													+ news.newsUid + '15</a>'
+													+'</div><br></article></div>').appendTo(container);
+											var $sectionContent = $('<div class="sectionContent">').appendTo(container);
+											var $row =  $('<div class="row">').appendTo(sectionContent);
+											var newsimage = $('<div class="col-md-6">'
+													+'<div class="text-center">'
+													+'<img src="'+news.newsImg+'">'
+													+ news.newsImgIntro
+													+'<a style="color:gray;">'
+													+'</a></div></div>').appendTo(row);
+											var newsArticle = $('<div class="col-md-6">'
+													+'<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">'
+													+'<p>'+ news.newsArticle +'</p></div></div>').appendTo(row);
+											
+											});	
+																
+									}									
+									var len = 50; // 文字>50變成"..."
+								    $(".articleDesc").each(function(i){
+								        if($(this).text().length>len){
+								            $(this).attr("title",$(this).text());
+								            var text=$(this).text().substring(0,len-1)+"...";
+								            $(this).text(text);
+								        }
+								    });
 								}
 							}
 						});
+		
+		
+		
+		
 	</script>
 	<script type="text/javascript" src="../js/template.js"></script>
 	<script src="https://www.w3schools.com/lib/w3.js"></script>

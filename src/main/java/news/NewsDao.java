@@ -7,7 +7,7 @@ import org.hibernate.Session;
 
 
 
-public interface newsDao{
+public interface NewsDao{
 
 	void save(NewsBean_HO73 nb);
 	void saveOrUpdate(NewsBean_HO73 nb);
