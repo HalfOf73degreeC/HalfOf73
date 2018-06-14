@@ -2,7 +2,7 @@ package model.repository;
 
 import java.util.List;
 
-import model.FoundationBean_HO73;
+import model.bean.FoundationBean_HO73;
 
 public interface FoundationDao {
 	void save(FoundationBean_HO73 fb);

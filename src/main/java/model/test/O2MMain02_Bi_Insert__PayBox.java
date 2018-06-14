@@ -8,10 +8,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import _00.utils.HibernateUtil;
-import model.FoundationBean_HO73;
-import model.PayBox;
-import model.PaymentIn;
-import model.PaymentOut;
+import model.bean.FoundationBean_HO73;
+import model.bean.PayBox;
+import model.bean.PaymentIn;
+import model.bean.PaymentOut;
 
 //雙向一對多: 由購物車(Cart)來找出其內所有商品項目(Item)，也可以由商品項目(Item)
 //           找到購物車(Cart)。

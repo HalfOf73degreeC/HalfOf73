@@ -10,17 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 
 import _00.utils.HibernateUtil;
-//雙向一對多: 由購物車(Cart)來找出其內所有商品項目(Item)，也可以由商品項目(Item)
-//           找到購物車(Cart)。
-//口訣: 一對多，一方有個儲存多方物件參考的List/Set物件，簡稱『ㄧ方有個多』
-//
-//只要購物車類別內含有一個能儲存多方物件(商品項目類別)的List/Set物件，
-//程式就可以由購物車找到其內所有商品項目。
-//以資料庫的觀點而言就是在Item類別對應的表格內增加一個外鍵欄位，此欄位(指Item物件的欄位)
-//儲存該Item物件所屬之購物車的物件參考，Hibernate就可以由購物車(Cart)來找出其內所有商品
-//項目(Item)。
-import model.FoundationBean_HO73;
-import model.PayBox;
+import model.bean.FoundationBean_HO73;
+import model.bean.PayBox;
 
 //Step 0: 為Cart類別、Item類別加上應有的註釋(@Entity, @Table, @Id, ....)
 //Step 1: Cart類別 

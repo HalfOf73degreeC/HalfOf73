@@ -22,7 +22,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import _00.utils.GlobalService;
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 public class MemberDAO {
     DataSource ds;

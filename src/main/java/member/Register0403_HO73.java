@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 @WebServlet("/member/register0403_HO73.do")
 public class Register0403_HO73 extends HttpServlet {

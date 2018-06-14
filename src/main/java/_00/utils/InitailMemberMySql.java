@@ -67,7 +67,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 public class InitailMemberMySql {
 

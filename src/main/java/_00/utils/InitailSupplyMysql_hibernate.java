@@ -7,7 +7,7 @@ import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Timestamp;
 
-import model.SupplyBean_HO73;
+import model.bean.SupplyBean_HO73;
 import model.repository.SupplyDao;
 import model.repository.impl.SupplyDaoImpl;
 

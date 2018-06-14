@@ -19,7 +19,7 @@ import javax.servlet.http.Part;
 
 import _00.utils.GlobalService;
 import _00.utils.SystemUtils2018;
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 @WebServlet("/member/changePhoto.do")
 public class ChangePhoto extends HttpServlet {

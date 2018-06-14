@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import _00.utils.HibernateUtil;
-import model.FoundationBean_HO73;
-import model.PayBox;
+import model.bean.FoundationBean_HO73;
+import model.bean.PayBox;
 
 public class O2MMain02_Bi_Query {
 

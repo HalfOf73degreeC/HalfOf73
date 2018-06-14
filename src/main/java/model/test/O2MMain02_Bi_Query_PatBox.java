@@ -5,9 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import _00.utils.HibernateUtil;
-import model.PayBox;
-import model.PaymentIn;
-import model.PaymentOut;
+import model.bean.PayBox;
+import model.bean.PaymentIn;
+import model.bean.PaymentOut;
 
 
 public class O2MMain02_Bi_Query_PatBox {

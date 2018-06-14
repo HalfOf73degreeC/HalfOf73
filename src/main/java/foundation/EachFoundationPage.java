@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FoundationBean_HO73;
+import model.bean.FoundationBean_HO73;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
 
