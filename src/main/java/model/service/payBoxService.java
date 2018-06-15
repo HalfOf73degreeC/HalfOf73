@@ -1,5 +1,8 @@
 package model.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,6 +17,7 @@ import model.bean.FoundationBean_HO73;
 import model.bean.MemberBean_HO73;
 import model.bean.PayBox;
 import model.bean.PaymentIn;
+import model.bean.PaymentOut;
 import model.repository.impl.FoundationDaoImpl;
 import model.repository.impl.PayBoxDaoImpl;
 import model.repository.impl.PaymentInDaoImpl;
@@ -58,7 +62,7 @@ public class payBoxService {
 	
 //	一筆捐款至募款箱(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePayment(PaymentIn pi) {
+	public int addOnePaymentIn(PaymentIn pi) {
 		paymentIn.save(pi);
 		PayBox pb =  boxDaoImpl.getPayBox(pi.getId());
 		Integer balance = pb.getBalance();
@@ -69,10 +73,43 @@ public class payBoxService {
 	}
 	
 //	一筆募款箱的花費(同時改動募款箱的balance)
+	@Transactional
+	public int addOnePaymentOut(PaymentOut po) {
+		paymentOut.save(po);
+		PayBox pb =  boxDaoImpl.getPayBox(po.getId());
+		Integer balance = pb.getBalance();
+		balance-=po.getPayForCost();
+		pb.setBalance(balance);
+		boxDaoImpl.save(pb);
+		return 0;
+	}
 //	查詢一筆募款箱
+//	@Transactional
+//	public int queryOnePaybox(PaymentOut po) {
+//		paymentOut.save(po);
+//		PayBox pb =  boxDaoImpl.getPayBox(po.getId());
+//		Integer balance = pb.getBalance();
+//		balance-=po.getPayForCost();
+//		pb.setBalance(balance);
+//		boxDaoImpl.save(pb);
+//		return 0;
+//	}
 //	列出所有的募款箱
+	@Transactional
+	public List<PayBox> getAllPayBoxes() {
+		
+		return boxDaoImpl.getAllPayBoxes();
+	}
 //	列處一個基金會的所有募款箱
-//	
+	@Transactional
+	public List<PayBox> getFunPayBoxes(FoundationBean_HO73 fb) {
+		List<PayBox> list = new ArrayList<PayBox>();
+		for(PayBox payBox: fb.getPayBox()){
+			System.out.println("發現ㄧ個payBox，id=" + payBox.getPayBoxNumber());
+			list.add(payBox);
+		}
+		return list;
+	}
 //	
 //	
 //	@Transactional
