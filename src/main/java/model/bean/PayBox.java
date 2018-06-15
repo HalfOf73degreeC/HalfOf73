@@ -28,8 +28,8 @@ public class PayBox {
 	private Integer viewTimes;
 	private Integer payBoxType;
 	private FoundationBean_HO73 foundationBean;
-	private Set<PaymentOut> paymentIn = new LinkedHashSet<>();
-	private Set<PaymentIn> paymentOut = new LinkedHashSet<>();
+	private Set<PaymentIn> paymentIn = new LinkedHashSet<>();
+	private Set<PaymentOut> paymentOut = new LinkedHashSet<>();
 	
 	public PayBox() {
 		super();
@@ -155,17 +155,17 @@ public class PayBox {
 	
 
 	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL}) 
-	public Set<PaymentOut> getPaymentIn() {
+	public Set<PaymentIn> getPaymentIn() {
 		return paymentIn;
 	}
-	public void setPaymentIn(Set<PaymentOut> paymentIn) {
+	public void setPaymentIn(Set<PaymentIn> paymentIn) {
 		this.paymentIn = paymentIn;
 	}
 	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL}) 
-	public Set<PaymentIn> getPaymentOut() {
+	public Set<PaymentOut> getPaymentOut() {
 		return paymentOut;
 	}
-	public void setPaymentOut(Set<PaymentIn> paymentOut) {
+	public void setPaymentOut(Set<PaymentOut> paymentOut) {
 		this.paymentOut = paymentOut;
 	}
 }

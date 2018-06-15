@@ -58,15 +58,15 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PayBox pb = new PayBox();
 		pb.setPayBoxName("範例捐款箱");pb.setFoundationBean(fb);
 		
-		PaymentOut 	pD1 = new PaymentOut(pb, "高國華", 500000);
-		PaymentOut 	pD2 = new PaymentOut(pb, "高嘉瑜", 250000);
-		PaymentOut 	pD3 = new PaymentOut(pb, "明明是矮冬瓜", 5000);
-		PaymentIn		pC1 = new PaymentIn(pb, "高國華花", 100000);
-		PaymentIn 	pC2 = new PaymentIn(pb, "高嘉瑜花", 150000);
-		PaymentIn 	pC3 = new PaymentIn(pb, "明明是矮冬花", 500000);
-		Set<PaymentOut> PaymentInSet = new LinkedHashSet<PaymentOut>();
+		PaymentIn 	pD1 = new PaymentIn(pb, "高國華", 500000);
+		PaymentIn 	pD2 = new PaymentIn(pb, "高嘉瑜", 250000);
+		PaymentIn 	pD3 = new PaymentIn(pb, "明明是矮冬瓜", 5000);
+		PaymentOut		pC1 = new PaymentOut(pb, "高國華花", 100000);
+		PaymentOut 	pC2 = new PaymentOut(pb, "高嘉瑜花", 150000);
+		PaymentOut 	pC3 = new PaymentOut(pb, "明明是矮冬花", 500000);
+		Set<PaymentIn> PaymentInSet = new LinkedHashSet<PaymentIn>();
 		PaymentInSet.add(pD1); PaymentInSet.add(pD2);PaymentInSet.add(pD3);
-		Set<PaymentIn> PaymentOutSet = new LinkedHashSet<PaymentIn>();
+		Set<PaymentOut> PaymentOutSet = new LinkedHashSet<PaymentOut>();
 		PaymentOutSet.add(pC1);PaymentOutSet.add(pC2);PaymentOutSet.add(pC3);
 		
 		
@@ -76,63 +76,22 @@ public class O2MMain02_Bi_Insert__PayBox {
 		//------------------------------------
 		PayBox pb2 = new PayBox();
 		pb2.setPayBoxName("範例捐款箱2");pb2.setFoundationBean(fb);
-		PaymentOut 	pD4 = new PaymentOut(pb2, "黃", 1500000);
-		PaymentOut 	pD5 = new PaymentOut(pb2, "安", 255555);
-		PaymentOut 	pD6 = new PaymentOut(pb2, "正", 499);
-		PaymentIn		pC4 = new PaymentIn(pb2, "高國華花", 9999);
-		PaymentIn 	pC5 = new PaymentIn(pb2, "高嘉瑜花", 14999);
-		PaymentIn 	pC6 = new PaymentIn(pb2, "明明是矮冬花", 499999);
-		Set<PaymentOut> PaymentInSet2 = new LinkedHashSet<PaymentOut>();
+		PaymentIn 	pD4 = new PaymentIn(pb2, "黃", 1500000);
+		PaymentIn 	pD5 = new PaymentIn(pb2, "安", 255555);
+		PaymentIn 	pD6 = new PaymentIn(pb2, "正", 499);
+		PaymentOut	pC4 = new PaymentOut(pb2, "高國華花", 9999);
+		PaymentOut 	pC5 = new PaymentOut(pb2, "高嘉瑜花", 14999);
+		PaymentOut 	pC6 = new PaymentOut(pb2, "明明是矮冬花", 499999);
+		Set<PaymentIn> PaymentInSet2 = new LinkedHashSet<PaymentIn>();
 		PaymentInSet2.add(pD4); PaymentInSet2.add(pD5);PaymentInSet2.add(pD6);
-		Set<PaymentIn> PaymentOutSet2 = new LinkedHashSet<PaymentIn>();
+		Set<PaymentOut> PaymentOutSet2 = new LinkedHashSet<PaymentOut>();
 		PaymentOutSet2.add(pC4);PaymentOutSet2.add(pC5);PaymentOutSet2.add(pC6);
 		
 		pb2.setPaymentIn(PaymentInSet2);
-		pb2.setPaymentOut(PaymentOutSet);
+		pb2.setPaymentOut(PaymentOutSet2);
 		
-		SessionFactory sessionFactory = null;
-		Session session = null;
-		Transaction tx = null;
-		try{
-		// 建立SessionFactory物件
-		sessionFactory = HibernateUtil.getSessionFactory();
-		// 取出Session物件
-		session = sessionFactory.getCurrentSession();
-		System.out.println("得到Session物件");
-		//開啟交易
-		tx = session.beginTransaction();
 		
-		//Save the Model objects
-		session.save(fb);
-		session.save(fb2);
-		session.save(pb);
-		session.save(pb2); 
-		for(PaymentOut PaymentIn: PaymentInSet){
-			session.save(PaymentIn);
-		}
-		for(PaymentOut PaymentIn2: PaymentInSet2){
-			session.save(PaymentIn2);
-		}
-		for(PaymentIn PaymentOut: PaymentOutSet){
-			session.save(PaymentOut);
-		}
-		for(PaymentIn PaymentOut2: PaymentOutSet2){
-			session.save(PaymentOut2);
-		}
-		//Commit transaction
-		tx.commit();
-		System.out.println("捐款箱ID="+pb.getPayBoxNumber());
-		System.out.println("捐款箱ID="+pb2.getPayBoxNumber());
 		
-		}catch(Exception e){
-			System.out.println("發生例外: "+e.getMessage());
-			e.printStackTrace();
-		}finally{
-			if(!sessionFactory.isClosed()){
-				System.out.println("關閉SessionFactory");
-				sessionFactory.close();
-			}
-		}
 	}
 }
 

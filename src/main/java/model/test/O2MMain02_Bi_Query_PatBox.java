@@ -28,11 +28,11 @@ public class O2MMain02_Bi_Query_PatBox {
 		// 查詢特定的Cart物件，在找出其內所有Items
 		System.out.println("查詢特定的PayBox物件，在找出其內所有 捐款:");
 		PayBox pb = session.get(PayBox.class, 1); 
-		for(PaymentOut PaymentIn: pb.getPaymentIn()){
+		for(PaymentIn PaymentIn: pb.getPaymentIn()){
 			System.out.println("發現ㄧ筆捐款: " + PaymentIn.toString());
 		}
 		System.out.println("查詢特定的PayBox物件，在找出其內所有 花費:");
-		for(PaymentIn PaymentOut: pb.getPaymentOut()){
+		for(PaymentOut PaymentOut: pb.getPaymentOut()){
 			System.out.println("發現ㄧ筆花費: " + PaymentOut.toString());
 		}
 		System.out.println("================================");
