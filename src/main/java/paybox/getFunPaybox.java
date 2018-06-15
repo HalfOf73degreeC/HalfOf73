@@ -23,7 +23,7 @@ import model.service.payBoxService;
 /**
  * Servlet implementation class getMemberPage
  */
-@WebServlet("/paybox/getAllPaybox")
+@WebServlet("/paybox/getFunPaybox")
 public class getFunPaybox extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
