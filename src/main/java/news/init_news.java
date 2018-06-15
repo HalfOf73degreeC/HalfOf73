@@ -1,5 +1,8 @@
 package news;
 
+import model.bean.NewsBean_HO73;
+import model.repository.impl.NewsDaoImpl;
+
 public class init_news {
 	public static void main(String[] args) {
 		//NewsBean_HO73(String newsName, String newsImg, String newsImgIntro, String newsArticle)

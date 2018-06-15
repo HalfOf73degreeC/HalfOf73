@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import member.MemberDAO;
 import model.bean.FoundationBean_HO73;
 import model.bean.MemberBean_HO73;
@@ -23,12 +26,14 @@ public class QueryOneFoundations_HO73 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		FoundationDao fdao = new FoundationDaoImpl();
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
 		String funIdcard = request.getParameter("funIdcard");
 		String funAccount = request.getParameter("funAccount");
 		FoundationBean_HO73 fb;
-		if(fdao.getOneFoundation(funIdcard) !=null) {
-			fb = fdao.getOneFoundation(funIdcard);
+		if(foundationDao.getOneFoundation(funIdcard) !=null) {
+			fb = foundationDao.getOneFoundation(funIdcard);
 			System.out.println("funIdcard= "+funIdcard);
 			System.out.println("funArea= "+fb.getFunArea());
 		}else{

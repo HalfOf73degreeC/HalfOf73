@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import model.bean.PaymentOut;
 import model.repository.PaymentOutDao;
 
-@Repository("poDao")
+@Repository("paymentOutDao")
 @Scope("prototype")
 public class PaymentOutDaoImpl implements PaymentOutDao {
 

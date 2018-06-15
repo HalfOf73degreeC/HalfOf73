@@ -10,12 +10,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.bean.PayBox;
 import model.bean.PaymentIn;
 import model.repository.PaymentInDao;
 
-@Repository("piDao")
+@Repository("paymentInDao")
 @Scope("prototype")
 public class PaymentInDaoImpl implements PaymentInDao {
 

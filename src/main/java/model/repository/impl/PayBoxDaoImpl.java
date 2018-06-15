@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import model.bean.PayBox;
 import model.repository.PayBoxDao;
 
-@Repository("pbDao")
+@Repository("payboxDao")
 @Scope("prototype")
 public class PayBoxDaoImpl implements PayBoxDao {
 

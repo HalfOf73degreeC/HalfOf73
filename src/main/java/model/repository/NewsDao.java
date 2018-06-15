@@ -1,9 +1,11 @@
-package news;
+package model.repository;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
+
+import model.bean.NewsBean_HO73;
 
 
 
