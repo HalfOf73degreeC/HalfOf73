@@ -101,9 +101,13 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="text-center">
-								<img src="${mem.memPicUrl}"
-									style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 85%; height: auto;">
-								
+								<label for="input_img">
+									<img id="preview_img" src="${mem.memPicUrl}"
+										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 85%; height: auto; cursor:pointer;">
+								</label>
+								<form action="changePhoto.do" enctype="multipart/form-data" method="POST">
+								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-190px; z-index:-2;"/>
+								</form>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -223,7 +227,7 @@
 										<div class="panel-body" style="height: 175px;">
 											<%-- 									<input type="text" name="memWhySupply" class="form-control" placeholder="" value="${param.memWhySupply}${mem.memWhySupply}" style="z-index: 1"> --%>
 											<textarea class="form-control" name="memWhySupply"
-												placeholder="因為。。。" rows="6">${param.memWhySupply}${mem.memWhySupply}</textarea>
+												placeholder="因為..." rows="6">${param.memWhySupply}${mem.memWhySupply}</textarea>
 										</div>
 									</div>
 								</div>
@@ -874,7 +878,8 @@
 			src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript" src="js/unslider-min.js"></script>
 		<script type="text/javascript" src="js/template.js"></script>
-
+		<script type="text/javascript" src="js/previewImg.js"></script>
+        
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FoundationBean_HO73;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import model.bean.FoundationBean_HO73;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
 
@@ -20,8 +23,10 @@ public class QueryAllFoundations_HO73 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		FoundationDao fdao = new FoundationDaoImpl();
-		Collection<FoundationBean_HO73> coll = fdao.getAllFoundation();
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
+		Collection<FoundationBean_HO73> coll = foundationDao.getAllFoundation();
 		request.setAttribute("AllFoundations", coll);
 		RequestDispatcher rd = request.getRequestDispatcher("/foundation/showAllfoundations_HO73.jsp");
 		rd.forward(request, response);

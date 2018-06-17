@@ -2,7 +2,7 @@ package model.repository;
 
 import java.util.List;
 
-import model.GoodsBean_HO73;
+import model.bean.GoodsBean_HO73;
 
 public interface GoodsDao {
 	void save(GoodsBean_HO73 gb);

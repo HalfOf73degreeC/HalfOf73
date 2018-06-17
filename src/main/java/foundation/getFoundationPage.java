@@ -8,8 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import com.google.gson.Gson;
-import model.FoundationBean_HO73;
+
+import model.bean.FoundationBean_HO73;
+import model.bean.ToGson;
+import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
 
 
@@ -19,10 +27,14 @@ public class getFoundationPage extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		FoundationDaoImpl fdao = new FoundationDaoImpl();
-		List<FoundationBean_HO73> list = fdao.getAllFoundation();
-		Gson gson = new Gson();
+		request.setCharacterEncoding("UTF-8");WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
+		List<FoundationBean_HO73> list = foundationDao.getAllFoundation();
+		AnnotationConfigApplicationContext gctx = new AnnotationConfigApplicationContext();
+		gctx.register(ToGson.class);
+		gctx.refresh();
+		Gson gson = ctx.getBean(Gson.class);		
 		String gString = gson.toJson(list); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {

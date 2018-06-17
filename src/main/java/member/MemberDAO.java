@@ -23,9 +23,13 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import _00.utils.GlobalService;
+<<<<<<< HEAD
 import model.MemberBean_HO73;
 import shoppingCart.model.OrderBean_HO73;
 import shoppingCart.model.ude.UnpaidOrderAmountExceedingException;
+=======
+import model.bean.MemberBean_HO73;
+>>>>>>> 87b55646d7a6ff2f32e23dc776a37b9c8a4de9e9
 
 public class MemberDAO {
     DataSource ds;
@@ -139,6 +143,45 @@ public class MemberDAO {
 			ex.printStackTrace() ;
 		}
 		return n;
+	}
+	public int update_photo(MemberBean_HO73 mb) {
+		int n = 0;
+		String sql = "UPDATE Member_HO73 set memPhoto = ?"
+				+ " WHERE memAccount = ?";
+		try (
+		    Connection con = ds.getConnection();
+		    PreparedStatement pstmt = con.prepareStatement(sql);		
+		) {
+			pstmt.setBlob(1, mb.getMemPhoto());
+			pstmt.setString(2, mb.getFileName());
+			n = pstmt.executeUpdate();
+			System.out.println("修改記錄成功, memAccount=" + mb.getMemAccount());
+		} catch (SQLException ex) {
+			ex.printStackTrace() ;
+			
+		}
+		return n;
+		
+	}
+	
+	public int update_fun(MemberBean_HO73 mb) {
+		int n = 0;
+		String sql = "UPDATE Member_HO73 set memPhoto = ?, fileName = ?"
+				+ " WHERE memAccount = ?";
+		try (
+		    Connection con = ds.getConnection();
+		    PreparedStatement pstmt = con.prepareStatement(sql);		
+		) {
+			pstmt.setInt(1, mb.getMemType());
+			pstmt.setString(2, mb.getMemAccount());
+			n = pstmt.executeUpdate();
+			System.out.println("修改記錄成功, memAccount=" + mb.getMemAccount());
+		} catch (SQLException ex) {
+			ex.printStackTrace() ;
+			
+		}
+		return n;
+		
 	}
 	public int update_easy(MemberBean_HO73 mb) {
 		int n = 0;

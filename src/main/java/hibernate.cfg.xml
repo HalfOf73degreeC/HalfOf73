@@ -12,10 +12,10 @@
      -->
     <!-- SQL方言，設定是MySQL -->
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-	<property name="connection.url">jdbc:mysql://35.165.226.129:6603/ho73?useUnicode=true&amp;characterEncoding=utf8</property>
-	<property name="connection.username">root</property>
-	<property name="connection.password">Do!ngPassW0rd</property>
+<!-- 	<property name="connection.driver_class">com.mysql.jdbc.Driver</property> -->
+<!-- 	<property name="connection.url">jdbc:mysql://35.165.226.129:6603/ho73?useUnicode=true&amp;characterEncoding=utf8</property> -->
+<!-- 	<property name="connection.username">root</property> -->
+<!-- 	<property name="connection.password">Do!ngPassW0rd</property> -->
 
     <!-- 2. 其他與資料存取有關的設定 -->
     <!-- 自動產生資料庫的Schema -->
@@ -25,14 +25,15 @@
     <!-- 將顯示的SQL排版，方便觀看 -->
     <property name="format_sql">true</property>
       
-    <property name="hibernate.current_session_context_class">thread</property>
+<!--     <property name="hibernate.current_session_context_class">thread</property> -->
     <!-- 定義程式交易管理的類型，本範例使用JDBC Transaction -->
-    <property name = "transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+<!--     <property name = "transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property> -->
 	<!-- hibernate 相關效能設定 -->
-	<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
-	<property name="connection_pool_size">1</property>
+<!-- 	<property name="hibernate.bytecode.use_reflection_optimizer">false</property> -->
+<!-- 	<property name="connection_pool_size">1</property> -->
 	
 	<!-- 3. 宣告程式使用的永續類別 -->
+<<<<<<< HEAD
 	<mapping class="model.MemberBean_HO73"/>
 	<mapping class="model.FoundationBean_HO73"/>
 	<mapping class="model.SupplyBean_HO73"/>
@@ -42,5 +43,15 @@
 	<mapping class="shoppingCart.model.OrderItemBean_HO73"/>
 	<mapping class="model.DeliveryBean_HO73"/>
 	<mapping class="model.PaymentBean_HO73"/>
+=======
+<!-- 	<mapping class="model.MemberBean_HO73"/> -->
+<!-- 	<mapping class="model.FoundationBean_HO73"/> -->
+<!-- 	<mapping class="model.SupplyBean_HO73"/> -->
+<!-- 	<mapping class="model.GoodsBean_HO73"/>	 -->
+<!-- 	<mapping class="model.PayBox"/>	 -->
+<!-- 	<mapping class="model.PaymentIn"/>	 -->
+<!-- 	<mapping class="model.PaymentOut"/>	 -->
+<!-- 	<mapping class="news.NewsBean_HO73"/> -->
+>>>>>>> 87b55646d7a6ff2f32e23dc776a37b9c8a4de9e9
 	</session-factory>
 </hibernate-configuration>

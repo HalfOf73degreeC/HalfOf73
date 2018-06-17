@@ -48,40 +48,20 @@
 
 </head>
 <body>
-	<header id="nino-story">
+		<header>
 		<nav id="nino-navbar" class="navbar navbar-default"
 			style="background-color: rgba(243, 129, 129, 0.8);">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#nino-navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.jsp">Half Of 73°C</a>
+					<a class="navbar-brand" href="../index.jsp">Half of 73°C</a>
 				</div>
-
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="nino-menuItem pull-right">
-					<div class="collapse navbar-collapse pull-left"
-						id="nino-navbar-collapse">
-						<ul class="nav navbar-nav">
-							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
-							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
-							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
-						</ul>
-					</div>
+					<div class="nino-menuItem pull-right" w3-include-html="../navbar_right.jsp"></div>
+			    	</div>
 					<!-- /.navbar-collapse -->
-					<ul class="nino-iconsGroup nav navbar-nav">
-						<li><a href="supplyBox.html"><i
-								class="mdi mdi-cart-outline nino-icon"></i></a></li>
-						<li><a href="#" class="nino-search"><i
-								class="mdi mdi-magnify nino-icon"></i></a></li>
-					</ul>
-				</div>
-			</div>
+
+			<!-- /.container-fluid -->
 		</nav>
 	</header>
 	<!--header 結束，內容開始  -->
@@ -94,6 +74,7 @@
 			<div class="sectionContent" id='somedivS'></div>
 		</div>
 	</section>
+	<div w3-include-html="../footer.html"></div>
 	<!--/#nino-latestBlog-->
 	<script>
 	 //wow = new WOW().init();
@@ -142,5 +123,9 @@
 	
 	
 </script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+			<script>
+				w3.includeHTML();
+			</script>
 </body>
 </html>

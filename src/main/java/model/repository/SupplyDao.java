@@ -2,7 +2,7 @@ package model.repository;
 
 import java.util.List;
 
-import model.SupplyBean_HO73;
+import model.bean.SupplyBean_HO73;
 
 public interface SupplyDao {
 	void save(SupplyBean_HO73 sb);

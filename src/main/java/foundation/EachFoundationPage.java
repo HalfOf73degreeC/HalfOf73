@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FoundationBean_HO73;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import model.bean.FoundationBean_HO73;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
 
@@ -20,10 +23,12 @@ public class EachFoundationPage extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		FoundationDao fdao = new FoundationDaoImpl();
+		WebApplicationContext ctx = 
+			WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
 
 		String funIdcard = request.getParameter("funIdcard");
-		FoundationBean_HO73 fb = fdao.getOneFoundation(funIdcard);
+		FoundationBean_HO73 fb = foundationDao.getOneFoundation(funIdcard);
 
 		System.out.println("愛心碼: " + funIdcard);
 		System.out.println("基金會帳號"+fb.getFunAccount());

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.GoodsBean_HO73;
+import model.bean.GoodsBean_HO73;
 import model.repository.GoodsDao;
 import model.repository.impl.GoodsDaoImpl;
 

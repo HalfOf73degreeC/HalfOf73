@@ -17,7 +17,7 @@ import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
 import com.google.gson.Gson;
 
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 
 @WebServlet("/member/oauth2callback")
@@ -88,7 +88,8 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 			}
 		}
 		request.getSession().setAttribute("memberBean", mb);
-	    response.sendRedirect("../index.jsp");
+//	    response.sendRedirect("../index.jsp");
+	    response.getWriter().print("<script type='text/javascript'>history.back()</script>");
 	}
 
 }

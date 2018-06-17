@@ -44,7 +44,7 @@
 							<ul class="nav navbar-nav">
 							<!-- 	<li class="active"><a href="#nino-header"><i class="glyphicon glyphicon-home"></i><span class="sr-only">(current)</span></a></li> -->
 								<li><a href="#nino-latestBlog">最新消息</a></li>
-								<li><a href="foundation/foundation_detail.jsp">基金會</a></li>
+								<li><a href="foundation/foundation_main.jsp">基金會</a></li>
 								<li><a href="#nino-ourTeam">捐款募資</a></li>
 								<li><a href="#nino-portfolio">愛的傳遞</a></li>
 								<li><a href="#nino-whatWeDo">關於本站</a></li>		

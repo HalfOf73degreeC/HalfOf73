@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 @WebServlet("/member/register0403_HO73.do")
 public class Register0403_HO73 extends HttpServlet {
@@ -27,7 +27,7 @@ public class Register0403_HO73 extends HttpServlet {
 		Map<String, String> errorMsg = new HashMap<>();
 		request.setAttribute("ErrorMsg", errorMsg);
 		// 1. 讀取使用者輸入資料
-		String memAccount = (String) request.getSession().getAttribute("memAccount");
+		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
 		String memName = request.getParameter("memName");
 		String memIdcard = request.getParameter("memIdcard");
 		String memEmail = request.getParameter("memEmail");
@@ -90,8 +90,8 @@ public class Register0403_HO73 extends HttpServlet {
 //			return;
 //		}
 		// 4. 進行 Business Logic 運算
-		MemberBean_HO73 mb = new MemberBean_HO73();
-		mb.setMemAccount(memAccount);
+//		MemberBean_HO73 mb = new MemberBean_HO73();
+//		mb.setMemAccount(memAccount);
 		mb.setMemIdcard(memIdcard);
 		mb.setMemName(memName);
 		mb.setMemEmail2(memEmail2);
