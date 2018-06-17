@@ -37,7 +37,7 @@ public class InitailGoodsMysql_hibernate {
 			Integer goodsSafeStock = Integer.parseInt(sa[6].trim());
 			String goodsSize = sa[7].trim();
 			Integer goodsState = Integer.parseInt(sa[8].trim());
-			Integer funUid = Integer.parseInt(sa[9].trim());
+			String funUid = sa[9].trim();
 			Integer goodsViews = Integer.parseInt(sa[10].trim());
 			Timestamp insertDate = new Timestamp(System.currentTimeMillis());
 			String goodsIntro = sa[11].trim();

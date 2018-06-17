@@ -23,9 +23,10 @@ public class GoodsBean_HO73 {
 	String		goodsSize;
 	Integer     goodsPrice;
 	Integer		goodsState;
-	Integer		funUid;
+	String		funUid;
 	Integer		goodsView;
 	Timestamp	insertDate;
+	
 	public GoodsBean_HO73() {
 		super();
 	}
@@ -33,7 +34,7 @@ public class GoodsBean_HO73 {
 
 	public GoodsBean_HO73(Integer goodsUid, String goodsName, byte[] goodsImg, String goodsIntro, char[] goodsArticle,
 			Timestamp goodsStartTime, Timestamp goodsEndTime, Integer goodsStock, Integer goodsSafeStock,
-			String goodsSize, Integer goodsPrice, Integer goodsState, Integer funUid, Integer goodsView,
+			String goodsSize, Integer goodsPrice, Integer goodsState, String funUid, Integer goodsView,
 			Timestamp insertDate) {
 		super();
 		this.goodsUid = goodsUid;
@@ -104,10 +105,10 @@ public class GoodsBean_HO73 {
 	public void setGoodsState(Integer goodsState) {
 		this.goodsState = goodsState;
 	}
-	public Integer getFunUid() {
+	public String getFunUid() {
 		return funUid;
 	}
-	public void setFunUid(Integer funUid) {
+	public void setFunUid(String funUid) {
 		this.funUid = funUid;
 	}
 	

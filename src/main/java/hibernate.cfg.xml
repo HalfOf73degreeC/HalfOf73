@@ -38,5 +38,9 @@
 	<mapping class="model.SupplyBean_HO73"/>
 	<mapping class="model.GoodsBean_HO73"/>	
 	<mapping class="news.NewsBean_HO73"/>
+	<mapping class="shoppingCart.model.OrderBean_HO73"/>
+	<mapping class="shoppingCart.model.OrderItemBean_HO73"/>
+	<mapping class="model.DeliveryBean_HO73"/>
+	<mapping class="model.PaymentBean_HO73"/>
 	</session-factory>
 </hibernate-configuration>

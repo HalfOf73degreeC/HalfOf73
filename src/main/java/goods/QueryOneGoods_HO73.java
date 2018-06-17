@@ -28,7 +28,7 @@ public class QueryOneGoods_HO73 extends HttpServlet {
 		gdao.update(gb);
 		System.out.println(viewsCount);
 		request.setAttribute("goodsBean", gb);
-		RequestDispatcher rd = request.getRequestDispatcher("/goods/goodsDetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("goodsDetail.jsp");
 		rd.forward(request, response);
 		return;
 	}
