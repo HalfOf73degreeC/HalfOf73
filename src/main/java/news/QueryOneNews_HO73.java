@@ -9,11 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+import model.bean.GoodsBean_HO73;
+=======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import model.bean.GoodsBean_HO73;
 import model.bean.NewsBean_HO73;
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 import model.repository.GoodsDao;
 import model.repository.NewsDao;
 import model.repository.impl.GoodsDaoImpl;

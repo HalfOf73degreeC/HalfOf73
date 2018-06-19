@@ -23,11 +23,21 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import _00.utils.GlobalService;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import model.bean.MemberBean_HO73;
+=======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 
 import shoppingCart.model.OrderBean_HO73;
 import shoppingCart.model.ude.UnpaidOrderAmountExceedingException;
 import model.bean.MemberBean_HO73;
 
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 
 public class MemberDAO {
     DataSource ds;
