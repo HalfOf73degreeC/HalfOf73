@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import member.MemberDAO;
-import model.FoundationBean_HO73;
-import model.MemberBean_HO73;
+import model.bean.FoundationBean_HO73;
+import model.bean.MemberBean_HO73;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
 

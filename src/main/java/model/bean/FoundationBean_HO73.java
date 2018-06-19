@@ -1,14 +1,20 @@
-package model;
+package model.bean;
 
 
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="FoundationBean_HO73")
 public class FoundationBean_HO73{
 	String funAccount;
 	String funName;
@@ -35,7 +41,8 @@ public class FoundationBean_HO73{
 	String funService;
 	Integer funStatus;
 	Timestamp insertDate;
-
+	private Set<PayBox> payBox = new LinkedHashSet<>();
+	
 	public FoundationBean_HO73() {
 		super();
 
@@ -335,6 +342,15 @@ public class FoundationBean_HO73{
 
 	public void setInsertDate(Timestamp insertDate) {
 		this.insertDate = insertDate;
+	}
+
+	@OneToMany(mappedBy="foundationBean", cascade={CascadeType.ALL}) 
+	public Set<PayBox> getPayBox() {
+		return payBox;
+	}
+
+	public void setPayBox(Set<PayBox> payBox) {
+		this.payBox = payBox;
 	}
 
 }

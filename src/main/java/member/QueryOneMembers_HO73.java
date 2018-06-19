@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 
 @WebServlet("/member/queryOneMembers_HO73.do")
 public class QueryOneMembers_HO73 extends HttpServlet {

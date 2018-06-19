@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
-import model.GoodsBean_HO73;
+import model.bean.GoodsBean_HO73;
 import model.repository.GoodsDao;
 
 public class GoodsDaoImpl implements GoodsDao {

@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
-import model.FoundationBean_HO73;
+import model.bean.FoundationBean_HO73;
 import model.repository.FoundationDao;
 
 public class FoundationDaoImpl implements FoundationDao {

@@ -7,7 +7,7 @@ import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Timestamp;
 
-import model.GoodsBean_HO73;
+import model.bean.GoodsBean_HO73;
 import model.repository.GoodsDao;
 import model.repository.impl.GoodsDaoImpl;
 

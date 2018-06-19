@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
-import model.FoundationBean_HO73;
+import model.bean.FoundationBean_HO73;
 
 
 public class InitailFoundationMySql {
