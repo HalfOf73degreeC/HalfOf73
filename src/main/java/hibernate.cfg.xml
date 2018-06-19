@@ -33,15 +33,6 @@
 <!-- 	<property name="connection_pool_size">1</property> -->
 	
 	<!-- 3. 宣告程式使用的永續類別 -->
-	<mapping class="model.bean.MemberBean_HO73"/>
-	<mapping class="model.bean.FoundationBean_HO73"/>
-	<mapping class="model.bean.SupplyBean_HO73"/>
-	<mapping class="model.bean.GoodsBean_HO73"/>	
-	<mapping class="model.bean.NewsBean_HO73"/>
-	<mapping class="shoppingCart.model.OrderBean_HO73"/>
-	<mapping class="shoppingCart.model.OrderItemBean_HO73"/>
-	<mapping class="model.bean.DeliveryBean_HO73"/>
-	<mapping class="model.bean.PaymentBean_HO73"/>
 <!-- 	<mapping class="model.MemberBean_HO73"/> -->
 <!-- 	<mapping class="model.FoundationBean_HO73"/> -->
 <!-- 	<mapping class="model.SupplyBean_HO73"/> -->
