@@ -1,0 +1,70 @@
+#top{
+    border: 2px dotted #aaa;
+    width: 280px;
+    height: 50px;
+    font:bold 18px Tahoma;
+    text-transform: capitalize;
+
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 3px;
+}
+
+#myPic{
+    border: 2px dotted #aaa;
+    width: 280px;
+
+    display: none;
+}
+
+/* 7_addClass.html + 8_removeClass 14_bind_on.html*/
+.hightlight{
+    background: yellow;
+}
+/*16_textHover.html*/
+.textHover{
+    cursor: pointer;
+}
+#theDiv{
+    font:14px Tahoma;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color:#888;
+    background:#fff;
+    position: absolute;
+    display: none;
+}
+/* 17_topMessage.html */
+#topMessage{
+    background: #888;
+    color:#ccc;
+    font:20px Tahoma;
+    width: 600px;
+    padding: 15px;
+    text-align: center;
+    margin:0px auto;
+
+    display: none;
+}
+/* 19_animation.html */
+.myPhoto{
+    width: 90px;
+    height: 80px;
+}
+
+#imgBoard{
+    width: 90px;
+    background: #aaa;
+    padding:10px 30px;
+
+    position: absolute;
+    left:-120px;
+}
+/* 28_centerOfWindow.html */
+#inCenter{
+    width: 150px;
+    height: 150px;
+    background: #aaa;
+
+    position: absolute;
+}

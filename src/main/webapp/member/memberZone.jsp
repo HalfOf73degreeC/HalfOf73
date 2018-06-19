@@ -10,10 +10,8 @@
 <head>
 
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/styles.css'
+	href='${pageContext.request.contextPath}/css/style.css'
 	type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -41,6 +39,8 @@
 <link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css" />
 <link rel="stylesheet" type="text/css" href="../css/unslider.css" />
 <link rel="stylesheet" type="text/css" href="../css/template.css" />
+<link rel='stylesheet' type="text/css" href='css/croppie.css' />
+
 
 </head>
 
@@ -100,14 +100,17 @@
 				<div class="sectionContent">
 					<div class="row">
 						<div class="col-md-6">
-							<div class="text-center">
-								<label for="input_img">
-									<img id="preview_img" src="${mem.memPicUrl}"
-										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 85%; height: auto; cursor:pointer;">
-								</label>
+							<div class="text-center" id="changePic">
 								<form action="changePhoto.do" enctype="multipart/form-data" method="POST">
-								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-190px; z-index:-2;"/>
+									<img id="preview_img" src="${mem.memPicUrl}"
+										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
 								</form>
+<!-- 								<label for="input_img"  style="height:1px;"> -->
+<!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
+<!-- 								<span>更改大頭貼</span> -->
+<!-- 								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-600px; z-index:-2; "/> -->
+<!-- 								</buttom> -->
+<!-- 								</label> -->
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -878,6 +881,7 @@
 			src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript" src="js/unslider-min.js"></script>
 		<script type="text/javascript" src="js/template.js"></script>
+		<script type="text/javascript" src="js/croppie.js"></script>
 		<script type="text/javascript" src="js/previewImg.js"></script>
         
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
