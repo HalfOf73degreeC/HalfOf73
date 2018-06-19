@@ -1,21 +1,26 @@
 package model.bean;
 
+import java.sql.Blob;
+import java.sql.Clob;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class GoodsBean_HO73 {
 	
 	Integer		goodsUid;
 	String		goodsName;
-	byte[]      goodsImg;
+	Blob        goodsImg;
 	String      goodsIntro;
-	char[]      goodsArticle;
+	Clob        goodsArticle;
 	Timestamp	goodsStartTime;
 	Timestamp	goodsEndTime;
 	Integer		goodsStock;
@@ -23,19 +28,20 @@ public class GoodsBean_HO73 {
 	String		goodsSize;
 	Integer     goodsPrice;
 	Integer		goodsState;
-	String		funUid;
 	Integer		goodsView;
 	Timestamp	insertDate;
+	String      goodsImgFileName;
+	FoundationBean_HO73 foundationBean_HO73;
+	
 	
 	public GoodsBean_HO73() {
 		super();
 	}
-	
 
-	public GoodsBean_HO73(Integer goodsUid, String goodsName, byte[] goodsImg, String goodsIntro, char[] goodsArticle,
+	public GoodsBean_HO73(Integer goodsUid, String goodsName, Blob goodsImg, String goodsIntro, Clob goodsArticle,
 			Timestamp goodsStartTime, Timestamp goodsEndTime, Integer goodsStock, Integer goodsSafeStock,
-			String goodsSize, Integer goodsPrice, Integer goodsState, String funUid, Integer goodsView,
-			Timestamp insertDate) {
+			String goodsSize, Integer goodsPrice, Integer goodsState, Integer goodsView, Timestamp insertDate,
+			FoundationBean_HO73 foundationBean_HO73) {
 		super();
 		this.goodsUid = goodsUid;
 		this.goodsName = goodsName;
@@ -49,11 +55,31 @@ public class GoodsBean_HO73 {
 		this.goodsSize = goodsSize;
 		this.goodsPrice = goodsPrice;
 		this.goodsState = goodsState;
-		this.funUid = funUid;
+		this.goodsView = goodsView;
+		this.insertDate = insertDate;
+		this.foundationBean_HO73 = foundationBean_HO73;
+	}
+
+
+	public GoodsBean_HO73(Integer goodsUid, String goodsName, Blob goodsImg, String goodsIntro, Clob goodsArticle,
+			Timestamp goodsStartTime, Timestamp goodsEndTime, Integer goodsStock, Integer goodsSafeStock,
+			String goodsSize, Integer goodsPrice, Integer goodsState, Integer goodsView, Timestamp insertDate) {
+		super();
+		this.goodsUid = goodsUid;
+		this.goodsName = goodsName;
+		this.goodsImg = goodsImg;
+		this.goodsIntro = goodsIntro;
+		this.goodsArticle = goodsArticle;
+		this.goodsStartTime = goodsStartTime;
+		this.goodsEndTime = goodsEndTime;
+		this.goodsStock = goodsStock;
+		this.goodsSafeStock = goodsSafeStock;
+		this.goodsSize = goodsSize;
+		this.goodsPrice = goodsPrice;
+		this.goodsState = goodsState;
 		this.goodsView = goodsView;
 		this.insertDate = insertDate;
 	}
-
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -105,13 +131,6 @@ public class GoodsBean_HO73 {
 	public void setGoodsState(Integer goodsState) {
 		this.goodsState = goodsState;
 	}
-	public String getFunUid() {
-		return funUid;
-	}
-	public void setFunUid(String funUid) {
-		this.funUid = funUid;
-	}
-	
 	public Integer getGoodsView() {
 		return goodsView;
 	}
@@ -143,22 +162,42 @@ public class GoodsBean_HO73 {
 		this.goodsPrice = goodsPrice;
 	}
 	
-	@Lob
-	public byte[] getGoodsImg() {
+
+	public Blob getGoodsImg() {
 		return goodsImg;
 	}
 
-	public void setGoodsImg(byte[] goodsImg) {
+	public void setGoodsImg(Blob goodsImg) {
 		this.goodsImg = goodsImg;
 	}
-	
-	@Lob
-	public char[] getGoodsArticle() {
+
+	public Clob getGoodsArticle() {
 		return goodsArticle;
 	}
 
-	public void setGoodsArticle(char[] goodsArticle) {
+	public void setGoodsArticle(Clob goodsArticle) {
 		this.goodsArticle = goodsArticle;
+	}
+
+	@ManyToOne  // 多對ㄧ，多方(Item類別)內有個儲存ㄧ方(Cart類別)物件參考的實例變數
+	// @JoinColumn: 定義多方(Items)所對應表格中的外來鍵為何。省略此註釋，
+	// Hibernate會自動產生ㄧ個外來鍵，預設名稱為: 此性質名稱_外來鍵對應的主鍵名稱
+	@JoinColumn(name="funUid ", nullable=true)  
+	public FoundationBean_HO73 getFoundationBean_HO73() {
+		return foundationBean_HO73;
+	}
+
+
+	public String getGoodsImgFileName() {
+		return goodsImgFileName;
+	}
+
+	public void setGoodsImgFileName(String goodsImgFileName) {
+		this.goodsImgFileName = goodsImgFileName;
+	}
+
+	public void setFoundationBean_HO73(FoundationBean_HO73 foundationBean_HO73) {
+		this.foundationBean_HO73 = foundationBean_HO73;
 	}
 
 	@Override
@@ -166,8 +205,9 @@ public class GoodsBean_HO73 {
 		return "GoodsBean_HO73 [goodsUid=" + goodsUid + ", goodsName=" + goodsName + ", goodsImg=" + goodsImg
 				+ ", goodsIntro=" + goodsIntro + ", goodsArticle=" + goodsArticle + ", goodsStartTime=" + goodsStartTime
 				+ ", goodsEndTime=" + goodsEndTime + ", goodsStock=" + goodsStock + ", goodsSafeStock=" + goodsSafeStock
-				+ ", goodsSize=" + goodsSize + ", goodsPrice=" + goodsPrice + ", goodsState=" + goodsState + ", funUid="
-				+ funUid + ", views=" + goodsView + ", insertDate=" + insertDate + "]";
+				+ ", goodsSize=" + goodsSize + ", goodsPrice=" + goodsPrice + ", goodsState=" + goodsState
+				+ ", goodsView=" + goodsView + ", insertDate=" + insertDate + ", foundationBean_HO73="
+				+ foundationBean_HO73 + "]";
 	}
 
 

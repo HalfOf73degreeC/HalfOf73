@@ -7,46 +7,68 @@ import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Timestamp;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import model.bean.GoodsBean_HO73;
-import model.repository.GoodsDao;
-import model.repository.impl.GoodsDaoImpl;
 
 public class InitailGoodsMysql_hibernate {
 	public static void main(String[] args) throws Exception {
-
-		FileInputStream fis = new FileInputStream("data/InputGoods.txt");
-		InputStreamReader isr = new InputStreamReader(fis, "utf-8");
-		BufferedReader br = new BufferedReader(isr);
-		GoodsDao mdao = new GoodsDaoImpl();
+		System.out.println("Maven + Hibernate + MySQL 新增多筆資料到JSPDB");
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = null;
+		int count = 0;
+		try (
+				FileInputStream fis = new FileInputStream("data/InputGoods.txt");
+				InputStreamReader isr = new InputStreamReader(fis, "utf-8");
+				BufferedReader br = new BufferedReader(isr);){
 		
-		String line ="";
-		while ((line = br.readLine())!= null) {
-			String[] sa = line.split("\\|");
-			String goodsName = sa[0].trim();
-			String imgPath = sa[1].trim();
-			byte[] goodsImg = DBUtils.fileToBytes(imgPath);
-			String articlePath = sa[2].trim();
-			char[] goodsArticle = DBUtils.fileToChars(articlePath, "utf-8");
-			String startTime = sa[3].trim();
-			Timestamp goodsStartTime = new Timestamp(System.currentTimeMillis());
-			goodsStartTime = Timestamp.valueOf(startTime);
-			String endTime = sa[4].trim();
-			Timestamp goodsEndTime = new Timestamp(System.currentTimeMillis());
-			goodsEndTime = Timestamp.valueOf(endTime);
-			Integer goodsStock = Integer.parseInt(sa[5].trim());
-			Integer goodsSafeStock = Integer.parseInt(sa[6].trim());
-			String goodsSize = sa[7].trim();
-			Integer goodsState = Integer.parseInt(sa[8].trim());
-			String funUid = sa[9].trim();
-			Integer goodsViews = Integer.parseInt(sa[10].trim());
-			Timestamp insertDate = new Timestamp(System.currentTimeMillis());
-			String goodsIntro = sa[11].trim();
-			Integer goodsPrice = ((int)(Math.random()*50))*10;
-			GoodsBean_HO73 gb = new GoodsBean_HO73(null, goodsName, goodsImg, goodsIntro, goodsArticle, goodsStartTime, goodsEndTime, 
-					goodsStock, goodsSafeStock, goodsSize, goodsPrice, goodsState, funUid, goodsViews, insertDate);
-			System.out.println(gb);
-			mdao.save(gb);
-			System.out.println("新增一筆紀錄:" + gb.getGoodsName());
+			String line ="";
+			while ((line = br.readLine())!= null) {
+				tx = session.beginTransaction();
+				GoodsBean_HO73 gb = new GoodsBean_HO73();
+				String[] sa = line.split("\\|");
+				gb.setGoodsName(sa[0].trim());
+				
+				Blob sb = SystemUtils2018.fileToBlob(sa[1].trim());
+				gb.setGoodsImg(sb);
+
+				String imageFileName = sa[1].substring(sa[1]
+						.lastIndexOf("/") + 1);
+				gb.setGoodsImgFileName(imageFileName);
+
+				Clob clob = SystemUtils2018.fileToClob(sa[2].trim());
+				gb.setGoodsArticle(clob);
+				
+				String startTime = sa[3].trim();
+				Timestamp goodsStartTime = new Timestamp(System.currentTimeMillis());
+				goodsStartTime = Timestamp.valueOf(startTime);
+				gb.setGoodsStartTime(goodsStartTime);
+				String endTime = sa[4].trim();
+				Timestamp goodsEndTime = new Timestamp(System.currentTimeMillis());
+				goodsEndTime = Timestamp.valueOf(endTime);
+				gb.setGoodsEndTime(goodsEndTime);
+				gb.setGoodsStock(Integer.parseInt(sa[5].trim()));
+				gb.setGoodsSafeStock(Integer.parseInt(sa[6].trim()));
+				gb.setGoodsSize(sa[7].trim());
+				gb.setGoodsState(Integer.parseInt(sa[8].trim()));
+				gb.setGoodsView(Integer.parseInt(sa[10].trim()));
+				gb.setInsertDate(new Timestamp(System.currentTimeMillis()));
+				gb.setGoodsIntro(sa[11].trim());
+				gb.setGoodsPrice(((int)(Math.random()*50))*10);
+				System.out.println(gb);
+				session.save(gb);
+				session.flush();
+				tx.commit();
+				System.out.println("新增一筆紀錄:" + gb.getGoodsName());
+			}
+		} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) {
+					tx.rollback();
+					System.out.println("Transaction rollback");
+				}
+			}
+		
 		}
-	}
 }

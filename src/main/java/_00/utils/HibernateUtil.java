@@ -25,7 +25,7 @@ public class HibernateUtil {
 			
 			// Hibernate 5.x 的寫法
 			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-	                .configure("hibernate.cfg.xml").build();
+	                .configure("hibernateOnlyUseInitail.cfg.xml").build();
 	        Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();
 	        SessionFactory sessionFactory  = metadata.getSessionFactoryBuilder().build();
 	        return sessionFactory; 

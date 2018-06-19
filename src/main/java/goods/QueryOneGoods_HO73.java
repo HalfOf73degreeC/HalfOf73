@@ -21,7 +21,7 @@ public class QueryOneGoods_HO73 extends HttpServlet {
 			throws ServletException, IOException {
 		GoodsDao gdao = new GoodsDaoImpl();
 		Integer goodsUid = Integer.parseInt(request.getParameter("goodsUid"));
-		GoodsBean_HO73 gb = gdao.getOneGoods(goodsUid);
+		GoodsBean_HO73 gb = gdao.getOneGoods();
 		int viewsCount = gb.getGoodsView();
 		viewsCount ++;
 		gb.setGoodsView(viewsCount);
