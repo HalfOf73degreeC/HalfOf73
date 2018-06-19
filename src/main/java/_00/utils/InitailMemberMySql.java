@@ -111,6 +111,8 @@ public class InitailMemberMySql {
 					+ " memWhySupply varchar(225),"
 					+ " insertDate datetime, " 
 					+ " memStatus int,"
+					+ " memPicUrl varchar(225),"
+					+ " unpaidAmount decimal(8,1))"
 					+ " memPicUrl varchar(225),  "
 					+ " memPhoto  LongBlob, "
 					+ " fileName  varchar(20)) " 

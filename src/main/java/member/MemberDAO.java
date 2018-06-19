@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.sql.Clob;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,17 +16,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.sql.Date;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import _00.utils.GlobalService;
+
+import shoppingCart.model.OrderBean_HO73;
+import shoppingCart.model.ude.UnpaidOrderAmountExceedingException;
 import model.bean.MemberBean_HO73;
+
 
 public class MemberDAO {
     DataSource ds;
+    Connection conn = null;
     Context ctx;
     Date bd = new Date(0);
 	public MemberDAO() {
@@ -426,6 +432,50 @@ public class MemberDAO {
 			}
 		}
 		return null;
+	}
+
+	public void updateUnpaidOrderAmount(OrderBean_HO73 ob) {
+		double currentAmount = ob.getTotalAmount(); // 取出該訂單的總金額
+		Double unpaidAmount = 0.0;
+		// 讀取Member表格中，該客戶的未付款金額(unpaid_amount)
+		String sql = "SELECT unpaidAmount FROM member_ho73 m WHERE m.memAccount = ? ";
+		try (
+			PreparedStatement ps = conn.prepareStatement(sql);
+		) {
+			ps.setString(1, ob.getMemAccount());
+			try (ResultSet rs = ps.executeQuery();) {
+				if (rs.next()) {
+					unpaidAmount = rs.getDouble("unpaidAmount");
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			throw new RuntimeException("MemberDaoImpl_Jdbc類別#updateUnpaidOrderAmount()發生SQL例外: " + ex.getMessage());
+		}
+        // 如果該客戶的最新未付款總額 大於 公司規定之允許未付款總額
+		if (currentAmount + unpaidAmount > GlobalService.ORDER_AMOUNT_LIMIT) {
+			throw new UnpaidOrderAmountExceedingException("未付款金額超過限額: " + (currentAmount + unpaidAmount));
+		} else {
+			;
+		}
+		// 更新Member表格之未付款餘額欄位 unpaid_amount
+		String sql1 = "UPDATE member_ho73 SET unpaidAmount = unpaidAmount + ? " 
+		            + " WHERE memAccount = ?";
+		
+		try (
+			PreparedStatement ps1 = conn.prepareStatement(sql1);
+		) {
+			ps1.setDouble(1, currentAmount);
+			ps1.setString(2, ob.getMemAccount());
+			ps1.executeUpdate();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			throw new RuntimeException("MemberDaoImpl_Jdbc類別#updateUnpaidOrderAmount()發生SQL例外: " + ex.getMessage());
+		}
+	}
+	
+	public void setConnection(Connection conn) {
+        this.conn = conn;
 	}
 
 

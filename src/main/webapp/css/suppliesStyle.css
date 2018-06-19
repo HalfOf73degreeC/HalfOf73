@@ -1,0 +1,140 @@
+/* tools */
+.test{
+    /* border: bold 1px dotted maroon; */
+}
+
+
+.navbar-color{
+    background: -webkit-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
+    margin: 0px auto;   
+    font-family: 'Gloria Hallelujah', cursive;                             
+}
+/* <!-- shadow --> */
+.shadow{
+    text-shadow: 2px 2px gray;
+    text-shadow: 2px 3px gray;
+}
+/* <!-- mainBanner --> */
+.mainBanner {
+    height: 1000px;
+    background: url("../img/background/bg-design.jpg");
+    background-position: center;
+    background-size: cover;
+    padding:  0;
+    /* padding: up right down left */
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+/* <!-- row-right --> */
+.row-right{  
+    margin: 20px 0px 15px 290px;
+    position: absolute;
+}
+
+/* <!-- Title --> */
+
+/* <!-- Subtitle --> */
+
+/* <!-- Form --> */
+
+/* <!-- Break --> */
+
+/* <!-- Slider --> */
+
+/* <!-- Wrapper for sliders --> */
+
+/* <!-- list-left --> */
+.list-left{
+    position: relative;
+    border: 2px solid  rgba(252, 227, 138, 0.9);
+    border-style: double;
+    border-radius: 25px;
+    width: 280px;
+    height: 100%;
+    margin-left: 2px;
+    /* text-shadow: 2px 2px gray;
+    text-shadow: 2px 3px gray; */
+    font-family: 'Gloria Hallelujah', cursive;
+    float: none;
+}
+.box-shadow{
+    box-shadow: 3px 3px 12px rgba(243,129,129,0.9);
+}
+.area{
+    border: 5px solid rgba(252, 227, 138, 0.9);
+    width: 250px;
+    height: 45px;
+    margin: 80px 0px 0px 8px;
+    text-align: center;
+    border-radius: 15px;
+}
+.area-item{
+    border: 5px solid rgba(252, 227, 138, 0.9);
+    width: 250px;
+    height: 45px;
+    margin: 40px 0px 0px 8px;
+    text-align: center;
+    border-radius: 15px;
+}
+.area-text{
+    font-size: 25px;
+}
+.ck-box{
+    margin: 20px 0px 10px;
+    margin-left: 68px;
+}
+.ck-font{
+    font-size: 20px;
+    font-family: "微軟正黑體";
+}
+/* <!-- left bar --> */
+/* <!-- Job --> */
+
+/* <!-- Pages --> */
+
+/* <!-- Copyright --> */
+.copyRight{
+    height: 30px;
+    background-image: url("../img/break/black-modern.jpg");
+    background-position: center ;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+    /* background-size: cover; */
+}
+/* =================================================================== */
+/* 768 */
+/* =================================================================== */
+@media only screen and (max-width: 768px){
+    .subTitle{
+        font-size: 22.5px;
+    }
+    .appform{
+        width: 300px;
+        min-width: 20%;
+    }
+    .job{
+        padding: 30px 60px 25px 60px;
+    }
+}
+/* =================================================================== */
+/* 485 */
+/* =================================================================== */
+@media only screen and (max-width: 485px){
+    .navbar-brand{
+        /* width: 800px; */
+        font-size: 10px;
+    }
+    .subTitle{
+        font-size: 15px;
+    }
+    .appform{
+        width: 300px;
+        min-width: 10%;
+    }
+    .job{
+        padding: 10px 60px 25px 60px;
+    }
+    /* .list{
+        
+    } */
+}

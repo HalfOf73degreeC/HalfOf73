@@ -1,58 +1,43 @@
 package model.repository.impl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import _00.utils.HibernateUtil;
 import model.bean.GoodsBean_HO73;
 import model.repository.GoodsDao;
 
-public class GoodsDaoImpl implements GoodsDao {
+@Repository
+public class GoodsDaoImpl implements Serializable, GoodsDao {
+
+	private static final long serialVersionUID = 1L;
+	@Autowired
 	SessionFactory factory;
 
 	public GoodsDaoImpl() {
-		factory = HibernateUtil.getSessionFactory();
+//		factory = HibernateUtil.getSessionFactory();
 	}
 
 	@Override
-	public void save(GoodsBean_HO73 gb) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			session.save(gb); // session.update(object), session.delete(object);
-			tx.commit();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			if (tx != null)
-				tx.rollback();
-		} finally {
-			session.close();
-		}
+	public int save(GoodsBean_HO73 gb) {
+		int n = 0;
+		Session session = getSession();
+		session.save(gb);
+		n++;
+		return n;
 	}
 
 	// get資料庫單筆資料
 	@Override
 	public GoodsBean_HO73 getOneGoods(int goodsUid) {
-		Session session = factory.openSession();
 		GoodsBean_HO73 gb = null;
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			gb = (GoodsBean_HO73) session.get(GoodsBean_HO73.class, goodsUid);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			System.out.println(e.getMessage());
-		} finally {
-			session.close();
-		}
+		Session session = getSession();
+		gb = session.get(GoodsBean_HO73.class, goodsUid);
 		return gb;
 	}
 
@@ -60,47 +45,39 @@ public class GoodsDaoImpl implements GoodsDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<GoodsBean_HO73> getAllGoods() {
-		List<GoodsBean_HO73> allGoods = new ArrayList<GoodsBean_HO73>();
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			Query query = session.createQuery("From GoodsBean_HO73");
-			allGoods = query.getResultList();
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			System.out.println(e.getMessage());
-		} finally {
-			session.close();
-		}
-		return allGoods;
+
+		List<GoodsBean_HO73> allGoods = new ArrayList<>();
+		String hql = "FROM GoodsBean_HO73";
+		Session session = getSession();
+		allGoods = (List<GoodsBean_HO73>) session.createQuery(hql)
+												 .getResultList();
+		if(allGoods.size() > 0)
+		    return allGoods;
+		else
+		    return null;
 	}
 
 	@Override
 	public int update(GoodsBean_HO73 gb) {
-		int count = 0;
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			session.update("GoodsBean_HO73",gb);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			System.out.println(e.getMessage());
-		} finally {
-			session.close();
-		}
-		return count;
+		int n = 0;
+		Session session = getSession();
+		session.merge(gb);
+		n++;
+		return n;
 	}
 
 	@Override
 	public int delete(int goodsUid) {
-		// TODO Auto-generated method stub
-		return 0;
+		int n = 0;
+		Session session = getSession();
+		GoodsBean_HO73 gb = new GoodsBean_HO73();
+		gb.setGoodsUid(goodsUid);
+		session.delete(gb);
+		return n;
+	}
+
+	private Session getSession() {
+		return factory.getCurrentSession();
 	}
 
 }

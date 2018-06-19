@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import model.bean.GoodsBean_HO73;
-import model.repository.GoodsDao;
-import model.repository.impl.GoodsDaoImpl;
+import model.service.GoodsService;
 
 @WebServlet("/goods/queryAllGoods_HO73.do")
 public class QueryAllGoods_HO73 extends HttpServlet {
@@ -21,10 +23,13 @@ public class QueryAllGoods_HO73 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		GoodsDao gdao = new GoodsDaoImpl();
-		Collection<GoodsBean_HO73> coll = gdao.getAllGoods();
-		request.setAttribute("AllGoods", coll);
-		RequestDispatcher rd = request.getRequestDispatcher("/goods/goods.jsp");
+
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		GoodsService service = ctx.getBean(GoodsService.class);
+		List<GoodsBean_HO73> allGoods = service.getAllGoods();
+		request.setAttribute("AllGoods", allGoods);
+		RequestDispatcher rd = request.getRequestDispatcher("goods.jsp");
 		rd.forward(request, response);
 		return;
 	}
