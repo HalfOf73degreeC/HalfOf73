@@ -16,16 +16,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.google.gson.Gson;
 
 import model.bean.FoundationBean_HO73;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import model.bean.ToGson;
 import model.repository.FoundationDao;
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
-import model.bean.ToGson;
-import model.repository.FoundationDao;
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 import model.repository.impl.FoundationDaoImpl;
 
 

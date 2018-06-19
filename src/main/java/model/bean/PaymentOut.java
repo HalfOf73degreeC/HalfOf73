@@ -2,13 +2,6 @@ package model.bean;
 
 import java.util.Date;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import javax.persistence.Column;
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,35 +14,6 @@ import javax.persistence.Table;
 @Table(name="PaymentOut")
 public class PaymentOut {
 	Integer 	Id;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	PayBox	 	payBoxNumber;
-	String 		MemAccount;
-	Integer 	payAmount;
-	String 		payMemBankId;
-	String 		payMemAccount;
-	Date 		payDate;
-	
-	public PaymentOut(PayBox payBoxNumber, String memAccount, Integer payAmount) {
-		super();
-		this.payBoxNumber = payBoxNumber;
-		MemAccount = memAccount;
-		this.payAmount = payAmount;
-	}
-	
-	public PaymentOut(Integer id, PayBox payBoxNumber, String memAccount, Integer payAmount, String payMemBankId,
-			String payMemAccount, Date payDate) {
-		super();
-		Id = id;
-		this.payBoxNumber = payBoxNumber;
-		MemAccount = memAccount;
-		this.payAmount = payAmount;
-		this.payMemBankId = payMemBankId;
-		this.payMemAccount = payMemAccount;
-		this.payDate = payDate;
-=======
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	PayBox 		payBoxNumber;
 	String 		payIdcard;
 	String 		payForName;
@@ -75,10 +39,6 @@ public class PaymentOut {
 		this.payForCost = payForCost;
 		this.receipt = receipt;
 		this.insertDate = insertDate;
-<<<<<<< HEAD
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 	public PaymentOut() {
 		super();
@@ -114,71 +74,6 @@ public class PaymentOut {
 		this.payBoxNumber = payBoxNumber;
 	}
 	/**
-<<<<<<< HEAD
-<<<<<<< HEAD
-	 * @return the memAccount
-	 */
-	public String getMemAccount() {
-		return MemAccount;
-	}
-	/**
-	 * @param memAccount the memAccount to set
-	 */
-	public void setMemAccount(String memAccount) {
-		MemAccount = memAccount;
-	}
-	/**
-	 * @return the payAmount
-	 */
-	public Integer getPayAmount() {
-		return payAmount;
-	}
-	/**
-	 * @param payAmount the payAmount to set
-	 */
-	public void setPayAmount(Integer payAmount) {
-		this.payAmount = payAmount;
-	}
-	/**
-	 * @return the payMemBankId
-	 */
-	public String getPayMemBankId() {
-		return payMemBankId;
-	}
-	/**
-	 * @param payMemBankId the payMemBankId to set
-	 */
-	public void setPayMemBankId(String payMemBankId) {
-		this.payMemBankId = payMemBankId;
-	}
-	/**
-	 * @return the payMemAccount
-	 */
-	public String getPayMemAccount() {
-		return payMemAccount;
-	}
-	/**
-	 * @param payMemAccount the payMemAccount to set
-	 */
-	public void setPayMemAccount(String payMemAccount) {
-		this.payMemAccount = payMemAccount;
-	}
-	/**
-	 * @return the payDate
-	 */
-	public Date getPayDate() {
-		return payDate;
-	}
-	/**
-	 * @param payDate the payDate to set
-	 */
-	public void setPayDate(Date payDate) {
-		this.payDate = payDate;
-	}
-
-=======
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	 * @return the payIdcard
 	 */
 	public String getPayIdcard() {
@@ -250,35 +145,14 @@ public class PaymentOut {
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
-<<<<<<< HEAD
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
-=======
 		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
-		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 				+ "]";
 	}
 	
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-	
-	
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 }

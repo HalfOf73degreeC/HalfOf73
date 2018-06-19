@@ -347,15 +347,7 @@ public class FoundationBean_HO73{
 		this.insertDate = insertDate;
 	}
 
-<<<<<<< HEAD:src/main/java/model/bean/FoundationBean_HO73.java
-<<<<<<< HEAD:src/main/java/model/bean/FoundationBean_HO73.java
-	@OneToMany(mappedBy="foundationBean", cascade={CascadeType.ALL}) 
-=======
 	@OneToMany(mappedBy="foundationBean", cascade= CascadeType.ALL) 
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d:src/main/java/model/bean/FoundationBean_HO73.java
-=======
-	@OneToMany(mappedBy="foundationBean", cascade= CascadeType.ALL) 
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d:src/main/java/model/bean/FoundationBean_HO73.java
 	public Set<PayBox> getPayBox() {
 		return payBox;
 	}

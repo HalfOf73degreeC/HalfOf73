@@ -10,18 +10,8 @@ import org.hibernate.Transaction;
 import _00.utils.HibernateUtil;
 import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import model.bean.PaymentIn;
-import model.bean.PaymentOut;
-=======
 import model.bean.PaymentOut;
 import model.bean.PaymentIn;
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
-import model.bean.PaymentOut;
-import model.bean.PaymentIn;
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 
 //雙向一對多: 由購物車(Cart)來找出其內所有商品項目(Item)，也可以由商品項目(Item)
 //           找到購物車(Cart)。
@@ -89,15 +79,7 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PaymentIn 	pD4 = new PaymentIn(pb2, "黃", 1500000);
 		PaymentIn 	pD5 = new PaymentIn(pb2, "安", 255555);
 		PaymentIn 	pD6 = new PaymentIn(pb2, "正", 499);
-<<<<<<< HEAD
-<<<<<<< HEAD
-		PaymentOut		pC4 = new PaymentOut(pb2, "高國華花", 9999);
-=======
 		PaymentOut	pC4 = new PaymentOut(pb2, "高國華花", 9999);
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
-		PaymentOut	pC4 = new PaymentOut(pb2, "高國華花", 9999);
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 		PaymentOut 	pC5 = new PaymentOut(pb2, "高嘉瑜花", 14999);
 		PaymentOut 	pC6 = new PaymentOut(pb2, "明明是矮冬花", 499999);
 		Set<PaymentIn> PaymentInSet2 = new LinkedHashSet<PaymentIn>();
@@ -106,64 +88,10 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PaymentOutSet2.add(pC4);PaymentOutSet2.add(pC5);PaymentOutSet2.add(pC6);
 		
 		pb2.setPaymentIn(PaymentInSet2);
-<<<<<<< HEAD
-<<<<<<< HEAD
-		pb2.setPaymentOut(PaymentOutSet);
-		
-		SessionFactory sessionFactory = null;
-		Session session = null;
-		Transaction tx = null;
-		try{
-		// 建立SessionFactory物件
-		sessionFactory = HibernateUtil.getSessionFactory();
-		// 取出Session物件
-		session = sessionFactory.getCurrentSession();
-		System.out.println("得到Session物件");
-		//開啟交易
-		tx = session.beginTransaction();
-		
-		//Save the Model objects
-		session.save(fb);
-		session.save(fb2);
-		session.save(pb);
-		session.save(pb2); 
-		for(PaymentIn PaymentIn: PaymentInSet){
-			session.save(PaymentIn);
-		}
-		for(PaymentIn PaymentIn2: PaymentInSet2){
-			session.save(PaymentIn2);
-		}
-		for(PaymentOut PaymentOut: PaymentOutSet){
-			session.save(PaymentOut);
-		}
-		for(PaymentOut PaymentOut2: PaymentOutSet2){
-			session.save(PaymentOut2);
-		}
-		//Commit transaction
-		tx.commit();
-		System.out.println("捐款箱ID="+pb.getPayBoxNumber());
-		System.out.println("捐款箱ID="+pb2.getPayBoxNumber());
-		
-		}catch(Exception e){
-			System.out.println("發生例外: "+e.getMessage());
-			e.printStackTrace();
-		}finally{
-			if(!sessionFactory.isClosed()){
-				System.out.println("關閉SessionFactory");
-				sessionFactory.close();
-			}
-		}
-=======
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 		pb2.setPaymentOut(PaymentOutSet2);
 		
 		
 		
-<<<<<<< HEAD
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
-=======
->>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 }
 
