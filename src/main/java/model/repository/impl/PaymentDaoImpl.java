@@ -9,8 +9,8 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
-import model.DeliveryBean_HO73;
-import model.PaymentBean_HO73;
+import model.bean.DeliveryBean_HO73;
+import model.bean.PaymentBean_HO73;
 import model.repository.PaymentDao;
 
 public class PaymentDaoImpl implements PaymentDao {

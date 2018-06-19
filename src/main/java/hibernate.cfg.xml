@@ -33,17 +33,15 @@
 <!-- 	<property name="connection_pool_size">1</property> -->
 	
 	<!-- 3. 宣告程式使用的永續類別 -->
-<<<<<<< HEAD
-	<mapping class="model.MemberBean_HO73"/>
-	<mapping class="model.FoundationBean_HO73"/>
-	<mapping class="model.SupplyBean_HO73"/>
-	<mapping class="model.GoodsBean_HO73"/>	
-	<mapping class="news.NewsBean_HO73"/>
+	<mapping class="model.bean.MemberBean_HO73"/>
+	<mapping class="model.bean.FoundationBean_HO73"/>
+	<mapping class="model.bean.SupplyBean_HO73"/>
+	<mapping class="model.bean.GoodsBean_HO73"/>	
+	<mapping class="model.bean.NewsBean_HO73"/>
 	<mapping class="shoppingCart.model.OrderBean_HO73"/>
 	<mapping class="shoppingCart.model.OrderItemBean_HO73"/>
-	<mapping class="model.DeliveryBean_HO73"/>
-	<mapping class="model.PaymentBean_HO73"/>
-=======
+	<mapping class="model.bean.DeliveryBean_HO73"/>
+	<mapping class="model.bean.PaymentBean_HO73"/>
 <!-- 	<mapping class="model.MemberBean_HO73"/> -->
 <!-- 	<mapping class="model.FoundationBean_HO73"/> -->
 <!-- 	<mapping class="model.SupplyBean_HO73"/> -->
@@ -52,6 +50,5 @@
 <!-- 	<mapping class="model.PaymentIn"/>	 -->
 <!-- 	<mapping class="model.PaymentOut"/>	 -->
 <!-- 	<mapping class="news.NewsBean_HO73"/> -->
->>>>>>> 87b55646d7a6ff2f32e23dc776a37b9c8a4de9e9
 	</session-factory>
 </hibernate-configuration>

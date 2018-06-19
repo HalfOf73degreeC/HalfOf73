@@ -5,8 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.sql.Timestamp;
 
-import model.DeliveryBean_HO73;
-import model.PaymentBean_HO73;
+import model.bean.DeliveryBean_HO73;
+import model.bean.PaymentBean_HO73;
 import model.repository.PaymentDao;
 import model.repository.impl.PaymentDaoImpl;
 

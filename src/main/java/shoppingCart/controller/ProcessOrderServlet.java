@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import goods.OrderItem;
-import model.MemberBean_HO73;
+import model.bean.MemberBean_HO73;
 import shoppingCart.model.OrderBean_HO73;
 import shoppingCart.model.OrderItemBean_HO73;
 import shoppingCart.model.ShoppingCart;

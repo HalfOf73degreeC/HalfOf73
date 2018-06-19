@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
-import model.DeliveryBean_HO73;
+import model.bean.DeliveryBean_HO73;
 import model.repository.DeliveryDao;
 
 public class DeliveryDaoImpl implements DeliveryDao {

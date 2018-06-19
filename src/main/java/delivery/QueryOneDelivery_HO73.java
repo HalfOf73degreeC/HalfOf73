@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.DeliveryBean_HO73;
+import model.bean.DeliveryBean_HO73;
 import model.repository.DeliveryDao;
 import model.repository.impl.DeliveryDaoImpl;
 

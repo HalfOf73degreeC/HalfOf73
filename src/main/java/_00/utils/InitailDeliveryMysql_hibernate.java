@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.sql.Timestamp;
 
-import model.DeliveryBean_HO73;
+import model.bean.DeliveryBean_HO73;
 import model.repository.DeliveryDao;
 import model.repository.impl.DeliveryDaoImpl;
 

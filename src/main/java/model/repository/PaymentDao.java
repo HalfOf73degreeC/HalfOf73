@@ -2,7 +2,7 @@ package model.repository;
 
 import java.util.List;
 
-import model.PaymentBean_HO73;
+import model.bean.PaymentBean_HO73;
 
 public interface PaymentDao {
 	void save(PaymentBean_HO73 gb);

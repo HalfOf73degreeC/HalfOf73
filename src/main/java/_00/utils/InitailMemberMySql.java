@@ -111,14 +111,11 @@ public class InitailMemberMySql {
 					+ " memWhySupply varchar(225),"
 					+ " insertDate datetime, " 
 					+ " memStatus int,"
-<<<<<<< HEAD
 					+ " memPicUrl varchar(225),"
-					+ " unpaid_amount decimal(8,1))"
-=======
+					+ " unpaidAmount decimal(8,1))"
 					+ " memPicUrl varchar(225),  "
 					+ " memPhoto  LongBlob, "
 					+ " fileName  varchar(20)) " 
->>>>>>> 87b55646d7a6ff2f32e23dc776a37b9c8a4de9e9
 					+ " ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci " ;
 
 			try {
