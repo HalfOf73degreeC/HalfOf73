@@ -15,4 +15,20 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+<<<<<<< HEAD
+=======
+<!-- 	<filter> -->
+<!-- 		<filter-name>OpenSessionInViewFilter</filter-name> -->
+<!-- 		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class> -->
+<!-- 		<init-param> -->
+<!-- 			<param-name>sessionFactoryBeanName</param-name> -->
+<!-- 			<param-value>sessionFactory</param-value> -->
+<!-- 		</init-param> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>OpenSessionInViewFilter</filter-name> -->
+<!-- 		<url-pattern>*</url-pattern> -->
+<!-- 	</filter-mapping> -->
+
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 </web-app>

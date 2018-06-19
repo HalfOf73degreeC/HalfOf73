@@ -12,9 +12,12 @@
     <context:property-placeholder location="classpath:db.properties"/>
 	<tx:annotation-driven/>
     
+<<<<<<< HEAD
     
     
     
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
     <bean id="dataSource" 
        class="com.mchange.v2.c3p0.ComboPooledDataSource" >
       <property name="driverClass" value="${jdbc.driverClass}"/>
@@ -26,16 +29,26 @@
       <property name="maxIdleTime" value='${jdbc.maxIdleTime}'/>
     </bean>
     
+<<<<<<< HEAD
     <bean id="localSessionFactoryBean" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
     	<property name="dataSource" ref="dataSource"></property>
     	<property name="packagesToScan" value="ch01.model"></property>
+=======
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"></property>
+    	<property name="packagesToScan" value="model"></property>
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
     	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
     </bean>
     
     <!--原本id打的是hibernateTransactio nManager-->
     <bean id="transactionManager"  
     	class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+<<<<<<< HEAD
   		<property name="sessionFactory" ref="localSessionFactoryBean"></property>
+=======
+  		<property name="sessionFactory" ref="sessionFactory"></property>
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
     </bean>
     
 <!--     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> -->

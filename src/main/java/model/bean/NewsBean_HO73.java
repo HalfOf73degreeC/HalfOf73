@@ -1,4 +1,4 @@
-package news;
+package model.bean;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="NewsBean_HO73")
 public class NewsBean_HO73 {
 	
 	Integer		newsUid;

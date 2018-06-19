@@ -10,8 +10,13 @@ import org.hibernate.Transaction;
 import _00.utils.HibernateUtil;
 import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
+<<<<<<< HEAD
 import model.bean.PaymentIn;
 import model.bean.PaymentOut;
+=======
+import model.bean.PaymentOut;
+import model.bean.PaymentIn;
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 
 //雙向一對多: 由購物車(Cart)來找出其內所有商品項目(Item)，也可以由商品項目(Item)
 //           找到購物車(Cart)。
@@ -79,7 +84,11 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PaymentIn 	pD4 = new PaymentIn(pb2, "黃", 1500000);
 		PaymentIn 	pD5 = new PaymentIn(pb2, "安", 255555);
 		PaymentIn 	pD6 = new PaymentIn(pb2, "正", 499);
+<<<<<<< HEAD
 		PaymentOut		pC4 = new PaymentOut(pb2, "高國華花", 9999);
+=======
+		PaymentOut	pC4 = new PaymentOut(pb2, "高國華花", 9999);
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 		PaymentOut 	pC5 = new PaymentOut(pb2, "高嘉瑜花", 14999);
 		PaymentOut 	pC6 = new PaymentOut(pb2, "明明是矮冬花", 499999);
 		Set<PaymentIn> PaymentInSet2 = new LinkedHashSet<PaymentIn>();
@@ -88,6 +97,7 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PaymentOutSet2.add(pC4);PaymentOutSet2.add(pC5);PaymentOutSet2.add(pC6);
 		
 		pb2.setPaymentIn(PaymentInSet2);
+<<<<<<< HEAD
 		pb2.setPaymentOut(PaymentOutSet);
 		
 		SessionFactory sessionFactory = null;
@@ -133,6 +143,12 @@ public class O2MMain02_Bi_Insert__PayBox {
 				sessionFactory.close();
 			}
 		}
+=======
+		pb2.setPaymentOut(PaymentOutSet2);
+		
+		
+		
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 }
 

@@ -11,11 +11,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
 import model.bean.PayBox;
 import model.bean.PaymentOut;
 import model.repository.PaymentOutDao;
 
 @Repository("poDao")
+=======
+import model.bean.PaymentOut;
+import model.repository.PaymentOutDao;
+
+@Repository("paymentOutDao")
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 @Scope("prototype")
 public class PaymentOutDaoImpl implements PaymentOutDao {
 

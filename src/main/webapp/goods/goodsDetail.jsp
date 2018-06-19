@@ -84,8 +84,7 @@
 	<!-- Story About Us
     ================================================== -->
 	<c:set var="goodsBean" value="${goodsBean}"></c:set>
-	<form action="supplyBox.html" method="post">
-
+	<form action="BuyGoods.do" method="post">
 		<section id="nino-whatWeDo">
 		<div class="container">
 			<div class="card">
@@ -144,7 +143,7 @@
 							<dl>
 								<dt>數量:</dt>
 								<dd>
-									<select class="form-control form-control-sm" style="width: 70px;">
+									<select name='qty' class="form-control form-control-sm" style="width: 70px;">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -161,9 +160,17 @@
 							<!-- item-property .// -->
 						</div>
 					</div>
-					<!-- row.// --> <a href="#" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;立即購買&nbsp;&nbsp;&nbsp;&nbsp;
-					</a> <a href="#" class="btn btn-lg btn-primary"> <i
-						class="fas fa-shopping-cart"></i> 加入購物車
+						<Input type='hidden' name='goodsName' value='${goodsBean.goodsName}'><P/>
+			            <Input type='hidden' name='funUid' value='${goodsBean.funUid}'><P/>
+			            <Input type='hidden' name='goodsUid' value='${goodsBean.goodsUid}'><P/>
+			            <Input type='hidden' name='goodsPrice' value='${goodsBean.goodsPrice}'><P/>
+			            <Input type='hidden' name='goodsImg' value='${goodsBean.goodsImg}'><P/>
+			            <Input type='hidden' name='pageNo' value='${param.pageNo}'><P/>
+					<!-- row.// --> 
+					
+					<a href="#" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;立即購買&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+					<!-- <a href="#" class="btn btn-lg btn-primary"> <i class="fas fa-shopping-cart"></i>加入購物車-->
+					<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'>
 					</a> </article> <!-- card-body.// --> </aside>
 					<!-- col.// -->
 				</div>

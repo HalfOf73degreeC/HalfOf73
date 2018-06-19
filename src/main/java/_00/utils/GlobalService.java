@@ -29,6 +29,7 @@ public class GlobalService {
 	public static final int IMAGE_FILENAME_LENGTH = 20;
 	public static final String DB_URLMySQL = "jdbc:mysql://35.165.226.129:6603/ho73?useUnicode=yes&characterEncoding=utf8" ;
 	public static final String KEY = "HO73";  // 16, 24, 32
+	public static final int ORDER_AMOUNT_LIMIT = 10000;
 	
 	public static final String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 

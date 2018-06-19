@@ -1,4 +1,4 @@
-package news;
+package model.repository.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,21 +9,23 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import _00.utils.HibernateUtil;
+import model.bean.DeliveryBean_HO73;
+import model.repository.DeliveryDao;
 
-public class NewsDaoImpl implements NewsDao {
+public class DeliveryDaoImpl implements DeliveryDao {
 	SessionFactory factory;
-	
-	public NewsDaoImpl() {
+
+	public DeliveryDaoImpl() {
 		factory = HibernateUtil.getSessionFactory();
 	}
-	
+
 	@Override
-	public void save(NewsBean_HO73 nb) {
+	public void save(DeliveryBean_HO73 db) {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.save(nb); // session.update(object), session.delete(object);
+			session.save(db); // session.update(object), session.delete(object);
 			tx.commit();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -36,32 +38,13 @@ public class NewsDaoImpl implements NewsDao {
 	}
 
 	@Override
-	public void saveOrUpdate(NewsBean_HO73 nb) {
+	public DeliveryBean_HO73 getOneDelivery(int deliveryUid) {
 		Session session = factory.openSession();
+		DeliveryBean_HO73 db = null;
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.saveOrUpdate(nb); // session.update(object), session.delete(object);
-			tx.commit();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			if (tx != null)
-				tx.rollback();
-		} finally {
-			session.close();
-		}
-
-	}
-
-	@Override
-	public List<NewsBean_HO73> getAllNews() {
-		List<NewsBean_HO73> allNews = new ArrayList<NewsBean_HO73>();
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			Query query = session.createQuery("From NewsBean_HO73");
-			allNews = query.getResultList();
+			db = (DeliveryBean_HO73) session.get(DeliveryBean_HO73.class, deliveryUid);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -70,17 +53,19 @@ public class NewsDaoImpl implements NewsDao {
 		} finally {
 			session.close();
 		}
-		return allNews;
+		return db;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public NewsBean_HO73 getOneNew(Integer newsUid) {
+	public List<DeliveryBean_HO73> getAllDelivery() {
+		List<DeliveryBean_HO73> allDelivery = new ArrayList<DeliveryBean_HO73>();
 		Session session = factory.openSession();
-		NewsBean_HO73 nb = null;
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			nb = (NewsBean_HO73) session.get(NewsBean_HO73.class, newsUid);
+			Query query = session.createQuery("From DeliveryBean_HO73");
+			allDelivery = query.getResultList();
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -89,30 +74,30 @@ public class NewsDaoImpl implements NewsDao {
 		} finally {
 			session.close();
 		}
-		return nb;
-
+		return allDelivery;
 	}
 
 	@Override
-	public int merge(NewsBean_HO73 nb) {
+	public int update(DeliveryBean_HO73 db) {
+		int count = 0;
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.merge(nb); // session.update(object), session.delete(object);
+			session.update("DeliveryBean_HO73",db);
 			tx.commit();
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
 			if (tx != null)
 				tx.rollback();
+			System.out.println(e.getMessage());
 		} finally {
 			session.close();
 		}
-		return 0;
+		return count;
 	}
 
 	@Override
-	public int delete(Integer newsUid) {
+	public int delete(int deliveryUid) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

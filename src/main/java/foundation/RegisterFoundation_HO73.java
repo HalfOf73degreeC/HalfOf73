@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import member.MemberDAO;
 import model.bean.FoundationBean_HO73;
 import model.bean.MemberBean_HO73;
@@ -105,10 +108,11 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 				funCeo, funContact, funTel, funFax, funDomain, funEmail, funEmail2, 
 				funAddress, funFounder, jqd, funAllowOrg, funIntent, funArticle, funArea, funServiceUser,
 				funService);
-		
-		FoundationDao fdao = new FoundationDaoImpl();
-		fdao.saveOrUpdate(fb);
-		fb = fdao.getOneFoundation(funIdcard);
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
+		foundationDao.saveOrUpdate(fb);
+		fb = foundationDao.getOneFoundation(funIdcard);
 		System.out.println(fb.getFunIdcard());
 		session.setAttribute("foundationBean", fb);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);

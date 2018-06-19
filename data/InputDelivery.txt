@@ -1,0 +1,2 @@
+宅配|../images/halfof73/shipped.png|使用宅急便配送|60
+郵局|../images/halfof73/post.png|使用郵局配送|40

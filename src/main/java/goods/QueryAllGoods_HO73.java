@@ -24,7 +24,7 @@ public class QueryAllGoods_HO73 extends HttpServlet {
 		GoodsDao gdao = new GoodsDaoImpl();
 		Collection<GoodsBean_HO73> coll = gdao.getAllGoods();
 		request.setAttribute("AllGoods", coll);
-		RequestDispatcher rd = request.getRequestDispatcher("/goods/goods.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("goods.jsp");
 		rd.forward(request, response);
 		return;
 	}

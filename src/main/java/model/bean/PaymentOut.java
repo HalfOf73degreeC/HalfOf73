@@ -2,7 +2,10 @@ package model.bean;
 
 import java.util.Date;
 
+<<<<<<< HEAD
 import javax.persistence.Column;
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +18,7 @@ import javax.persistence.Table;
 @Table(name="PaymentOut")
 public class PaymentOut {
 	Integer 	Id;
+<<<<<<< HEAD
 	PayBox	 	payBoxNumber;
 	String 		MemAccount;
 	Integer 	payAmount;
@@ -39,6 +43,33 @@ public class PaymentOut {
 		this.payMemBankId = payMemBankId;
 		this.payMemAccount = payMemAccount;
 		this.payDate = payDate;
+=======
+	PayBox 		payBoxNumber;
+	String 		payIdcard;
+	String 		payForName;
+	String 		payForDetail;
+	Integer 	payForCost;	
+	String 		receipt;
+	Date 		insertDate;
+	
+	public PaymentOut(PayBox payBoxNumber, String payForName, Integer payForCost) {
+		super();
+		this.payBoxNumber = payBoxNumber;
+		this.payForName = payForName;
+		this.payForCost = payForCost;
+	}
+	public PaymentOut(Integer id, PayBox payBoxNumber, String payIdcard, String payForName, String payForDetail,
+			Integer payForCost, String receipt, Date insertDate) {
+		super();
+		Id = id;
+		this.payBoxNumber = payBoxNumber;
+		this.payIdcard = payIdcard;
+		this.payForName = payForName;
+		this.payForDetail = payForDetail;
+		this.payForCost = payForCost;
+		this.receipt = receipt;
+		this.insertDate = insertDate;
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 	public PaymentOut() {
 		super();
@@ -74,6 +105,7 @@ public class PaymentOut {
 		this.payBoxNumber = payBoxNumber;
 	}
 	/**
+<<<<<<< HEAD
 	 * @return the memAccount
 	 */
 	public String getMemAccount() {
@@ -134,17 +166,97 @@ public class PaymentOut {
 		this.payDate = payDate;
 	}
 
+=======
+	 * @return the payIdcard
+	 */
+	public String getPayIdcard() {
+		return payIdcard;
+	}
+	/**
+	 * @param payIdcard the payIdcard to set
+	 */
+	public void setPayIdcard(String payIdcard) {
+		this.payIdcard = payIdcard;
+	}
+	/**
+	 * @return the payForName
+	 */
+	public String getPayForName() {
+		return payForName;
+	}
+	/**
+	 * @param payForName the payForName to set
+	 */
+	public void setPayForName(String payForName) {
+		this.payForName = payForName;
+	}
+	/**
+	 * @return the payForDetail
+	 */
+	public String getPayForDetail() {
+		return payForDetail;
+	}
+	/**
+	 * @param payForDetail the payForDetail to set
+	 */
+	public void setPayForDetail(String payForDetail) {
+		this.payForDetail = payForDetail;
+	}
+	/**
+	 * @return the payForCost
+	 */
+	public Integer getPayForCost() {
+		return payForCost;
+	}
+	/**
+	 * @param payForCost the payForCost to set
+	 */
+	public void setPayForCost(Integer payForCost) {
+		this.payForCost = payForCost;
+	}
+	/**
+	 * @return the receipt
+	 */
+	public String getReceipt() {
+		return receipt;
+	}
+	/**
+	 * @param receipt the receipt to set
+	 */
+	public void setReceipt(String receipt) {
+		this.receipt = receipt;
+	}
+	/**
+	 * @return the insertDate
+	 */
+	public Date getInsertDate() {
+		return insertDate;
+	}
+	/**
+	 * @param insertDate the insertDate to set
+	 */
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
+	}
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
+=======
+		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 				+ "]";
 	}
 	
 	
+<<<<<<< HEAD
 	
 	
 	
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 }
