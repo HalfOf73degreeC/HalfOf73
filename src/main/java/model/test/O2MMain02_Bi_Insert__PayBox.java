@@ -11,8 +11,13 @@ import _00.utils.HibernateUtil;
 import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import model.bean.PaymentIn;
 import model.bean.PaymentOut;
+=======
+import model.bean.PaymentOut;
+import model.bean.PaymentIn;
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 import model.bean.PaymentOut;
 import model.bean.PaymentIn;
@@ -85,7 +90,11 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PaymentIn 	pD5 = new PaymentIn(pb2, "安", 255555);
 		PaymentIn 	pD6 = new PaymentIn(pb2, "正", 499);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		PaymentOut		pC4 = new PaymentOut(pb2, "高國華花", 9999);
+=======
+		PaymentOut	pC4 = new PaymentOut(pb2, "高國華花", 9999);
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 		PaymentOut	pC4 = new PaymentOut(pb2, "高國華花", 9999);
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
@@ -97,6 +106,7 @@ public class O2MMain02_Bi_Insert__PayBox {
 		PaymentOutSet2.add(pC4);PaymentOutSet2.add(pC5);PaymentOutSet2.add(pC6);
 		
 		pb2.setPaymentIn(PaymentInSet2);
+<<<<<<< HEAD
 <<<<<<< HEAD
 		pb2.setPaymentOut(PaymentOutSet);
 		
@@ -144,10 +154,15 @@ public class O2MMain02_Bi_Insert__PayBox {
 			}
 		}
 =======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 		pb2.setPaymentOut(PaymentOutSet2);
 		
 		
 		
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 }

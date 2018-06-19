@@ -112,6 +112,11 @@ public class InitailMemberMySql {
 					+ " insertDate datetime, " 
 					+ " memStatus int,"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+					+ " memPicUrl varchar(225),"
+					+ " unpaidAmount decimal(8,1))"
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 					+ " memPicUrl varchar(225),"
 					+ " unpaidAmount decimal(8,1))"

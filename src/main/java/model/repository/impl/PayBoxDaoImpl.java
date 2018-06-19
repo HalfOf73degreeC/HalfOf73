@@ -14,7 +14,11 @@ import model.bean.PayBox;
 import model.repository.PayBoxDao;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @Repository("pbDao")
+=======
+@Repository("payboxDao")
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 @Repository("payboxDao")
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d

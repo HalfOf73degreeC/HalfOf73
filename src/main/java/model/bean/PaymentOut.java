@@ -3,7 +3,10 @@ package model.bean;
 import java.util.Date;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javax.persistence.Column;
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 import javax.persistence.Entity;
@@ -18,6 +21,7 @@ import javax.persistence.Table;
 @Table(name="PaymentOut")
 public class PaymentOut {
 	Integer 	Id;
+<<<<<<< HEAD
 <<<<<<< HEAD
 	PayBox	 	payBoxNumber;
 	String 		MemAccount;
@@ -44,6 +48,8 @@ public class PaymentOut {
 		this.payMemAccount = payMemAccount;
 		this.payDate = payDate;
 =======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	PayBox 		payBoxNumber;
 	String 		payIdcard;
 	String 		payForName;
@@ -69,6 +75,9 @@ public class PaymentOut {
 		this.payForCost = payForCost;
 		this.receipt = receipt;
 		this.insertDate = insertDate;
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 	public PaymentOut() {
@@ -105,6 +114,7 @@ public class PaymentOut {
 		this.payBoxNumber = payBoxNumber;
 	}
 	/**
+<<<<<<< HEAD
 <<<<<<< HEAD
 	 * @return the memAccount
 	 */
@@ -167,6 +177,8 @@ public class PaymentOut {
 	}
 
 =======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	 * @return the payIdcard
 	 */
 	public String getPayIdcard() {
@@ -238,6 +250,9 @@ public class PaymentOut {
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -245,7 +260,11 @@ public class PaymentOut {
 	@Override
 	public String toString() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
+=======
+		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
@@ -254,9 +273,12 @@ public class PaymentOut {
 	
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 	
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 }

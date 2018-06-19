@@ -3,6 +3,10 @@ package model.bean;
 import java.util.Date;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import javax.persistence.Column;
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 import javax.persistence.Column;
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
@@ -18,6 +22,7 @@ import javax.persistence.Table;
 @Table(name="PaymentIn")
 public class PaymentIn {
 	Integer 	Id;
+<<<<<<< HEAD
 <<<<<<< HEAD
 	PayBox 		payBoxNumber;
 	String 		payIdcard;
@@ -45,6 +50,8 @@ public class PaymentIn {
 		this.receipt = receipt;
 		this.insertDate = insertDate;
 =======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	PayBox	 	payBoxNumber;
 	String 		MemAccount;
 	Integer 	payAmount;
@@ -69,6 +76,9 @@ public class PaymentIn {
 		this.payMemBankId = payMemBankId;
 		this.payMemAccount = payMemAccount;
 		this.payDate = payDate;
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	}
 	public PaymentIn() {
@@ -105,6 +115,7 @@ public class PaymentIn {
 		this.payBoxNumber = payBoxNumber;
 	}
 	/**
+<<<<<<< HEAD
 <<<<<<< HEAD
 	 * @return the payIdcard
 	 */
@@ -178,6 +189,8 @@ public class PaymentIn {
 		this.insertDate = insertDate;
 	}
 =======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	 * @return the memAccount
 	 */
 	public String getMemAccount() {
@@ -238,6 +251,9 @@ public class PaymentIn {
 		this.payDate = payDate;
 	}
 
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -245,7 +261,11 @@ public class PaymentIn {
 	@Override
 	public String toString() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return "PaymentCost [payBoxNumber=" + payBoxNumber + ", payForName=" + payForName + ", payForCost=" + payForCost
+=======
+		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 		return "PaymentDetail [payBoxNumber=" + payBoxNumber + ", MemAccount=" + MemAccount + ", payAmount=" + payAmount
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
@@ -254,6 +274,12 @@ public class PaymentIn {
 	
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	
+	
+	
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 	
 	

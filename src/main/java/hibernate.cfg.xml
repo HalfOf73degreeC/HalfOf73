@@ -34,6 +34,7 @@
 	
 	<!-- 3. 宣告程式使用的永續類別 -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<mapping class="model.MemberBean_HO73"/>
 	<mapping class="model.FoundationBean_HO73"/>
 	<mapping class="model.SupplyBean_HO73"/>
@@ -43,6 +44,8 @@
 	<mapping class="model.PaymentOut"/>	
 	<mapping class="news.NewsBean_HO73"/>
 =======
+=======
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 <!-- 	<mapping class="model.MemberBean_HO73"/> -->
 <!-- 	<mapping class="model.FoundationBean_HO73"/> -->
 <!-- 	<mapping class="model.SupplyBean_HO73"/> -->
@@ -51,6 +54,9 @@
 <!-- 	<mapping class="model.PaymentIn"/>	 -->
 <!-- 	<mapping class="model.PaymentOut"/>	 -->
 <!-- 	<mapping class="news.NewsBean_HO73"/> -->
+<<<<<<< HEAD
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
+=======
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 	</session-factory>
 </hibernate-configuration>

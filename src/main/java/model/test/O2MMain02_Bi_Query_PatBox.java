@@ -7,8 +7,13 @@ import org.hibernate.Transaction;
 import _00.utils.HibernateUtil;
 import model.bean.PayBox;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import model.bean.PaymentIn;
 import model.bean.PaymentOut;
+=======
+import model.bean.PaymentOut;
+import model.bean.PaymentIn;
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 import model.bean.PaymentOut;
 import model.bean.PaymentIn;
@@ -45,7 +50,11 @@ public class O2MMain02_Bi_Query_PatBox {
 		System.out.println("查詢特定的Item物件，由它找出對應的Cart:");
 		Integer itemKey = 3;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		PaymentIn PaymentIn = session.get(PaymentIn.class, itemKey); 
+=======
+		PaymentOut PaymentIn = session.get(PaymentOut.class, itemKey); 
+>>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
 =======
 		PaymentOut PaymentIn = session.get(PaymentOut.class, itemKey); 
 >>>>>>> 9a2434799cd297e4c897a48d16f1229d11d5aa7d
