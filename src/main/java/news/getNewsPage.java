@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 
 import model.bean.NewsBean_HO73;
 import model.repository.NewsDao;
+import model.service.NewsService;
 
 /**
  * Servlet implementation class getMemberPage
@@ -30,11 +31,9 @@ public class getNewsPage extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		NewsDao newsDao = ctx.getBean(NewsDao.class);
+		NewsService ns = ctx.getBean(NewsService.class);
 		// mdao.setPageNo(pageNo);
-		List<NewsBean_HO73> list = newsDao.getAllNews();
-		Gson gson = new Gson();
-		String gString = gson.toJson(list); 
+		String gString = ns.getAllNews2String(); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);

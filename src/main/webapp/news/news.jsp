@@ -75,7 +75,6 @@
 	</header>
 	<!--header 結束，內容開始  -->
 	<!-- 下列敘述設定變數funcName的值為SHO，top.jsp 會用到此變數 -->
-	<section id="nino-whatWeDo"></section>
 	<section id="nino-latestBlog">
 		<div class="container" >
 			<!-- 			<h2 class="nino-sectionHeading"> -->
