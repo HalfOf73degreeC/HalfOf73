@@ -499,7 +499,7 @@
 							</div>
 						</div>
 						<div class="info">
-							<a href="../foundation/queryOneFoundation_HO73.do"
+							<a href="../foundation/foundation_register.jsp"
 								class="nino-icon" style="font-size: 20px">立即加入</a><br> <span
 								class="regency">Lorem ipsum dolor sit amet, consectetur
 								adipiscing elit, sed do eiusmod tempor incididunt ut labore et

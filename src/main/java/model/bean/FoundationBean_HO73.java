@@ -159,7 +159,6 @@ public class FoundationBean_HO73{
 		this.funName = funName;
 	}
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public String getFunIdcard() {
 		return funIdcard;
 	}
