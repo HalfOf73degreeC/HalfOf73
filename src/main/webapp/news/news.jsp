@@ -197,6 +197,26 @@
 								            $(this).text(text);
 								        }
 								    });
+// 								    <!-- 	dialog視窗  -->
+								    $( "#dialog" ).dialog({
+								        autoOpen: false,
+								        modal: true,
+								     		draggable: false,
+								        resizable: false,
+								        show: {
+								          effect: "fade",
+								          duration: 500
+								        },
+								        hide: {
+								          effect: "fade",
+								          duration: 500
+								        }
+								      });
+								   
+								      $( ".articleTitle" ).on( "click", function() {
+								        $( "#dialog" ).dialog( "open" );
+								      });
+								      
 								}
 							}
 						});
@@ -206,9 +226,17 @@
 		
 	</script>
 	<script type="text/javascript" src="../js/template.js"></script>
+<!-- 	include -->
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
 	<script>
 		w3.includeHTML();
 	</script>
+<!-- 	dialog視窗  -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<div id="dialog" title="Basic dialog">
+	  <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+	</div>
 </body>
 </html>

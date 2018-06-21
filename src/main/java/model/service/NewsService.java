@@ -31,9 +31,8 @@ public class NewsService {
 		
 //	新建一則新聞
 	@Transactional
-	public int creatOneFoundation(NewsBean_HO73 fb) {		
-		newsDao.save(fb);		
-
+	public int creatOneNews(NewsBean_HO73 nb) {		
+		newsDao.save(nb);
 		return 0;
 	}
 //	查詢所有新聞
@@ -47,12 +46,14 @@ public class NewsService {
 		return gson.toJson(getAllNews());
 	}
 	
-//	查詢一筆基金會
-//	@Transactional
-//	public NewsBean getOneFoundation(String funIdcard) {
-//		NewsBean nb = newsDao.getOneFoundation(funIdcard);		
-//		return nb;		
-//	}
+//	查詢一則新聞(觀看數+1)
+	@Transactional
+	public NewsBean_HO73 getOneNews(Integer newsUid) {
+		NewsBean_HO73 nb = newsDao.getOneNew(newsUid);	
+		nb.setNewsView(nb.getNewsView()+1);
+		newsDao.saveOrUpdate(nb);
+		return nb;		
+	}
 	
 	
 	
