@@ -81,15 +81,17 @@
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Sharing Love</span>
-							<span class="nino-subHeadingn"><br>愛的溫度，是我能為你做的事情<br><br>點亮愛，傳遞笑顏的溫暖</span>
+							<span class="nino-subHeadingn"><br>愛的溫度，是我能為你做的事情<br><br>
+							<br>點亮愛，傳遞笑顏的溫暖</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
 					<div class="item">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Be Together</span>
-							<span class="nino-subHeadingn"><br>別讓他們的無助，成為彼此的遺憾<br><br>
-							給予最溫暖的溫度</span>
+							<span class="nino-subHeadingn"><br>別讓他們的無助<br><br>
+							<br>成為你我之間的遺憾</span>
+							
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
@@ -124,14 +126,14 @@
      <section id="nino-latestBlog">
     	<div class="container">
     		<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">最新消息</span>
+				<span class="nino-subHeading" style="font-size: 30px">最新消息</span>
 			</h2>
 			<div class="sectionContent">
 				<div class="row">
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/283.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/kid.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">15</span>
 									<span class="text">Jan</span>
@@ -151,7 +153,7 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/272.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/doctor.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">14</span>
 									<span class="text">Jan</span>
@@ -170,7 +172,7 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/273.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/donateLove.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">12</span>
 									<span class="text">Jan</span>
@@ -191,15 +193,16 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/282.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/countryKids.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">15</span>
 									<span class="text">Jan</span>
 								</div>
 							</div>
-							<h3 class="articleTitle"><a href="">台灣公益資訊中心</a></h3>
+							<h3 class="articleTitle"><a href="">偏鄉促進會</a></h3>
 							<p class="articleDesc">
-								台灣公益資訊中心係喜瑪拉雅研究發展基金會為台灣非營利組織所建立的公益資訊交流平台，提供公益新聞、活動、人才招募...等訊息發佈，以強化公益團體的資訊 ...
+								讓我們一同協助偏鄉地區的小朋友，給予他們更好的生活品質與教育環境，擁有更良好的學習資源
+								，需要你我一起努力！...
 							</p>
 							<div class="articleMeta">
 								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
@@ -210,15 +213,15 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/296.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/sameLove.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">14</span>
 									<span class="text">Jan</span>
 								</div>
 							</div>
-							<h3 class="articleTitle"><a href="">Yahoo奇摩公益</a></h3>
+							<h3 class="articleTitle"><a href="">享愛人權基金會</a></h3>
 							<p class="articleDesc">
-								Yahoo奇摩公益提供所有捐款者一個安全、豐富及多元的捐款資訊平台，公益團體更容易地在此匯集社會善心資源，讓捐款更透明，捐款人更安心。
+								愛，沒有分別......讓我們一同放下成見，為弱勢族群發聲。也許每個人的力量是渺小的，但是因為有您，所以我們就有力量繼續努力！
 							</p>
 							<div class="articleMeta">
 								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
@@ -229,15 +232,15 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/293.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/woman.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">12</span>
 									<span class="text">Jan</span>
 								</div>
 							</div>
-							<h3 class="articleTitle"><a href="">樂捐款- 樂公益</a></h3>
+							<h3 class="articleTitle"><a href="">婦孺保育協會</a></h3>
 							<p class="articleDesc">
-								樂公益（Lecoin 角落）立志為社會大眾提供最方便、最值得信賴、最有分享力量的公益橋樑，透過公益捐款為台灣貧窮弱勢的朋友與團體搭把手，助他們度過人生的 ...
+								關懷婦孺，你我有責。請正視社會冷暴力的問題，讓我們一同站出來，彼此陪伴度過難關......
 							</p>
 							<div class="articleMeta">
 								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a>
@@ -250,15 +253,15 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/300.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/together.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">15</span>
 									<span class="text">Jan</span>
 								</div>
 							</div>
-							<h3 class="articleTitle"><a href="">公益- 維基百科</a></h3>
+							<h3 class="articleTitle"><a href="">高齡化社會福利聯盟</a></h3>
 							<p class="articleDesc">
-								這是一個消歧義頁，羅列了有相同或相近的標題，但內容不同的條目。如果您是透過某條目的內部連結而轉到本頁，希望您能協助修正該處的內部連結，將它指向正確 ...
+								老人安養問題日漸嚴重，懇請支持年長者社會福利制度，讓我們一起把愛傳出去....
 							</p>
 							<div class="articleMeta">
 								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
@@ -269,15 +272,15 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/253.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/pets.php" alt=""></a>
 								<div class="date">
 									<span class="number">14</span>
 									<span class="text">Jan</span>
 								</div>
 							</div>
-							<h3 class="articleTitle"><a href="">sed do eiusmod tempor</a></h3>
+							<h3 class="articleTitle"><a href="">流浪動物之家</a></h3>
 							<p class="articleDesc">
-								Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+								沒有購買，就沒有棄養。以領養代替購買杜絕浪浪來源，以認養代替安樂死......<br><br>
 							</p>
 							<div class="articleMeta">
 								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
@@ -288,15 +291,15 @@
 					<div class="col-md-4 col-sm-4">
 						<article>
 							<div class="articleThumb">
-								<a href="#"><img src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/289.png" alt=""></a>
+								<a href="#"><img src="./images/halfof73/earthquake.jpg" alt=""></a>
 								<div class="date">
 									<span class="number">12</span>
 									<span class="text">Jan</span>
 								</div>
 							</div>
-							<h3 class="articleTitle"><a href="">incididunt ut labore et dolore</a></h3>
+							<h3 class="articleTitle"><a href="">震災援助基金會</a></h3>
 							<p class="articleDesc">
-								Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>
+								天佑花蓮！為花蓮的同胞們盡一份心力！您的微光將會是他們的希望。<br><br>
 							</p>
 							<div class="articleMeta">
 								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a>
@@ -329,8 +332,8 @@
 								<i class="mdi mdi-comment-multiple-outline nino-icon"></i>
 							</div>
 							<div>
-								<p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</p>
-								<span class="name">Jon Doe</span>
+								<p class="quote">"付出比收穫更快樂，給予比接納更心安！關心別人，善待自己！"</p>
+								<span class="name">維格斯 ‧ 波頓</span>
 							</div>
 						</div>
 					</li>
@@ -340,8 +343,8 @@
 								<i class="mdi mdi-wechat nino-icon"></i>	
 							</div>
 							<div>
-								<p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</p>
-								<span class="name">Jon Doe</span>
+								<p class="quote">"沒有目標的人猶如沒有舵的船 – 流浪兒、微不足道、什麼都不是。設定人生的目標，並在擁有它後，把上帝給你的精神及力氣投入工作中。"</p>
+								<span class="name">湯瑪斯 ‧ 卡萊爾</span>
 							</div>
 						</div>
 					</li>
@@ -351,8 +354,8 @@
 								<i class="mdi mdi-message-text-outline nino-icon"></i>
 							</div>
 							<div>
-								<p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</p>
-								<span class="name">Jon Doe</span>
+								<p class="quote">"幸福是人類最後的目的和至善的總和，它賦予人類生命的真正的意義。"</p>
+								<span class="name">耶羅地 ‧ 席德</span>
 							</div>
 						</div>
 					</li>
@@ -365,11 +368,12 @@
 	<section id="nino-ourTeam">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">捐款募資／志工相助</span>
+				<span class="nino-subHeading" style="font-size: 30px">捐款募資／志工相助</span>
 			</h2>
-			<p class="nino-sectionDesc">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-			</p>
+			<p class="nino-sectionDesc" style="font-size: 25px">
+				我們都會有不需要的東西，以及需要被幫助的地方。<br>
+				用你的不需要能成就他人的需要，讓他人的幫助轉化成為你的助力。<br>
+				讓我們來創造一個良性循環=)
 			<div class="sectionContent">
 				<div class="row nino-hoverEffect">
 					<div class="col-md-4 col-sm-4">
@@ -468,94 +472,95 @@
     <section id="nino-portfolio">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">愛的傳遞</span>
+				<span class="nino-subHeading" style="font-size: 30px">愛的傳遞</span>
 			</h2>
-			<p class="nino-sectionDesc">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+			<p class="nino-sectionDesc" style="font-size: 25px">
+				這些是您幫助過的人們，所能回饋給您的一小部分。
+				<br>我們希望這樣感恩的心情，可以直接地傳達到您心中 !
 			</p>
 		</div>
 		<div class="sectionContent">
 			<ul class="nino-portfolioItems">
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="巧克力含有豐富的鐵、鈣、鎂、鉀、維生素A、維生素C 和可可鹼，由於多添加糖分，因此具有高能量值。由天然成分製作的巧克力對人類之外的許多動物有毒（例如: 狗），但對人類無毒、且其中微量的可可鹼是健康的反鎮靜成分。故食用有助提升精神，增強興奮等功效。可可含有苯乙胺，坊間流傳能使人有戀愛感覺的流言 。巧克力含有豐富的鐵、鈣、鎂、鉀、維生素A、維生素C 和可可鹼，由於多添加糖分，因此具有高能量值。由天然成分製作的巧克力對人類之外的許多動物有毒（例如: 狗），但對人類無毒、且其中微量的可可鹼是健康的反鎮靜成分。故食用有助提升精神，增強興奮等功效。可可含有苯乙胺，坊間流傳能使人有戀愛感覺的流言 。巧克力含有豐富的鐵、鈣、鎂、鉀、維生素A、維生素C巧克力含有豐富的鐵、鈣、鎂、鉀、維生素A、維生素C 和可可鹼，由於多添加糖分，因此具有高能量值。由天然成分製作的巧克力對人類之外的許多動物有毒（例如: 狗），但對人類無毒、且其中微量的可可鹼是健康的反鎮靜成分。故食用有助提升精神，增強興奮等功效。可可含有苯乙胺，坊間流傳能使人有戀愛感覺的流言 。巧克力含有豐富的鐵、鈣、鎂、鉀、維生素A、維生素C" href="images/our-work/img-1.jpg">
-						<img src="images/our-work/img-1.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="這是來自蘭嶼達悟族小朋友最真摯的笑容<br>當我們苦於沒有學習環境時，謝謝你們的支持" href="images/halfof73/Lanyu.jpg">
+						<img src="images/halfof73/Lanyu.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-crown nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>達悟族的感謝</h4>
+								<span class="desc" style='font-size:15px;'>謝謝你們！讓我們擁有更好的學習環境！</span>
 							</div>
 						</div>
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="查看更多" href="images/our-work/img-2.jpg">
-						<img src="images/our-work/img-2.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="杜拜的一隅，雖然看起來很慘<br>但實際上過得比你們台灣人還爽" href="images/halfof73/Dubai.jpg">
+						<img src="images/halfof73/Dubai.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-cube-outline nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>杜拜貧窮的縮影</h4>
+								<span class="desc" style='font-size:15px;'>雖然比你們還有錢，但還是謝謝你們的捐款</span>
 							</div>
 						</div>
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="查看更多" href="images/our-work/img-3.jpg">
-						<img src="images/our-work/img-3.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="高齡社會已是台灣不可忽視的議題。將心比心，這也是往後你我都必須面臨的危機。讓孤獨感不再蔓延，只需要花一點時間的陪伴，就可以讓我們一起感受到溫暖。" href="images/halfof73/oldman.jpeg">
+						<img src="images/halfof73/oldman.jpeg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-desktop-mac nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>寂寞老人的獨白</h4>
+								<span class="desc" style='font-size:15px;'>你們的陪伴，比起六萬塊還實在。謝謝你們</span>
 							</div>
 						</div>
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="查看更多" href="images/our-work/img-4.jpg">
-						<img src="images/our-work/img-4.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="流浪動物的平均存活年限僅有二至三年，希望你我一同伸出援手<br>幫助他們找到一個溫暖的家" href="images/halfof73/cat.jpg">
+						<img src="images/halfof73/cat.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-flower nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>浪浪需要一個家</h4>
+								<span class="desc" style='font-size:15px;'>謝謝你們捐贈的貓狗糧食！謝謝你們願意伸出援手！</span>
 							</div>
 						</div>
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="查看更多" href="images/our-work/img-5.jpg">
-						<img src="images/our-work/img-5.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="有您的支持，煎熬的日子也會輕鬆一點吧！<br>謝謝您的陪伴，病痛的苦楚因為有了你們而輕減了" href="images/halfof73/cancer.jpg">
+						<img src="images/halfof73/cancer.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-gamepad-variant nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>癌症基金會感謝您</h4>
+								<span class="desc" style='font-size:15px;'>不要讓病痛，成為你我之間的遺憾</span>
 							</div>
 						</div>
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="查看更多" href="images/our-work/img-6.jpg">
-						<img src="images/our-work/img-6.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="在花蓮，每一分鐘就有一個家庭流離失所。謝謝你們關懷花蓮災後重建的工程項目<br>你的關注可以督促花蓮縣政府的做事態度！" href="images/halfof73/rock.jpg">
+						<img src="images/halfof73/rock.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-gnome nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>花蓮風災援助感謝</h4>
+								<span class="desc" style='font-size:15px;'>謝謝每一位曾幫助我們的你！讓我們不至於流落街頭！</span>
 							</div>
 						</div>
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="查看更多" href="images/our-work/img-7.jpg">
-						<img src="images/our-work/img-7.jpg" />
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="家庭暴力下成長的孩子，更需要溫暖的愛。<br>不論是捐款或是課餘時光的陪伴，都由衷感謝你們" href="images/halfof73/child.jpg">
+						<img src="images/halfof73/child.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-guitar-electric nino-icon"></i> -->
-								<h4 class="title">creatively designed</h4>
-								<span class="desc">Lorem ipsum dolor sit</span>
+								<h4 class="title" style='font-size:25px;'>孩子的心願</h4>
+								<span class="desc" style='font-size:15px;'>謝謝你們的捐款，讓孩子們有更好的未來</span>
 							</div>
 						</div>
 					</a>
@@ -567,9 +572,9 @@
 	<section id="nino-whatWeDo">
     	<div class="container">
     		<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">關於本站</span>
+				<span class="nino-subHeading" style="font-size: 30px">關於本站</span>
 			</h2>
-			<p class="nino-sectionDesc">
+			<p class="nino-sectionDesc" style="font-size: 25px">
 				Half of 73°C是一個公益平台，我們希望透過網站及手機APP幫助到台灣的弱勢族群，
 				也致力於使用戶有更方便且信任的互助管道。 
 			</p>
@@ -594,7 +599,7 @@
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 									<div class="panel-body">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+										文案撰寫人員目前欠缺靈感..........
 									</div>
 								</div>
 							</div>
