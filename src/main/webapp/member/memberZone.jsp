@@ -90,7 +90,7 @@
 
 		<!-- Testimonial
     ================================================== -->
-		<Form Action="register0403_HO73.do" method="POST">
+		<Form Action="register0403_HO73.do"method="POST">
 			<c:set var="mem" value="${memberBean}"></c:set>
 			<section id="nino-whatWeDo" style="padding-top:20px; ">
 			<div class="container">

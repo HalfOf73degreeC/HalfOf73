@@ -31,7 +31,7 @@ public class CreateTableServlet_HO73 extends HttpServlet {
 		 + " memEmail2 varchar(100), memGender  varchar(2), memBirthday datetime, "
 		 + " memTel varchar(20), memMobile  varchar(20), memAddress varchar(225), "
 		 + " memType int, memFoundation int, memWhySupply varchar(225), insertDate datetime,"
-		 + " memStatus int, memPicUrl varchar(225)) "
+		 + " memStatus int, memPicUrl varchar(225), memPhoto  LongBlob, fileName  varchar(20))"
 		 + " ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci";
 		
 		 
