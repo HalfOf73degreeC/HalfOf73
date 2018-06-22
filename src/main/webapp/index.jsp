@@ -582,7 +582,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="text-center">
-							<img src="images/what-we-do/img-1.jpg" alt="">
+							<img src="images/halfof73/hope.jpg" alt="">
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -599,7 +599,9 @@
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 									<div class="panel-body">
-										文案撰寫人員目前欠缺靈感..........
+										　　有鑑於2018年2月6號的花蓮震災發生後，我們想貢獻一份微薄的心力卻苦於沒有簡單迅速地管道。
+										再者亦發生花蓮縣長傅崐萁濫用善款補助業者的情形，這讓我們意識到建立一個方便使用、而且金流明細公開的平台
+										是值得我們去努力的。
 									</div>
 								</div>
 							</div>
@@ -615,7 +617,11 @@
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="panel-body">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											　　我們希望能夠實現當每一個人，願意為了他人付出時能有一個簡易使用的管道，而且不必擔心自己所貢獻的
+											一份心意是否有確實傳達。<br>　　大文豪莎士比亞曾寫到過：慈悲不是出於勉强，一樣從天上降下塵世；它不但給幸福於受施之人，
+											也同樣給幸福於施與的人。我們想要回應每一位願意付出之人的赤誠心意，
+											將過程與事後追蹤簡單化，讓這樣的心意不會在前置繁雜事務中消磨殆盡。
+
 									</div>
 								</div>
 							</div>
@@ -631,7 +637,9 @@
 								</div>
 								<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 									<div class="panel-body">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+										　　我們一直致力於提供所有使用者良好的捐募平台，未來希望能讓更多地基金會也能一同參與。
+										我們也會不斷提升使用的簡便度和針對所有有需求、不論是需要施予他人或受施於他人的使用者，
+										更貼近生活所需地去協助大家。
 									</div>
 								</div>
 							</div>
