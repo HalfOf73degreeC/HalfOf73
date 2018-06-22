@@ -113,7 +113,7 @@
 										var $divcol = $(
 												'<div class="col-md-4 col-sm-4" style="margin-top: 30px">')
 												.appendTo($row);
-										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ i +'" style="cursor:pointer">').appendTo(
+										var $article = $('<article>').appendTo(
 												$divcol);
 										var $articleThumb = $(
 												'<div class="articleThumb">')
@@ -131,7 +131,7 @@
 																+ news.insertDay
 																+ '</span>');
 										var $newsTitle = $(
-												'<h3 class="articleTitle">')
+												'<h3 class="articleTitle" date-newsId="'+ i +'" style="cursor:pointer">')
 												.appendTo($article).html(
 														news.newsName);
 										var $newsArticle = $(
@@ -194,15 +194,32 @@
 								            $(this).text(text);
 								        }
 								    });
+// 								    <!-- 	dialog視窗  -->
+								    $( "#dialog" ).dialog({
+								    	width: ($(document).width())*0.8,
+								        autoOpen: false,
+								        modal: true,
+								     	draggable: false,
+								        resizable: false,
+								        show: {
+								          effect: "fade",
+								          duration: 500
+								        },
+								        hide: {
+								          effect: "fade",
+								          duration: 500
+								        }
+								    });
 // 								    
 // 								    <!-- 	dialog視窗.內容  -->
-								    $( ".article" ).on( "click", function() {
+								    $( ".articleTitle" ).on( "click", function() {
+								        $( "#dialog" ).dialog( "open" );
 								        var newsId = $(this).attr("date-newsId");
 // 								        alert(newsId);
 								        var news = newslist[newsId];
-								        $( ".modal-content" ).children("h1").html(news.newsName);
-								        $( ".modal-content" ).children("p").html(news.newsArticle);
-								        $( ".modal-content" ).children("img").attr("src",news.newsImg);
+								        $( "#dialog" ).children("h1").html(news.newsName);
+								        $( "#dialog" ).children("p").html(news.newsArticle);
+								        $( "#dialog" ).children("img").attr("src",news.newsImg);
 								        <!-- 	dialog視窗.關閉  -->
 						
 								    });
@@ -227,18 +244,9 @@
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script type="text/javascript" src="../js/jquery.ba-outside-events.js"></script>
 	<div id="dialog" title="Basic dialog">
-		
-	</div>
-<!-- Large modal -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      	<h1>新聞標題</h1>
+		<h1>新聞標題</h1>
 		<p>新聞內容</p>
 		<img src="新聞圖片"/>
-    </div>
-  </div>
-</div>
-
+	</div>
 </body>
 </html>
