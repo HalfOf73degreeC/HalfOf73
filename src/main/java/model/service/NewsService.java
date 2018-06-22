@@ -51,10 +51,14 @@ public class NewsService {
 	public NewsBean_HO73 getOneNews(Integer newsUid) {
 		NewsBean_HO73 nb = newsDao.getOneNew(newsUid);	
 		nb.setNewsView(nb.getNewsView()+1);
+		System.out.println("觀看數+1");
 		newsDao.saveOrUpdate(nb);
 		return nb;		
 	}
-	
+	@Transactional
+	public String getOneNews2String(Integer newsUid) {
+		return gson.toJson(getOneNews(newsUid));		
+	}
 	
 	
 //	

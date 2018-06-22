@@ -1,6 +1,7 @@
 package news;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,26 +18,23 @@ import model.bean.NewsBean_HO73;
 import model.repository.GoodsDao;
 import model.repository.NewsDao;
 import model.repository.impl.GoodsDaoImpl;
+import model.service.NewsService;
 
-@WebServlet("/goods/queryOneNews_HO73.do")
+@WebServlet("/goods/queryOneNews")
 public class QueryOneNews_HO73 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		WebApplicationContext ctx = 
-			WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		NewsDao ndao = ctx.getBean(NewsDao.class);
-		Integer newsUid = Integer.parseInt(request.getParameter("NewsUid"));
-		NewsBean_HO73 nb = ndao.getOneNew(newsUid);
-		int viewsCount = nb.getNewsView();
-		viewsCount ++;
-		nb.setNewsView(viewsCount);
-		ndao.saveOrUpdate(nb);
-		System.out.println(viewsCount);
-		request.setAttribute("newsBean", nb);
-		RequestDispatcher rd = request.getRequestDispatcher("/goods/goodsDetail.jsp");
-		rd.forward(request, response);
-		return;
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		NewsService ns = ctx.getBean(NewsService.class);
+		Integer newsUid = (Integer) request.getAttribute("newsUid");
+		String gString = ns.getOneNews2String(newsUid); 
+		response.setContentType("application/json; charset=UTF8");
+		try (PrintWriter out = response.getWriter();) {
+			out.println(gString);
+		}
 	}
 }

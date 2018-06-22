@@ -100,7 +100,7 @@
 							xhr.open("Get", "getNewsPage", true);
 							xhr.send();
 							xhr.onreadystatechange = function() {
-								if (xhr.status == 200 && xhr.readyState == 4) {
+								if (xhr.status == 200 && xhr.readyState == 4) {									
 									newslist = JSON.parse(xhr.responseText);
 									$(loadingGif).hide(500);
 									for (var i = 0; i < newslist.length; i++) {
@@ -198,17 +198,26 @@
 // 								    <!-- 	dialog視窗.內容  -->
 								    $( ".article" ).on( "click", function() {
 								        var newsId = $(this).attr("date-newsId");
-// 								        alert(newsId);
+// 								        <!-- 	News資料庫連線  -->
+								        var xhr_oneNews = new XMLHttpRequest();
+								        xhr_oneNews.open("Post", "QueryOneNews", true);
+								        xhr_oneNews.send("newsUid=newsId");
+								        xhr_oneNews.onreadystatechange = function() {
+											if (xhr_oneNews.status == 200 && xhr.readyState == 4) {
+												
+											}}
 								        var news = newslist[newsId];
 								        $( ".modal-content" ).children("h1").html(news.newsName);
 								        $( ".modal-content" ).children("p").html(news.newsArticle);
 								        $( ".modal-content" ).children("img").attr("src",news.newsImg);
-								        <!-- 	dialog視窗.關閉  -->
-						
+// 								        alert(newsId);
+								        
+			        
 								    });
 								      
 								}
 							}
+							
 						});
 		
 		
