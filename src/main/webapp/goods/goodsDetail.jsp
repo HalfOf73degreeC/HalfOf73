@@ -161,7 +161,7 @@
 						</div>
 					</div>
 						<Input type='hidden' name='goodsName' value='${goodsBean.goodsName}'><P/>
-			            <Input type='hidden' name='funUid' value='${goodsBean.funUid}'><P/>
+			            <Input type='hidden' name='funUid' value='${goodsBean.foundationBean_HO73.funIdcard}'><P/>
 			            <Input type='hidden' name='goodsUid' value='${goodsBean.goodsUid}'><P/>
 			            <Input type='hidden' name='goodsPrice' value='${goodsBean.goodsPrice}'><P/>
 			            <Input type='hidden' name='goodsImg' value='${goodsBean.goodsImg}'><P/>
@@ -333,18 +333,18 @@
 				<div class="colInfo">
 					<h3 class="nino-colHeading">instagram</h3>
 					<div class="instagramImages clearfix">
-						<a href="#"><img src="images/instagram/img-1.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-2.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-6.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-7.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-8.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-9.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-						<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-1.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-2.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-3.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-4.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-5.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-6.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-7.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-8.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-9.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-3.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-4.jpg" alt=""></a>
+						<a href="#"><img src="../images/instagram/img-5.jpg" alt=""></a>
 					</div>
 					<a href="#" class="morePhoto">View more photos</a>
 				</div>
@@ -384,8 +384,6 @@
 		src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="../js/unslider-min.js"></script>
 	<script type="text/javascript" src="../js/template.js"></script>
-	<script type="text/javascript"
-		src="../css/bootstrap-4.1.1/js/bootstrap.min.js"></script>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>

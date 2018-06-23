@@ -1,7 +1,7 @@
 package goods;
 
 import java.io.IOException;
-import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,30 +9,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import model.bean.DeliveryBean_HO73;
 import model.bean.PaymentBean_HO73;
-import model.repository.DeliveryDao;
-import model.repository.PaymentDao;
-import model.repository.impl.DeliveryDaoImpl;
-import model.repository.impl.PaymentDaoImpl;
+import model.service.DeliveryService;
+import model.service.PaymentService;
 
 @WebServlet("/goods/BuyGoodsSend.do")
 public class BuyGoodsSend_HO73 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	HttpSession session = null;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		DeliveryService service = ctx.getBean(DeliveryService.class);
+		PaymentService pservice = ctx.getBean(PaymentService.class);
 
-		DeliveryDao ddao = new DeliveryDaoImpl();
-		Collection<DeliveryBean_HO73> coll = ddao.getAllDelivery();
-		request.setAttribute("AllDelivery", coll);
+		List<DeliveryBean_HO73> list = service.getAllDelivery();
+		request.setAttribute("AllDelivery", list);
 		
-		PaymentDao pdao = new PaymentDaoImpl();
-		Collection<PaymentBean_HO73> collPay = pdao.getAllPayment();
-		request.setAttribute("AllPayment", collPay);
+
+		List<PaymentBean_HO73> payList = pservice.getAllPayment();
+		request.setAttribute("AllPayment", payList);
 		RequestDispatcher rd = request.getRequestDispatcher("goodsCarts2.jsp");
 		rd.forward(request, response);
 		return;

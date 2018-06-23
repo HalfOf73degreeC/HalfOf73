@@ -17,7 +17,7 @@ public class DeliveryBean_HO73 {
 	Timestamp	insertDate;
 	
 	public DeliveryBean_HO73() {
-		super();
+		
 	}
 
 	public DeliveryBean_HO73(Integer deliveryUid, String deliveryName, String deliveryImg, String deliveryDescription,
@@ -79,6 +79,13 @@ public class DeliveryBean_HO73 {
 
 	public void setInsertDate(Timestamp insertDate) {
 		this.insertDate = insertDate;
+	}
+
+	@Override
+	public String toString() {
+		return "DeliveryBean_HO73 [deliveryUid=" + deliveryUid + ", deliveryName=" + deliveryName + ", deliveryImg="
+				+ deliveryImg + ", deliveryDescription=" + deliveryDescription + ", deliveryAmt=" + deliveryAmt
+				+ ", insertDate=" + insertDate + "]";
 	}
 
 	

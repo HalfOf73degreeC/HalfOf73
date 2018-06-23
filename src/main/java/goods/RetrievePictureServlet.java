@@ -27,10 +27,11 @@ public class RetrievePictureServlet extends HttpServlet {
 		OutputStream os = null;
 		InputStream is = null;
 		String fileName = null;
-		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		try {
+			WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 			GoodsService goodsService= ctx.getBean(GoodsService.class);
 			GoodsBean_HO73 gb = goodsService.getOneGoods(goodsUid);
+			System.out.println(gb);
 			is = gb.getGoodsImg().getBinaryStream();
 			// 由圖片檔的檔名來得到檔案的MIME型態
 			fileName = gb.getGoodsImgFileName();
@@ -58,25 +59,5 @@ public class RetrievePictureServlet extends HttpServlet {
 			is.close();
 			os.close();
 		}
-//		int pid = 0;
-//		if (goodsUid != null) {
-//			try {
-//				pid = goodsUid;
-//			} catch(NumberFormatException ex) {
-//				;
-//			}
-//		}
-//		GoodsDao gdao = new GoodsDaoImpl();
-//		GoodsBean_HO73 bean = gdao.getOneGoods();
-//		try(
-//				OutputStream os = response.getOutputStream();
-//				ByteArrayInputStream bais = new ByteArrayInputStream(bean.getGoodsImg());
-//		){
-//			byte[] b = new byte[819200];
-//			int len = 0;
-//			while ((len=bais.read(b)) != -1) {
-//				os.write(b, 0, len);
-//			}
-//		}
 	}
 }

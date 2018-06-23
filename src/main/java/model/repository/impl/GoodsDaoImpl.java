@@ -51,10 +51,11 @@ public class GoodsDaoImpl implements Serializable, GoodsDao {
 		Session session = getSession();
 		allGoods = (List<GoodsBean_HO73>) session.createQuery(hql)
 												 .getResultList();
-		if(allGoods.size() > 0)
+		if(allGoods.size() > 0) {
 		    return allGoods;
-		else
+		} else {
 		    return null;
+		}
 	}
 
 	@Override

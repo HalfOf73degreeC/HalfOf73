@@ -36,12 +36,12 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public void insertOrder(OrderBean_HO73 ob) {
 		String sqlOrder = "Insert Into orders_ho73 "
-				+ " (memAccount, totalAmount, shippingAddress,"
-				+ " BNO, InvoiceTitle, orderDate) "
-				+ " values(?, ?, ?, ?, ?, ?) ";
+				+ " (memAccount, totalAmount, shippingAddress, "
+				+ " BNO, InvoiceTitle, orderDate, shippingName, shippingPhone, paymentUid, paymentName, paymentATMBankId, paymentATMAccount) "
+				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
 		String sqlItem = "Insert Into OrderItems_ho73 (orderNo, goodsUid,"
-				+ " description, amount, unitPrice, discount) "
+				+ " description, quantity, unitPrice, discount) "
 				+ " values(?, ?, ?, ?, ?, ?) ";
 
 		ResultSet generatedKeys = null;
@@ -57,6 +57,12 @@ public class OrderDaoImpl implements OrderDao {
 			ps.setString(5, ob.getInvoiceTitle());
 			Timestamp ts = new Timestamp(ob.getOrderDate().getTime());
 			ps.setTimestamp(6, ts);
+			ps.setString(7, ob.getShippingName());
+			ps.setString(8, ob.getShippingPhone());
+			ps.setInt(9, ob.getPaymentUid());
+			ps.setString(10, ob.getPaymentName());
+			ps.setString(11, ob.getPaymentATMBankId());
+			ps.setString(12, ob.getPaymentATMAccount());
 			ps.executeUpdate();
 			int id = 0;
 			// 取回剛才新增之訂單的主鍵值
@@ -128,7 +134,9 @@ public class OrderDaoImpl implements OrderDao {
 					String shipAddr = rs.getString("shippingAddress");
 					Date shipDate = rs.getDate("shippingDate");
 					double totalAmount = rs.getDouble("totalAmount");
-					ob = new OrderBean_HO73(ono, memAccount, totalAmount, shipAddr, bno, title, orderDate, shipDate, cancel , null);
+					String shipName = rs.getString("shippingName");
+					String shipPhone = rs.getString("shippingPhone");
+					ob = new OrderBean_HO73(ono, memAccount, totalAmount, shipAddr, shipName, shipPhone, bno, title, orderDate, shipDate, cancel , null);
 				}
 			}
 			ps1.setInt(1, orderNo);
@@ -141,11 +149,11 @@ public class OrderDaoImpl implements OrderDao {
 					int orderNo2 = rs.getInt("orderNo");
 					int goodsUid = rs.getInt("goodsUid");
 					String description = rs.getString("description");
-					Integer amount = rs.getInt("amount");
+					Integer quantity = rs.getInt("quantity");
 					Double uPrice = rs.getDouble("unitPrice");
 					Double discount = rs.getDouble("discount");
 					OrderItemBean_HO73 oi = new OrderItemBean_HO73(seqNo, orderNo2, goodsUid, 
-							description, amount, uPrice, discount);
+							description, quantity, uPrice, discount);
 					set.add(oi);
 				}
 				ob.setItems(set);
