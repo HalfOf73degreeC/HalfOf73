@@ -104,7 +104,7 @@
 	<!--/#header-->
 
 	<!-- 捐贈箱資訊 -->
-	<form action="../goods/BuyGoodsSend.do" method="get">
+	<form action="../goods/BuyGoodsSend.do" method="post">
 		<div class="foundationList">
 			<!--<div class="container foundationTitle">台灣之心愛護動物協會</div>-->
 			<div class="container supplyBox">

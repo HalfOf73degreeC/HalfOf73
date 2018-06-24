@@ -9,25 +9,61 @@ public class OrderBean_HO73 {
 	String 	memAccount;
 	Double	totalAmount;
 	String	shippingAddress; 
+	String  shippingName;
+	String  shippingPhone;
 	String  bno;
 	String  invoiceTitle;
-	Date  orderDate;
-	Date  shippingDate;
+	Date    orderDate;
+	Date    shippingDate;
 	String	cancelTag;
+	Integer  paymentUid;
+	String paymentName;
+	String paymentATMAccount;
+	String paymentATMBankId;
+	
 	Set<OrderItemBean_HO73> items = new LinkedHashSet<>();
 	
 	public OrderBean_HO73() {
 		
 	}
 
-	
-	public OrderBean_HO73(Integer orderNo, String memAccount, Double totalAmount, String shippingAddress, String bno,
-			String invoiceTitle, Date orderDate, Date shippingDate, String cancelTag, Set<OrderItemBean_HO73> items) {
+
+
+	public OrderBean_HO73(Integer orderNo, String memAccount, Double totalAmount, String shippingAddress,
+			String shippingName, String shippingPhone, String bno, String invoiceTitle, Date orderDate,
+			Date shippingDate, String cancelTag, Integer paymentUid, String paymentName, String paymentATMAccount,
+			String paymentATMBankId, Set<OrderItemBean_HO73> items) {
 		super();
 		this.orderNo = orderNo;
 		this.memAccount = memAccount;
 		this.totalAmount = totalAmount;
 		this.shippingAddress = shippingAddress;
+		this.shippingName = shippingName;
+		this.shippingPhone = shippingPhone;
+		this.bno = bno;
+		this.invoiceTitle = invoiceTitle;
+		this.orderDate = orderDate;
+		this.shippingDate = shippingDate;
+		this.cancelTag = cancelTag;
+		this.paymentUid = paymentUid;
+		this.paymentName = paymentName;
+		this.paymentATMAccount = paymentATMAccount;
+		this.paymentATMBankId = paymentATMBankId;
+		this.items = items;
+	}
+
+
+
+	public OrderBean_HO73(Integer orderNo, String memAccount, Double totalAmount, String shippingAddress,
+			String shippingName, String shippingPhone, String bno, String invoiceTitle, Date orderDate,
+			Date shippingDate, String cancelTag, Set<OrderItemBean_HO73> items) {
+		super();
+		this.orderNo = orderNo;
+		this.memAccount = memAccount;
+		this.totalAmount = totalAmount;
+		this.shippingAddress = shippingAddress;
+		this.shippingName = shippingName;
+		this.shippingPhone = shippingPhone;
 		this.bno = bno;
 		this.invoiceTitle = invoiceTitle;
 		this.orderDate = orderDate;
@@ -50,13 +86,10 @@ public class OrderBean_HO73 {
 		this.items = items;
 	}
 	
-	
 	public void setOrderNo(Integer orderNo) {
 		this.orderNo = orderNo;
 	}
 	
-	
-
 	public String getMemAccount() {
 		return memAccount;
 	}
@@ -122,5 +155,79 @@ public class OrderBean_HO73 {
 	public void setCancelTag(String cancelTag) {
 		this.cancelTag = cancelTag;
 	}
+
+
+	public String getShippingName() {
+		return shippingName;
+	}
+
+	public void setShippingName(String shippingName) {
+		this.shippingName = shippingName;
+	}
+
+	public String getShippingPhone() {
+		return shippingPhone;
+	}
+
+	public void setShippingPhone(String shippingPhone) {
+		this.shippingPhone = shippingPhone;
+	}
+
+
+	public Integer getPaymentUid() {
+		return paymentUid;
+	}
+
+
+
+	public void setPaymentUid(Integer paymentUid) {
+		this.paymentUid = paymentUid;
+	}
+
+
+
+	public String getPaymentName() {
+		return paymentName;
+	}
+
+
+	public void setPaymentName(String paymentName) {
+		this.paymentName = paymentName;
+	}
+
+
+	public String getPaymentATMAccount() {
+		return paymentATMAccount;
+	}
+
+
+	public void setPaymentATMAccount(String paymentATMAccount) {
+		this.paymentATMAccount = paymentATMAccount;
+	}
+
+
+	public String getPaymentATMBankId() {
+		return paymentATMBankId;
+	}
+
+
+	public void setPaymentATMBankId(String paymentATMBankId) {
+		this.paymentATMBankId = paymentATMBankId;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "OrderBean_HO73 [orderNo=" + orderNo + ", memAccount=" + memAccount + ", totalAmount=" + totalAmount
+				+ ", shippingAddress=" + shippingAddress + ", shippingName=" + shippingName + ", shippingPhone="
+				+ shippingPhone + ", bno=" + bno + ", invoiceTitle=" + invoiceTitle + ", orderDate=" + orderDate
+				+ ", shippingDate=" + shippingDate + ", cancelTag=" + cancelTag + ", paymentUid=" + paymentUid
+				+ ", paymentName=" + paymentName + ", paymentATMAccount=" + paymentATMAccount + ", paymentATMBankId="
+				+ paymentATMBankId + ", items=" + items + "]";
+	}
+
+	
+	
 	
 }

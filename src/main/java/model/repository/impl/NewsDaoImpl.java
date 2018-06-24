@@ -52,6 +52,9 @@ public class NewsDaoImpl implements NewsDao {
 		Session session = factory.getCurrentSession();
 		NewsBean_HO73 nb = null;
 		nb = (NewsBean_HO73) session.get(NewsBean_HO73.class, newsUid);
+		if(nb==null) {
+			System.out.println("找不到newsUid="+newsUid+"的資訊");
+		}
 		return nb;
 
 	}

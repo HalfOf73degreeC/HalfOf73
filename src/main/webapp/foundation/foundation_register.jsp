@@ -91,7 +91,7 @@
 									</div>
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
-										<div class="panel-body" style="height: 492px;">
+										<div class="panel-body" style="height: 450px;">
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
@@ -165,20 +165,16 @@
 													<button class="btn btn-success" type="submit"
 														style="width: 130px">E-mail :</button>
 												</span>
-												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
+												<c:if test="${empty fun.funEmail2}">
 												<input type="email" name="funEmail" class="form-control" placeholder=""
 													value="${mem.memEmail}"  style="z-index: 1">
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
-														style="width: 130px">備用E-mail :</button>
-												</span>
-												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
+												</c:if>
+												<c:if test="${not empty fun.funEmail2}">
 												<input type="email" name="funEmail2" class="form-control" placeholder=""
 													value="${fun.funEmail2}"
 													style="z-index: 1">
-											</div>
+												</c:if>
+											</div>											
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
@@ -253,7 +249,7 @@
 									</div>
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
-										<div class="panel-body" style="height: 185px;">
+										<div class="panel-body" style="height: 227px;">
 											<textarea  name="funIntent" class="form-control" placeholder="" rows="7">${fun.funIntent}</textarea>
 										</div>
 									</div>

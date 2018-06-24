@@ -25,6 +25,7 @@ public class MemberBean_HO73 implements Serializable {
 	String memPicUrl;			//會員頭像的URL
 	Blob memPhoto;           //更換頭像
 	String fileName;            //頭像檔名
+	Double unpaidAmount;        //限制購買金額
 	
 	public MemberBean_HO73() {
 		super();
@@ -177,6 +178,12 @@ public class MemberBean_HO73 implements Serializable {
 	}
 	public void setMemPicUrl(String memPicUrl) {
 		this.memPicUrl = memPicUrl;
+	}
+	public Double getUnpaidAmount() {
+		return unpaidAmount;
+	}
+	public void setUnpaidAmount(Double unpaidAmount) {
+		this.unpaidAmount = unpaidAmount;
 	}
 	
 	

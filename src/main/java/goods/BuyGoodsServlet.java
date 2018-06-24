@@ -57,7 +57,9 @@ public class BuyGoodsServlet extends HttpServlet {
 		
 		try{
 			// 進行資料型態的轉換
+			System.out.println("qtyStr="+ qtyStr);
 			qty = Integer.parseInt(qtyStr.trim());
+			System.out.println("qty="+qty);
 			goodsUid = Integer.parseInt(idStr.trim());
 			goodsPrice = Double.parseDouble(priceStr.trim());
 			//discount = Double.parseDouble(discountStr.trim());

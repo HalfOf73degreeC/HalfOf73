@@ -75,7 +75,6 @@
 	</header>
 	<!--header 結束，內容開始  -->
 	<!-- 下列敘述設定變數funcName的值為SHO，top.jsp 會用到此變數 -->
-	<section id="nino-whatWeDo"></section>
 	<section id="nino-latestBlog">
 		<div class="container" >
 			<!-- 			<h2 class="nino-sectionHeading"> -->
@@ -94,16 +93,41 @@
 	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<script>
 	var newslist;
+// 	每秒更新資訊
+// 	function update(){
+// 		console.log("update");
+// 		var xhr = new XMLHttpRequest();
+// 		xhr.open("Get", "getNewsPage", true);
+// 		xhr.send();
+// 		xhr.onreadystatechange = function() {
+// 			if (xhr.status == 200 && xhr.readyState == 4) {									
+// 				newslist = JSON.parse(xhr.responseText);				
+// 				for (var i = 0; i < newslist.length; i++) {
+// 					var news = newslist[i];
+// 					console.log(news.newsUid);
+// 					if(news.newsUid == $( ".article" ).attr("date-newsId")){
+// 						console.log("change");
+// 						var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">');
+// 						$article.children(".articleMeta").children("a").html('<i class="mdi mdi-eye nino-icon"></i>'+ news.newsView);
+						
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// 	Ajax 將News資料送給畫面
 		$(document)
-				.ready(
-						function() {
+				.ready(function() {
+//					 		每秒更新資訊
+// 							setInterval(update,10000);	
+
 							var xhr = new XMLHttpRequest();
 							xhr.open("Get", "getNewsPage", true);
 							xhr.send();
 							xhr.onreadystatechange = function() {
-								if (xhr.status == 200 && xhr.readyState == 4) {
+								if (xhr.status == 200 && xhr.readyState == 4) {									
 									newslist = JSON.parse(xhr.responseText);
-									$(loadingGif).hide();
+									$(loadingGif).hide(500);
 									for (var i = 0; i < newslist.length; i++) {
 										var news = newslist[i];
 										var $row;
@@ -114,7 +138,7 @@
 										var $divcol = $(
 												'<div class="col-md-4 col-sm-4" style="margin-top: 30px">')
 												.appendTo($row);
-										var $article = $('<article>').appendTo(
+										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">').appendTo(
 												$divcol);
 										var $articleThumb = $(
 												'<div class="articleThumb">')
@@ -122,20 +146,17 @@
 										var $goodsImageSize = $(
 												'<div class="newsImageSize">')
 												.appendTo($articleThumb)
-												.append(
-														"<img style='width: 300px;' src='" + news.newsImg + "'>");
+												.append("<img style='width: 300px;' src='" + news.newsImg + "'>");
 										var $divdate = $('<div class="date">')
 												.appendTo($articleThumb)
-												.append(
-														'<span class="text" style="font: bolder 20px 微軟正黑體">'
+												.append('<span class="text" style="font: bolder 20px 微軟正黑體">'
 																+ news.insertMonth
 																+ '</span>')
-												.append(
-														'<span class="number">'
+												.append('<span class="number">'
 																+ news.insertDay
 																+ '</span>');
 										var $newsTitle = $(
-												'<h3 class="articleTitle" style="cursor:pointer">')
+												'<h3 class="articleTitle">')
 												.appendTo($article).html(
 														news.newsName);
 										var $newsArticle = $(
@@ -198,8 +219,36 @@
 								            $(this).text(text);
 								        }
 								    });
+// 								    
+// 								    <!-- 	dialog視窗.內容  -->
+								    $( ".article" ).on( "click", function() {
+								        var newsId = $(this).attr("date-newsId");
+// 								        <!-- 	News資料庫連線  -->
+								        var xhr_oneNews = new XMLHttpRequest();
+								        xhr_oneNews.open("Post", "getNewsPage?newsUid="+newsId , true);
+								        xhr_oneNews.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+								        xhr_oneNews.send();
+// 								        xhr_oneNews.onreadystatechange = function() {
+// 											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
+// 		 								        alert(xhr_oneNews.responseText);
+// 											}}
+										for (var i = 0; i < newslist.length; i++) {
+											var news = newslist[i];
+											if(news.newsUid == newsId){
+												break;
+											}
+										}
+								        
+								        $( ".modal-content" ).children("h1").html(news.newsName);
+								        $( ".modal-content" ).children("p").html(news.newsArticle);
+								        $( ".modal-content" ).children("img").attr("src",news.newsImg);
+								        
+			        
+								    });
+								      
 								}
 							}
+							
 						});
 		
 		
@@ -207,9 +256,29 @@
 		
 	</script>
 	<script type="text/javascript" src="../js/template.js"></script>
+<!-- 	include -->
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
 	<script>
 		w3.includeHTML();
 	</script>
+<!-- 	dialog視窗  -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script type="text/javascript" src="../js/jquery.ba-outside-events.js"></script>
+	<div id="dialog" title="Basic dialog">
+		
+	</div>
+<!-- Large modal -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      	<h1>新聞標題</h1>
+		<p>新聞內容</p>
+		<img src="#"/>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

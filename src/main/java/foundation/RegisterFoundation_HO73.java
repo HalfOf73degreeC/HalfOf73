@@ -23,6 +23,7 @@ import model.bean.FoundationBean_HO73;
 import model.bean.MemberBean_HO73;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
+import model.service.foundationService;
 
 @WebServlet("/foundation/registerFoundation_HO73.do")
 public class RegisterFoundation_HO73 extends HttpServlet {
@@ -110,10 +111,9 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 				funService);
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
-		foundationDao.saveOrUpdate(fb);
-		fb = foundationDao.getOneFoundation(funIdcard);
-		System.out.println(fb.getFunIdcard());
+		foundationService fs = ctx.getBean(foundationService.class);
+		fs.creatOneFoundation(fb);
+//		fb = fs.getOneFoundation(funIdcard);
 		session.setAttribute("foundationBean", fb);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
 		response.sendRedirect("foundation_detail.jsp");

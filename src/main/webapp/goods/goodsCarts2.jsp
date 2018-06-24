@@ -83,8 +83,11 @@
 							<td>${anEntry.value.qty}</td>
 							<td>$<fmt:formatNumber value="${anEntry.value.goodsPrice * anEntry.value.qty}" pattern="#,###,###" /></td>
 							<td></td>
-							
 						</tr>
+								<Input type='hidden' name='goodsName' value='${anEntry.value.goodsName}'><P/>
+					            <Input type='hidden' name='goodsUid' value='${anEntry.value.goodsUid}'><P/>
+					            <Input type='hidden' name='goodsPrice' value='${anEntry.value.goodsPrice}'><P/>
+					            <Input type='hidden' name='qty' value='${anEntry.value.qty}'><P/>
 
 					</c:forEach>
 					<tr>
@@ -157,6 +160,10 @@
 								<td></td>
 								<td></td>
 							</tr>
+								<Input type='hidden' name='paymentUid' value='${PaymentBean.paymentUid}'><P/>
+								<Input type='hidden' name='paymentName' value='${PaymentBean.paymentName}'><P/>
+					            <Input type='hidden' name='paymentATMBankId' value='${PaymentBean.paymentATMBankId}'><P/>
+					            <Input type='hidden' name='paymentATMAccount' value='${PaymentBean.paymentATMAccount}'><P/>
 						</c:forEach>
 					</table>
 				</div>
@@ -167,7 +174,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">收件人</label>
 							<div class="col-sm-10">
-							  	<input class="form-control" id="name" type="text" placeholder="請輸入收件人">
+							  	<input class="form-control" id="name" name="name" type="text" placeholder="請輸入收件人">
 							</div>
 						</div>
 						<div class="form-group">
@@ -175,13 +182,13 @@
 							<!-- <div class="addressSelector"></div>-->
 							<!-- <label class="col-sm-2 control-label"></label>-->
 							<div class="col-sm-10">
-							  	<input class="form-control" id="address" type="text" placeholder="請輸入地址">
+							  	<input class="form-control" id="address" type="text" name="address" placeholder="請輸入地址">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">電話</label>
 							<div class="col-sm-10">
-							    <input class="form-control" id="tel" type="text" placeholder="請輸入電話">
+							    <input class="form-control" id="tel" type="text" name="tel" placeholder="請輸入電話">
 							</div>
 						</div>
 					</div>

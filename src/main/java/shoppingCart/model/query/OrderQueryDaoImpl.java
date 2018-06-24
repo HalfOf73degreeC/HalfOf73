@@ -59,9 +59,11 @@ public class OrderQueryDaoImpl implements OrderQueryDao {
 					String memAccount = rs.getString("memAccount");
 					Timestamp orderDate = rs.getTimestamp("orderDate");
 					String shipAddr = rs.getString("shippingAddress");
+					String shipName = rs.getString("shippingName");
+					String shipPhone = rs.getString("shipping");
 					Date shipDate = rs.getDate("shippingDate");
 					double totalAmount = rs.getDouble("totalAmount");
-					ob = new OrderBean_HO73(ono, memAccount, totalAmount, shipAddr, bno, title, orderDate, shipDate, cancel , null);
+					ob = new OrderBean_HO73(ono, memAccount, totalAmount, shipAddr, shipName, shipPhone, bno, title, orderDate, shipDate, cancel , null);
 				}
 			}
 			ps1.setInt(1, orderNo);

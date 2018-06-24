@@ -19,6 +19,7 @@ import model.bean.FoundationBean_HO73;
 import model.bean.ToGson;
 import model.repository.FoundationDao;
 import model.repository.impl.FoundationDaoImpl;
+import model.service.foundationService;
 
 
 @WebServlet("/foundation/getFoundationPage")
@@ -29,13 +30,8 @@ public class getFoundationPage extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		FoundationDao foundationDao = ctx.getBean(FoundationDao.class);
-		List<FoundationBean_HO73> list = foundationDao.getAllFoundation();
-		AnnotationConfigApplicationContext gctx = new AnnotationConfigApplicationContext();
-		gctx.register(ToGson.class);
-		gctx.refresh();
-		Gson gson = ctx.getBean(Gson.class);		
-		String gString = gson.toJson(list); 
+		foundationService fs = ctx.getBean(foundationService.class);			
+		String gString = fs.getAllFoundations2String();
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);

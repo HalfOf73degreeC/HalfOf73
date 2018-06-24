@@ -32,7 +32,7 @@
 <link rel="stylesheet" type="text/css" href="../css/unslider.css" />
 <link rel="stylesheet" type="text/css" href="../css/template.css" />
 <link rel="stylesheet" type="text/css" href="../css/halfOf73.css" />
-<link rel="stylesheet" href="../WOW-master/css/libs/animate.css">
+<link rel="stylesheet" href="WOW-master/css/libs/animate.css">
 
 <!-- javascript -->
 <script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -44,7 +44,7 @@
 <script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="../js/unslider-min.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>
-<script src="../WOW-master/dist/wow.min.js"></script>
+<script src="WOW-master/dist/wow.min.js"></script>
 
 </head>
 <body>

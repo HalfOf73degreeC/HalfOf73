@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="mem" value="${memberBean}"></c:set>
 <ul class="nino-iconsGroup nav navbar-nav" style="max-height: 44px;">
-	<li><a href="supplyBox.jsp"><i
+	<li><a href="goods/goodsCarts1.jsp"><i
 			class="mdi mdi-cart-outline nino-icon"></i></a></li>
 	<li><a href="#" class="nino-search" style="padding-right: 13px;"><i
 			class="mdi mdi-magnify nino-icon"></i></a></li>

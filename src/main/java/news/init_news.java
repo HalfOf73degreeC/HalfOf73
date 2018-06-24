@@ -1,12 +1,17 @@
 package news;
 
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import model.bean.NewsBean_HO73;
+import model.repository.NewsDao;
 import model.repository.impl.NewsDaoImpl;
 
 public class init_news {
 	public static void main(String[] args) {
+		
 		//NewsBean_HO73(String newsName, String newsImg, String newsImgIntro, String newsArticle)
 		String[] newsName = {
 				"《陰陽師Onmyoji》手遊式神錄桃花妖搭配使用攻略",
@@ -47,11 +52,14 @@ public class init_news {
 				"《陰陽師Onmyoji》手遊式神錄，《陰陽師Onmyoji》手遊桃花妖御魂搭配攻略，薰在哪里刷，桃花妖技能資質屬性圖鑒，桃花妖覺醒材料需要什麼？更多關於桃花妖怎樣玩的攻略請關注《陰陽師Onmyoji》手遊官網！",
 				"《陰陽師Onmyoji》手遊式神錄，《陰陽師Onmyoji》手遊桃花妖御魂搭配攻略，貓掌櫃在哪里刷，桃花妖技能資質屬性圖鑒，桃花妖覺醒材料需要什麼？更多關於桃花妖怎樣玩的攻略請關注《陰陽師Onmyoji》手遊官網！",
 				};
-		
+		ApplicationContext context = 
+    			new ClassPathXmlApplicationContext("news/applicationContext.xml");
+		NewsDao newsdao = context.getBean(NewsDao.class);
 		for(int i = 0 ; i<newsName.length ; i++) {
 			NewsBean_HO73 nb = new NewsBean_HO73(newsName[i], newsImg[i], newsImgIntro[i], newsArticle[i]);
-			NewsDaoImpl dao = new NewsDaoImpl();
-			dao.save(nb);
+			newsdao.save(nb);
 		}
+		
+    	((ConfigurableApplicationContext)context).close();
 	}
 }

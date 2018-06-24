@@ -40,21 +40,21 @@
 	        			<h3 class="nino-colHeading">Blogs</h3>
 	        			<ul class="listArticles">
 	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="#"><img src="images/our-blog/img-4.jpg" alt=""></a>
+	        					<a class="articleThumb fsr" href="#"><img src="${pageContext.request.contextPath}/images/our-blog/img-4.jpg" alt=""></a>
 	        					<div class="info">
 	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
 	        						<div class="date">Jan 9, 2016</div>
 	        					</div>
 	        				</li>
 	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="#"><img src="images/our-blog/img-5.jpg" alt=""></a>
+	        					<a class="articleThumb fsr" href="#"><img src="${pageContext.request.contextPath}/images/our-blog/img-5.jpg" alt=""></a>
 	        					<div class="info">
 	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
 	        						<div class="date">Jan 9, 2016</div>
 	        					</div>
 	        				</li>
 	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="#"><img src="images/our-blog/img-6.jpg" alt=""></a>
+	        					<a class="articleThumb fsr" href="#"><img src="${pageContext.request.contextPath}/images/our-blog/img-6.jpg" alt=""></a>
 	        					<div class="info">
 	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3>
 	        						<div class="date">Jan 9, 2016</div>

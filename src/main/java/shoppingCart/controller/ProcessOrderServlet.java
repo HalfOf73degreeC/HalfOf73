@@ -1,5 +1,6 @@
 package shoppingCart.controller;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,8 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import goods.OrderItem;
 import model.bean.MemberBean_HO73;
+import model.service.PaymentService;
 import shoppingCart.model.OrderBean_HO73;
 import shoppingCart.model.OrderItemBean_HO73;
 import shoppingCart.model.ShoppingCart;
@@ -28,6 +33,9 @@ public class ProcessOrderServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		
 //		String finalDecision = request.getParameter("finalDecision");		
 		HttpSession session = request.getSession(false);
@@ -37,7 +45,9 @@ public class ProcessOrderServlet extends HttpServlet {
 		}
 		MemberBean_HO73 mb = (MemberBean_HO73) session.getAttribute("memberBean");
 		if (mb == null) {
-			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
+			out.println("<script>alert('若需購買義賣商品需登入')</script>");
+			out.println("<script>window.location.href='../index.jsp'</script>");
+//			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
 			return;
 		}
 		ShoppingCart sc = (ShoppingCart) session.getAttribute("ShoppingCart");
@@ -53,19 +63,25 @@ public class ProcessOrderServlet extends HttpServlet {
 //			response.sendRedirect(response.encodeRedirectURL (request.getContextPath()));
 //			return;  			// 一定要記得 return 
 //		}
-		String memAccount = mb.getMemAccount();   						// 取出會員代號
+		String memAccount = mb.getMemAccount();   						        // 取出會員代號
 
 		String totalAmountString = request.getParameter("newSubtotal");
-		System.out.println("ta ="+totalAmountString);
 		Double totalAmount = Double.parseDouble(totalAmountString);
-//		double totalAmount = Math.round(sc.getSubtotal() * 1.05);  	// 計算訂單總金額 
-		String shippingAddress = request.getParameter("ShippingAddress");  // 出貨地址
-		String bNO = request.getParameter("BNO");					// 發票的統一編號  
-		String invoiceTitle = request.getParameter("InvoiceTitle");	// 發票的抬頭
-		Date today = new Date();   									// 新增訂單的時間
+//		double totalAmount = Math.round(sc.getSubtotal() * 1.05);  	            // 計算訂單總金額 
+		String shippingAddress = request.getParameter("address");               //收件地址
+		String shippingName = request.getParameter("name");                     //收件姓名
+		String shippingPhone = request.getParameter("tel");                     //收件電話
+		String bNO = request.getParameter("BNO");					            // 發票的統一編號  
+		String invoiceTitle = request.getParameter("InvoiceTitle");	            // 發票的抬頭
+		String paymentName = request.getParameter("paymentName");               //付款名稱
+		String paymentATMBankId = request.getParameter("paymentATMBankId");     //付款銀行代號
+		String paymentATMAccount = request.getParameter("paymentATMAccount");   //付款銀行帳號
+		String paymentUidStr = request.getParameter("paymentUid");              //付款設定編號
+		Integer paymentUid = Integer.parseInt(paymentUidStr);  
+		Date today = new Date();   									            // 新增訂單的時間
 		// 新建訂單物件。OrderBean:封裝一筆訂單資料的容器，包含訂單主檔與訂單明細檔的資料。目前只存放訂單主檔的資料。
 		OrderBean_HO73 ob = new OrderBean_HO73
-				(null, memAccount, totalAmount, shippingAddress, bNO, invoiceTitle, today, null, null , null);
+				(null, memAccount, totalAmount, shippingAddress, shippingName, shippingPhone, bNO, invoiceTitle, today, null, null, paymentUid, paymentName, paymentATMAccount, paymentATMBankId, null);
 		// 新建一個存放訂單明細的Set物件: items		
 		Set<OrderItemBean_HO73> items = new HashSet<OrderItemBean_HO73>();
 		// 取出存放在購物車內的商品，放入Map型態的變數cart，準備將其內的商品一個一個轉換為OrderItemBean，
