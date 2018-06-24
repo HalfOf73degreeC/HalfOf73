@@ -42,7 +42,19 @@ public class getNewsPage extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		request.setCharacterEncoding("UTF-8");
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		NewsService ns = ctx.getBean(NewsService.class);
+		String rstring = request.getParameter("newsUid");
+		Integer newsUid = Integer.valueOf(rstring);
+		
+		System.out.println("rstring: "+rstring+", newsUid: "+newsUid);
+		String gString = ns.getOneNews2String(newsUid); 
+		response.setContentType("application/json; charset=UTF8");
+		try (PrintWriter out = response.getWriter();) {
+			out.println(gString);
+		}
 	}
 
 }

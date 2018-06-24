@@ -49,9 +49,9 @@ public class NewsService {
 //	查詢一則新聞(觀看數+1)
 	@Transactional
 	public NewsBean_HO73 getOneNews(Integer newsUid) {
-		NewsBean_HO73 nb = newsDao.getOneNew(newsUid);	
+		NewsBean_HO73 nb = newsDao.getOneNew(newsUid);
+		System.out.println("nb="+nb);
 		nb.setNewsView(nb.getNewsView()+1);
-		System.out.println("觀看數+1");
 		newsDao.saveOrUpdate(nb);
 		return nb;		
 	}
