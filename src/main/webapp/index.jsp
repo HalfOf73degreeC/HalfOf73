@@ -72,23 +72,24 @@
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
 <!-- 						<i class="glyphicon glyphicon-heart"></i> -->
-							<img src ="images/ico/logo_haifof73c-01.png" width="150px">
-							<span class="nino-subHeading"><br>Half of 73°C</span>
+							
+							<img src ="images/ico/logo_halfof73c-01.png" width="350px">
+<!-- 							<span class="nino-subHeading"><br>Half of 73°C</span> -->
 							<br>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
-					<div class="item">
+					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Sharing Love</span>
-							<span class="nino-subHeadingn"><br>愛的溫度，是我能為你做的事情<br><br>點亮愛，傳遞笑顏的溫暖</span>
+							<span class="nino-subHeadingn"><br><br><br>愛的溫度，是我能為你做的事情<br><br>點亮愛，傳遞笑顏的溫暖</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
-					<div class="item">
+					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Be Together</span>
-							<span class="nino-subHeadingn"><br>別讓他們的無助，成為彼此的遺憾<br><br>
+							<span class="nino-subHeadingn"><br><br><br>別讓他們的無助，成為彼此的遺憾<br><br>
 							給予最溫暖的溫度</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->

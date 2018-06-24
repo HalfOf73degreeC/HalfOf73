@@ -25,7 +25,6 @@ $("#preview_img").click(function(){
           }
       
           reader.readAsDataURL(input.files[0]);
-          alert(reader);
         }
       
       }
@@ -34,7 +33,7 @@ $("#preview_img").click(function(){
     	    viewport: {
     	        width: 300,
     	        height: 300,
-    	        type: 'circle'
+//    	        type: 'circle'
     	    },
     	    boundary: {
     	        width: 400,
