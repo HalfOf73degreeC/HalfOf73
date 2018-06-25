@@ -82,26 +82,16 @@
 					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Sharing Love</span>
-<<<<<<< HEAD
-							<span class="nino-subHeadingn"><br><br><br>愛的溫度，是我能為你做的事情<br><br>點亮愛，傳遞笑顏的溫暖</span>
-=======
-							<span class="nino-subHeadingn"><br>愛的溫度，是我能為你做的事情<br><br>
-							<br>點亮愛，傳遞笑顏的溫暖</span>
->>>>>>> f0cbdfb28a96904009355f891ed4d7db05cf01d8
+							<span class="nino-subHeadingn"><br><br>愛的溫度，是我能為你做的事情<br>
+							<br><br>點亮愛，傳遞笑顏的溫暖</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
 					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Be Together</span>
-<<<<<<< HEAD
-							<span class="nino-subHeadingn"><br><br><br>別讓他們的無助，成為彼此的遺憾<br><br>
-							給予最溫暖的溫度</span>
-=======
-							<span class="nino-subHeadingn"><br>別讓他們的無助<br><br>
-							<br>成為你我之間的遺憾</span>
-							
->>>>>>> f0cbdfb28a96904009355f891ed4d7db05cf01d8
+							<span class="nino-subHeadingn"><br><br>別讓他們的無助，成為彼此的遺憾<br><br><br>
+							你的微光，將是我們的希望</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
