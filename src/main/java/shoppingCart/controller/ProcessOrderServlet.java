@@ -3,9 +3,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +20,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import goods.OrderItem;
 import model.bean.MemberBean_HO73;
+import model.bean.PaymentBean_HO73;
+import model.service.DeliveryService;
 import model.service.PaymentService;
 import shoppingCart.model.OrderBean_HO73;
 import shoppingCart.model.OrderItemBean_HO73;
@@ -64,6 +68,7 @@ public class ProcessOrderServlet extends HttpServlet {
 //			return;  			// 一定要記得 return 
 //		}
 		String memAccount = mb.getMemAccount();   						        // 取出會員代號
+		String memName =mb.getMemName();
 
 		String totalAmountString = request.getParameter("newSubtotal");
 		Double totalAmount = Double.parseDouble(totalAmountString);
@@ -107,7 +112,13 @@ public class ProcessOrderServlet extends HttpServlet {
 			OrderService orderService = new OrderServiceImpl();
 			orderService.processOrder(ob);
 			session.removeAttribute("ShoppingCart");
-			response.sendRedirect(response.encodeRedirectURL ("../goods/goodsCarts3.jsp"));
+			request.setAttribute("paymentATMBankId", paymentATMBankId);
+			request.setAttribute("paymentATMAccount", paymentATMAccount);
+			request.setAttribute("memName", memName);
+
+			RequestDispatcher rd = request.getRequestDispatcher("../goods/goodsCarts3.jsp");
+			rd.forward(request, response);
+//			response.sendRedirect(response.encodeRedirectURL ("../goods/goodsCarts3.jsp"));
 			return;
 		} catch(RuntimeException ex){
 			String message = ex.getMessage();

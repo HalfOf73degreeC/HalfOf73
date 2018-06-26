@@ -72,12 +72,11 @@
 	<c:set var="OrderBean" value="${OrderBean}"></c:set>
 	<form action="../index.jsp" method="post">
 		<div class="foundationList">
-			<div class="container foundationTitle">捐贈物資單已成立</div>
+			<div class="container foundationTitle"><h1>${memName} 您好，愛心商品訂購單已成立</h1></div>
 			<div class="container supplyBox">
-				<label>恭喜您已經完成捐贈物資作業，以下為您捐贈的明細:</label><br> <label>捐贈物資對象:OOO基金會</label><br>
-				<label>捐贈物資項目:項目名稱</label><br> <label>寄送方式項目:OOO運送方式</label><br>
-				<label style="color: red">寄出物品時，記得至會員專區填寫寄出明細清單</label><br> <label
-					style="color: red">寄件期限2018/05/06~2018/05/13(逾期則取消此筆捐贈)</label>
+				<label><h2>匯款銀行代碼:${paymentATMBankId}</h2></label><br>
+				<label><h2>匯款銀行帳號:${paymentATMAccount}</h2></label><br>
+				<label style="color: red">請於三日內匯款，若未匯款將自動取消訂單</label>
 			</div>
 		</div>
 		<div class="foundationList">

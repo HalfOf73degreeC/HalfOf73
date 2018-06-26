@@ -75,13 +75,13 @@
 	</header>
 	<!--header 結束，內容開始  -->
 	<!-- 下列敘述設定變數funcName的值為SHO，top.jsp 會用到此變數 -->
-	<section id="nino-latestBlog">
+	<section id="nino-latestBlog" >
 		<div class="container" >
 			<!-- 			<h2 class="nino-sectionHeading"> -->
 			<!-- 				<span class="nino-subHeading">最新消息</span> -->
 			<!-- 			</h2> -->
-			<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>
-			<div class="sectionContent" id='somedivS'></div>
+			
+			<div class="sectionContent" id='NewsPage'></div>
 		</div>
 	</section>
 
@@ -91,36 +91,15 @@
 
 
 	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
+	
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
 	<script>
 	var newslist;
-// 	每秒更新資訊
-// 	function update(){
-// 		console.log("update");
-// 		var xhr = new XMLHttpRequest();
-// 		xhr.open("Get", "getNewsPage", true);
-// 		xhr.send();
-// 		xhr.onreadystatechange = function() {
-// 			if (xhr.status == 200 && xhr.readyState == 4) {									
-// 				newslist = JSON.parse(xhr.responseText);				
-// 				for (var i = 0; i < newslist.length; i++) {
-// 					var news = newslist[i];
-// 					console.log(news.newsUid);
-// 					if(news.newsUid == $( ".article" ).attr("date-newsId")){
-// 						console.log("change");
-// 						var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">');
-// 						$article.children(".articleMeta").children("a").html('<i class="mdi mdi-eye nino-icon"></i>'+ news.newsView);
-						
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
+
 // 	Ajax 將News資料送給畫面
 		$(document)
 				.ready(function() {
-//					 		每秒更新資訊
-// 							setInterval(update,10000);	
-
+					$loadingGIF = $('<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>').appendTo($('#NewsPage'));
 							var xhr = new XMLHttpRequest();
 							xhr.open("Get", "getNewsPage", true);
 							xhr.send();
@@ -133,20 +112,20 @@
 										var $row;
 										if (i % 3 == 0) {
 											$row = $('<div class="row">')
-													.appendTo($('#somedivS'));
+													.appendTo($('#NewsPage'));
 										}
-										var $divcol = $(
-												'<div class="col-md-4 col-sm-4" style="margin-top: 30px">')
+										var $newscol = $(
+												'<div class="col-md-4 col-sm-4 animated fadeInUp" id="newscol" style="margin-top: 30px">')
 												.appendTo($row);
 										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">').appendTo(
-												$divcol);
+												$newscol);
 										var $articleThumb = $(
 												'<div class="articleThumb">')
 												.appendTo($article);
 										var $goodsImageSize = $(
 												'<div class="newsImageSize">')
 												.appendTo($articleThumb)
-												.append("<img style='width: 300px;' src='" + news.newsImg + "'>");
+												.append("<img src='" + news.newsImg + "'>");
 										var $divdate = $('<div class="date">')
 												.appendTo($articleThumb)
 												.append('<span class="text" style="font: bolder 20px 微軟正黑體">'
@@ -209,13 +188,23 @@
 													+'<p>'+ news.newsArticle +'</p></div></div>').appendTo(row);
 											
 											});	
+
+										
 																
-									}									
-									var len = 50; // 文字>50變成"..."
+									}
+									var len = 80; // 文字>80變成"..."
 								    $(".articleDesc").each(function(i){
 								        if($(this).text().length>len){
-								            $(this).attr("title",$(this).text());
+// 								            $(this).attr("title",$(this).text());
 								            var text=$(this).text().substring(0,len-1)+"...";
+								            $(this).text(text);
+								        }
+								    });
+								    var Tlen = 20; // 標題文字>20變成"..."
+								    $(".articleTitle").each(function(i){
+								        if($(this).text().length>Tlen){
+// 								            $(this).attr("title",$(this).text());
+								            var text=$(this).text().substring(0,Tlen-1)+"...";
 								            $(this).text(text);
 								        }
 								    });
@@ -228,22 +217,16 @@
 								        xhr_oneNews.open("Post", "getNewsPage?newsUid="+newsId , true);
 								        xhr_oneNews.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 								        xhr_oneNews.send();
-// 								        xhr_oneNews.onreadystatechange = function() {
-// 											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
-// 		 								        alert(xhr_oneNews.responseText);
-// 											}}
-										for (var i = 0; i < newslist.length; i++) {
-											var news = newslist[i];
-											if(news.newsUid == newsId){
-												break;
-											}
-										}
-								        
+								        xhr_oneNews.onreadystatechange = function() {
+											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
+												var oneNews = JSON.parse(xhr_oneNews.responseText);
+// 												console.log(oneNews);
+												$(".article[date-newsId="+oneNews.newsUid+"]").children(".articleMeta").children("a:nth-child(1)").html('<i class="mdi mdi-eye nino-icon"></i>'+ oneNews.newsView);
+											}}
 								        $( ".modal-content" ).children("h1").html(news.newsName);
 								        $( ".modal-content" ).children("p").html(news.newsArticle);
 								        $( ".modal-content" ).children("img").attr("src",news.newsImg);
 								        
-			        
 								    });
 								      
 								}
@@ -262,7 +245,6 @@
 		w3.includeHTML();
 	</script>
 <!-- 	dialog視窗  -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script type="text/javascript" src="../js/jquery.ba-outside-events.js"></script>
