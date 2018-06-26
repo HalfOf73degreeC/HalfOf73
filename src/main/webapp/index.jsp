@@ -72,8 +72,7 @@
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
 <!-- 						<i class="glyphicon glyphicon-heart"></i> -->
-							
-							<img src ="images/ico/logo_halfof73c-01.png" width="350px">
+							<img src ="images/ico/102.png" width="350px">
 <!-- 							<span class="nino-subHeading"><br>Half of 73°C</span> -->
 							<br>
 						</h2>
@@ -90,8 +89,8 @@
 					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Be Together</span>
-							<span class="nino-subHeadingn"><br><br>別讓他們的無助，成為彼此的遺憾<br><br><br>
-							你的微光，將是我們的希望</span>
+							<span class="nino-subHeadingn"><br><br>別讓他們的無助，成為彼此的遺憾<br>
+							<br><br>你的微光，將是我們的希望</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>

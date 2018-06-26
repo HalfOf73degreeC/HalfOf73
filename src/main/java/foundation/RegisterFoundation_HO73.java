@@ -70,7 +70,6 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		mb.setMemType(2);
 		MemberDAO mdao = new MemberDAO();
 		mdao.update_fun(mb);
-		
 		// 2. 進行必要的資料轉換
 		// int experience = 0;
 		// try {
@@ -79,6 +78,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		// errorMsg.add("使用Java經驗格式錯誤，應該為整數");
 		// }
 		// 3. 檢查使用者輸入資料
+
 //		if (memAccount == null || memAccount.trim().length() == 0) {
 //			errorMsg.put("memAccount", "帳號必須輸入");
 //		} else if (memAccount.trim().length() < 6) {
@@ -114,9 +114,11 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		foundationService fs = ctx.getBean(foundationService.class);
 		fs.creatOneFoundation(fb);
 //		fb = fs.getOneFoundation(funIdcard);
+//將原本暫存在request物件內、要與顯示成功訊息的JSP網頁共用的資訊改為暫存到session物件內。
 		session.setAttribute("foundationBean", fb);
-		System.out.println("準備更新, FoundationBean_HO73=" + fb);
+//將屬於forward()給顯示成功訊息的JSP網頁的相關程式碼改為response.sendRedirect(新網頁)的敘述。
 		response.sendRedirect("foundation_detail.jsp");
+		System.out.println("準備更新, FoundationBean_HO73=" + fb);
 		return;
 	}
 	

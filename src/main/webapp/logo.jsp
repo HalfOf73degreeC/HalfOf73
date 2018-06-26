@@ -6,4 +6,6 @@
 	<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 	<span class="icon-bar"></span> <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="${pageContext.request.contextPath}">Half of 73°C</a>
+<a class="navbar-brand" style="padding:5px 0px;" href="${pageContext.request.contextPath}">
+	<img src="${pageContext.request.contextPath}/images/logo_halfof73c-04.png" height="40px">
+</a>

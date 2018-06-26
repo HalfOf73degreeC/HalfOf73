@@ -1,0 +1,16 @@
+.title{
+	text-align: center;
+	margin: 0px auto;
+	border-bottom: 3px dotted #95e1d3;
+	width: 650px;
+	padding: 0px;
+}
+
+
+.box-down1{
+	margin: 50px 0px 0px 200px;
+	position: relative;
+}
+.box-down2{
+	margin: 50px auto;
+}
