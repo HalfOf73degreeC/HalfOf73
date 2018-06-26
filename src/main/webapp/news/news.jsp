@@ -93,34 +93,10 @@
 	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<script>
 	var newslist;
-// 	每秒更新資訊
-// 	function update(){
-// 		console.log("update");
-// 		var xhr = new XMLHttpRequest();
-// 		xhr.open("Get", "getNewsPage", true);
-// 		xhr.send();
-// 		xhr.onreadystatechange = function() {
-// 			if (xhr.status == 200 && xhr.readyState == 4) {									
-// 				newslist = JSON.parse(xhr.responseText);				
-// 				for (var i = 0; i < newslist.length; i++) {
-// 					var news = newslist[i];
-// 					console.log(news.newsUid);
-// 					if(news.newsUid == $( ".article" ).attr("date-newsId")){
-// 						console.log("change");
-// 						var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">');
-// 						$article.children(".articleMeta").children("a").html('<i class="mdi mdi-eye nino-icon"></i>'+ news.newsView);
-						
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
+
 // 	Ajax 將News資料送給畫面
 		$(document)
 				.ready(function() {
-//					 		每秒更新資訊
-// 							setInterval(update,10000);	
-
 							var xhr = new XMLHttpRequest();
 							xhr.open("Get", "getNewsPage", true);
 							xhr.send();
@@ -228,22 +204,16 @@
 								        xhr_oneNews.open("Post", "getNewsPage?newsUid="+newsId , true);
 								        xhr_oneNews.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 								        xhr_oneNews.send();
-// 								        xhr_oneNews.onreadystatechange = function() {
-// 											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
-// 		 								        alert(xhr_oneNews.responseText);
-// 											}}
-										for (var i = 0; i < newslist.length; i++) {
-											var news = newslist[i];
-											if(news.newsUid == newsId){
-												break;
-											}
-										}
-								        
+								        xhr_oneNews.onreadystatechange = function() {
+											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
+												var oneNews = JSON.parse(xhr_oneNews.responseText);
+// 												console.log(oneNews);
+												$(".article[date-newsId="+oneNews.newsUid+"]").children(".articleMeta").children("a:nth-child(1)").html('<i class="mdi mdi-eye nino-icon"></i>'+ oneNews.newsView);
+											}}
 								        $( ".modal-content" ).children("h1").html(news.newsName);
 								        $( ".modal-content" ).children("p").html(news.newsArticle);
 								        $( ".modal-content" ).children("img").attr("src",news.newsImg);
 								        
-			        
 								    });
 								      
 								}
