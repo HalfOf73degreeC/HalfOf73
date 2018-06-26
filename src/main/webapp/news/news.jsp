@@ -99,6 +99,11 @@
 // 	Ajax 將News資料送給畫面
 		$(document)
 				.ready(function() {
+					$("body").append('<div class="modal fade bs-OneNews-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">'
+			        		+'<div class="modal-dialog modal-lg" role="document">'
+			        		+'<div class="modal-content" style="padding: 30px" id="oneNews">'
+			        		+'</div></div></div>');
+			        
 					$loadingGIF = $('<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>').appendTo($('#NewsPage'));
 							var xhr = new XMLHttpRequest();
 							xhr.open("Get", "getNewsPage", true);
@@ -117,7 +122,7 @@
 										var $newscol = $(
 												'<div class="col-md-4 col-sm-4 animated fadeInUp" id="newscol" style="margin-top: 30px">')
 												.appendTo($row);
-										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-example-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">').appendTo(
+										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-OneNews-modal-lg" date-newsId="'+ news.newsUid +'" style="cursor:pointer">').appendTo(
 												$newscol);
 										var $articleThumb = $(
 												'<div class="articleThumb">')
@@ -152,44 +157,7 @@
 														'<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
 																+ news.newsUid
 																+ '</a>')
-																
-										$("h3#articleTitle").click(function (){
-											console.log('foo');
-											var news = newslist[i];
-											$("#nino-whatWeDo").empty();
-											var $container = $('<div class="container">')
-											.appendTo($nino-whatWeDo);
-											var newstitle = $('<h2 class="nino-sectionHeading" style="text-align:left">'
-													+'<span class="nino-subHeading" style="text-align:left"><h1>'
-													+news.newsName+'<h1></span>	'
-													+'</h2>').appendTo(container);
-											var newsinsterday = $('<div class="articleMeta" style="text-align:right;">'
-													+'<a style="text-align:right; color:gray;">'
-													+ news.insertMonth +news.insertDay + '日</a>'
-													+'</div>').appendTo(container);
-											var newsviews = $('<div id="nino-latestBlog" style="text-align:left">'
-													+'<article>'
-													+'<div class="articleMeta">'
-													+'<a><i class="mdi mdi-eye nino-icon"></i>'
-													+ news.newsView + '</a>'
-													+'<a><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
-													+ news.newsUid + '15</a>'
-													+'</div><br></article></div>').appendTo(container);
-											var $sectionContent = $('<div class="sectionContent">').appendTo(container);
-											var $row =  $('<div class="row">').appendTo(sectionContent);
-											var newsimage = $('<div class="col-md-6">'
-													+'<div class="text-center">'
-													+'<img src="'+news.newsImg+'">'
-													+ news.newsImgIntro
-													+'<a style="color:gray;">'
-													+'</a></div></div>').appendTo(row);
-											var newsArticle = $('<div class="col-md-6">'
-													+'<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">'
-													+'<p>'+ news.newsArticle +'</p></div></div>').appendTo(row);
-											
-											});	
-
-										
+															
 																
 									}
 									var len = 80; // 文字>80變成"..."
@@ -200,7 +168,7 @@
 								            $(this).text(text);
 								        }
 								    });
-								    var Tlen = 20; // 標題文字>20變成"..."
+								    var Tlen = 25; // 標題文字>25變成"..."
 								    $(".articleTitle").each(function(i){
 								        if($(this).text().length>Tlen){
 // 								            $(this).attr("title",$(this).text());
@@ -211,21 +179,29 @@
 // 								    
 // 								    <!-- 	dialog視窗.內容  -->
 								    $( ".article" ).on( "click", function() {
-								        var newsId = $(this).attr("date-newsId");
+										$("#oneNews").empty();
+										var newsId = $(this).attr("date-newsId");
 // 								        <!-- 	News資料庫連線  -->
-								        var xhr_oneNews = new XMLHttpRequest();
+								        var xhr_oneNews = new XMLHttpRequest();								        
 								        xhr_oneNews.open("Post", "getNewsPage?newsUid="+newsId , true);
 								        xhr_oneNews.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 								        xhr_oneNews.send();
 								        xhr_oneNews.onreadystatechange = function() {
+								        	
 											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
 												var oneNews = JSON.parse(xhr_oneNews.responseText);
 // 												console.log(oneNews);
 												$(".article[date-newsId="+oneNews.newsUid+"]").children(".articleMeta").children("a:nth-child(1)").html('<i class="mdi mdi-eye nino-icon"></i>'+ oneNews.newsView);
 											}}
-								        $( ".modal-content" ).children("h1").html(news.newsName);
-								        $( ".modal-content" ).children("p").html(news.newsArticle);
-								        $( ".modal-content" ).children("img").attr("src",news.newsImg);
+								        for (var i = 0; i < newslist.length; i++) {
+											var news = newslist[i];
+											if (news.newsUid == newsId) {
+												$( "#oneNews" ).append('<h1 style="font-weight: bold;">'+news.newsName+'</h1>');
+											    $( "#oneNews" ).append('<p>'+news.insertDate+'</p>');
+											    $( "#oneNews" ).append('<h4>'+news.newsArticle+'</h4>');
+											    $( "#oneNews" ).append('<img width="100%" src="'+news.newsImg+'"/>');
+											}
+								        }
 								        
 								    });
 								      
@@ -248,19 +224,6 @@
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script type="text/javascript" src="../js/jquery.ba-outside-events.js"></script>
-	<div id="dialog" title="Basic dialog">
-		
-	</div>
-<!-- Large modal -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      	<h1>新聞標題</h1>
-		<p>新聞內容</p>
-		<img src="#"/>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>

@@ -20,6 +20,7 @@ public class NewsBean_HO73 {
 	String      newsImgIntro;
 	String      newsArticle;;
 	Integer		newsView;
+	Date		insertDate;
 	String  	insertMonth;
 	String 		insertDay;
 	public NewsBean_HO73() {
@@ -32,11 +33,11 @@ public class NewsBean_HO73 {
 		this.newsImg = newsImg;
 		this.newsImgIntro = newsImgIntro;
 		this.newsArticle = newsArticle;
-		Date now = new Date();
+		insertDate = new Date();
 		SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMM");
-		insertMonth = dateFormatMonth.format(now);
+		insertMonth = dateFormatMonth.format(insertDate);
 		SimpleDateFormat dateFormatDay = new SimpleDateFormat("d");
-		insertDay = dateFormatDay.format(now);
+		insertDay = dateFormatDay.format(insertDate);
 		newsView = 0;
 	}
 	@Id
@@ -79,6 +80,13 @@ public class NewsBean_HO73 {
 	}
 	public void setNewsView(Integer newsView) {
 		this.newsView = newsView;
+	}
+	public Date getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
 	}
 	public String getInsertMonth() {
 		return insertMonth;
