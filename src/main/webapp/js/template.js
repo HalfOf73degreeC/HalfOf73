@@ -1,44 +1,49 @@
 jQuery(function($) {
 
 	/* =============== SHOW / HIDE FORM SEARCH =============== */
-	$("header .nino-search, #nino-searchForm .nino-close").click(function(){
+	$("header .nino-search, #nino-searchForm .nino-close").click(function() {
 		$("#nino-searchForm").toggleClass("open");
 	});
 
 	/* =============== SHOW / HIDE GOOGLE MAP =============== */
-	$("#nino-map .nino-sectionHeading").click(function(){
+	$("#nino-map .nino-sectionHeading").click(function() {
 		$("#nino-map").toggleClass("showMap");
 		$(this).find(".text").toggle();
 	});
 
 	/* =============== TESTIMONIAL SLIDER =============== */
-	$('.nino-testimonialSlider').unslider({
-		nav: false,
-		arrows: {
-			//  Unslider default behaviour
-			prev: '<a class="unslider-arrow prev"><i class="mdi mdi-chevron-left"></i></a>',
-			next: '<a class="unslider-arrow next"><i class="mdi mdi-chevron-right"></i></a>',
-		}
-	});
+	$('.nino-testimonialSlider')
+			.unslider(
+					{
+						nav : false,
+						arrows : {
+							// Unslider default behaviour
+							prev : '<a class="unslider-arrow prev"><i class="mdi mdi-chevron-left"></i></a>',
+							next : '<a class="unslider-arrow next"><i class="mdi mdi-chevron-right"></i></a>',
+						}
+					});
 
 	/* =============== CUSTOM SCROLLBAR STYLE =============== */
 	$("#nino-whatWeDo .panel-body").mCustomScrollbar({
-		theme:"default"
+		theme : "default"
 	});
 
 	/* =============== MAKE MAIN MENU STICKED ON TOP WHEN SCROLL =============== */
-	$(window).scroll(function () {
-		if ($(this).scrollTop() == $('#nino-header').height() || $(this).scrollTop() > $('#nino-header').height()) {
-			$('body').addClass("nino-fixed-nav");
-			$('body').css('padding-top', $('#nino-navbar').height() + 'px');
-		} else {
-			$('body').removeClass("nino-fixed-nav");
-			$('body').css('padding-top', 0);
-		}
-	});
-	
-	/* =============== ISOTOP =============== */	
-	$(window).load(function(){
+	$(window).scroll(
+			function() {
+				if ($(this).scrollTop() == $('#nino-header').height()
+						|| $(this).scrollTop() > $('#nino-header').height()) {
+					$('body').addClass("nino-fixed-nav");
+					$('body').css('padding-top',
+							$('#nino-navbar').height() + 'px');
+				} else {
+					$('body').removeClass("nino-fixed-nav");
+					$('body').css('padding-top', 0);
+				}
+			});
+
+	/* =============== ISOTOP =============== */
+	$(window).load(function() {
 		$portfolio = $('.nino-portfolioItems');
 		$portfolio.isotope({
 			itemSelector : 'li',
@@ -47,33 +52,34 @@ jQuery(function($) {
 		$("#nino-map").toggleClass("showMap");
 		$(this).find(".text").toggle();
 	});
-	
+
 	/* =============== PORTFOLIO HOVER EFFECT =============== */
-	$('.nino-portfolioItems > li').each( function() { $(this).hoverdir(); } );
-	
+	$('.nino-portfolioItems > li').each(function() {
+		$(this).hoverdir();
+	});
+
 	/* =============== PERTTYPHOTO =============== */
 	$("a.nino-prettyPhoto").prettyPhoto();
-	
+
 	/* =============== SMOOTH SCROOL EFFECT =============== */
-	$('#nino-navbar ul li a').on('click',function (e) {
-			e.preventDefault();
-			var target = this.hash,
-			$target = $(target);
-			var href = $.attr(this, 'href');
-	    if (target==href){
-	  		$('html, body').stop().animate({
-	    	'scrollTop': $target.offset().top
-	   		}, 500, 'swing', function () {
-	   			window.location.hash = target;
-	   		});
-	  	}else{
-	   		window.location.href = href;
-	  	}
+	$('#nino-navbar ul li a').on('click', function(e) {
+		e.preventDefault();
+		var target = this.hash, $target = $(target);
+		var href = $.attr(this, 'href');
+		if (target == href) {
+			$('html, body').stop().animate({
+				'scrollTop' : $target.offset().top
+			}, 500, 'swing', function() {
+				window.location.hash = target;
+			});
+		} else {
+			window.location.href = href;
+		}
 	});
-	
+
 	/* =============== SHOW / HIDE GO TO TOP =============== */
 	/* Check to see if the window is top if not then display go top button */
-	$(window).scroll(function(){
+	$(window).scroll(function() {
 		if ($(this).scrollTop() > 200) {
 			$('#nino-scrollToTop').fadeIn();
 		} else {
@@ -81,21 +87,26 @@ jQuery(function($) {
 		}
 	});
 	/* Click event to scroll to top */
-	$('#nino-scrollToTop').click(function(){
-		$('html, body').animate({scrollTop : 0},300);
+	$('#nino-scrollToTop').click(function() {
+		$('html, body').animate({
+			scrollTop : 0
+		}, 300);
 		return false;
 	});
-	/*===========Ê¹ÓÃ text-overflow: ellipsis; ŒÙÐÔ•r¡¢ÎÄ×ÖÖ»ÄÜ†ÎÐÐ³ö¬F¡£ÈôÊÇÏëÒª¶àÐÐÎÄ×Ö...===========*/
-	$(function(){
-    var len = 50; // ³¬ß^50‚€×ÖÒÔ"..."È¡´ú
-    $(".articleDesc").each(function(i){
-        if($(this).text().length>len){
-            $(this).attr("title",$(this).text());
-            var text=$(this).text().substring(0,len-1)+"...";
-            $(this).text(text);
-        }
-    });
+	/*
+	 * ===========Ê¹ï¿½ï¿½ text-overflow: ellipsis;
+	 * ï¿½ï¿½ï¿½Ô•rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Ü†ï¿½ï¿½Ð³ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...===========
+	 */
+	$(function() {
+		var len = 50; // ï¿½ï¿½ï¿½^50ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"..."È¡ï¿½ï¿½
+		$(".articleDesc").each(function(i) {
+			if ($(this).text().length > len) {
+				$(this).attr("title", $(this).text());
+				var text = $(this).text().substring(0, len - 1) + "...";
+				$(this).text(text);
+			}
+		});
 
-});
-	 
+	});
+
 });
