@@ -54,6 +54,15 @@ public class PayBoxDaoImpl implements PayBoxDao {
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<PayBox> getFunPayBoxes(String fk_payIdcard) {
+		String hql = "FROM PayBox pb WHERE pb.fk_payIdcard= :fk_payIdcard";
+		Session session = factory.getCurrentSession();
+		List<PayBox> list = session.createQuery(hql).setParameter("fk_payIdcard", fk_payIdcard).getResultList();
+		return list;
+	}
 
 	@Override
 	public PayBox getPayBox(Integer pk) {

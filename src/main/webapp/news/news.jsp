@@ -101,7 +101,7 @@
 				.ready(function() {
 					$("body").append('<div class="modal fade bs-OneNews-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">'
 			        		+'<div class="modal-dialog modal-lg" role="document">'
-			        		+'<div class="modal-content" style="padding: 30px" id="oneNews">'
+			        		+'<div class="modal-content" style="padding: 50px" id="oneNews">'
 			        		+'</div></div></div>');
 			        
 					$loadingGIF = $('<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>').appendTo($('#NewsPage'));

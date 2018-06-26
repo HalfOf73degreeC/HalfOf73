@@ -46,6 +46,22 @@ public class PayBox {
 
 
 
+	public PayBox(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,
+			FoundationBean_HO73 foundationBean) {
+		super();
+		this.payBoxName = payBoxName;
+		this.payBoxDetail = payBoxDetail;
+		this.payBankId = payBankId;
+		this.payATMAccount = payATMAccount;
+		this.payBoxType = payBoxType;
+		this.foundationBean = foundationBean;
+		insertDate = new Date();
+		viewTimes = 0;
+		balance = 0;
+	}
+
+
+
 	public PayBox(Integer payBoxNumber, String payBoxName, String payBoxDetail, String payBankId,
 			String payATMAccount, Date insertDate, Integer viewTimes, Integer payBoxType,
 			FoundationBean_HO73 foundationBean) {

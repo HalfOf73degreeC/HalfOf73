@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.gson.Gson;
+
 import model.bean.PaymentBean_HO73;
 import model.repository.PaymentDao;
 
@@ -16,6 +18,8 @@ public class PaymentService {
 
 	@Autowired
     PaymentDao dao;
+	@Autowired
+	Gson gson;
     
 	public PaymentService() {
 		
@@ -31,6 +35,11 @@ public class PaymentService {
 		return dao.getAllPayment();
 	}
 
+	@Transactional
+	public String getAllPayment2String() {		
+		return gson.toJson(getAllPayment());
+	}
+	
 	@Transactional
 	public int update(PaymentBean_HO73 bean) {
 		return dao.update(bean);

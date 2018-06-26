@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.gson.Gson;
+
 import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
 import model.bean.PaymentIn;
@@ -33,12 +35,16 @@ public class payBoxService {
 	PaymentInDao paymentInDao;
 	@Autowired
 	PaymentOutDao paymentOutDao;
+	@Autowired
+	Gson gson;
 //	
 //	新建一個募款箱(一個基金會可以有多個募款箱，但是同時只能有2個可以募款)
 	@Transactional
-	public int creatOnePayBox(PayBox pb) {
+	public PayBox creatOnePayBox(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,
+			String fk_payIdcard) {
 		
-		FoundationBean_HO73 fb = foundationDao.getOneFoundation(pb.getFoundationBean().getFunAccount()); 
+		FoundationBean_HO73 fb = foundationDao.getOneFoundation(fk_payIdcard); 
+		PayBox pb = null;
 		int count = 0;
 		for(PayBox payBox: fb.getPayBox()){
 			System.out.println("發現ㄧ個payBox，id=" + payBox.getPayBoxNumber());
@@ -48,11 +54,17 @@ public class payBoxService {
 		}
 		if(count<2) {
 			System.out.println("新建一個payBox");
+			pb = new PayBox(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fb);
 			payboxDao.save(pb);
 		}else {
 			System.out.println("payBox達上限(兩個)");
 		}
-		return 0;
+		return pb;
+	}
+	@Transactional
+	public String creatOnePayBox2String(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,
+			String fk_payIdcard) {
+		return gson.toJson(creatOnePayBox(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fk_payIdcard));
 	}
 	
 //	一筆捐款至募款箱(同時改動募款箱的balance)
@@ -92,18 +104,21 @@ public class payBoxService {
 //	列出所有的募款箱
 	@Transactional
 	public List<PayBox> getAllPayBoxes() {
-		
 		return payboxDao.getAllPayBoxes();
+	}
+	@Transactional
+	public String getAllPayBoxes2String() {
+		return gson.toJson(getAllPayBoxes());
 	}
 //	列處一個基金會的所有募款箱
 	@Transactional
-	public List<PayBox> getFunPayBoxes(FoundationBean_HO73 fb) {
-		List<PayBox> list = new ArrayList<PayBox>();
-		for(PayBox payBox: fb.getPayBox()){
-			System.out.println("發現ㄧ個payBox，id=" + payBox.getPayBoxNumber());
-			list.add(payBox);
-		}
+	public List<PayBox> getFunPayBoxes(String fk_payIdcard) {
+		List<PayBox> list = payboxDao.getFunPayBoxes(fk_payIdcard);
 		return list;
+	}
+	@Transactional
+	public String getFunPayBoxes2String(String fk_payIdcard) {
+		return gson.toJson(getFunPayBoxes(fk_payIdcard));
 	}
 //	
 //	
