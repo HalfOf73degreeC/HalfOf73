@@ -3,16 +3,16 @@ package model.repository;
 import java.util.List;
 
 import model.bean.PayBox;
-import model.bean.PaymentIn;
+import model.bean.PayBoxIn;
 
-public interface PaymentInDao {
+public interface PayBoxInDao {
 	boolean isDup(Integer id);
 
-	int save(PaymentIn pi);
+	int save(PayBoxIn pi);
 
-	List<PaymentIn> getAllPaymentIn();
+	List<PayBoxIn> getAllPaymentIn();
 
-	PaymentIn getPaymentIn(Integer pk);
+	PayBoxIn getPaymentIn(Integer pk);
 
 	int deletePaymentIn(Integer pk);
 

@@ -16,12 +16,12 @@ import member.MemberDAO;
 import model.bean.FoundationBean_HO73;
 import model.bean.MemberBean_HO73;
 import model.bean.PayBox;
-import model.bean.PaymentIn;
-import model.bean.PaymentOut;
+import model.bean.PayBoxIn;
+import model.bean.PayBoxOut;
 import model.repository.FoundationDao;
 import model.repository.PayBoxDao;
-import model.repository.PaymentInDao;
-import model.repository.PaymentOutDao;
+import model.repository.PayBoxInDao;
+import model.repository.PayBoxOutDao;
 
 
 @Service

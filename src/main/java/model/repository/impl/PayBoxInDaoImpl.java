@@ -10,13 +10,15 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import model.bean.PaymentOut;
-import model.repository.PaymentOutDao;
+import model.bean.PayBox;
+import model.bean.PayBoxIn;
+import model.repository.PayBoxInDao;
 
-@Repository("paymentOutDao")
+@Repository("paymentInDao")
 @Scope("prototype")
-public class PaymentOutDaoImpl implements PaymentOutDao {
+public class PayBoxInDaoImpl implements PayBoxInDao {
 
 	@Autowired
 	SessionFactory factory;
@@ -24,10 +26,10 @@ public class PaymentOutDaoImpl implements PaymentOutDao {
 	@Override
 	public boolean isDup(Integer id) {
 		boolean result = false;
-		String hql = "FROM PaymentOut po where pb.id = :id";
+		String hql = "FROM PaymentIn pi where pi.id = :id";
 		Session session = factory.getCurrentSession();
 		try {
-			PaymentOut po = (PaymentOut) session.createQuery(hql).setParameter("id", id).getSingleResult();
+			PayBoxIn pi = (PayBoxIn) session.createQuery(hql).setParameter("id", id).getSingleResult();
 			result = true;
 		} catch (NoResultException e) {
 			System.out.println("發生NoResultException...");
@@ -38,48 +40,49 @@ public class PaymentOutDaoImpl implements PaymentOutDao {
 	}
 
 	@Override
-	public int save(PaymentOut po) {
+	public int save(PayBoxIn pi) {
 		int count = 0;
 		Session session = factory.getCurrentSession();
-		session.save(po);
+		session.save(pi);
 		count++;
 		return count;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PaymentOut> getAllPayPaymentOut() {
-		String hql = "FROM PaymentOut";
-		List<PaymentOut> list = new ArrayList<>();
+	public List<PayBoxIn> getAllPaymentIn() {
+		String hql = "FROM PaymentIn";
+		List<PayBoxIn> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
 
 	@Override
-	public PaymentOut getPaymentOut(Integer pk) {
-		PaymentOut po = null;
+	public PayBoxIn getPaymentIn(Integer pk) {
+		PayBoxIn pi = null;
 		Session session = factory.getCurrentSession();
-		po = session.get(PaymentOut.class, pk);
-		return po;
+		pi = session.get(PayBoxIn.class, pk);
+		return pi;
 	}
 
+
 	@Override
-	public int deletePaymentOut(Integer pk) {
+	public int deletePaymentIn(Integer pk) {
 		int count = 0;
 		Session session = factory.getCurrentSession();
-		PaymentOut po = new PaymentOut();
-		po.setId(pk);
-		session.delete(po);
+		PayBoxIn pi = new PayBoxIn();
+		pi.setId(pk);
+		session.delete(pi);
 		count++;
 		return count;
 	}
 
 	@Override
-	public int updatePaymentOut(PaymentOut po) {
+	public int updatePaymentIn(PayBox pi) {
 		int count = 0;
 		Session session = factory.getCurrentSession();	
-		    session.merge(po);
+		    session.merge(pi);
 		    count++;
 		return count;
 	}

@@ -13,12 +13,12 @@ import com.google.gson.Gson;
 
 import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
-import model.bean.PaymentIn;
-import model.bean.PaymentOut;
+import model.bean.PayBoxIn;
+import model.bean.PayBoxOut;
 import model.repository.FoundationDao;
 import model.repository.PayBoxDao;
-import model.repository.PaymentInDao;
-import model.repository.PaymentOutDao;
+import model.repository.PayBoxInDao;
+import model.repository.PayBoxOutDao;
 
 
 @Service
@@ -32,9 +32,9 @@ public class payBoxService {
 	@Autowired
 	PayBoxDao payboxDao;
 	@Autowired
-	PaymentInDao paymentInDao;
+	PayBoxInDao paymentInDao;
 	@Autowired
-	PaymentOutDao paymentOutDao;
+	PayBoxOutDao paymentOutDao;
 	@Autowired
 	Gson gson;
 //	
@@ -69,7 +69,7 @@ public class payBoxService {
 	
 //	一筆捐款至募款箱(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePaymentIn(PaymentIn pi) {
+	public int addOnePaymentIn(PayBoxIn pi) {
 		paymentInDao.save(pi);
 		PayBox pb =  payboxDao.getPayBox(pi.getId());
 		Integer balance = pb.getBalance();
@@ -81,7 +81,7 @@ public class payBoxService {
 	
 //	一筆募款箱的花費(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePaymentOut(PaymentOut po) {
+	public int addOnePaymentOut(PayBoxOut po) {
 		paymentOutDao.save(po);
 		PayBox pb =  payboxDao.getPayBox(po.getId());
 		Integer balance = pb.getBalance();

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PaymentOut")
-public class PaymentOut {
+public class PayBoxOut {
 	private 			Integer 	Id;
 	private transient 	PayBox 		payBoxNumber;
 	private 			String 		payIdcard;
@@ -22,13 +22,13 @@ public class PaymentOut {
 	private 			String 		receipt;
 	private 			Date 		insertDate;
 	
-	public PaymentOut(PayBox payBoxNumber, String payForName, Integer payForCost) {
+	public PayBoxOut(PayBox payBoxNumber, String payForName, Integer payForCost) {
 		super();
 		this.payBoxNumber = payBoxNumber;
 		this.payForName = payForName;
 		this.payForCost = payForCost;
 	}
-	public PaymentOut(Integer id, PayBox payBoxNumber, String payIdcard, String payForName, String payForDetail,
+	public PayBoxOut(Integer id, PayBox payBoxNumber, String payIdcard, String payForName, String payForDetail,
 			Integer payForCost, String receipt, Date insertDate) {
 		super();
 		Id = id;
@@ -40,7 +40,7 @@ public class PaymentOut {
 		this.receipt = receipt;
 		this.insertDate = insertDate;
 	}
-	public PaymentOut() {
+	public PayBoxOut() {
 		super();
 	}
 	/**
