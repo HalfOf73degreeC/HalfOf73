@@ -282,7 +282,7 @@ function codeAddress() {
       var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location,
-          icon:'../images/ico/logo_haifof73c-01_opt.png',
+          icon:'../images/ico/marker_resized.png',
           title: name,
           animation: google.maps.Animation.DROP
       });
