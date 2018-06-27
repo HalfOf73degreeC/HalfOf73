@@ -10,7 +10,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="java008.project@gmail.com">
 	<title>${subTitle}</title>
-
+	<!-- icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 	<!-- favicon -->
     <link rel="shortcut icon" href="images/ico/like.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -81,7 +82,7 @@
 					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Sharing Love</span>
-							<span class="nino-subHeadingn"><br><br>愛的溫度，是我能為你做的事情<br>
+							<span class="nino-subHeadingnn"><br><br>愛的溫度，是我能為你做的事情<br>
 							<br><br>點亮愛，傳遞笑顏的溫暖</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
@@ -89,7 +90,7 @@
 					<div class="item" style="margin-top:70px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Be Together</span>
-							<span class="nino-subHeadingn"><br><br>別讓他們的無助，成為彼此的遺憾<br>
+							<span class="nino-subHeadingnn"><br><br>別讓他們的無助，成為彼此的遺憾<br>
 							<br><br>你的微光，將是我們的希望</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
@@ -319,113 +320,10 @@
 		</div>
 		<!-- </section> -->
     </section><!--/#nino-latestBlog-->
-    <!-- Testimonial
-    ================================================== -->
-    <section class="nino-testimonial">
-    	<div class="container">
-    		<div class="nino-testimonialSlider">
-				<ul>
-					<li>
-						<div layout="row">
-							<div class="nino-symbol fsr">
-								<i class="mdi mdi-comment-multiple-outline nino-icon"></i>
-							</div>
-							<div>
-								<p class="quote">"付出比收穫更快樂，給予比接納更心安！關心別人，善待自己！"</p>
-								<span class="name">維格斯 ‧ 波頓</span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div layout="row">
-							<div class="nino-symbol fsr">
-								<i class="mdi mdi-wechat nino-icon"></i>	
-							</div>
-							<div>
-								<p class="quote">"沒有目標的人猶如沒有舵的船 – 流浪兒、微不足道、什麼都不是。設定人生的目標，並在擁有它後，把上帝給你的精神及力氣投入工作中。"</p>
-								<span class="name">湯瑪斯 ‧ 卡萊爾</span>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div layout="row">
-							<div class="nino-symbol fsr">
-								<i class="mdi mdi-message-text-outline nino-icon"></i>
-							</div>
-							<div>
-								<p class="quote">"幸福是人類最後的目的和至善的總和，它賦予人類生命的真正的意義。"</p>
-								<span class="name">耶羅地 ‧ 席德</span>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-    	</div>
-    </section><!--/#nino-testimonial-->
-	<!-- Portfolio
-    ================================================== -->
-	<section id="nino-ourTeam">
-		<div class="container">
-			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading" style="font-size: 30px">捐款募資／志工相助</span>
-			</h2>
-			<p class="nino-sectionDesc" style="font-size: 25px">
-				我們都會有不需要的東西，以及需要被幫助的地方。<br>
-				用你的不需要能成就他人的需要，讓他人的幫助轉化成為你的助力。<br>
-				讓我們來創造一個良性循環=)
-			<div class="sectionContent">
-				<div class="row nino-hoverEffect">
-					<div class="col-md-4 col-sm-4">
-						<div class="item">
-							<div class="overlay" href="#">
-								<div class="content">
-									<a href="goods/queryAllGoods_HO73.do" style="font-size: 36px">我要捐物</a>
-								</div>
-								<img src="images/our-team/487227763.jpg" alt="">
-							</div>
-						</div>
-<!-- 						<div class="info">
-							<h4 class="name">Matthew Dix</h4>
-							<span class="regency">Graphic Design</span>
-						</div> -->
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="item">
-							<div class="overlay" href="#">
-								<div class="content">
-									<a href="supply.html#nino-portfolio" style="font-size: 36px">我要捐款</a>
-								</div>
-								<img src="images/our-team/499808264.jpg" alt="">
-							</div>
-						</div>
-<!-- 						<div class="info">
-							<h4 class="name">Christopher Campbell</h4>
-							<span class="regency">Branding/UX design</span>
-						</div> -->
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="item">
-							<div class="overlay" href="#">
-								<div class="content">
-									<a href="volunteer.html" style="font-size: 36px">我要當志工</a>
-								</div>
-								<img src="images/our-team/volunteer.jpg" alt="">
-							</div>
-						</div>
-						<!-- <div class="info">
-							<h4 class="name">Michael Fertig </h4>
-							<span class="regency">Developer</span>
-						</div> -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Testimonial
     ================================================== -->
-    <section class="nino-testimonial bg-white">
-    	<div class="container">
+    <section class="nino-testimonial">
+    	<div class="container" >
     		<div class="nino-testimonialSlider">
 				<ul>
 					<li>
@@ -465,6 +363,67 @@
 			</div>
     	</div>
     </section><!--/#nino-testimonial-->
+
+	<!-- Portfolio
+    ================================================== -->
+	<section id="nino-ourTeam">
+		<div class="container">
+			<h2 class="nino-sectionHeading">
+				<span class="nino-subHeading" style="font-size: 30px">捐款募資／志工相助</span>
+			</h2>
+			<p class="nino-sectionDesc" style="font-size: 25px">
+				我們都會有不需要的東西，以及需要被幫助的地方。<br>
+				用你的不需要能成就他人的需要，讓他人的幫助轉化成為你的助力。<br>
+				讓我們來創造一個良性循環=)
+			<div class="sectionContent">
+				<div class="row nino-hoverEffect">
+					<div class="col-md-4 col-sm-4">
+						<div class="item" style="border-radius:12px;">
+							<div class="overlay" href="#">
+								<div class="content">
+									<a href="goods/queryAllGoods_HO73.do" style="font-size: 36px">我要捐物</a>
+								</div>
+								<img src="images/our-team/487227763.jpg" alt="" style="border-radius:12px;">
+							</div>
+						</div>
+<!-- 						<div class="info">
+							<h4 class="name">Matthew Dix</h4>
+							<span class="regency">Graphic Design</span>
+						</div> -->
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="item" style="border-radius:12px;">
+							<div class="overlay" href="#" >
+								<div class="content" >
+									<a href="supply.html#nino-portfolio" style="font-size: 36px">我要捐款</a>
+								</div>
+								<img src="images/our-team/499808264.jpg" alt="" style="border-radius:12px;">
+							</div>
+						</div>
+<!-- 						<div class="info">
+							<h4 class="name">Christopher Campbell</h4>
+							<span class="regency">Branding/UX design</span>
+						</div> -->
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="item" style="border-radius: 12px;">
+							<div class="overlay" href="#">
+								<div class="content">
+									<a href="volunteer.html" style="font-size: 36px" >我要當志工</a>
+								</div>
+								<img src="images/our-team/volunteer.jpg" alt="" style="border-radius:12px;">
+							</div>
+						</div>
+						<!-- <div class="info">
+							<h4 class="name">Michael Fertig </h4>
+							<span class="regency">Developer</span>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 
     <!-- Happy Client
     ================================================== -->
@@ -597,7 +556,7 @@
 									</h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-									<div class="panel-body">
+									<div class="panel-body"  style="height:297px;">
 										　　有鑑於2018年2月6號的花蓮震災發生後，我們想貢獻一份微薄的心力卻苦於沒有簡單迅速地管道。
 										再者亦發生花蓮縣長傅崐萁濫用善款補助業者的情形，這讓我們意識到建立一個方便使用、而且金流明細公開的平台
 										是值得我們去努力的。
@@ -615,7 +574,7 @@
 									</h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-									<div class="panel-body">
+									<div class="panel-body" style="height:297px;">
 											　　我們希望能夠實現當每一個人，願意為了他人付出時能有一個簡易使用的管道，而且不必擔心自己所貢獻的
 											一份心意是否有確實傳達。<br>　　大文豪莎士比亞曾寫到過：慈悲不是出於勉强，一樣從天上降下塵世；它不但給幸福於受施之人，
 											也同樣給幸福於施與的人。我們想要回應每一位願意付出之人的赤誠心意，
@@ -635,7 +594,7 @@
 									</h4>
 								</div>
 								<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-									<div class="panel-body">
+									<div class="panel-body" style="height:297px;">
 										　　我們一直致力於提供所有使用者良好的捐募平台，未來希望能讓更多地基金會也能一同參與。
 										我們也會不斷提升使用的簡便度和針對所有有需求、不論是需要施予他人或受施於他人的使用者，
 										更貼近生活所需地去協助大家。

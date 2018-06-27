@@ -8,14 +8,23 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
 @import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
 
+
 @font-face {
-	font-family: myFont;
-  src: url(../myFont/myFont.eot); /* IE9 Compat Modes */
-  src: url(../myFont/myFont.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
-       url(../myFont/myFont.woff) format("woff"), /* Modern Browsers */
-       url(../myFont/myFont.ttf) format("truetype"), /* Safari, Android, iOS */
-       url(../myFont/myFont.svg#myFont) format("svg"); /* Legacy iOS */
+  font-family: ho73Font;
+  src: url(../ho73Font/ho73.eot); /* IE9 Compat Modes */
+  src: url(../ho73Font/ho73.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
+       url(../ho73Font/ho73.woff) format("woff"), /* Modern Browsers */
+       url(../ho73Font/ho73.ttf) format("truetype"), /* Safari, Android, iOS */
+       url(../ho73Font/ho73.svg#ho73Font) format("svg"); /* Legacy iOS */
 }
+/* @font-face { */
+/* 	font-family: myFont; */
+/*   src: url(../myFont/myFont.eot); IE9 Compat Modes */
+/*   src: url(../myFont/myFont.eot?#iefix) format("embedded-opentype"), IE6-IE8 */
+/*        url(../myFont/myFont.woff) format("woff"), Modern Browsers */
+/*        url(../myFont/myFont.ttf) format("truetype"), Safari, Android, iOS */
+/*        url(../myFont/myFont.svg#myFont) format("svg"); Legacy iOS */
+/* } */
 html, body {
 	line-height: 1.7;
 	margin: 0;
@@ -196,6 +205,8 @@ img.img-full-width {
 			transition: all .3s ease-in-out;
 }
 .nino-hoverEffect .item .overlay:before {
+/* 	新增border-radius:12px; */
+	border-radius:12px;
 	content: "";
 	position: absolute;
 	left: 0;
@@ -457,6 +468,11 @@ section {
 	padding:5px;
 	margin-bottom:3px;
 }
+#nino-slider .nino-sectionHeading .nino-subHeadingnn {
+	font-size: 25px;
+	padding:5px;
+	margin-bottom:3px;
+}
 #nino-slider .nino-sectionHeading .nino-subHeading-2 {
 	font-size: 55px;
 	padding:13px;
@@ -493,11 +509,19 @@ section {
 	font-size: 20px;
 	margin-bottom: 20px;
 }
-.nino-sectionHeading .nino-subHeadingn {
+/* .nino-sectionHeading .nino-subHeadingn { */
+/* 	display: block; */
+/* 	text-transform: none; */
+/* 	font-weight: 400; */
+/* 	font-family: 'myFont'; */
+/* 	font-size: 20px; */
+/* 	margin-bottom: 20px; */
+/* } */
+.nino-sectionHeading .nino-subHeadingnn {
 	display: block;
 	text-transform: none;
 	font-weight: 400;
-	font-family: 'myFont';
+	font-family: 'ho73Font';
 	font-size: 20px;
 	margin-bottom: 20px;
 }
@@ -1223,6 +1247,9 @@ div.pp_default .pp_social {
 	#nino-slider .nino-sectionHeading .nino-subHeadingn {
 	    font-size: 15px;
 	}
+	#nino-slider .nino-sectionHeading .nino-subHeadingnn {
+	    font-size: 15px;
+	}
 	#nino-slider .nino-sectionHeading .nino-subHeading-2 {
 	    font-size: 35px;
 	}
@@ -1348,6 +1375,11 @@ div.pp_default .pp_social {
 		margin-bottom: 10px;
 		padding-left:60%;
 	}
+	.nino-sectionHeading .nino-subHeadingnn {
+		font-size: 8px;
+		margin-bottom: 10px;
+		padding-left:60%;
+	}
 	.nino-sectionHeading .nino-subHeading-2 {
 		font-size: 16px;
 		margin-bottom: 10px;
@@ -1374,6 +1406,9 @@ div.pp_default .pp_social {
 		font-size: 22px;
 	}
 	#nino-slider .nino-sectionHeading .nino-subHeadingn {
+		font-size: 11px;
+	}
+	#nino-slider .nino-sectionHeading .nino-subHeadingnn {
 		font-size: 11px;
 	}
 	#nino-slider .nino-sectionHeading .nino-subHeading-2 {
