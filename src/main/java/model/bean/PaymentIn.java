@@ -14,13 +14,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name="PaymentIn")
 public class PaymentIn {
-	Integer 	Id;
-	PayBox	 	payBoxNumber;
-	String 		MemAccount;
-	Integer 	payAmount;
-	String 		payMemBankId;
-	String 		payMemAccount;
-	Date 		payDate;
+	private 			Integer 	Id;
+	private transient	PayBox	 	payBoxNumber;
+	private 			String 		MemAccount;
+	private 			Integer 	payAmount;
+	private 			String 		payMemBankId;
+	private 			String 		payMemAccount;
+	private 			Date 		payDate;
 	
 	public PaymentIn(PayBox payBoxNumber, String memAccount, Integer payAmount) {
 		super();

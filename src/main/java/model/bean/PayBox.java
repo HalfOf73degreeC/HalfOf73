@@ -27,7 +27,7 @@ public class PayBox {
 	private Date insertDate;
 	private Integer viewTimes;
 	private Integer payBoxType;
-	private FoundationBean_HO73 foundationBean;
+	private transient FoundationBean_HO73 foundationBean;
 	private Set<PaymentIn> paymentIn = new LinkedHashSet<>();
 	private Set<PaymentOut> paymentOut = new LinkedHashSet<>();
 	

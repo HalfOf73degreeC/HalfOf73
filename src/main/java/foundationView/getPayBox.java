@@ -18,8 +18,8 @@ import model.service.payBoxService;
 /**
  * Servlet implementation class getMemberPage
  */
-@WebServlet("/foundationView/getPayment")
-public class getPayment extends HttpServlet {
+@WebServlet("/foundationView/getPayBox")
+public class getPayBox extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

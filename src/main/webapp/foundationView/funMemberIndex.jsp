@@ -65,7 +65,7 @@
                             <div class="item">
                                 <div class="overlay box" href="#">
                                     <div class="content">
-                                        <a href="${pageContext.request.contextPath}/foundationView/paymentMain.jsp" style="font-size: 36px">捐款管理</a>
+                                        <a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp" style="font-size: 36px">捐款管理</a>
                                     </div>
                                     <img src="./img/499808264.jpg" alt=""style="border-radius: 15%;">
                                 </div>

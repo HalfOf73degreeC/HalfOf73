@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
     <script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="../js/unslider-min.js"></script>
-    <title>paymentMain</title>
+    <title>payBoxMain</title>
 </head>
 
 <body style="background: #FFF0F5;">
@@ -40,9 +40,9 @@
             </p>
             <!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
             <div class="sectionContent">
-                <div class="row nino-hoverEffect">
+                <div class="row nino-hoverEffect" id="activityRow">
                     <div class="col-md-4 col-sm-4">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border:0px #fff0f5 none;background-color:#fff0f5;">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">
                             <div class="item">
                                 <div class="overlay box" href="#">
                                     <div class="content box-top">
@@ -54,24 +54,13 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" style="border:0px #fff0f5 none;background-color:#fff0f5;">
-                            <div class="item">
-                                <div class="overlay box" href="#">
-                                    <div class="content">
-                                        <a style="font-size: 36px">捐款箱名稱</a>
-                                    </div>
-                                    <img src="./img/love.jpg" alt="" style="border-radius: 15%;">
-                                </div>
-                            </div>
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
     </section>
     <!-- Modal -->
     <!-- 募款箱表單 -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="createPatBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -97,19 +86,19 @@
                                 <span class="input-group-btn">
                                     <button class="btn btn-success" type="submit" style="width: 130px">捐款箱名稱 :</button>
                                 </span>
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payBoxName_input" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-btn">
                                     <button class="btn btn-success" type="submit" style="width: 130px">ATM銀行代號 :</button>
                                 </span>
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payBankId_input" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-btn">
                                     <button class="btn btn-success" type="submit" style="width: 130px">ATM帳號 :</button>
                                 </span>
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payATMAccount_input" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                         </div>
                     </div>
@@ -124,21 +113,21 @@
                     </div>
                     <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body" style="height: 227px;">
-                            <textarea name="funArticle" class="form-control" placeholder="" rows="10"></textarea>
+                            <textarea class="form-control" id="payBoxDetail_input" placeholder="" rows="10"></textarea>
                         </div>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="font-family: '微軟正黑體';font-size: 15px;">取消</button>
-                    <button type="button" class="btn btn-primary" style="font-family: '微軟正黑體';font-size: 15px;">建立募款箱</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="createPayBox" style="font-family: '微軟正黑體';font-size: 15px;">建立募款箱</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Modal2 -->
     <!-- 已建立的募款箱表單 -->
-    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  style="z-index:1041;">
+    <div class="modal fade" id="editPatBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  style="z-index:1041;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -288,6 +277,58 @@
             }
         )
         wow.init();
+        
+        
+        
+        
+        var payBoxName;
+        var payATMAccount;
+        var payBankId;
+        var payBoxDetail;
+        var payBoxType;        
+        var fk_payIdcard;
+//         AJAX
+        $( "#createPayBox" ).on( "click", function() {
+        	createPayBox();
+		});
+		
+        jQuery.fn.createPayBox = function() {
+            return this.each(function() {
+            	var xhr = new XMLHttpRequest();
+				payBoxName = $('#payBoxName_input').val();
+				payATMAccount = $('#payATMAccount_input').val();
+				payBankId = $('#payBankId_input').val();
+				payBoxDetail = $('#payBoxDetail_input').val();
+//				payBoxType = $('#payBoxType_input');
+				fk_payIdcard = Math.random();
+            	xhr.open("Post", "createPayBox?payBoxName="+payBoxName+"&fk_payIdcard="+fk_payIdcard+"&payATMAccount="+payATMAccount+"&payBankId="+payBankId+"&payBoxDetail="+payBoxDetail+"&payBoxType="+1, true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {									
+						var payBox = JSON.parse(xhr.responseText);
+						
+			        	$( "#activityRow" ).append(
+			        		'<div class="col-md-4 col-sm-4">'+
+			        		'<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
+			        		'<div class="item">'+
+			        		'<div class="overlay box" href="#">'+
+			        		'<div class="content">'+
+			        		'<a style="font-size: 36px">'+
+			        		payBox.payBoxName+
+							'</a></div>'+
+			        		'<img src="./img/love.jpg" alt="" style="border-radius: 15%;">'+
+			        		'</div></div></button></div>');
+				        
+					}
+				}
+            	
+            	
+            });
+        };
+		
+		
+		
     </script>
 </body>
 
