@@ -20,7 +20,7 @@ import model.repository.NewsDao;
 import model.repository.impl.GoodsDaoImpl;
 import model.service.NewsService;
 
-@WebServlet("/goods/queryOneNews")
+@WebServlet("/news/queryOneNews")
 public class queryOneNews_HO73 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

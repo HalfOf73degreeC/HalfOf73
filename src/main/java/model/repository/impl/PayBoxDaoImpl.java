@@ -10,6 +10,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+
+import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
 import model.repository.PayBoxDao;
 
@@ -57,10 +59,10 @@ public class PayBoxDaoImpl implements PayBoxDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PayBox> getFunPayBoxes(String fk_payIdcard) {
+	public List<PayBox> getFunPayBoxes(FoundationBean_HO73 foundationBean) {
 		String hql = "FROM PayBox pb WHERE pb.fk_payIdcard= :fk_payIdcard";
 		Session session = factory.getCurrentSession();
-		List<PayBox> list = session.createQuery(hql).setParameter("fk_payIdcard", fk_payIdcard).getResultList();
+		List<PayBox> list = session.createQuery(hql).setParameter("fk_payIdcard", foundationBean).getResultList();
 		return list;
 	}
 

@@ -1,9 +1,8 @@
-package news;
+package foundationView;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,42 +12,42 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import model.bean.GoodsBean_HO73;
-import model.bean.NewsBean_HO73;
-import model.repository.GoodsDao;
-import model.repository.NewsDao;
-import model.repository.impl.GoodsDaoImpl;
-import model.service.NewsService;
+import model.service.foundationService;
+import model.service.payBoxService;
 
-@WebServlet("/news/queryOneNews")
-public class queryOneNews_HO73 extends HttpServlet {
+/**
+ * Servlet implementation class getMemberPage
+ */
+@WebServlet("/foundationView/getPayBoxList")
+public class getPayBoxList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		payBoxService pbs = ctx.getBean(payBoxService.class);
+		// mdao.setPageNo(pageNo);
+		String gString = pbs.getAllPayBoxes2String(); 
+		response.setContentType("application/json; charset=UTF8");
+		try (PrintWriter out = response.getWriter();) {
+			out.println(gString);
+		}
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		NewsService ns = ctx.getBean(NewsService.class);
-		Integer newsUid = (Integer) request.getAttribute("newsUid");
-		String gString = ns.getOneNews2String(newsUid); 
+		foundationService fs = ctx.getBean(foundationService.class);
+		String fk_payIdcard = request.getParameter("fk_payIdcard");
+		String gString = fs.getOneFoundation2String(fk_payIdcard); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);
 		}
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		WebApplicationContext ctx = 
-				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		NewsService ns = ctx.getBean(NewsService.class);
-		// mdao.setPageNo(pageNo);
-		String gString = ns.getAllNews2String(); 
-		response.setContentType("application/json; charset=UTF8");
-		try (PrintWriter out = response.getWriter();) {
-			out.println(gString);
-		}
-	}
+
 }

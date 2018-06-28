@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import model.service.NewsService;
+import model.service.foundationService;
 import model.service.payBoxService;
 
 /**
@@ -41,9 +41,9 @@ public class getPayBox extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		payBoxService pbs = ctx.getBean(payBoxService.class);
-		String fk_payIdcard = request.getParameter("fk_payIdcard");
-		String gString = pbs.getFunPayBoxes2String(fk_payIdcard); 
+		payBoxService fs = ctx.getBean(payBoxService.class);
+		Integer payBoxNumber = Integer.valueOf(request.getParameter("payBoxNumber"));
+		String gString = fs.queryOnePaybox2String(payBoxNumber); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);

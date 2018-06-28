@@ -62,8 +62,7 @@ public class payBoxService {
 		return pb;
 	}
 	@Transactional
-	public String creatOnePayBox2String(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,
-			String fk_payIdcard) {
+	public String creatOnePayBox2String(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,	String fk_payIdcard) {
 		return gson.toJson(creatOnePayBox(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fk_payIdcard));
 	}
 	
@@ -91,16 +90,15 @@ public class payBoxService {
 		return 0;
 	}
 //	查詢一筆募款箱
-//	@Transactional
-//	public int queryOnePaybox(PaymentOut po) {
-//		paymentOut.save(po);
-//		PayBox pb =  boxDaoImpl.getPayBox(po.getId());
-//		Integer balance = pb.getBalance();
-//		balance-=po.getPayForCost();
-//		pb.setBalance(balance);
-//		boxDaoImpl.save(pb);
-//		return 0;
-//	}
+	@Transactional
+	public PayBox queryOnePaybox(Integer payBoxNumber) {
+		PayBox paybox = payboxDao.getPayBox(payBoxNumber);
+		return paybox;
+	}
+	@Transactional
+	public String queryOnePaybox2String(Integer payBoxNumber) {
+		return gson.toJson(queryOnePaybox(payBoxNumber));
+	}
 //	列出所有的募款箱
 	@Transactional
 	public List<PayBox> getAllPayBoxes() {
@@ -113,7 +111,8 @@ public class payBoxService {
 //	列處一個基金會的所有募款箱
 	@Transactional
 	public List<PayBox> getFunPayBoxes(String fk_payIdcard) {
-		List<PayBox> list = payboxDao.getFunPayBoxes(fk_payIdcard);
+		FoundationBean_HO73 foundationBean = foundationDao.getOneFoundation(fk_payIdcard);
+		List<PayBox> list = payboxDao.getFunPayBoxes(foundationBean);
 		return list;
 	}
 	@Transactional

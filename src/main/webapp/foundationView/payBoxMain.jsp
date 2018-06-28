@@ -289,9 +289,65 @@
         var fk_payIdcard;
 //         AJAX
         $( "#createPayBox" ).on( "click", function() {
-        	createPayBox();
+        	$('#createPayBox').createPayBox();
 		});
 		
+        $(document)
+		.ready(function() {
+			$('body').getPayBoxList();
+		});
+		
+        
+        
+        jQuery.fn.showPayBox = function(payBox){
+        	$( "#activityRow" ).append(
+	        		'<div class="col-md-4 col-sm-4">'+
+	        		'<button type="button" id="PayBox" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
+	        		'<div class="item">'+
+	        		'<div class="overlay box" href="#">'+
+	        		'<div class="content">'+
+	        		'<a style="font-size: 36px">'+
+	        		payBox.payBoxName+
+					'</a></div>'+
+	        		'<img src="./img/love.jpg" alt="" style="border-radius: 15%;">'+
+	        		'</div></div></button></div>');
+        	$( "#PayBox" ).on( "click", function() {
+    			var payBoxNumber = $(this).attr("date-payBoxNumber");
+    			var xhr = new XMLHttpRequest();
+            	xhr.open("Post", "getPayBox?payBoxNumber="+payBoxNumber, true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						var payBox = JSON.parse(xhr.responseText);
+						$('#payBoxName_input').val(payBox.payBoxName);
+						$('#payATMAccount_input').val(payBox.payATMAccount);
+						$('#payBankId_input').val(payBox.payBankId);
+						$('#payBoxDetail_input').val(payBox.payBoxDetail);
+					}
+				}
+            });
+        }
+        
+        jQuery.fn.getPayBoxList = function() {
+            return this.each(function() {
+            	fk_payIdcard = 1235;
+            	var xhr = new XMLHttpRequest();
+            	xhr.open("Post", "getPayBoxList?fk_payIdcard="+fk_payIdcard, true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						var funBean = JSON.parse(xhr.responseText);
+						var payBoxList = funBean.payBox;
+						for (var i = 0; i < payBoxList.length; i++) {							
+							$('body').showPayBox(payBoxList[i]);
+						}
+					}
+				}			
+            	
+            });            
+        };        
         jQuery.fn.createPayBox = function() {
             return this.each(function() {
             	var xhr = new XMLHttpRequest();
@@ -305,21 +361,17 @@
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xhr.send();
 				xhr.onreadystatechange = function() {
-					if (xhr.status == 200 && xhr.readyState == 4) {									
-						var payBox = JSON.parse(xhr.responseText);
+					if (xhr.status == 200 && xhr.readyState == 4) {	
+						var jsonString = xhr.responseText;
+						console.log("jsonString= "+jsonString);
+						console.log("jsonString.length= "+jsonString.length);
+						if(jsonString.length < 10 ){
+							alert("無法新建捐款箱");
+						}else{
+							var payBox = JSON.parse(xhr.responseText);							
+							$('body').showPayBox(payBox);
+						}								
 						
-			        	$( "#activityRow" ).append(
-			        		'<div class="col-md-4 col-sm-4">'+
-			        		'<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
-			        		'<div class="item">'+
-			        		'<div class="overlay box" href="#">'+
-			        		'<div class="content">'+
-			        		'<a style="font-size: 36px">'+
-			        		payBox.payBoxName+
-							'</a></div>'+
-			        		'<img src="./img/love.jpg" alt="" style="border-radius: 15%;">'+
-			        		'</div></div></button></div>');
-				        
 					}
 				}
             	

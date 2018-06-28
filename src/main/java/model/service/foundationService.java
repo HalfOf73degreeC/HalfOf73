@@ -64,6 +64,10 @@ public class foundationService {
 		FoundationBean_HO73 fb = foundationDao.getOneFoundation(funIdcard);		
 		return fb;		
 	}
+	@Transactional
+	public String getOneFoundation2String(String funIdcard) {	
+		return gson.toJson(getOneFoundation(funIdcard));		
+	}
 	
 	
 	
