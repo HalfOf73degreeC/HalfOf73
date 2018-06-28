@@ -173,7 +173,7 @@
                                     <button class="btn btn-success" type="submit" style="width: 130px">ATM帳號 :</button>
                                 </span>
 
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payATMAccount_input" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                                     <button class="btn btn-success" type="submit" style="width: 130px">統一編號 :</button>
                                 </span>
                                 <!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payATMAccount_input" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                         </div>
                     </div>
