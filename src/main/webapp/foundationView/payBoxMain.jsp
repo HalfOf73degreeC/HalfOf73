@@ -75,7 +75,7 @@
                             <span style="float:left; font-family: '微軟正黑體';font-size: 16px;"> 是否開放捐款</span>
                             <!-- switch -->
                             <div class="onoffswitch" style="float:left;">
-                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                                <input type="checkbox" id="payBoxType_input" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                                 <label class="onoffswitch-label" for="myonoffswitch">
                                     <span class="onoffswitch-inner"></span>
                                     <span class="onoffswitch-switch"></span>
@@ -144,8 +144,8 @@
                             <div class="onoffswitch" style="float:left;">
                                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                                 <label class="onoffswitch-label" for="myonoffswitch">
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
+                                    <span class="onoffswitch-inner2"></span>
+                                    <span class="onoffswitch-switch2"></span>
                                 </label>
                             </div>
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -293,8 +293,7 @@
         
         jQuery.fn.showPayBox = function(payBox){
         	$( "#activityRow" ).append(
-	        		'<div class="col-md-3 col-sm-3">'+
-	        		'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
+	        		'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
 	        		'<div class="item">'+
 	        		'<div class="overlay box" href="#">'+
 	        		'<div class="content">'+
@@ -302,7 +301,7 @@
 	        		payBox.payBoxName+
 					'</a></div>'+
 	        		'<img src="./img/box1.png" alt="" style="border-radius: 15%;">'+
-	        		'</div></div></button></div>');        	
+	        		'</div></div></button>');        	
         }  
         
         jQuery.fn.clickPayBox = function(){
@@ -313,6 +312,12 @@
     				var payBox = payBoxList[i];
     				if(payBox.payBoxNumber==payBoxNumber){    					
     					$('#payBoxName').val(payBox.payBoxName);
+    					if(payBox.payBoxType == 1){
+    						$('#payBoxType').val(on);
+    					}else{
+    						$('#payBoxType').val(on);    						
+    					}   				
+    					
     					$('#payATMAccount').val(payBox.payATMAccount);
     					$('#payBankId').val(payBox.payBankId);
     					$('#payBoxDetail').val(payBox.payBoxDetail);
@@ -333,6 +338,7 @@
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						var funBean = JSON.parse(xhr.responseText);
 						payBoxList = funBean.payBox;
+						$(".PayBox").remove();
 						for (var i = 0; i < payBoxList.length; i++) {							
 							$('body').showPayBox(payBoxList[i]);
 						}
@@ -348,7 +354,8 @@
 				var payATMAccount = $('#payATMAccount_input').val();
 				var payBankId = $('#payBankId_input').val();
 				var payBoxDetail = $('#payBoxDetail_input').val();
-//				var payBoxType = $('#payBoxType_input');
+				var payBoxType = $('#payBoxType_input').val();
+				console.log(payBoxType);
 				var fk_payIdcard = Math.random();
             	xhr.open("Post", "createPayBox?payBoxName="+payBoxName+"&fk_payIdcard="+fk_payIdcard+"&payATMAccount="+payATMAccount+"&payBankId="+payBankId+"&payBoxDetail="+payBoxDetail+"&payBoxType="+1, true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
