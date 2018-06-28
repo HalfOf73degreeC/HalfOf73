@@ -41,7 +41,7 @@
             <!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
             <div class="sectionContent">
                 <div class="row nino-hoverEffect" id="activityRow">
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">
                             <div class="item">
                                 <div class="overlay box" href="#">
@@ -49,7 +49,7 @@
                                         <a style="font-size: 36px">建立募款箱</a>
 
                                     </div>
-                                    <img src="./img/news.jpg" alt="" style="border-radius: 15%;">
+                                    <img src="./img/plus.png" alt="" style="border-radius: 15%;">
                                 </div>
                             </div>
                         </button>
@@ -301,7 +301,7 @@
         
         jQuery.fn.showPayBox = function(payBox){
         	$( "#activityRow" ).append(
-	        		'<div class="col-md-4 col-sm-4">'+
+	        		'<div class="col-md-3 col-sm-3">'+
 	        		'<button type="button" id="PayBox" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
 	        		'<div class="item">'+
 	        		'<div class="overlay box" href="#">'+
@@ -309,7 +309,7 @@
 	        		'<a style="font-size: 36px">'+
 	        		payBox.payBoxName+
 					'</a></div>'+
-	        		'<img src="./img/love.jpg" alt="" style="border-radius: 15%;">'+
+	        		'<img src="./img/box1.png" alt="" style="border-radius: 15%;">'+
 	        		'</div></div></button></div>');
         	$( "#PayBox" ).on( "click", function() {
     			var payBoxNumber = $(this).attr("date-payBoxNumber");
