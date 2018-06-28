@@ -140,12 +140,12 @@
                     <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body" style="height: 205px;">
                             <span style="float:left; font-family: '微軟正黑體';font-size: 16px;"> 是否開放捐款</span>
-                            <!-- switch -->
-                            <div class="onoffswitch" style="float:left;">
-                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                                <label class="onoffswitch-label" for="myonoffswitch">
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
+                            <!-- switch2 -->
+                            <div class="onoffswitch2" style="float:left;">
+                                <input type="checkbox" id="payBoxType" name="onoffswitch2" class="onoffswitch2-checkbox" id="myonoffswitch2" checked>
+                                <label class="onoffswitch2-label" for="myonoffswitch2">
+                                    <span class="onoffswitch2-inner"></span>
+                                    <span class="onoffswitch2-switch"></span>
                                 </label>
                             </div>
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
