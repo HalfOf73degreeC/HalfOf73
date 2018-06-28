@@ -159,21 +159,19 @@
                                 <span class="input-group-btn">
                                     <button class="btn btn-success" type="submit" style="width: 130px">捐款箱名稱 :</button>
                                 </span>
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payBoxName" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-btn">
                                     <button class="btn btn-success" type="submit" style="width: 130px">ATM銀行代號 :</button>
                                 </span>
-
-                                <input type="text" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payBankId" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-btn">
                                     <button class="btn btn-success" type="submit" style="width: 130px">ATM帳號 :</button>
                                 </span>
-
-                                <input type="text" id="payATMAccount_input" class="form-control" placeholder="" required style="z-index: 1">
+                                <input type="text" id="payATMAccount" class="form-control" placeholder="" required style="z-index: 1">
                             </div>
                         </div>
                     </div>
@@ -280,13 +278,7 @@
         
         
         
-        
-        var payBoxName;
-        var payATMAccount;
-        var payBankId;
-        var payBoxDetail;
-        var payBoxType;        
-        var fk_payIdcard;
+        var payBoxList;
 //         AJAX
         $( "#createPayBox" ).on( "click", function() {
         	$('#createPayBox').createPayBox();
@@ -302,7 +294,7 @@
         jQuery.fn.showPayBox = function(payBox){
         	$( "#activityRow" ).append(
 	        		'<div class="col-md-3 col-sm-3">'+
-	        		'<button type="button" id="PayBox" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
+	        		'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
 	        		'<div class="item">'+
 	        		'<div class="overlay box" href="#">'+
 	        		'<div class="content">'+
@@ -310,25 +302,26 @@
 	        		payBox.payBoxName+
 					'</a></div>'+
 	        		'<img src="./img/box1.png" alt="" style="border-radius: 15%;">'+
-	        		'</div></div></button></div>');
-        	$( "#PayBox" ).on( "click", function() {
+	        		'</div></div></button></div>');        	
+        }  
+        
+        jQuery.fn.clickPayBox = function(){
+        	$( ".PayBox" ).on( "click", function() {
     			var payBoxNumber = $(this).attr("date-payBoxNumber");
-    			var xhr = new XMLHttpRequest();
-            	xhr.open("Post", "getPayBox?payBoxNumber="+payBoxNumber, true);
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xhr.send();
-				xhr.onreadystatechange = function() {
-					if (xhr.status == 200 && xhr.readyState == 4) {
-						var payBox = JSON.parse(xhr.responseText);
-						$('#payBoxName_input').val(payBox.payBoxName);
-						$('#payATMAccount_input').val(payBox.payATMAccount);
-						$('#payBankId_input').val(payBox.payBankId);
-						$('#payBoxDetail_input').val(payBox.payBoxDetail);
-					}
-				}
+    			console.log(payBoxNumber);
+    			for(var i = 0; i < payBoxList.length; i++){
+    				var payBox = payBoxList[i];
+    				if(payBox.payBoxNumber==payBoxNumber){    					
+    					$('#payBoxName').val(payBox.payBoxName);
+    					$('#payATMAccount').val(payBox.payATMAccount);
+    					$('#payBankId').val(payBox.payBankId);
+    					$('#payBoxDetail').val(payBox.payBoxDetail);
+    					console.log(payBox);
+    				}
+    			}    			
+    			
             });
         }
-        
         jQuery.fn.getPayBoxList = function() {
             return this.each(function() {
             	fk_payIdcard = 1235;
@@ -339,24 +332,24 @@
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						var funBean = JSON.parse(xhr.responseText);
-						var payBoxList = funBean.payBox;
+						payBoxList = funBean.payBox;
 						for (var i = 0; i < payBoxList.length; i++) {							
 							$('body').showPayBox(payBoxList[i]);
 						}
+						$('body').clickPayBox();														
 					}
-				}			
-            	
+				}	
             });            
         };        
         jQuery.fn.createPayBox = function() {
             return this.each(function() {
             	var xhr = new XMLHttpRequest();
-				payBoxName = $('#payBoxName_input').val();
-				payATMAccount = $('#payATMAccount_input').val();
-				payBankId = $('#payBankId_input').val();
-				payBoxDetail = $('#payBoxDetail_input').val();
-//				payBoxType = $('#payBoxType_input');
-				fk_payIdcard = Math.random();
+				var payBoxName = $('#payBoxName_input').val();
+				var payATMAccount = $('#payATMAccount_input').val();
+				var payBankId = $('#payBankId_input').val();
+				var payBoxDetail = $('#payBoxDetail_input').val();
+//				var payBoxType = $('#payBoxType_input');
+				var fk_payIdcard = Math.random();
             	xhr.open("Post", "createPayBox?payBoxName="+payBoxName+"&fk_payIdcard="+fk_payIdcard+"&payATMAccount="+payATMAccount+"&payBankId="+payBankId+"&payBoxDetail="+payBoxDetail+"&payBoxType="+1, true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xhr.send();
@@ -368,10 +361,9 @@
 						if(jsonString.length < 10 ){
 							alert("無法新建捐款箱");
 						}else{
-							var payBox = JSON.parse(xhr.responseText);							
-							$('body').showPayBox(payBox);
-						}								
-						
+							var payBox = JSON.parse(xhr.responseText);	
+						}
+						$('body').getPayBoxList();						
 					}
 				}
             	
