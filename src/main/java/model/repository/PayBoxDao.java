@@ -2,6 +2,7 @@ package model.repository;
 
 import java.util.List;
 
+import model.bean.FoundationBean_HO73;
 import model.bean.PayBox;
 
 
@@ -12,7 +13,7 @@ public interface PayBoxDao {
 
 	List<PayBox> getAllPayBoxes();
 	
-	List<PayBox> getFunPayBoxes(String fk_payIdcard);
+	List<PayBox> getFunPayBoxes(FoundationBean_HO73 foundationBean);
 
 	PayBox getPayBox(Integer pk);
 
