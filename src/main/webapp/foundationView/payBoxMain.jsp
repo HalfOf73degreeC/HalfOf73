@@ -288,20 +288,18 @@
 		.ready(function() {
 			$('body').getPayBoxList();
 		});
-		
-        
         
         jQuery.fn.showPayBox = function(payBox){
         	$( "#activityRow" ).append(
-	        		'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
-	        		'<div class="item">'+
-	        		'<div class="overlay box" href="#">'+
-	        		'<div class="content">'+
-	        		'<a style="font-size: 36px">'+
-	        		payBox.payBoxName+
-					'</a></div>'+
-	        		'<img src="./img/box1.png" alt="" style="border-radius: 15%;">'+
-	        		'</div></div></button>');        	
+        		'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'+
+        		'<div class="item">'+
+        		'<div class="overlay box" href="#">'+
+        		'<div class="content">'+
+        		'<a style="font-size: 36px">'+
+        		payBox.payBoxName+
+				'</a></div>'+
+        		'<img src="./img/box1.png" alt="" style="border-radius: 15%;">'+
+        		'</div></div></button>');        	
         }  
         
         jQuery.fn.clickPayBox = function(){
@@ -313,20 +311,19 @@
     				if(payBox.payBoxNumber==payBoxNumber){    					
     					$('#payBoxName').val(payBox.payBoxName);
     					if(payBox.payBoxType == 1){
-    						$('#payBoxType').val(on);
+    						$('#payBoxType').prop("checked",true);
     					}else{
-    						$('#payBoxType').val(on);    						
-    					}   				
-    					
+    						$('#payBoxType').prop("checked",false);   						
+    					}
     					$('#payATMAccount').val(payBox.payATMAccount);
     					$('#payBankId').val(payBox.payBankId);
     					$('#payBoxDetail').val(payBox.payBoxDetail);
     					console.log(payBox);
     				}
-    			}    			
-    			
+    			}
             });
         }
+        
         jQuery.fn.getPayBoxList = function() {
             return this.each(function() {
             	fk_payIdcard = 1235;
@@ -346,7 +343,8 @@
 					}
 				}	
             });            
-        };        
+        }
+        
         jQuery.fn.createPayBox = function() {
             return this.each(function() {
             	var xhr = new XMLHttpRequest();
@@ -373,10 +371,8 @@
 						$('body').getPayBoxList();						
 					}
 				}
-            	
-            	
             });
-        };
+        }
 		
 		
 		

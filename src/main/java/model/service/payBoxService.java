@@ -41,8 +41,7 @@ public class payBoxService {
 //	新建一個募款箱(一個基金會可以有多個募款箱，但是同時只能有2個可以募款)
 	@Transactional
 	public PayBox creatOnePayBox(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,
-			String fk_payIdcard) {
-		
+			String fk_payIdcard) {		
 		FoundationBean_HO73 fb = foundationDao.getOneFoundation(fk_payIdcard); 
 		PayBox pb = null;
 		int count = 0;
