@@ -142,7 +142,7 @@
                             <span style="float:left; font-family: '微軟正黑體';font-size: 16px;"> 是否開放捐款</span>
                             <!-- switch2 -->
                             <div class="onoffswitch2" style="float:left;">
-                                <input type="checkbox" id="payBoxType" name="onoffswitch2" class="onoffswitch2-checkbox"  checked>
+                                <input type="checkbox" id="payBoxType" name="onoffswitch2" class="onoffswitch2-checkbox" date-payBoxNumber=""  checked>
                                 <label class="onoffswitch2-label" for="payBoxType">
                                     <span class="onoffswitch2-inner"></span>
                                     <span class="onoffswitch2-switch"></span>
@@ -305,7 +305,6 @@
         jQuery.fn.clickPayBox = function(){
         	$( ".PayBox" ).on( "click", function() {
     			var payBoxNumber = $(this).attr("date-payBoxNumber");
-    			console.log(payBoxNumber);
     			for(var i = 0; i < payBoxList.length; i++){
     				var payBox = payBoxList[i];
     				if(payBox.payBoxNumber==payBoxNumber){    					
@@ -315,10 +314,11 @@
     					}else{
     						$('#payBoxType').prop("checked",false);   						
     					}
+    					$( "#payBoxType" ).attr("date-payBoxNumber",payBoxNumber);
     					$('#payATMAccount').val(payBox.payATMAccount);
     					$('#payBankId').val(payBox.payBankId);
-    					$('#payBoxDetail').val(payBox.payBoxDetail);
-    					console.log(payBox);
+    					$('#payBoxDetail').val(payBox.payBoxDetail);    
+	   					
     				}
     			}
             });
@@ -334,12 +334,14 @@
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						var funBean = JSON.parse(xhr.responseText);
+						patBoxList = [];
 						payBoxList = funBean.payBox;
 						$(".PayBox").remove();
 						for (var i = 0; i < payBoxList.length; i++) {							
 							$('body').showPayBox(payBoxList[i]);
 						}
-						$('body').clickPayBox();														
+						$('body').clickPayBox();
+						
 					}
 				}	
             });            
@@ -352,8 +354,12 @@
 				var payATMAccount = $('#payATMAccount_input').val();
 				var payBankId = $('#payBankId_input').val();
 				var payBoxDetail = $('#payBoxDetail_input').val();
-				var payBoxType = $('#payBoxType_input').val();
-				console.log(payBoxType);
+				var payBoxType;
+				if($('#payBoxType_input').prop("checked")){
+					payBoxType = 1;
+				}else{
+					payBoxType = 0;
+				}
 				var fk_payIdcard = Math.random();
             	xhr.open("Post", "createPayBox?payBoxName="+payBoxName+"&fk_payIdcard="+fk_payIdcard+"&payATMAccount="+payATMAccount+"&payBankId="+payBankId+"&payBoxDetail="+payBoxDetail+"&payBoxType="+1, true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -373,7 +379,31 @@
 				}
             });
         }
-		
+        
+        $( "#payBoxType" ).on( "click", function() {
+		        $('#payBoxType').onOffPayBox($(this).attr("date-payBoxNumber"));
+			});
+        jQuery.fn.onOffPayBox = function(payBoxNumber) {
+            return this.each(function() {
+            	var xhr = new XMLHttpRequest();            	
+				var payBoxType;
+				if($('#payBoxType').prop("checked")){
+					payBoxType = 1;
+				}else{
+					payBoxType = 0;
+				}
+				console.log($('#payBoxType').prop("checked")+", "+payBoxType);
+            	xhr.open("Post", "savePayBox?payBoxNumber="+payBoxNumber+"&payBoxType="+payBoxType, true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						console.log(JSON.parse(xhr.responseText));
+						$('body').getPayBoxList();
+					}
+				}
+            });
+        }
 		
 		
     </script>

@@ -64,7 +64,19 @@ public class payBoxService {
 	public String creatOnePayBox2String(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,	String fk_payIdcard) {
 		return gson.toJson(creatOnePayBox(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fk_payIdcard));
 	}
-	
+//	更新捐款箱
+	@Transactional
+	public PayBox onOffPayBox(Integer payBoxNumber, Integer payBoxType) {
+		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
+		payBox.setPayBoxType(payBoxType);
+		payboxDao.save(payBox);
+		System.out.println("payBoxService.onOffPayBox = "+payBox.toString());
+		return payBox;
+	}
+	@Transactional
+	public String onOffPayBox2String(Integer payBoxNumber, Integer payBoxType) {
+		return gson.toJson(onOffPayBox(payBoxNumber, payBoxType));
+	}
 //	一筆捐款至募款箱(同時改動募款箱的balance)
 	@Transactional
 	public int addOnePaymentIn(PayBoxIn pi) {
