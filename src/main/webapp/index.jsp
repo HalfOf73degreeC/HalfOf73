@@ -32,7 +32,7 @@
 	<!-- Header
     ================================================== -->
 	<header id="nino-header" >
-		<div id="nino-headerInner">	
+		<div id="nino-headerInner" style="padding-bottom: 115px;">	
 			<nav id="nino-navbar" class="navbar navbar-default" style="background-color:rgba(243,129,129,0.8);" >
 				<div class="container">
 
@@ -369,7 +369,7 @@
 	<section id="nino-ourTeam">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading" style="font-size: 30px">捐款募資／志工相助</span>
+				<span class="nino-subHeading" style="font-size: 30px">捐款募資</span>
 			</h2>
 			<p class="nino-sectionDesc" style="font-size: 25px">
 				我們都會有不需要的東西，以及需要被幫助的地方。<br>
@@ -381,9 +381,9 @@
 						<div class="item" style="border-radius:12px;">
 							<div class="overlay" href="#">
 								<div class="content">
-									<a href="goods/queryAllGoods_HO73.do" style="font-size: 36px">我要捐物</a>
+									<a href="goods/queryAllGoods_HO73.do" style="font-size: 36px">愛心義賣</a>
 								</div>
-								<img src="images/our-team/487227763.jpg" alt="" style="border-radius:12px;">
+								<img src="images/our-team/goods2.jpg" alt="" style="border-radius:12px;">
 							</div>
 						</div>
 <!-- 						<div class="info">
@@ -409,9 +409,9 @@
 						<div class="item" style="border-radius: 12px;">
 							<div class="overlay" href="#">
 								<div class="content">
-									<a href="volunteer.html" style="font-size: 36px" >我要當志工</a>
+									<a href="volunteer.html" style="font-size: 36px" >我要捐物</a>
 								</div>
-								<img src="images/our-team/volunteer.jpg" alt="" style="border-radius:12px;">
+								<img src="images/our-team/487227763.jpg" alt="" style="border-radius:12px;">
 							</div>
 						</div>
 						<!-- <div class="info">
