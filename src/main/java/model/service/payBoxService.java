@@ -64,13 +64,14 @@ public class payBoxService {
 	public String creatOnePayBox2String(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,	String fk_payIdcard) {
 		return gson.toJson(creatOnePayBox(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fk_payIdcard));
 	}
-//	更新捐款箱
+//	更新捐款箱狀態
 	@Transactional
 	public PayBox onOffPayBox(Integer payBoxNumber, Integer payBoxType) {
 		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
-		payBox.setPayBoxType(payBoxType);
-		payboxDao.save(payBox);
-		System.out.println("payBoxService.onOffPayBox = "+payBox.toString());
+		if(payBoxType==0) {
+			payBox.setPayBoxType(payBoxType);
+			payboxDao.save(payBox);
+		}
 		return payBox;
 	}
 	@Transactional

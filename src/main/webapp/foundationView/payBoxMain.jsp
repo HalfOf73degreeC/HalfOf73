@@ -71,16 +71,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body" style="height: 205px;">
-                            <span style="float:left; font-family: '微軟正黑體';font-size: 16px;"> 是否開放捐款</span>
-                            <!-- switch -->
-                            <div class="onoffswitch" style="float:left;">
-                                <input type="checkbox" id="payBoxType_input" name="onoffswitch" class="onoffswitch-checkbox" checked>
-                                <label class="onoffswitch-label" for="payBoxType_input">
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
-                                </label>
-                            </div>
+                        <div class="panel-body" style="height: 205px;">                            
                             <div style="clear:both;"></div>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-btn">
@@ -177,28 +168,54 @@
                     </div>
 
 
-                    <div class="panel-heading" role="tab" id="headingOne"style="margin-top:10px;">
-                     
-                        
+                    <div class="panel-heading" role="tab" id="headingOne"style="margin:10px 0px; padding: 0px 15px">
                         <div class="panel panel-default"style=" border-style: solid; border-color:#9ae2d5; border-width:3px;">
                                 <!-- <div class="panel-heading" role="tab" id="headingOne"> -->
                                     <h4 class="panel-title" >
                                         <a role="button" data-toggle="collapse"
                                             data-parent="#accordion" href="#collapseOne"
                                             aria-expanded="true" aria-controls="collapseOne"> 
-                                        <div style="text-align:center; padding:5px; background-color: #9ae2d5; color:#fff; border-style: solid; border-color: #9ae2d5;">捐款箱詳述</div>
-                                        </a>
+                                        <div style="padding: 5px; background-color: #9ae2d5; color: #fff; border-style: solid; border-color: #9ae2d5;">捐款箱詳述</div>
+								</a>
                                     </h4>
                                 <!-- </div> -->
                                 <div id="collapseOne"  class="collapse " 
                                     role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body" style="">
                                         <div class="input-group input-group-lg">
-                                            <span class="input-group-btn">
-                                                <div class="btn btn-success" type="submit">${捐款箱}</div>
-                                            </span> <input type="text" name="memName" class="form-control"
-                                                placeholder="" value=""
-                                                style="z-index: 1">
+                                            <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						                        
+						                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="collapseOne"  class="collapse " 
+                                    role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body" style="">
+                                        <div class="input-group input-group-lg">
+                                            <div id="collapseOne2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						                        <div class="input-group input-group-lg">
+					                                <span class="input-group-btn">
+					                                    <button class="btn btn-success" type="submit" style="width: 130px">ATM帳號 :</button>
+					                                </span>
+					                                <input type="text" id="payATMAccount" class="form-control" placeholder="" required style="z-index: 1">
+					                            </div>
+						                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="collapseOne"  class="collapse " 
+                                    role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body" style="">
+                                        <div class="input-group input-group-lg">
+                                            <div id="collapseOne3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						                        <div class="input-group input-group-lg">
+					                                <span class="input-group-btn">
+					                                    <button class="btn btn-success" type="submit" style="width: 130px">ATM帳號 :</button>
+					                                </span>
+					                                <input type="text" id="payATMAccount" class="form-control" placeholder="" required style="z-index: 1">
+					                            </div>
+						                    </div>
                                         </div>
                                     </div>
                                 </div>
@@ -351,8 +368,15 @@
 						patBoxList = [];
 						payBoxList = funBean.payBox;
 						$(".PayBox").remove();
-						for (var i = 0; i < payBoxList.length; i++) {							
-							$('body').showPayBox(payBoxList[i]);
+						for (var i = 0; i < payBoxList.length; i++) {
+							if(payBoxList[i].payBoxType == 1){
+								$('body').showPayBox(payBoxList[i]);
+							}							
+						}
+						for (var i = 0; i < payBoxList.length; i++) {
+							if(payBoxList[i].payBoxType == 0){
+								$('body').showPayBox(payBoxList[i]);
+							}							
 						}
 						$('body').clickPayBox();
 						
@@ -412,7 +436,19 @@
 				xhr.send();
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
-						console.log(JSON.parse(xhr.responseText));
+						var payBox = JSON.parse(xhr.responseText);
+						$('#payBoxName').val(payBox.payBoxName);
+    					if(payBox.payBoxType == 1){
+    						$('#payBoxType').prop("checked",true);
+    					}else{
+    						$('#payBoxType').prop("checked",false);   						
+    					}	  
+						console.log(payBox.payBoxType +", "+ $('#payBoxType').prop("checked"));
+    					$( "#payBoxType" ).attr("date-payBoxNumber",payBoxNumber);
+    					$('#payATMAccount').val(payBox.payATMAccount);
+    					$('#payBankId').val(payBox.payBankId);
+    					$('#payBoxDetail').val(payBox.payBoxDetail); 
+						$('body').getPayBoxList();
 						$('body').getPayBoxList();
 					}
 				}
