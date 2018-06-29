@@ -177,18 +177,32 @@
                     </div>
 
 
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> -->
-
-                            <div style="margin-top:10px; font-family: '微軟正黑體';font-size: 16px;">捐款箱詳述</div>
-                            <!-- </a> -->
-                        </h4>
-                    </div>
-                    <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body" style="height: 227px;">
-                            <textarea name="funArticle" class="form-control" placeholder="" rows="10"></textarea>
-                        </div>
+                    <div class="panel-heading" role="tab" id="headingOne"style="margin-top:10px;">
+                     
+                        
+                        <div class="panel panel-default"style=" border-style: solid; border-color:#9ae2d5; border-width:3px;">
+                                <!-- <div class="panel-heading" role="tab" id="headingOne"> -->
+                                    <h4 class="panel-title" >
+                                        <a role="button" data-toggle="collapse"
+                                            data-parent="#accordion" href="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne"> 
+                                        <div style="text-align:center; padding:5px; background-color: #9ae2d5; color:#fff; border-style: solid; border-color: #9ae2d5;">捐款箱詳述</div>
+                                        </a>
+                                    </h4>
+                                <!-- </div> -->
+                                <div id="collapseOne"  class="collapse " 
+                                    role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body" style="">
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-btn">
+                                                <div class="btn btn-success" type="submit">${捐款箱}</div>
+                                            </span> <input type="text" name="memName" class="form-control"
+                                                placeholder="" value=""
+                                                style="z-index: 1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
 
                 </div>
