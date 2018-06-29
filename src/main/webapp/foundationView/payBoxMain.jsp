@@ -75,8 +75,8 @@
                             <span style="float:left; font-family: '微軟正黑體';font-size: 16px;"> 是否開放捐款</span>
                             <!-- switch -->
                             <div class="onoffswitch" style="float:left;">
-                                <input type="checkbox" id="payBoxType_input" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                                <label class="onoffswitch-label" for="myonoffswitch">
+                                <input type="checkbox" id="payBoxType_input" name="onoffswitch" class="onoffswitch-checkbox" checked>
+                                <label class="onoffswitch-label" for="payBoxType_input">
                                     <span class="onoffswitch-inner"></span>
                                     <span class="onoffswitch-switch"></span>
                                 </label>
@@ -142,8 +142,8 @@
                             <span style="float:left; font-family: '微軟正黑體';font-size: 16px;"> 是否開放捐款</span>
                             <!-- switch2 -->
                             <div class="onoffswitch2" style="float:left;">
-                                <input type="checkbox" id="payBoxType" name="onoffswitch2" class="onoffswitch2-checkbox" id="myonoffswitch2" checked>
-                                <label class="onoffswitch2-label" for="myonoffswitch2">
+                                <input type="checkbox" id="payBoxType" name="onoffswitch2" class="onoffswitch2-checkbox"  checked>
+                                <label class="onoffswitch2-label" for="payBoxType">
                                     <span class="onoffswitch2-inner"></span>
                                     <span class="onoffswitch2-switch"></span>
                                 </label>
