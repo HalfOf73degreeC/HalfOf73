@@ -161,7 +161,7 @@
 		<div class="foundationList">
 			<div class="container groupButton">
 				<button type="submit" class="btn btn-info"
-					onClick="this.form.action='../goods/queryAllGoods_HO73.do';this.form.submit();">回愛心商品列表</button>
+					onClick="this.form.action='../goods/queryAllGoods_HO73.do';this.form.method='GET';this.form.submit();">回愛心商品列表</button>
 				<button type="submit" class="btn btn-warning">下一步:選擇寄送方式</button>
 			</div>
 		</div>

@@ -7,48 +7,39 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import model.bean.MemberBean_HO73;
+import model.repository.MemberDao;
+
 
 @Service
 @Scope("prototype")
 public class MemberService {
-//	@Autowired
-//	MemberDao dao;
-//	@Autowired
-//	MemberControllerDao mcDao;
-//	
-//	@Transactional
-//	public boolean isDup(String id) {
-////		MemberDao dao = new MemberJDBCDaoImpl();
-//		return dao.isDup(id);
-//	}
-//	@Transactional
-//	public int save(MemberBean mb) {
-//		int inc = 1;
-//		java.util.Date d1 = new java.util.Date();
-//		java.sql.Date date = new java.sql.Date(d1.getTime());
-//		int n = dao.save(mb);
-//		mcDao.checkMemberCount(date, inc);
-//		return n;
-//	}
-//	@Transactional
-//	public List<MemberBean> getAllMembers() {
-////		MemberDao dao = new MemberJDBCDaoImpl();
-//		return dao.getAllMembers();
-//	}
-//	@Transactional
-//	public MemberBean getMember(int pk) {
-////		MemberDao dao = new MemberJDBCDaoImpl();
-//		return dao.getMember(pk);
-//	}
-//	@Transactional
-//	public int deleteMember(int ipk) {
-////		MemberDao dao = new MemberJDBCDaoImpl();
-//		return dao.deleteMember(ipk);
-//	}
-//	@Transactional
-//	public int updateMember(MemberBean mb) {
-////		MemberDao dao = new MemberJDBCDaoImpl();
-//		return dao.updateMember(mb);
-//	}
+	@Autowired
+	MemberDao dao;
+	
+	@Transactional
+	public boolean isDup(String memAccount) {
+		return dao.isDup(memAccount);
+	}
+	@Transactional
+	public int save(MemberBean_HO73 mb) {
+		return dao.save(mb);
+	}
+	@Transactional
+	public List<MemberBean_HO73> getAllMembers() {
+		return dao.getAllMembers();
+	}
+	@Transactional
+	public MemberBean_HO73 getOneMember(String memAccount) {
+		return dao.getOneMember(memAccount);
+	}
+	@Transactional
+	public int delete(String memAccount) {
+		return dao.delete(memAccount);
+	}
+	@Transactional
+	public int update(MemberBean_HO73 mb) {
+		return dao.update(mb);
+	}
 
 }

@@ -22,11 +22,11 @@ public class CreateTableServlet_HO73 extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		String sqlDropBLOBTable = "Drop TABLE Member_HO73";
+		String sqlDropBLOBTable = "Drop TABLE MemberBean_HO73";
         // MySQL 
 		
 		 String sqlCreateBLOBTable =
-		 "CREATE TABLE Member_HO73 ("
+		 "CREATE TABLE MemberBean_HO73 ("
 		 + " memAccount varchar(50) PRIMARY KEY, memName varchar(50), memIdcard varchar(20), memEmail varchar(100), "
 		 + " memEmail2 varchar(100), memGender  varchar(2), memBirthday datetime, "
 		 + " memTel varchar(20), memMobile  varchar(20), memAddress varchar(225), "

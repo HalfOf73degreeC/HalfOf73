@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
@@ -18,6 +21,7 @@ import com.google.api.client.http.HttpRequestFactory;
 import com.google.gson.Gson;
 
 import model.bean.MemberBean_HO73;
+import model.service.MemberService;
 
 
 @WebServlet("/member/oauth2callback")
@@ -75,17 +79,19 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 	    String memEmail = gbj.getEmail();
 	    String memPicUrl = gbj.getPicture();
 	    
-	    MemberDAO mdao = new MemberDAO();
-	    MemberBean_HO73 mb = mdao.getOneMember(memAccount);
+	    WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		MemberService memberService = ctx.getBean(MemberService.class);
+		System.out.println(memAccount);
+		MemberBean_HO73 mb = memberService.getOneMember(memAccount);
+		System.out.println("mb="+mb);
 		if (mb.getMemAccount() == null) {
-			try {
-				MemberBean_HO73 mem = new MemberBean_HO73(memAccount, memName, memEmail, memPicUrl);
-				mdao.saveMemberBean(mem);
+				mb.setMemAccount(memAccount);
+				mb.setMemName(memName);
+				mb.setMemEmail(memEmail);
+				mb.setMemPicUrl(memPicUrl);
+				memberService.save(mb);
 				System.out.println("資料新增成功");
-			} catch (SQLException e) {
-				System.out.println("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
-				e.printStackTrace();
-			}
 		}
 		request.getSession().setAttribute("memberBean", mb);
 //	    response.sendRedirect("../index.jsp");
