@@ -17,7 +17,7 @@
 					style="border-radius: 50%; max-width: 30px; height: auto;">
 				</c:if>
 				<c:if test="${not empty mem.fileName}">
-				<img src="member/showPicture.do?memAccount=${mem.memAccount}"
+				<img src="${pageContext.request.contextPath}/member/showPicture.do?memAccount=${mem.memAccount}"
 					style="border-radius: 50%; max-width: 30px; height: auto;">
 				</c:if>
 			</div>
