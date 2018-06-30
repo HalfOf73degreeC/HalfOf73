@@ -44,6 +44,7 @@ public class FoundationBean_HO73{
 	Integer funStatus;
 	Timestamp insertDate;
 	private Set<PayBox> payBox = new LinkedHashSet<>();
+	private Set<PayBoxOut> payBoxOut = new LinkedHashSet<>();
 	
 	public FoundationBean_HO73() {
 		super();
@@ -353,6 +354,13 @@ public class FoundationBean_HO73{
 
 	public void setPayBox(Set<PayBox> payBox) {
 		this.payBox = payBox;
+	}
+	@OneToMany(mappedBy="foundationBean", cascade={CascadeType.ALL}) 
+	public Set<PayBoxOut> getpayBoxOut() {
+		return payBoxOut;
+	}
+	public void setpayBoxOut(Set<PayBoxOut> paymentOut) {
+		this.payBoxOut = paymentOut;
 	}
 
 }
