@@ -85,7 +85,8 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 		System.out.println(memAccount);
 		MemberBean_HO73 mb = memberService.getOneMember(memAccount);
 		System.out.println("mb="+mb);
-		if (mb.getMemAccount() == null) {
+		if (mb == null) {
+			mb= new MemberBean_HO73();
 				mb.setMemAccount(memAccount);
 				mb.setMemName(memName);
 				mb.setMemEmail(memEmail);

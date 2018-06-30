@@ -41,5 +41,11 @@ public class MemberService {
 	public int update(MemberBean_HO73 mb) {
 		return dao.update(mb);
 	}
+	@Transactional
+	public int createNewMember(MemberBean_HO73 mb) {
+		return dao.save(mb);
+	}
+	
+	
 
 }

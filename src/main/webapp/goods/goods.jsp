@@ -46,7 +46,7 @@
 				<div class="container">
 
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header" w3-include-html="../logo.jsp"></div>
+					<div class="navbar-header" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
@@ -61,7 +61,7 @@
 						<!-- /.navbar-collapse -->
 
 						<div class="nino-menuItem pull-right"
-							w3-include-html="../navbar_right.jsp"></div>
+							w3-include-html="${pageContext.request.contextPath}/navbar_right.jsp"></div>
 					</div>
 				</div>
 				<!-- /.container-fluid -->

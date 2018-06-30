@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <link rel="stylesheet"
@@ -101,17 +102,15 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="text-center" id="changePic">
-<!-- 								<form action="changePhoto.do" enctype="multipart/form-data" method="POST"> -->
-<%-- 									<c:if test="${mem.fileName} == null"> --%>
-<%-- 										<img id="preview_img" src="${mem.memPicUrl}" --%>
-<!-- 											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;"> -->
-<%-- 									</c:if> --%>
-<%-- 									<c:if test="${mem.fileName} != null"> --%>
+									<c:if test="${empty mem.fileName}">
+										<img id="preview_img" src="${mem.memPicUrl}"
+											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
+									</c:if>
+									<c:if test="${not empty mem.fileName}">
 										<img id="preview_img" src="showPicture.do?memAccount=${mem.memAccount}"
 											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
 									
-<%-- 									</c:if> --%>
-<!-- 								</form> -->
+									</c:if>
 <!-- 								<label for="input_img"  style="height:1px;"> -->
 <!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
 <!-- 								<span>更改大頭貼</span> -->
@@ -150,8 +149,10 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">生日:</div>
-												</span> <input type="date" name="memBirthday" class="form-control"
-													placeholder="" value="${mem.memBirthday}"
+												</span> 
+												<fmt:formatDate value="${mem.memBirthday}" var="formatMemBirthdayDate" type="date" pattern="yyyy-MM-dd" />
+												<input type="date" name="memBirthday" class="form-control"
+													placeholder="" value="${formatMemBirthdayDate}"
 													style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
 											</div>

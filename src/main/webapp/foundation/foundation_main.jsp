@@ -53,9 +53,8 @@
 			style="background-color: rgba(243, 129, 129, 0.8);">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<a class="navbar-brand" href="../index.jsp">Half of 73°C</a>
-				</div>
+				<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header" w3-include-html="../logo.jsp"></div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right" w3-include-html="../navbar_right.jsp"></div>
 			    	</div>
