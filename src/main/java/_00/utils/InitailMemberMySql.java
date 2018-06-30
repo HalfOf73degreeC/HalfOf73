@@ -92,10 +92,10 @@ public class InitailMemberMySql {
 					GlobalService.PASSWORDMySQL);
 			// 建立Statement物件，以便傳送SQL命令到後端的資料庫
 			Statement stmt = con.createStatement();) {
-			// 定義刪除Member_HO73表格的SQL命令
-			dropString = "DROP TABLE IF EXISTS Member_HO73 ";
-			// 定義新建Member_HO73表格的SQL命令
-			createString = "CREATE TABLE Member_HO73 (" 
+			// 定義刪除MemberBean_HO73表格的SQL命令
+			dropString = "DROP TABLE IF EXISTS MemberBean_HO73 ";
+			// 定義新建MemberBean_HO73表格的SQL命令
+			createString = "CREATE TABLE MemberBean_HO73 (" 
 					+ " memAccount varchar(50)  PRIMARY KEY, "
 					+ " memName varchar(50),"
 					+ " memIdcard varchar(20),"
@@ -119,15 +119,15 @@ public class InitailMemberMySql {
 					+ " ENGINE=InnoDB DEFAULT CHARSET=utf8 DEFAULT COLLATE utf8_unicode_ci " ;
 
 			try {
-				// 執行刪除Member_HO73表格的SQL命令
+				// 執行刪除MemberBean_HO73表格的SQL命令
 				stmt.executeUpdate(dropString);
-				// 執行新建Member_HO73表格的SQL命令
+				// 執行新建MemberBean_HO73表格的SQL命令
 				stmt.executeUpdate(createString);
 				// 印出執行成功的訊息
-				System.out.println("Member_HO73表格產生成功");
+				System.out.println("MemberBean_HO73表格產生成功");
 			} catch(SQLException ex){
 				ex.printStackTrace();
-				throw new RuntimeException("新建Member_HO73表格時發生例外: " + ex.getMessage());
+				throw new RuntimeException("新建MemberBean_HO73表格時發生例外: " + ex.getMessage());
 			}
 
 			try (
@@ -159,8 +159,8 @@ public class InitailMemberMySql {
 					count++;
 					System.out.println("新增" + count + "筆記錄:" + sa[1]);
 				}
-				// 印出Member_HO73資料新增成功的訊息
-				System.out.println("Member_HO73 資料新增成功");
+				// 印出MemberBean_HO73資料新增成功的訊息
+				System.out.println("MemberBean_HO73 資料新增成功");
 			} catch (Exception ex) {
 				System.out.println("讀取文字檔(data/Input.txt)時發生例外");
 				ex.printStackTrace();
@@ -172,7 +172,7 @@ public class InitailMemberMySql {
 		}
 	
 	static public int saveMember(MemberBean_HO73 mb, Connection con) {
-		String sql = "INSERT INTO Member_HO73 "
+		String sql = "INSERT INTO MemberBean_HO73 "
 				+ "VALUES(?, ?, ?, ?, ?,  ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?,  ?)";
 		int n = 0;
 		try (PreparedStatement pstmt = con.prepareStatement(sql);) {

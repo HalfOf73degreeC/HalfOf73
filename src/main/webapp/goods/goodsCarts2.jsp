@@ -72,7 +72,7 @@
 	<!--/#header-->
     
 	<!-- 愛心義賣資訊 -->
-	<form action="../shoppingCart/ProcessOrder.do" method="post">
+	<form action="${pageContext.request.contextPath}/shoppingCart/ProcessOrder.do" method="post">
 	<div class="foundationList">
 			<!--<div class="container foundationTitle">台灣之心愛護動物協會</div>-->
 			<div class="container supplyBox">
@@ -178,13 +178,14 @@
 					</table>
 				</div>
 			</div>
+			<c:set var="mem" value="${memberBean}"></c:set>
 			<div class="foundationList">
 				<div class="container foundationTitle">收件人資料</div>
 					<div class="container supplyBox">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">收件人<span style='color:red'>*</span></label>
 							<div class="col-sm-10">
-							  	<input class="form-control" id="name" name="name" type="text" placeholder="請輸入收件人" required>
+							  	<input class="form-control" id="name" name="name" type="text" placeholder="請輸入收件人" value="${mem.memName}" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -192,13 +193,13 @@
 							<!-- <div class="addressSelector"></div>-->
 							<!-- <label class="col-sm-2 control-label"></label>-->
 							<div class="col-sm-10">
-							  	<input class="form-control" id="address" type="text" name="address" placeholder="請輸入地址" required>
+							  	<input class="form-control" id="address" type="text" name="address" placeholder="請輸入地址" value="${mem.memAddress}" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">電話<span style='color:red'>*</span></label>
 							<div class="col-sm-10">
-							    <input class="form-control" id="tel" type="text" name="tel" placeholder="請輸入電話ex:0900111222、0222223333" data-error="請輸入數字" pattern="[0-9]{10}" required>
+							    <input class="form-control" id="tel" type="text" name="tel" placeholder="請輸入電話ex:0900111222、0222223333" value="${mem.memMobile}" data-error="請輸入數字" pattern="[0-9]{10}" required>
 							</div>
 						</div>
 					</div>
@@ -249,9 +250,6 @@
 			document.getElementById('newSubtotal').value=newSubtotal;
 		}
 		
-		new TwCitySelector({
-		    el: ".addressSelector" // 同 DOM querySelector()
-		  });
 		
 	</script>
 	<script>

@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <link rel="stylesheet"
@@ -90,7 +91,7 @@
 
 		<!-- Testimonial
     ================================================== -->
-		<Form Action="register0403_HO73.do"method="POST">
+		<Form Action="register0403_HO73.do" method="POST" enctype="multipart/form-data" >
 			<c:set var="mem" value="${memberBean}"></c:set>
 			<section id="nino-whatWeDo" style="padding-top:20px; ">
 			<div class="container">
@@ -101,10 +102,15 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="text-center" id="changePic">
-								<form action="changePhoto.do" enctype="multipart/form-data" method="POST">
-									<img id="preview_img" src="${mem.memPicUrl}"
-										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
-								</form>
+									<c:if test="${empty mem.fileName}">
+										<img id="preview_img" src="${mem.memPicUrl}"
+											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
+									</c:if>
+									<c:if test="${not empty mem.fileName}">
+										<img id="preview_img" src="showPicture.do?memAccount=${mem.memAccount}"
+											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
+									
+									</c:if>
 <!-- 								<label for="input_img"  style="height:1px;"> -->
 <!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
 <!-- 								<span>更改大頭貼</span> -->
@@ -135,7 +141,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">姓名:</div>
 												</span> <input type="text" name="memName" class="form-control"
-													placeholder="" value="${param.memName}${mem.memName}"
+													placeholder="" value="${mem.memName}"
 													style="z-index: 1">
 												<div
 													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 400px; z-index: 2">${ErrorMsg.memName}</div>
@@ -143,8 +149,10 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">生日:</div>
-												</span> <input type="date" name="memBirthday" class="form-control"
-													placeholder="" value="${mem.memBirthday}"
+												</span> 
+												<fmt:formatDate value="${mem.memBirthday}" var="formatMemBirthdayDate" type="date" pattern="yyyy-MM-dd" />
+												<input type="date" name="memBirthday" class="form-control"
+													placeholder="" value="${formatMemBirthdayDate}"
 													style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
 											</div>
@@ -153,7 +161,7 @@
 													<div class="btn btn-success" type="submit">性別:</div>
 												</span> <input type="text" name="memGender" class="form-control"
 													placeholder="M/F"
-													value="${param.memGender}${mem.memGender}"
+													value="${mem.memGender}"
 													style="z-index: 1">
 
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -183,12 +191,12 @@
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<c:if test="${mem.memEmail2 == null}">
 													<input type="email" name="memEmail2" class="form-control"
-														value="${param.memEmail}${mem.memEmail}"
+														value="${mem.memEmail}"
 														style="z-index: 1">
 												</c:if>
 												<c:if test="${mem.memEmail2 != null}">
 													<input type="email" name="memEmail2" class="form-control"
-														value="${param.memEmail2}${mem.memEmail2}"
+														value="${mem.memEmail2}"
 														style="z-index: 1">
 												</c:if>
 												<div
@@ -198,7 +206,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">電話:</div>
 												</span> <input type="text" name="memMobile" class="form-control"
-													placeholder="" value="${param.memMobile}${mem.memMobile}"
+													placeholder="" value="${mem.memMobile}"
 													style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 											</div>
@@ -206,7 +214,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">住址:</div>
 												</span> <input type="text" name="memAddress" class="form-control"
-													placeholder="" value="${param.memAddress}${mem.memAddress}"
+													placeholder="" value="${mem.memAddress}"
 													style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
 											</div>
@@ -230,7 +238,7 @@
 										<div class="panel-body" style="height: 175px;">
 											<%-- 									<input type="text" name="memWhySupply" class="form-control" placeholder="" value="${param.memWhySupply}${mem.memWhySupply}" style="z-index: 1"> --%>
 											<textarea class="form-control" name="memWhySupply"
-												placeholder="因為..." rows="6">${param.memWhySupply}${mem.memWhySupply}</textarea>
+												placeholder="因為..." rows="6">${mem.memWhySupply}</textarea>
 										</div>
 									</div>
 								</div>
@@ -255,7 +263,7 @@
 												</span>
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<input type="text" name="memIdcard" class="form-control"
-													value="${param.memIdcard}${mem.memIdcard}"
+													value="${mem.memIdcard}"
 													style="z-index: 1">
 												<div
 													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 400px; z-index: 2">${ErrorMsg.memAccount}</div>
@@ -264,7 +272,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">會員類別:</div>
 												</span> <input type="text" class="form-control" disabled="disabled"
-													value="${param.memType}${mem.memType}" style="z-index: 1">
+													value="${mem.memType}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<!-- 											<input type="text" class="form-control" placeholder="啟用" >												 -->
 											</div>
@@ -272,7 +280,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">帳號狀態:</div>
 												</span> <input type="text" class="form-control" disabled="disabled"
-													value="${param.memStatus}${mem.memStatus}"
+													value="${mem.memStatus}"
 													style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
 											</div>

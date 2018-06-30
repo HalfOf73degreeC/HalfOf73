@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="mem" value="${memberBean}"></c:set>
 <ul class="nino-iconsGroup nav navbar-nav" style="max-height: 44px;">
-	<li><a href="goods/goodsCarts1.jsp"><i
+	<li><a href="${pageContext.request.contextPath}/goods/goodsCarts1.jsp"><i
 			class="mdi mdi-cart-outline nino-icon"></i></a></li>
 	<li><a href="#" class="nino-search" style="padding-right: 13px;"><i
 			class="mdi mdi-magnify nino-icon"></i></a></li>
@@ -12,8 +12,14 @@
 			<div style="padding: 9px 5px 5px;" class="dropdown-toggle"
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">
+				<c:if test="${empty mem.fileName}">
 				<img src="${mem.memPicUrl}"
 					style="border-radius: 50%; max-width: 30px; height: auto;">
+				</c:if>
+				<c:if test="${not empty mem.fileName}">
+				<img src="member/showPicture.do?memAccount=${mem.memAccount}"
+					style="border-radius: 50%; max-width: 30px; height: auto;">
+				</c:if>
 			</div>
 			<ul class="dropdown-menu dropdown-menu-right"
 				style="margin-top: 5.5px; background-color: rgba(56, 56, 56, 0.55);">

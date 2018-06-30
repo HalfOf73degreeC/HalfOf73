@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#input_img").change(function(){
+    $("#memPhoto").change(function(){
 
         readURL(this);
       
