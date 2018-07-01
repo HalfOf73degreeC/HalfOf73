@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PaymentIn")
+@Table(name="PayBoxIn")
 public class PayBoxIn {
 	private 			Integer 	Id;
 	private transient	PayBox	 	payBoxNumber;
