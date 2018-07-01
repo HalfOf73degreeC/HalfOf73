@@ -1,6 +1,5 @@
 package model.bean;
 
-import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -11,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Member_HO73")
-public class MemberBean_HO73 implements Serializable {
+public class MemberBean_HO73 {
 	String memAccount;			//會員帳號
 	String memName;				//會員名稱
 	String memIdcard;			//身分證字號
