@@ -11,6 +11,7 @@ import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,8 @@ import _00.utils.SystemUtils2018;
 import model.bean.MemberBean_HO73;
 import model.service.MemberService;
 
-
+@MultipartConfig(location = "", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 500, maxRequestSize = 1024
+* 1024 * 500 * 5)
 @WebServlet("/member/register0403_HO73.do")
 public class Register0403_HO73 extends HttpServlet {
 	private static final long serialVersionUID = 1L;

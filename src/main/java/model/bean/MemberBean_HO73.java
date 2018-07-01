@@ -7,8 +7,10 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Member_HO73")
 public class MemberBean_HO73 implements Serializable {
 	String memAccount;			//會員帳號
 	String memName;				//會員名稱

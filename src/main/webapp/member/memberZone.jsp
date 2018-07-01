@@ -1,7 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <link rel="stylesheet"
@@ -11,8 +11,7 @@
 <head>
 
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/style.css'
-	type="text/css" />
+	href='${pageContext.request.contextPath}/css/style.css' type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -56,15 +55,7 @@
 			style="background-color:rgba(243,129,129,0.8);">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#nino-navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="../index.jsp">Half of 73°C</a>
-			</div>
+			<div class="navbar-header" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="nino-menuItem pull-right">
@@ -74,15 +65,11 @@
 						<li class="active"><a href="#nino-story">我的會員資料</a></li>
 						<li><a href="#nino-services">愛心點點滴</a></li>
 						<li><a href="#nino-ourTeam">我是基金會</a></li>
-						<li><a href="#nino-latestBlog">最新消息</a></li>
+<!-- 						<li><a href="#nino-latestBlog">最新消息</a></li> -->
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
-				<ul class="nino-iconsGroup nav navbar-nav">
-					<li><a href="#"><i class="mdi mdi-cart-outline nino-icon"></i></a></li>
-					
-					<li><a href="#" class="nino-search"><i class="mdi mdi-magnify nino-icon"></i></a></li>
-				</ul>
+				<div class="nino-menuItem pull-right" w3-include-html="${pageContext.request.contextPath}/navbar_right.jsp"></div>
 			</div>
 		</div>
 		<!-- /.container-fluid --> </nav> </header>
@@ -91,7 +78,8 @@
 
 		<!-- Testimonial
     ================================================== -->
-		<Form Action="register0403_HO73.do" method="POST" enctype="multipart/form-data" >
+		<Form Action="register0403_HO73.do" method="POST"
+			enctype="multipart/form-data">
 			<c:set var="mem" value="${memberBean}"></c:set>
 			<section id="nino-whatWeDo" style="padding-top:20px; ">
 			<div class="container">
@@ -102,21 +90,22 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="text-center" id="changePic">
-									<c:if test="${empty mem.fileName}">
-										<img id="preview_img" src="${mem.memPicUrl}"
-											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
-									</c:if>
-									<c:if test="${not empty mem.fileName}">
-										<img id="preview_img" src="showPicture.do?memAccount=${mem.memAccount}"
-											style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
-									
-									</c:if>
-<!-- 								<label for="input_img"  style="height:1px;"> -->
-<!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
-<!-- 								<span>更改大頭貼</span> -->
-<!-- 								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-600px; z-index:-2; "/> -->
-<!-- 								</buttom> -->
-<!-- 								</label> -->
+								<c:if test="${empty mem.fileName}">
+									<img id="preview_img" src="${mem.memPicUrl}"
+										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor: pointer;">
+								</c:if>
+								<c:if test="${not empty mem.fileName}">
+									<img id="preview_img"
+										src="showPicture.do?memAccount=${mem.memAccount}"
+										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor: pointer;">
+
+								</c:if>
+								<!-- 								<label for="input_img"  style="height:1px;"> -->
+								<!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
+								<!-- 								<span>更改大頭貼</span> -->
+								<!-- 								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-600px; z-index:-2; "/> -->
+								<!-- 								</buttom> -->
+								<!-- 								</label> -->
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -130,7 +119,7 @@
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-user-alt nino-icon"></i>
-											<div style="text-align: left;">基本資料</div>
+												<div style="text-align: left;">基本資料</div>
 											</a>
 										</h4>
 									</div>
@@ -141,16 +130,17 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">姓名:</div>
 												</span> <input type="text" name="memName" class="form-control"
-													placeholder="" value="${mem.memName}"
-													style="z-index: 1">
+													placeholder="" value="${mem.memName}" style="z-index: 1">
 												<div
 													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 400px; z-index: 2">${ErrorMsg.memName}</div>
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">生日:</div>
-												</span> 
-												<fmt:formatDate value="${mem.memBirthday}" var="formatMemBirthdayDate" type="date" pattern="yyyy-MM-dd" />
+												</span>
+												<fmt:formatDate value="${mem.memBirthday}"
+													var="formatMemBirthdayDate" type="date"
+													pattern="yyyy-MM-dd" />
 												<input type="date" name="memBirthday" class="form-control"
 													placeholder="" value="${formatMemBirthdayDate}"
 													style="z-index: 1">
@@ -160,8 +150,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">性別:</div>
 												</span> <input type="text" name="memGender" class="form-control"
-													placeholder="M/F"
-													value="${mem.memGender}"
+													placeholder="M/F" value="${mem.memGender}"
 													style="z-index: 1">
 
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -177,7 +166,7 @@
 												aria-expanded="false" aria-controls="collapseTwo"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-phone nino-icon"></i>
-											<div style="text-align: left;">聯絡方式</div>
+												<div style="text-align: left;">聯絡方式</div>
 											</a>
 										</h4>
 									</div>
@@ -191,13 +180,11 @@
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<c:if test="${mem.memEmail2 == null}">
 													<input type="email" name="memEmail2" class="form-control"
-														value="${mem.memEmail}"
-														style="z-index: 1">
+														value="${mem.memEmail}" style="z-index: 1">
 												</c:if>
 												<c:if test="${mem.memEmail2 != null}">
 													<input type="email" name="memEmail2" class="form-control"
-														value="${mem.memEmail2}"
-														style="z-index: 1">
+														value="${mem.memEmail2}" style="z-index: 1">
 												</c:if>
 												<div
 													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 380px; z-index: 2">${ErrorMsg.memEmail}</div>
@@ -206,16 +193,14 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">電話:</div>
 												</span> <input type="text" name="memMobile" class="form-control"
-													placeholder="" value="${mem.memMobile}"
-													style="z-index: 1">
+													placeholder="" value="${mem.memMobile}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">住址:</div>
 												</span> <input type="text" name="memAddress" class="form-control"
-													placeholder="" value="${mem.memAddress}"
-													style="z-index: 1">
+													placeholder="" value="${mem.memAddress}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
 											</div>
 										</div>
@@ -229,7 +214,7 @@
 												aria-expanded="false" aria-controls="collapseThree"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-question nino-icon"></i>
-											<div style="text-align: left;">為什麼投入公益</div>
+												<div style="text-align: left;">為什麼投入公益</div>
 											</a>
 										</h4>
 									</div>
@@ -250,7 +235,7 @@
 												aria-expanded="false" aria-controls="collapseFour"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-file-alt nino-icon"></i>
-											<div style="text-align: left;">詳細資訊</div>
+												<div style="text-align: left;">詳細資訊</div>
 											</a>
 										</h4>
 									</div>
@@ -263,8 +248,7 @@
 												</span>
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<input type="text" name="memIdcard" class="form-control"
-													value="${mem.memIdcard}"
-													style="z-index: 1">
+													value="${mem.memIdcard}" style="z-index: 1">
 												<div
 													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 400px; z-index: 2">${ErrorMsg.memAccount}</div>
 											</div>
@@ -280,8 +264,7 @@
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit">帳號狀態:</div>
 												</span> <input type="text" class="form-control" disabled="disabled"
-													value="${mem.memStatus}"
-													style="z-index: 1">
+													value="${mem.memStatus}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
 											</div>
 										</div>
@@ -507,13 +490,12 @@
 							</div>
 						</div>
 						<div class="info">
-							<a href="../foundation/foundation_register.jsp"
-								class="nino-icon" style="font-size: 20px">立即加入</a><br> <span
-								class="regency">Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </span>
+							<a href="../foundation/foundation_register.jsp" class="nino-icon"
+								style="font-size: 20px">立即加入</a><br> <span class="regency">Lorem
+								ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+								enim ad minim veniam, quis nostrud exercitation ullamco laboris
+								nisi ut aliquip ex ea commodo consequat. </span>
 						</div>
 					</div>
 				</div>
@@ -522,347 +504,10 @@
 		</section>
 		<!--/#nino-ourTeam-->
 
-		<!-- Latest Blog
-    ================================================== -->
-		<section id="nino-latestBlog">
-		<div class="container">
-			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">最新消息</span>
-
-			</h2>
-			<div class="sectionContent">
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/283.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">15</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">助孩童遠離暴力威脅，平安長大‎</a>
-						</h3>
-						<p class="articleDesc">
-							邀請您透過公益捐款「終止兒童受暴」行動，一同挺身捍衛兒童平安成長的權利！<br>
-							<br>
-						</p>
-
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/272.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">14</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">小小益善 支持無國界醫生 </a>
-						</h3>
-						<p class="articleDesc">
-							約3萬5千名救援人員每年為超過80萬人接種麻疹疫苗，立即捐款，支持搶救生命！覆蓋近70個國家 · 數以萬計專業人士投身參與 ·
-							服務超過45年 · 人道救援組織</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/273.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">12</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">捐款幫助他們 讓他們走向快樂‎</a>
-						</h3>
-						<p class="articleDesc">
-							用小錢幫助他們走向夢想，伊甸邀您加入公益行列，讓他們彩繪不一樣的人生，快點行動！小錢力量大，捐款做愛心 · 捐款送愛，照護偏鄉長輩
-							· 一塊捐伊甸，一塊做善事</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-						</div>
-						</article>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/282.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">15</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">台灣公益資訊中心</a>
-						</h3>
-						<p class="articleDesc">
-							台灣公益資訊中心係喜瑪拉雅研究發展基金會為台灣非營利組織所建立的公益資訊交流平台，提供公益新聞、活動、人才招募...等訊息發佈，以強化公益團體的資訊
-							...</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/296.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">14</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">Yahoo奇摩公益</a>
-						</h3>
-						<p class="articleDesc">
-							Yahoo奇摩公益提供所有捐款者一個安全、豐富及多元的捐款資訊平台，公益團體更容易地在此匯集社會善心資源，讓捐款更透明，捐款人更安心。
-						</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/293.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">12</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">樂捐款- 樂公益</a>
-						</h3>
-						<p class="articleDesc">樂公益（Lecoin
-							角落）立志為社會大眾提供最方便、最值得信賴、最有分享力量的公益橋樑，透過公益捐款為台灣貧窮弱勢的朋友與團體搭把手，助他們度過人生的
-							...</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-						</div>
-						</article>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/300.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">15</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">公益- 維基百科</a>
-						</h3>
-						<p class="articleDesc">
-							這是一個消歧義頁，羅列了有相同或相近的標題，但內容不同的條目。如果您是透過某條目的內部連結而轉到本頁，希望您能協助修正該處的內部連結，將它指向正確
-							...</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/253.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">14</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">sed do eiusmod tempor</a>
-						</h3>
-						<p class="articleDesc">
-							Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua.<br>
-							<br>
-						</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/289.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">12</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">incididunt ut labore et dolore</a>
-						</h3>
-						<p class="articleDesc">
-							Elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.<br>
-							<br>
-						</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-						</div>
-						</article>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
-		<!--/#nino-latestBlog-->
-
 
 		<!-- Footer
     ================================================== -->
-		<footer id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="colInfo">
-						<div class="footerLogo">
-							<a href="#">Half of 73°C</a>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<div class="nino-followUs">
-							<div class="totalFollow">
-								<span>15k</span> followers
-							</div>
-							<div class="socialNetwork">
-								<span class="text">Follow Us: </span> <a href=""
-									class="nino-icon"><i class="mdi mdi-facebook"></i></a> <a
-									href="" class="nino-icon"><i class="mdi mdi-twitter"></i></a> <a
-									href="" class="nino-icon"><i class="mdi mdi-instagram"></i></a>
-								<a href="" class="nino-icon"><i class="mdi mdi-pinterest"></i></a>
-								<a href="" class="nino-icon"><i class="mdi mdi-google-plus"></i></a>
-								<a href="" class="nino-icon"><i class="mdi mdi-youtube-play"></i></a>
-								<a href="" class="nino-icon"><i class="mdi mdi-dribbble"></i></a>
-								<a href="" class="nino-icon"><i class="mdi mdi-tumblr"></i></a>
-							</div>
-						</div>
-						<form action="" class="nino-subscribeForm">
-							<div class="input-group input-group-lg">
-								<input type="email" class="form-control"
-									placeholder="Your Email" required> <span
-									class="input-group-btn">
-									<button class="btn btn-success" type="submit">Subscribe</button>
-								</span>
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<div class="colInfo">
-						<h3 class="nino-colHeading">Blogs</h3>
-						<ul class="listArticles">
-							<li layout="row" class="verticalCenter"><a
-								class="articleThumb fsr" href="#"><img
-									src="images/our-blog/img-4.jpg" alt=""></a>
-								<div class="info">
-									<h3 class="articleTitle">
-										<a href="#">Lorem ipsum dolor sit amet, consectetur
-											adipiscing</a>
-									</h3>
-									<div class="date">Jan 9, 2016</div>
-								</div></li>
-							<li layout="row" class="verticalCenter"><a
-								class="articleThumb fsr" href="#"><img
-									src="images/our-blog/img-5.jpg" alt=""></a>
-								<div class="info">
-									<h3 class="articleTitle">
-										<a href="#">Lorem ipsum dolor sit amet, consectetur
-											adipiscing</a>
-									</h3>
-									<div class="date">Jan 9, 2016</div>
-								</div></li>
-							<li layout="row" class="verticalCenter"><a
-								class="articleThumb fsr" href="#"><img
-									src="images/our-blog/img-6.jpg" alt=""></a>
-								<div class="info">
-									<h3 class="articleTitle">
-										<a href="#">Lorem ipsum dolor sit amet, consectetur
-											adipiscing</a>
-									</h3>
-									<div class="date">Jan 9, 2016</div>
-								</div></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<div class="colInfo">
-						<h3 class="nino-colHeading">instagram</h3>
-						<div class="instagramImages clearfix">
-							<a href="#"><img src="images/instagram/img-1.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-2.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-6.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-7.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-8.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-9.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-3.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-4.jpg" alt=""></a>
-							<a href="#"><img src="images/instagram/img-5.jpg" alt=""></a>
-						</div>
-						<a href="#" class="morePhoto">View more photos</a>
-					</div>
-				</div>
-			</div>
-			<div class="nino-copyright">
-				Copyright &copy; 2018 <a target="_blank"
-					href="http://www.ninodezign.com/"
-					title="Ninodezign.com - Top quality open source resources for web developer and web designer">halfof73.com</a>.
-				All Rights Reserved. <br>
-				<!-- 			<br/> MoGo free PSD template by <a href="https://www.behance.net/laaqiq">Laaqiq</a></div> -->
-			</div>
-		</footer>
+		<div w3-include-html="${pageContext.request.contextPath}/footer.html"></div>
 		<!--/#footer-->
 
 		<!-- Search Form - Display when click magnify icon in menu
@@ -891,7 +536,11 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<script type="text/javascript" src="js/croppie.js"></script>
 		<script type="text/javascript" src="js/previewImg.js"></script>
-        
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
+		<script>
+			w3.includeHTML();
+		</script>
+
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
