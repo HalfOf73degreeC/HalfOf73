@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import model.bean.PayBoxOut;
 import model.repository.PayBoxOutDao;
 
-@Repository("paymentOutDao")
+@Repository("PayBoxOutDao")
 @Scope("prototype")
 public class PayBoxOutDaoImpl implements PayBoxOutDao {
 
@@ -24,7 +24,7 @@ public class PayBoxOutDaoImpl implements PayBoxOutDao {
 	@Override
 	public boolean isDup(Integer id) {
 		boolean result = false;
-		String hql = "FROM PaymentOut po where pb.id = :id";
+		String hql = "FROM PayBoxOut po where pb.id = :id";
 		Session session = factory.getCurrentSession();
 		try {
 			PayBoxOut po = (PayBoxOut) session.createQuery(hql).setParameter("id", id).getSingleResult();
@@ -48,8 +48,8 @@ public class PayBoxOutDaoImpl implements PayBoxOutDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PayBoxOut> getAllPayPaymentOut() {
-		String hql = "FROM PaymentOut";
+	public List<PayBoxOut> getAllPayBoxOut() {
+		String hql = "FROM PayBoxOut";
 		List<PayBoxOut> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
@@ -57,7 +57,7 @@ public class PayBoxOutDaoImpl implements PayBoxOutDao {
 	}
 
 	@Override
-	public PayBoxOut getPaymentOut(Integer pk) {
+	public PayBoxOut getPayBoxOut(Integer pk) {
 		PayBoxOut po = null;
 		Session session = factory.getCurrentSession();
 		po = session.get(PayBoxOut.class, pk);
@@ -65,7 +65,7 @@ public class PayBoxOutDaoImpl implements PayBoxOutDao {
 	}
 
 	@Override
-	public int deletePaymentOut(Integer pk) {
+	public int deletePayBoxOut(Integer pk) {
 		int count = 0;
 		Session session = factory.getCurrentSession();
 		PayBoxOut po = new PayBoxOut();
@@ -76,7 +76,7 @@ public class PayBoxOutDaoImpl implements PayBoxOutDao {
 	}
 
 	@Override
-	public int updatePaymentOut(PayBoxOut po) {
+	public int updatePayBoxOut(PayBoxOut po) {
 		int count = 0;
 		Session session = factory.getCurrentSession();	
 		    session.merge(po);

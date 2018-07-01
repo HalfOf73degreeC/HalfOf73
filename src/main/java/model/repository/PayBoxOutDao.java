@@ -8,11 +8,11 @@ public interface PayBoxOutDao {
 
 	int save(PayBoxOut po);
 
-	List<PayBoxOut> getAllPayPaymentOut();
+	List<PayBoxOut> getAllPayBoxOut();
 
-	PayBoxOut getPaymentOut(Integer pk);
+	PayBoxOut getPayBoxOut(Integer pk);
 
-	int deletePaymentOut(Integer pk);
+	int deletePayBoxOut(Integer pk);
 
-	int updatePaymentOut(PayBoxOut po);
+	int updatePayBoxOut(PayBoxOut po);
 }

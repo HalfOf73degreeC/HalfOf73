@@ -11,16 +11,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PaymentOut")
+@Table(name="PayBoxOut")
 public class PayBoxOut {
-	private 			Integer 	Id;
-	private transient 	PayBox 		payBoxNumber;
-	private 			String 		payIdcard;
-	private 			String 		payForName;
-	private 			String 		payForDetail;
-	private 			Integer 	payForCost;	
-	private 			String 		receipt;
-	private 			Date 		insertDate;
+	private 			Integer 				Id;
+	private transient 	PayBox 					payBoxNumber;
+	private transient 	FoundationBean_HO73 	foundationBean;
+	private 			String 					payForName;
+	private 			String 					payForDetail;
+	private 			Integer 				payForCost;	
+	private 			String 					receipt;
+	private 			Date 					insertDate;
 	
 	public PayBoxOut(PayBox payBoxNumber, String payForName, Integer payForCost) {
 		super();
@@ -28,12 +28,25 @@ public class PayBoxOut {
 		this.payForName = payForName;
 		this.payForCost = payForCost;
 	}
-	public PayBoxOut(Integer id, PayBox payBoxNumber, String payIdcard, String payForName, String payForDetail,
+	
+	public PayBoxOut(PayBox payBoxNumber, FoundationBean_HO73 foundationBean, String payForName, String payForDetail, Integer payForCost,
+			String receipt) {
+		super();
+		this.payBoxNumber = payBoxNumber;
+		this.foundationBean = foundationBean;
+		this.payForName = payForName;
+		this.payForDetail = payForDetail;
+		this.payForCost = payForCost;
+		this.receipt = receipt;
+		insertDate = new Date();
+	}
+
+	public PayBoxOut(Integer id, PayBox payBoxNumber, FoundationBean_HO73 foundationBean, String payForName, String payForDetail,
 			Integer payForCost, String receipt, Date insertDate) {
 		super();
 		Id = id;
 		this.payBoxNumber = payBoxNumber;
-		this.payIdcard = payIdcard;
+		this.foundationBean = foundationBean;
 		this.payForName = payForName;
 		this.payForDetail = payForDetail;
 		this.payForCost = payForCost;
@@ -73,17 +86,16 @@ public class PayBoxOut {
 	public void setPayBoxNumber(PayBox payBoxNumber) {
 		this.payBoxNumber = payBoxNumber;
 	}
-	/**
-	 * @return the payIdcard
-	 */
-	public String getPayIdcard() {
-		return payIdcard;
+	@ManyToOne  // 多對ㄧ，多方(Item類別)內有個儲存ㄧ方(Cart類別)物件參考的實例變數
+	// @JoinColumn: 定義多方(Items)所對應表格中的外來鍵為何。省略此註釋，
+	// Hibernate會自動產生ㄧ個外來鍵，預設名稱為: 此性質名稱_外來鍵對應的主鍵名稱
+	@JoinColumn(name="fk_payIdcard ", nullable=true)  
+	public FoundationBean_HO73 getFoundationBean() {
+		return foundationBean;
 	}
-	/**
-	 * @param payIdcard the payIdcard to set
-	 */
-	public void setPayIdcard(String payIdcard) {
-		this.payIdcard = payIdcard;
+
+	public void setFoundationBean(FoundationBean_HO73 foundationBean) {
+		this.foundationBean = foundationBean;
 	}
 	/**
 	 * @return the payForName

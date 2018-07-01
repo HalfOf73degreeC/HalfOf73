@@ -162,7 +162,7 @@
 					<P />
 					<Input type='hidden' name='pageNo' value='${param.pageNo}'>
 					<P />
-					<!-- row.// --> <a href="#" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;立即購買&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<!-- 					<a href="#" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;立即購買&nbsp;&nbsp;&nbsp;&nbsp;</a> -->
 					<!-- <a href="#" class="btn btn-lg btn-primary"> <i class="fas fa-shopping-cart"></i>加入購物車-->
 					<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'>
 					</a> </article> <!-- card-body.// --> </aside>

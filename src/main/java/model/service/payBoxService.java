@@ -2,6 +2,7 @@ package model.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +33,16 @@ public class payBoxService {
 	@Autowired
 	PayBoxDao payboxDao;
 	@Autowired
-	PayBoxInDao paymentInDao;
+	PayBoxInDao payBoxInDao;
 	@Autowired
-	PayBoxOutDao paymentOutDao;
+	PayBoxOutDao payBoxOutDao;
 	@Autowired
 	Gson gson;
 //	
 //	新建一個募款箱(一個基金會可以有多個募款箱，但是同時只能有2個可以募款)
 	@Transactional
 	public PayBox creatOnePayBox(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,
-			String fk_payIdcard) {
-		
+			String fk_payIdcard) {		
 		FoundationBean_HO73 fb = foundationDao.getOneFoundation(fk_payIdcard); 
 		PayBox pb = null;
 		int count = 0;
@@ -65,11 +65,24 @@ public class payBoxService {
 	public String creatOnePayBox2String(String payBoxName, String payBoxDetail, String payBankId, String payATMAccount, Integer payBoxType,	String fk_payIdcard) {
 		return gson.toJson(creatOnePayBox(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fk_payIdcard));
 	}
-	
+//	更新捐款箱狀態
+	@Transactional
+	public PayBox onOffPayBox(Integer payBoxNumber, Integer payBoxType) {
+		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
+		if(payBoxType==0) {
+			payBox.setPayBoxType(payBoxType);
+			payboxDao.save(payBox);
+		}
+		return payBox;
+	}
+	@Transactional
+	public String onOffPayBox2String(Integer payBoxNumber, Integer payBoxType) {
+		return gson.toJson(onOffPayBox(payBoxNumber, payBoxType));
+	}
 //	一筆捐款至募款箱(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePaymentIn(PayBoxIn pi) {
-		paymentInDao.save(pi);
+	public int addOnePayBoxIn(PayBoxIn pi) {
+		payBoxInDao.save(pi);
 		PayBox pb =  payboxDao.getPayBox(pi.getId());
 		Integer balance = pb.getBalance();
 		balance+=pi.getPayAmount();
@@ -80,13 +93,16 @@ public class payBoxService {
 	
 //	一筆募款箱的花費(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePaymentOut(PayBoxOut po) {
-		paymentOutDao.save(po);
-		PayBox pb =  payboxDao.getPayBox(po.getId());
-		Integer balance = pb.getBalance();
-		balance-=po.getPayForCost();
-		pb.setBalance(balance);
-		payboxDao.save(pb);
+	public int addOnePayBoxOut(Integer payBoxNumber, String fk_payIdcard, String payForName, String payForDetail, Integer payForCost,
+			String receipt) {
+		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
+		FoundationBean_HO73 foundationBean = foundationDao.getOneFoundation(fk_payIdcard);
+		PayBoxOut pbo = new PayBoxOut(payBox,foundationBean,payForName,payForDetail,payForCost,receipt);
+		payBoxOutDao.save(pbo);
+		Integer balance = payBox.getBalance();
+		balance-=pbo.getPayForCost();
+		payBox.setBalance(balance);
+		payboxDao.save(payBox);
 		return 0;
 	}
 //	查詢一筆募款箱
@@ -119,7 +135,28 @@ public class payBoxService {
 	public String getFunPayBoxes2String(String fk_payIdcard) {
 		return gson.toJson(getFunPayBoxes(fk_payIdcard));
 	}
-//	
+	
+	
+//	列出該募款箱所有的花費
+	@Transactional
+	public Set<PayBoxOut> getAllPayBoxOut(Integer payBoxNumber) {
+		PayBox paybox = payboxDao.getPayBox(payBoxNumber);		
+		return paybox.getpayBoxOut();
+	}
+	@Transactional
+	public String getAllPayBoxOut2String(Integer payBoxNumber) {
+		return gson.toJson(getAllPayBoxOut(payBoxNumber));
+	}
+//	列處一個基金會所有募款箱的花費
+	@Transactional
+	public Set<PayBoxOut> getFunPayBoxOut(String fk_payIdcard) {
+		FoundationBean_HO73 foundationBean = foundationDao.getOneFoundation(fk_payIdcard);
+		return foundationBean.getpayBoxOut();
+	}
+	@Transactional
+	public String getFunPayBoxOut2String(String fk_payIdcard) {
+		return gson.toJson(getFunPayBoxOut(fk_payIdcard));
+	}
 //	
 //	@Transactional
 //	public boolean isDup(String id) {

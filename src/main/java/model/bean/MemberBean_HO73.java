@@ -1,12 +1,16 @@
 package model.bean;
 
-import java.io.Serializable;
 import java.sql.Blob;
-import java.sql.Clob;
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class MemberBean_HO73 implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Member_HO73")
+public class MemberBean_HO73 {
 	String memAccount;			//會員帳號
 	String memName;				//會員名稱
 	String memIdcard;			//身分證字號
@@ -83,6 +87,7 @@ public class MemberBean_HO73 implements Serializable {
 		this.memStatus = memStatus;
 		this.memPicUrl = memPicUrl;
 	}
+	@Id
 	public String getMemAccount() {
 		return memAccount;
 	}
@@ -184,6 +189,15 @@ public class MemberBean_HO73 implements Serializable {
 	}
 	public void setUnpaidAmount(Double unpaidAmount) {
 		this.unpaidAmount = unpaidAmount;
+	}
+	@Override
+	public String toString() {
+		return "MemberBean_HO73 [memAccount=" + memAccount + ", memName=" + memName + ", memIdcard=" + memIdcard
+				+ ", memEmail=" + memEmail + ", memEmail2=" + memEmail2 + ", memGender=" + memGender + ", memBirthday="
+				+ memBirthday + ", memTel=" + memTel + ", memMobile=" + memMobile + ", memAddress=" + memAddress
+				+ ", memType=" + memType + ", memFoundation=" + memFoundation + ", memWhySupply=" + memWhySupply
+				+ ", insertDate=" + insertDate + ", memStatus=" + memStatus + ", memPicUrl=" + memPicUrl + ", memPhoto="
+				+ memPhoto + ", fileName=" + fileName + ", unpaidAmount=" + unpaidAmount + "]";
 	}
 	
 	

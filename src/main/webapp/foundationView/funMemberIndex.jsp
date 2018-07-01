@@ -76,7 +76,7 @@
                             <div class="item">
                                 <div class="overlay box" href="#">
                                     <div class="content">
-                                        <a href="http://localhost:8080/HalfOf73/volunteer.html" style="font-size: 36px">義賣商品上架</a>
+                                        <a href="${pageContext.request.contextPath}/foundationView/goodsMain.jsp" style="font-size: 36px">義賣商品上架</a>
                                     </div>
                                     <img src="./img/sale.jpg" alt=""style="border-radius: 15%;">
                                 </div>

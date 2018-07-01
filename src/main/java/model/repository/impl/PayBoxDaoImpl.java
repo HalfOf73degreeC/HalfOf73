@@ -42,7 +42,7 @@ public class PayBoxDaoImpl implements PayBoxDao {
 	public int save(PayBox pb) {
 		int count = 0;
 		Session session = factory.getCurrentSession();
-		session.save(pb);
+		session.saveOrUpdate(pb);
 		count++;
 		return count;
 	}

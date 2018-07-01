@@ -67,7 +67,7 @@
 				<div class="container">
 
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header" w3-include-html="../logo.jsp"></div>
+					<div class="navbar-header" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
@@ -82,7 +82,7 @@
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						
-						<div class="nino-menuItem pull-right" w3-include-html="../navbar_right.jsp"></div>
+						<div class="nino-menuItem pull-right" w3-include-html="${pageContext.request.contextPath}/navbar_right.jsp"></div>
 					</div>	
 				</div><!-- /.container-fluid -->
 			</nav>
@@ -91,7 +91,7 @@
 	<!--/#header-->
 
 	<!-- 捐贈箱資訊 -->
-	<form action="../goods/BuyGoodsSend.do" method="post">
+	<form action="${pageContext.request.contextPath}/goods/BuyGoodsSend.do" method="post">
 		<div class="foundationList">
 			<!--<div class="container foundationTitle">台灣之心愛護動物協會</div>-->
 			<div class="container supplyBox">
@@ -161,8 +161,8 @@
 		<div class="foundationList">
 			<div class="container groupButton">
 				<button type="submit" class="btn btn-info"
-					onClick="this.form.action='../goods/queryAllGoods_HO73.do';this.form.submit();">回愛心商品列表</button>
-				<button type="submit" class="btn btn-warning">下一步:選擇寄送方式</button>
+					onClick="this.form.action='${pageContext.request.contextPath}/goods/queryAllGoods_HO73.do';this.form.method='GET';this.form.submit();">回愛心商品列表</button>
+				<button type="submit" class="btn btn-warning">下一步:選擇付款及寄送方式</button>
 			</div>
 		</div>
 	</form>
