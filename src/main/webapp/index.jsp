@@ -452,13 +452,13 @@
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="杜拜的一隅，雖然看起來很慘<br>但實際上過得比你們台灣人還爽" href="images/halfof73/Dubai.jpg">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="聯合國指出: 全球每年有超過13噸的食物遭到浪費，雖然普羅大眾都過著得以溫飽的生活<br>但實際上仍然痛苦的人還很多。只要減少1/4的食物浪費，便能讓全球的人口都妮吃飽。" href="images/halfof73/Dubai.jpg">
 						<img src="images/halfof73/Dubai.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-cube-outline nino-icon"></i> -->
-								<h4 class="title" style='font-size:25px;'>杜拜貧窮的縮影</h4>
-								<span class="desc" style='font-size:15px;'>雖然比你們還有錢，但還是謝謝你們的捐款</span>
+								<h4 class="title" style='font-size:25px;'>貧窮的縮影</h4>
+								<span class="desc" style='font-size:15px;'>城市內的一隅，需要幫助的人不曾消失</span>
 							</div>
 						</div>
 					</a>
@@ -525,6 +525,13 @@
 				</li>
 			</ul>
 		</div>
+		<div class="container">
+    		<h2 class="nino-sectionHeading">
+				<span class="nino-subHeading-2" style="margin-top:20px;">
+			    <br><a href="shares/shares.jsp">了解更多</a>
+			    </span>
+			</h2>
+		</div>
 	</section><!--/#nino-portfolio-->
 
 	<section id="nino-whatWeDo">
@@ -533,8 +540,8 @@
 				<span class="nino-subHeading" style="font-size: 30px">關於本站</span>
 			</h2>
 			<p class="nino-sectionDesc" style="font-size: 25px">
-				Half of 73°C是一個公益平台，我們希望透過網站及手機APP幫助到台灣的弱勢族群，
-				也致力於使用戶有更方便且信任的互助管道。 
+				Half of 73°C是一個公益平台，我們希望透過網站幫助台灣的弱勢族群，
+				也致力於讓使用者有更方便且值得信賴的互助管道。 
 			</p>
 			<div class="sectionContent">
 				<div class="row">
@@ -557,7 +564,8 @@
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 									<div class="panel-body"  style="height:297px;">
-										　　有鑑於2018年2月6號的花蓮震災發生後，我們想貢獻一份微薄的心力卻苦於沒有簡單迅速地管道。
+										　　"Half of 73°C"源自我們認為人與人之間的相處，需要保持一種"溫度"。而人體的平均體溫是36.5°C，有了你我，愛才完整。
+										有鑑於2018年2月6號的花蓮震災發生後，我們想貢獻一份微薄的心力卻苦於沒有簡單迅速地管道。
 										再者亦發生花蓮縣長傅崐萁濫用善款補助業者的情形，這讓我們意識到建立一個方便使用、而且金流明細公開的平台
 										是值得我們去努力的。
 									</div>
@@ -597,7 +605,8 @@
 									<div class="panel-body" style="height:297px;">
 										　　我們一直致力於提供所有使用者良好的捐募平台，未來希望能讓更多地基金會也能一同參與。
 										我們也會不斷提升使用的簡便度和針對所有有需求、不論是需要施予他人或受施於他人的使用者，
-										更貼近生活所需地去協助大家。
+										更貼近生活所需地去協助大家。<br>
+										　　往後我們也希望擴展至更多使用平台，不論是Android或是iOS系統。讓大家的愛心能夠在更多地方延伸。
 									</div>
 								</div>
 							</div>

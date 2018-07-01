@@ -10,8 +10,7 @@
 <head>
 
 <link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/style.css'
-	type="text/css" />
+	href='${pageContext.request.contextPath}/css/style.css' type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -73,14 +72,14 @@
 						<li class="active"><a href="#nino-story">我的會員資料</a></li>
 						<li><a href="#nino-services">愛心點點滴</a></li>
 						<li><a href="#nino-ourTeam">我是基金會</a></li>
-						<li><a href="#nino-latestBlog">最新消息</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
 				<ul class="nino-iconsGroup nav navbar-nav">
 					<li><a href="#"><i class="mdi mdi-cart-outline nino-icon"></i></a></li>
-					
-					<li><a href="#" class="nino-search"><i class="mdi mdi-magnify nino-icon"></i></a></li>
+
+					<li><a href="#" class="nino-search"><i
+							class="mdi mdi-magnify nino-icon"></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -90,7 +89,7 @@
 
 		<!-- Testimonial
     ================================================== -->
-		<Form Action="register0403_HO73.do"method="POST">
+		<Form Action="register0403_HO73.do" method="POST">
 			<c:set var="mem" value="${memberBean}"></c:set>
 			<section id="nino-whatWeDo" style="padding-top:20px; ">
 			<div class="container">
@@ -101,16 +100,17 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="text-center" id="changePic">
-								<form action="changePhoto.do" enctype="multipart/form-data" method="POST">
+								<form action="changePhoto.do" enctype="multipart/form-data"
+									method="POST">
 									<img id="preview_img" src="${mem.memPicUrl}"
-										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor:pointer;">
+										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor: pointer;">
 								</form>
-<!-- 								<label for="input_img"  style="height:1px;"> -->
-<!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
-<!-- 								<span>更改大頭貼</span> -->
-<!-- 								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-600px; z-index:-2; "/> -->
-<!-- 								</buttom> -->
-<!-- 								</label> -->
+								<!-- 								<label for="input_img"  style="height:1px;"> -->
+								<!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
+								<!-- 								<span>更改大頭貼</span> -->
+								<!-- 								<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-215px; right:-600px; z-index:-2; "/> -->
+								<!-- 								</buttom> -->
+								<!-- 								</label> -->
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -124,7 +124,7 @@
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-user-alt nino-icon"></i>
-											<div style="text-align: left;">基本資料</div>
+												<div style="text-align: left;">基本資料</div>
 											</a>
 										</h4>
 									</div>
@@ -169,7 +169,7 @@
 												aria-expanded="false" aria-controls="collapseTwo"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-phone nino-icon"></i>
-											<div style="text-align: left;">聯絡方式</div>
+												<div style="text-align: left;">聯絡方式</div>
 											</a>
 										</h4>
 									</div>
@@ -221,7 +221,7 @@
 												aria-expanded="false" aria-controls="collapseThree"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-question nino-icon"></i>
-											<div style="text-align: left;">為什麼投入公益</div>
+												<div style="text-align: left;">為什麼投入公益</div>
 											</a>
 										</h4>
 									</div>
@@ -242,7 +242,7 @@
 												aria-expanded="false" aria-controls="collapseFour"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-file-alt nino-icon"></i>
-											<div style="text-align: left;">詳細資訊</div>
+												<div style="text-align: left;">詳細資訊</div>
 											</a>
 										</h4>
 									</div>
@@ -301,7 +301,7 @@
 		<section id="nino-services">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">愛心點點滴</span>
+				<span class="nino-subHeading" style="font-size: 30px">愛心點點滴</span>
 
 			</h2>
 			<div class="sectionContent">
@@ -443,13 +443,11 @@
 		<section id="nino-ourTeam">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">我是基金會，我要加入</span>
+				<span class="nino-subHeading" style="font-size: 30px">我是基金會，我要加入</span>
 			</h2>
-			<p class="nino-sectionDesc">Lorem ipsum dolor sit amet,
-				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-				exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat.</p>
+			<p class="nino-sectionDesc" style="font-size: 25px">
+				Half of 73°C 致力於提供一個便捷方便的公益模式<br>讓熱愛奉獻的您能有一個良好的管道付出愛心
+			</p>
 			<div class="sectionContent">
 				<div class="row nino-hoverEffect">
 					<div class="col-md-4 col-sm-4">
@@ -463,12 +461,10 @@
 						</div>
 						<div class="info">
 							<a href="https://www.google.com.tw/intl/zh-TW/analytics/"
-								class="nino-icon" style="font-size: 20px">加入的好處</a><br> <span
-								class="regency">Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </span>
+								class="nino-icon" style="font-size: 20px">Half of 73°C 的特色</a><br>
+							<span class="regency"><br>　　我們提供一個簡單快速地流程，讓大家都能更直覺的付出愛心。因為不需要太過冗長的使用導覽，相信也能增加各大基金會曝光各種需求的管道。
+							一個便於操作、為他人付出的地方，一直都是我們的核心理念。<br>　　相對於其他的公益平台，我們更增加了愛心義賣的區域，主要提供給各家基金會在募集物資的同時，將募集多餘的物資進行更有效地利用；
+							次要提共給所有有意願的廠商，可以利用義賣與點數兌換商品的方式盡一份心力。</span>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
@@ -482,11 +478,10 @@
 						</div>
 						<div class="info">
 							<a href="memberzone3.html" class="nino-icon"
-								style="font-size: 20px">法規與規範</a><br> <span class="regency">Lorem
-								ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation ullamco laboris
-								nisi ut aliquip ex ea commodo consequat. </span>
+								style="font-size: 20px">使用規範</a><br> <span class="regency"><br>
+								　　各基金會依作業原則規定，於Half of 73°C平臺(以下簡稱本平臺)，集中公開列式之資料，以無償及非專屬授權方式授權使用者得不限時間及地域，重製、改作、編輯、公開傳輸或為其他利用方式，
+								開發各種產品或服務（以下簡稱加值衍生物）。提供公眾使用，須取得各資料提供機關(以下簡稱各機關)之書面或其他方式授權，授權範圍不包含商標權及專利權。
+								本平臺集中列式之商品、捐款資料，由各基金會維護管理。使用者不得公開發行、公開展示或其他利用本平臺開放資料產生之加值衍生物。	資料來源基金會如於資料集註明另訂使用規範或收費標準者，應依其規定辦理。</span>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
@@ -499,13 +494,8 @@
 							</div>
 						</div>
 						<div class="info">
-							<a href="../foundation/foundation_register.jsp"
-								class="nino-icon" style="font-size: 20px">立即加入</a><br> <span
-								class="regency">Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </span>
+							<a href="../foundation/foundation_register.jsp" class="nino-icon"
+								style="font-size: 20px">立即加入</a><br> <span class="regency"><br>邀請您一同投入分享善意的行列！<br>我們即是缺少了另一半的您=)</span>
 						</div>
 					</div>
 				</div>
@@ -513,240 +503,6 @@
 		</div>
 		</section>
 		<!--/#nino-ourTeam-->
-
-		<!-- Latest Blog
-    ================================================== -->
-		<section id="nino-latestBlog">
-		<div class="container">
-			<h2 class="nino-sectionHeading">
-				<span class="nino-subHeading">最新消息</span>
-
-			</h2>
-			<div class="sectionContent">
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/283.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">15</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">助孩童遠離暴力威脅，平安長大‎</a>
-						</h3>
-						<p class="articleDesc">
-							邀請您透過公益捐款「終止兒童受暴」行動，一同挺身捍衛兒童平安成長的權利！<br>
-							<br>
-						</p>
-
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/272.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">14</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">小小益善 支持無國界醫生 </a>
-						</h3>
-						<p class="articleDesc">
-							約3萬5千名救援人員每年為超過80萬人接種麻疹疫苗，立即捐款，支持搶救生命！覆蓋近70個國家 · 數以萬計專業人士投身參與 ·
-							服務超過45年 · 人道救援組織</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/273.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">12</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">捐款幫助他們 讓他們走向快樂‎</a>
-						</h3>
-						<p class="articleDesc">
-							用小錢幫助他們走向夢想，伊甸邀您加入公益行列，讓他們彩繪不一樣的人生，快點行動！小錢力量大，捐款做愛心 · 捐款送愛，照護偏鄉長輩
-							· 一塊捐伊甸，一塊做善事</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-						</div>
-						</article>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/282.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">15</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">台灣公益資訊中心</a>
-						</h3>
-						<p class="articleDesc">
-							台灣公益資訊中心係喜瑪拉雅研究發展基金會為台灣非營利組織所建立的公益資訊交流平台，提供公益新聞、活動、人才招募...等訊息發佈，以強化公益團體的資訊
-							...</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/296.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">14</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">Yahoo奇摩公益</a>
-						</h3>
-						<p class="articleDesc">
-							Yahoo奇摩公益提供所有捐款者一個安全、豐富及多元的捐款資訊平台，公益團體更容易地在此匯集社會善心資源，讓捐款更透明，捐款人更安心。
-						</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/293.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">12</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">樂捐款- 樂公益</a>
-						</h3>
-						<p class="articleDesc">樂公益（Lecoin
-							角落）立志為社會大眾提供最方便、最值得信賴、最有分享力量的公益橋樑，透過公益捐款為台灣貧窮弱勢的朋友與團體搭把手，助他們度過人生的
-							...</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-						</div>
-						</article>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/300.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">15</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">公益- 維基百科</a>
-						</h3>
-						<p class="articleDesc">
-							這是一個消歧義頁，羅列了有相同或相近的標題，但內容不同的條目。如果您是透過某條目的內部連結而轉到本頁，希望您能協助修正該處的內部連結，將它指向正確
-							...</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/253.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">14</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">sed do eiusmod tempor</a>
-						</h3>
-						<p class="articleDesc">
-							Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua.<br>
-							<br>
-						</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-						</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-						<div class="articleThumb">
-							<a href="#"><img
-								src="https://www.onmyojigame.com/pc/zt/20170116103820/data/shishen_big_beforeAwake/289.png"
-								alt=""></a>
-							<div class="date">
-								<span class="number">12</span> <span class="text">Jan</span>
-							</div>
-						</div>
-						<h3 class="articleTitle">
-							<a href="">incididunt ut labore et dolore</a>
-						</h3>
-						<p class="articleDesc">
-							Elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.<br>
-							<br>
-						</p>
-						<div class="articleMeta">
-							<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a> <a
-								href="#"><i
-								class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-						</div>
-						</article>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
-		<!--/#nino-latestBlog-->
-
 
 		<!-- Footer
     ================================================== -->
@@ -883,7 +639,7 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<script type="text/javascript" src="js/croppie.js"></script>
 		<script type="text/javascript" src="js/previewImg.js"></script>
-        
+
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

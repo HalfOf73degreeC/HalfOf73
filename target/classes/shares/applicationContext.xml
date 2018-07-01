@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		
+    <context:component-scan base-package="model.*"/>
+    <context:property-placeholder location="classpath:db.properties"/>
+	<tx:annotation-driven/>
+    
+    <bean id="dataSource" 
+       class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+      <property name="driverClass" value="${jdbc.driverClass}"/>
+      <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
+      <property name="user" value="${jdbc.user}"/>
+      <property name="password" value="${jdbc.password}"/>
+      <property name="maxPoolSize" value='${jdbc.maxPoolSize}'/>
+      <property name="initialPoolSize" value='${jdbc.initialPoolSize}'/>
+      <property name="maxIdleTime" value='${jdbc.maxIdleTime}'/>
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"></property>
+    	<property name="packagesToScan" value="model"></property>
+    	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    </bean>
+    
+    <!--原本id打的是hibernateTransactio nManager-->
+    <bean id="transactionManager"  
+    	class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+  		<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="Gson"  
+    	class="com.google.gson.Gson">
+    </bean>
+    
+<!--     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> -->
+<!--         <constructor-arg  ref='dataSource'/> -->
+<!--     </bean> -->
+<!--     <bean id='dao' class="ch01.dao.impl.MemberJdbcTemplateDaoImpl" scope='prototype'> -->
+<!--        <property name="dataSource" ref='dataSource'></property> -->
+<!--     </bean> -->
+</beans>
