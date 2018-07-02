@@ -142,13 +142,13 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel"
-						style="font-family: '微軟正黑體'; font-size: 20px; font-weight: bold;">新增募款活動</h4>					
+						style="font-family: '微軟正黑體'; font-size: 20px; font-weight: bold;">新增募款活動</h4>
 					<a role="button" data-toggle="collapse" data-parent="#accordion"
 						href="#collapseOne" aria-expanded="true"
 						aria-controls="collapseOne">
 						<button type="button" class="btn btn-danger btn-lg"
 							data-toggle="modal" data-target="#myModal3"
-							style="border: 0px #9ae2d5; margin-top: -35px; margin-right: 30px; margin-bottom: -35px;float: right;">
+							style="border: 0px #9ae2d5; margin-top: -35px; margin-right: 30px; margin-bottom: -35px; float: right;">
 							<i class="fas fa-plus nino-icon"
 								style="font-size: 20px; float: right; margin-top: 2px; margin-right: 1px;"></i>
 							<span
@@ -175,14 +175,15 @@
 												class="onoffswitch2-switch"></span>
 											</label>
 										</div>
-										
+
 										<div style="clear: both;"></div>
 										<div class="input-group input-group-lg">
 											<span class="input-group-btn">
 												<button class="btn btn-success" type="submit"
 													style="width: 130px">捐款箱名稱 :</button>
 											</span> <input type="text" id="payBoxName" class="form-control"
-												placeholder="" required style="z-index: 1">
+												date-payBoxNumber="" placeholder="" required
+												style="z-index: 1">
 										</div>
 										<div class="input-group input-group-lg">
 											<span class="input-group-btn">
@@ -217,8 +218,7 @@
 						</div>
 						<div class="col-md-6" style="margin: 30px 30px;">
 							<a role="button" data-toggle="collapse" data-parent="#accordion"
-								href="#collapseOne"
-								aria-controls="collapseOne">
+								href="#collapseOne" aria-controls="collapseOne">
 								<button type="button" class="btn btn-primary btn-lg"
 									data-toggle="modal" data-target="#myModal3"
 									style="float: right; border: 0px #9ae2d5; width: 170px; padding-bottom: 10px; margin-top: -12px;">
@@ -228,31 +228,35 @@
 										style="font-family: '微軟正黑體'; font-size: 16px; margin-right: 15px;">新增花費明細</span>
 								</button>
 							</a>
-							<div style="clear:both;"></div>
-							
-							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							<div style="clear: both;"></div>
+
+							<div class="panel-group" id="accordion" role="tablist"
+								aria-multiselectable="true">
 								<div class="panel panel-default">
 									<div class="panel-heading" role="tab" id="headingOne">
 										<h4 class="panel-title">
 											<a class="collapsed" role="button" data-toggle="collapse"
-												data-parent="#accordion" href="#collapseOne"
-												aria-expanded="false" aria-controls="collapseOne"> <i
+												data-parent="#accordion" href="#payBoxOutList"
+												aria-expanded="false" aria-controls="payBoxOutList"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-user-alt nino-icon"></i>
 												<div style="text-align: left;">花費明細</div>
 											</a>
 										</h4>
-									</div>									
-									<div id="collapseOne" class="panel-collapse collapse in"
+									</div>
+									<div id="payBoxOutList" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
-										<div class="panel-body" style="height: auto;">
-											<div class="input-group input-group-lg payBoxOut_bt" style=" height: 15px;">
+										<div class="payBoxOut_list panel-body" style="height: auto;">
+											<div class="input-group input-group-lg"
+												style="height: 15px;">
 												<span class="input-group-btn">
-													<div class="btn-warning btn" style=" width: 300px; cursor: default; font-style: normal;font-size: 18px; background:#f9df6b; text-align: left;">花費名稱</div>
+													<div class="btn-warning btn"
+														style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #f9df6b; text-align: left;font-color: black;">花費名稱</div>
 												</span>
-												<div id="payBoxOut_value"type="text" name="memName" class="form-control"
-													style="z-index: 1; text-align: right;">$花費</div>
-											</div>											
+												<div id="payBoxOut_value" type="text" name="memName"
+													class="form-control" style="z-index: 1; text-align: right;">$花費</div>
+											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -260,26 +264,28 @@
 									<div class="panel-heading" role="tab" id="headingTwo">
 										<h4 class="panel-title">
 											<a class="collapsed" role="button" data-toggle="collapse"
-												data-parent="#accordion" href="#collapseTwo"
-												aria-expanded="false" aria-controls="collapseTwo"> <i
+												data-parent="#accordion" href="#payBoxInList"
+												aria-expanded="false" aria-controls="payBoxInList"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-phone nino-icon"></i>
 												<div style="text-align: left;">捐款明細</div>
 											</a>
 										</h4>
 									</div>
-									<div id="collapseTwo" class="panel-collapse collapse"
+									<div id="payBoxInList" class="panel-collapse collapse"
 										role="tabpanel" aria-labelledby="headingTwo">
 										<div class="panel-body" style="height: auto;">
-											<div class="input-group input-group-lg" style=" height: 15px;">
+											<div class="input-group input-group-lg payBoxIn_list" style="height: 15px;">
 												<span class="input-group-btn">
-													<div class="btn-warning btn payBoxIn_bt" style=" width: 300px; cursor: default; font-style: normal;font-size: 18px; text-align: left;">捐款人</div>
+													<div class="btn-warning btn"
+														style="width: 300px; cursor: default; font-style: normal; font-size: 18px; text-align: left;">捐款人</div>
 												</span>
-												<div id="payBoxIn_value" type="text" name="memName" class="form-control"
-													style="z-index: 1; text-align: right;">$金額</div>
-											</div>											
+												<div id="payBoxIn_value" type="text" name="memName"
+													class="form-control" style="z-index: 1; text-align: right;">$金額</div>
+											</div>
 										</div>
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -315,8 +321,8 @@
 										style="width: 130px">花費名稱 :</button>
 								</span>
 								<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
-								<input type="text" class="form-control" id="payForName_input" placeholder="" required
-									style="z-index: 1">
+								<input type="text" class="form-control" id="payForName_input"
+									placeholder="" required style="z-index: 1">
 							</div>
 							<div class="input-group input-group-lg">
 								<span class="input-group-btn">
@@ -324,8 +330,8 @@
 										style="width: 130px">花費金額 :</button>
 								</span>
 								<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
-								<input type="text" class="form-control" id="payForCost_input" placeholder="" required
-									style="z-index: 1">
+								<input type="text" class="form-control" id="payForCost_input"
+									placeholder="" required style="z-index: 1">
 							</div>
 							<div class="input-group input-group-lg">
 								<span class="input-group-btn">
@@ -351,8 +357,8 @@
 					<div id="collapseOne1" class="panel-collapse collapse in"
 						role="tabpanel" aria-labelledby="headingOne">
 						<div class="panel-body" style="height: 227px;">
-							<textarea name="funArticle" id="payForDetail_input" class="form-control" placeholder=""
-								rows="10"></textarea>
+							<textarea name="funArticle" id="payForDetail_input"
+								class="form-control" placeholder="" rows="10"></textarea>
 						</div>
 					</div>
 
@@ -360,13 +366,13 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"
 						style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
-					<button type="button" class="btn btn-primary" id="createPayBoxOut"
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="createPayBoxOut"
 						style="font-family: '微軟正黑體'; font-size: 15px;">確認送出</button>
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- Modal4 -->
+	<!-- Modal4 -->
 	<!-- 花費細項顯示表單-->
 	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
@@ -457,12 +463,15 @@
 		wow.init();
 
 		var payBoxList;
+		var fk_payIdcard;
+		var payBox_now;
 		//         AJAX
 		$("#createPayBox").on("click", function() {
 			$('#createPayBox').createPayBox();
 		});
 
 		$(document).ready(function() {
+			fk_payIdcard = 1235;
 			$('body').getPayBoxList();
 		});
 
@@ -479,21 +488,18 @@
 									+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
 									+ '</div></div></button>');
 		}
-		$(".addPayBoxOut_submit").on("click", function() {
-			var payBoxName = $('#payBoxName_input').val();
-			var payATMAccount = $('#payATMAccount_input').val();
-			var payBankId = $('#payBankId_input').val();
-			var payBoxDetail = $('#payBoxDetail_input').val();
-		});
+
 		jQuery.fn.clickPayBox = function() {
-			$(".PayBox").on(
-					"click",
-					function() {
-						var payBoxNumber = $(this).attr("date-payBoxNumber");
+			$(".PayBox").on("click",function() {
+						var payBoxNumber = $(this).attr("date-payBoxNumber")
+						console.log("檢視PayBox");
 						for (var i = 0; i < payBoxList.length; i++) {
 							var payBox = payBoxList[i];
 							if (payBox.payBoxNumber == payBoxNumber) {
+								payBox_now = payBox
 								$('#payBoxName').val(payBox.payBoxName);
+								$('#payBoxName').attr("date-payBoxNumber",
+										payBoxNumber);
 								if (payBox.payBoxType == 1) {
 									$('#payBoxType').prop("checked", true);
 								} else {
@@ -504,7 +510,12 @@
 								$('#payATMAccount').val(payBox.payATMAccount);
 								$('#payBankId').val(payBox.payBankId);
 								$('#payBoxDetail').val(payBox.payBoxDetail);
-
+								
+								var PayBoxOutList = payBox.payBoxOut;
+								console.log(PayBoxOutList);
+// 								
+								$('body').showPayBoxOut();
+								
 							}
 						}
 					});
@@ -512,7 +523,6 @@
 
 		jQuery.fn.getPayBoxList = function() {
 			return this.each(function() {
-				fk_payIdcard = 1235;
 				var xhr = new XMLHttpRequest();
 				xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
 						true);
@@ -523,6 +533,7 @@
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						var funBean = JSON.parse(xhr.responseText);
 						patBoxList = [];
+						console.log(funBean);
 						payBoxList = funBean.payBox;
 						$(".PayBox").remove();
 						for (var i = 0; i < payBoxList.length; i++) {
@@ -555,7 +566,6 @@
 				} else {
 					payBoxType = 0;
 				}
-				var fk_payIdcard = Math.random();
 				xhr.open("Post", "createPayBox?payBoxName=" + payBoxName
 						+ "&fk_payIdcard=" + fk_payIdcard + "&payATMAccount="
 						+ payATMAccount + "&payBankId=" + payBankId
@@ -616,41 +626,94 @@
 						$('#payBankId').val(payBox.payBankId);
 						$('#payBoxDetail').val(payBox.payBoxDetail);
 						$('body').getPayBoxList();
-						$('body').getPayBoxList();
 					}
 				}
 			});
 		}
 
-		$('#createPayBoxOut') = function() {
+		$('#createPayBoxOut').on("click", function() {
+			console.log("準備新建payboxout");
+			var xhr = new XMLHttpRequest();
+			var payBoxNumber = $('#payBoxName').attr(
+					"date-payBoxNumber");
+			var payForName = $('#payForName_input').val();
+			var payForDetail = $('#payForDetail_input').val();
+			var payForCost = $('#payForCost_input').val();
+			var receipt = $('#receipt_input').val();
+			xhr.open("Post", "addOnePayBoxOut?payBoxNumber="
+					+ payBoxNumber + "&fk_payIdcard=" + fk_payIdcard
+					+ "&payForName=" + payForName + "&payForDetail="
+					+ payForDetail + "&payForCost=" + payForCost
+					+ "&receipt=" + receipt, true);
+			xhr.setRequestHeader("Content-Type",
+					"application/x-www-form-urlencoded");
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.status == 200 && xhr.readyState == 4) {
+					var jsonString = xhr.responseText;
+					console.log("jsonString= " + jsonString);
+					console.log("jsonString.length= "
+							+ jsonString.length);
+					if (jsonString.length < 10) {
+						alert("無法新建花費");
+					} else {
+						var payBox = JSON.parse(xhr.responseText);
+						console.log(payBox);
+					}
+					$('body').getPayBox_now(payBoxNumber);
+					
+				}
+			}
+
+		});
+
+		jQuery.fn.showPayBoxOut = function() {
+			$(".payBoxOut_bt").remove();
+			for(var i = 0; i < payBox_now.payBoxOut.length; i++){
+				var payBoxOut = payBox_now.payBoxOut[i];
+				var payBoxOut_bt = $('<div class="input-group input-group-lg payBoxOut_bt" date-Id="'+payBoxOut.Id+'">').appendTo($('.payBoxOut_list'));
+				var payForName = $('<span class="input-group-btn">' 
+						+'<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #ffc107; text-align: left;">'
+						+payBoxOut.payForName+'</div></span>').appendTo(payBoxOut_bt);
+				var payForCost = $('<div id="payBoxOut_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
+						+'$'+payBoxOut.payForCost+'</div>').appendTo(payBoxOut_bt);
+			}
+			
+			
+		}
+
+		jQuery.fn.clickPayBoxOut = function() {
+			$(".payBoxOut_bt").on("click",function() {
+						var Id = $(this).attr("date-Id");
+						for (var i = 0; i < payBoxOutList.length; i++) {
+							var payBoxOut = payBoxOutList[i];
+							if (Id == payBoxOut.Id) {
+								var payForName = $('#payForName_input').val(payBoxOut.payForName);
+								var payForDetail = $('#payForDetail_input').val(payBoxOut.payForDetail);
+								var payForCost = $('#payForCost_input').val(payBoxOut.payForCost);
+								var receipt = $('#receipt_input').val(payBoxOut.receipt);
+							}
+						}
+					});
+		}
+		
+		jQuery.fn.getPayBox_now = function(payBoxNumber) {
 			return this.each(function() {
 				var xhr = new XMLHttpRequest();
-				var payForName = $('#payForName_input').val();
-				var payForDetail = $('#payForDetail_input').val();
-				var payForCost = $('#payForCost_input').val();
-				var receipt = $('#receipt_input').val();
-				xhr.open("Post", "createPayBoxOut?payForName=" + payForName
-						+ "&payForDetail=" + payForDetail + "&payForCost="
-						+ payForCost + "&receipt=" + receipt,
-						true);
+				xhr.open("Post", "getPayBox?payBoxNumber=" + payBoxNumber,true);
 				xhr.setRequestHeader("Content-Type",
 						"application/x-www-form-urlencoded");
 				xhr.send();
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
-						var jsonString = xhr.responseText;
-						console.log("jsonString= " + jsonString);
-						console.log("jsonString.length= " + jsonString.length);
-						if (jsonString.length < 10) {
-							alert("無法新建捐款箱");
-						} else {
-							var payBox = JSON.parse(xhr.responseText);
-						}
-						$('body').getPayBoxList();
+						payBox_now = JSON.parse(xhr.responseText);
+						$('body').showPayBoxOut();
 					}
 				}
 			});
 		}
+
+		
 	</script>
 </body>
 
