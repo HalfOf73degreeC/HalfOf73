@@ -146,9 +146,9 @@
 					<a role="button" data-toggle="collapse" data-parent="#accordion"
 						href="#collapseOne" aria-expanded="true"
 						aria-controls="collapseOne">
-						<button type="button" class="btn btn-primary btn-lg"
+						<button type="button" class="btn btn-danger btn-lg"
 							data-toggle="modal" data-target="#myModal3"
-							style="border: 0px #9ae2d5; margin-top: -30px; margin-bottom: -35px;">
+							style="border: 0px #9ae2d5; margin-top: -35px; margin-right: 30px; margin-bottom: -35px;float: right;">
 							<i class="fas fa-plus nino-icon"
 								style="font-size: 20px; float: right; margin-top: 2px; margin-right: 1px;"></i>
 							<span
@@ -215,63 +215,44 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6" style="margin-top: 30px">
+						<div class="col-md-6" style="margin: 30px 30px;">
 							<a role="button" data-toggle="collapse" data-parent="#accordion"
-								href="#collapseOne" aria-expanded="true"
+								href="#collapseOne"
 								aria-controls="collapseOne">
 								<button type="button" class="btn btn-primary btn-lg"
 									data-toggle="modal" data-target="#myModal3"
-									style="border: 0px #9ae2d5; float: right; width: 170px; padding-bottom: 10px; margin-top: -12px;">
+									style="float: right; border: 0px #9ae2d5; width: 170px; padding-bottom: 10px; margin-top: -12px;">
 									<i class="fas fa-plus nino-icon"
-										style="font-size: 20px; float: right; margin-top: 2px; margin-right: 1px;"></i>
+										style="font-size: 20px; margin-top: 2px; margin-right: 1px;"></i>
 									<span
-										style="float: right; font-family: '微軟正黑體'; font-size: 16px; margin-right: 15px;">新增花費明細</span>
+										style="font-family: '微軟正黑體'; font-size: 16px; margin-right: 15px;">新增花費明細</span>
 								</button>
 							</a>
-							<div class="panel-group" id="accordion" role="tablist"
-								aria-multiselectable="true">
+							<div style="clear:both;"></div>
+							
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 								<div class="panel panel-default">
 									<div class="panel-heading" role="tab" id="headingOne">
 										<h4 class="panel-title">
-											<a role="button" data-toggle="collapse"
+											<a class="collapsed" role="button" data-toggle="collapse"
 												data-parent="#accordion" href="#collapseOne"
-												aria-expanded="true" aria-controls="collapseOne"> <i
+												aria-expanded="false" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-user-alt nino-icon"></i>
-												<div style="text-align: left;">基本資料</div>
+												<div style="text-align: left;">花費明細</div>
 											</a>
 										</h4>
-									</div>
+									</div>									
 									<div id="collapseOne" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
-										<div class="panel-body" style="height: 175px;">
-											<div class="input-group input-group-lg">
+										<div class="panel-body" style="height: auto;">
+											<div class="input-group input-group-lg payBoxOut_bt" style=" height: 15px;">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">姓名:</div>
-												</span> <input type="text" name="memName" class="form-control"
-													placeholder="" value="${param.memName}${mem.memName}"
-													style="z-index: 1">
-												<div
-													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 400px; z-index: 2">${ErrorMsg.memName}</div>
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">生日:</div>
-												</span> <input type="date" name="memBirthday" class="form-control"
-													placeholder="" value="${mem.memBirthday}"
-													style="z-index: 1">
-												<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">性別:</div>
-												</span> <input type="text" name="memGender" class="form-control"
-													placeholder="M/F"
-													value="${param.memGender}${mem.memGender}"
-													style="z-index: 1">
-
-												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
-											</div>
+													<div class="btn-warning btn" style=" width: 300px; cursor: default; font-style: normal;font-size: 18px; background:#f9df6b; text-align: left;">花費名稱</div>
+												</span>
+												<div id="payBoxOut_value"type="text" name="memName" class="form-control"
+													style="z-index: 1; text-align: right;">$花費</div>
+											</div>											
 										</div>
 									</div>
 								</div>
@@ -283,122 +264,22 @@
 												aria-expanded="false" aria-controls="collapseTwo"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
 												class="fas fa-phone nino-icon"></i>
-												<div style="text-align: left;">聯絡方式</div>
+												<div style="text-align: left;">捐款明細</div>
 											</a>
 										</h4>
 									</div>
 									<div id="collapseTwo" class="panel-collapse collapse"
 										role="tabpanel" aria-labelledby="headingTwo">
-										<div class="panel-body" style="height: 175px;">
-											<div class="input-group input-group-lg">
+										<div class="panel-body" style="height: auto;">
+											<div class="input-group input-group-lg" style=" height: 15px;">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">郵件:</div>
+													<div class="btn-warning btn payBoxIn_bt" style=" width: 300px; cursor: default; font-style: normal;font-size: 18px; text-align: left;">捐款人</div>
 												</span>
-												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
-												<c:if test="${mem.memEmail2 == null}">
-													<input type="email" name="memEmail2" class="form-control"
-														value="${param.memEmail}${mem.memEmail}"
-														style="z-index: 1">
-												</c:if>
-												<c:if test="${mem.memEmail2 != null}">
-													<input type="email" name="memEmail2" class="form-control"
-														value="${param.memEmail2}${mem.memEmail2}"
-														style="z-index: 1">
-												</c:if>
-												<div
-													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 380px; z-index: 2">${ErrorMsg.memEmail}</div>
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">電話:</div>
-												</span> <input type="text" name="memMobile" class="form-control"
-													placeholder="" value="${param.memMobile}${mem.memMobile}"
-													style="z-index: 1">
-												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">住址:</div>
-												</span> <input type="text" name="memAddress" class="form-control"
-													placeholder="" value="${param.memAddress}${mem.memAddress}"
-													style="z-index: 1">
-												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
-											</div>
+												<div id="payBoxIn_value" type="text" name="memName" class="form-control"
+													style="z-index: 1; text-align: right;">$金額</div>
+											</div>											
 										</div>
 									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
-										<h4 class="panel-title">
-											<a class="collapsed" role="button" data-toggle="collapse"
-												data-parent="#accordion" href="#collapseThree"
-												aria-expanded="false" aria-controls="collapseThree"> <i
-												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-question nino-icon"></i>
-												<div style="text-align: left;">為什麼投入公益</div>
-											</a>
-										</h4>
-									</div>
-									<div id="collapseThree" class="panel-collapse collapse"
-										role="tabpanel" aria-labelledby="headingThree">
-										<div class="panel-body" style="height: 175px;">
-											<%-- 									<input type="text" name="memWhySupply" class="form-control" placeholder="" value="${param.memWhySupply}${mem.memWhySupply}" style="z-index: 1"> --%>
-											<textarea class="form-control" name="memWhySupply"
-												placeholder="因為..." rows="6">${param.memWhySupply}${mem.memWhySupply}</textarea>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingFour">
-										<h4 class="panel-title">
-											<a class="collapsed" role="button" data-toggle="collapse"
-												data-parent="#accordion" href="#collapseFour"
-												aria-expanded="false" aria-controls="collapseFour"> <i
-												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>
-												<div style="text-align: left;">詳細資訊</div>
-											</a>
-										</h4>
-									</div>
-									<div id="collapseFour" class="panel-collapse collapse"
-										role="tabpanel" aria-labelledby="headingFour">
-										<div class="panel-body" style="height: 175px;">
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">身分證號:</div>
-												</span>
-												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
-												<input type="text" name="memIdcard" class="form-control"
-													value="${param.memIdcard}${mem.memIdcard}"
-													style="z-index: 1">
-												<div
-													style="color: #FF0000; font-size: 110%; display: inline; position: absolute; top: 15px; left: 400px; z-index: 2">${ErrorMsg.memAccount}</div>
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">會員類別:</div>
-												</span> <input type="text" class="form-control" disabled="disabled"
-													value="${param.memType}${mem.memType}" style="z-index: 1">
-												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
-												<!-- 											<input type="text" class="form-control" placeholder="啟用" >												 -->
-											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">帳號狀態:</div>
-												</span> <input type="text" class="form-control" disabled="disabled"
-													value="${param.memStatus}${mem.memStatus}"
-													style="z-index: 1">
-												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="input-group input-group-lg"
-									style="padding: 10px 0px">
-									<span class="input-group-btn" align="center">
-										<button class="btn btn-success" type="submit"
-											style="width: 200px; z-index: 1">更新</button>
-									</span>
 								</div>
 							</div>
 						</div>
@@ -411,6 +292,83 @@
 	<!-- Modal3 -->
 	<!-- 花費細項表單-->
 	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document"
+			style="z-index: 1042; position: relative; left: 0px; top: 50px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel"
+						style="font-family: '微軟正黑體'; font-size: 20px;">花費紀錄</h4>
+				</div>
+				<div class="modal-body">
+					<div id="collapseOne1" class="panel-collapse collapse in"
+						role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body" style="height: 160px;">
+							<div style="clear: both;"></div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-btn">
+									<button class="btn btn-success" type="submit"
+										style="width: 130px">花費名稱 :</button>
+								</span>
+								<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
+								<input type="text" class="form-control" id="payForName_input" placeholder="" required
+									style="z-index: 1">
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-btn">
+									<button class="btn btn-success" type="submit"
+										style="width: 130px">花費金額 :</button>
+								</span>
+								<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
+								<input type="text" class="form-control" id="payForCost_input" placeholder="" required
+									style="z-index: 1">
+							</div>
+							<div class="input-group input-group-lg">
+								<span class="input-group-btn">
+									<button class="btn btn-success" type="submit"
+										style="width: 130px">統一編號 :</button>
+								</span>
+								<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
+								<input type="text" id="receipt_input" class="form-control"
+									placeholder="" required style="z-index: 1">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+							<!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> -->
+							<div
+								style="margin-top: 10px; font-family: '微軟正黑體'; font-size: 16px;">花費詳述</div>
+							<!-- </a> -->
+						</h4>
+					</div>
+					<div id="collapseOne1" class="panel-collapse collapse in"
+						role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body" style="height: 227px;">
+							<textarea name="funArticle" id="payForDetail_input" class="form-control" placeholder=""
+								rows="10"></textarea>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+						style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
+					<button type="button" class="btn btn-primary" id="createPayBoxOut"
+						style="font-family: '微軟正黑體'; font-size: 15px;">確認送出</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- Modal4 -->
+	<!-- 花費細項顯示表單-->
+	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document"
 			style="z-index: 1042; position: relative; left: 0px; top: 50px;">
@@ -485,7 +443,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<script src="./resource/WOW-master/dist/wow.min.js"></script>
 	<script>
@@ -659,6 +616,36 @@
 						$('#payBankId').val(payBox.payBankId);
 						$('#payBoxDetail').val(payBox.payBoxDetail);
 						$('body').getPayBoxList();
+						$('body').getPayBoxList();
+					}
+				}
+			});
+		}
+
+		$('#createPayBoxOut') = function() {
+			return this.each(function() {
+				var xhr = new XMLHttpRequest();
+				var payForName = $('#payForName_input').val();
+				var payForDetail = $('#payForDetail_input').val();
+				var payForCost = $('#payForCost_input').val();
+				var receipt = $('#receipt_input').val();
+				xhr.open("Post", "createPayBoxOut?payForName=" + payForName
+						+ "&payForDetail=" + payForDetail + "&payForCost="
+						+ payForCost + "&receipt=" + receipt,
+						true);
+				xhr.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						var jsonString = xhr.responseText;
+						console.log("jsonString= " + jsonString);
+						console.log("jsonString.length= " + jsonString.length);
+						if (jsonString.length < 10) {
+							alert("無法新建捐款箱");
+						} else {
+							var payBox = JSON.parse(xhr.responseText);
+						}
 						$('body').getPayBoxList();
 					}
 				}
