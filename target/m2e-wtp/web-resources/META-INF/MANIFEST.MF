@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: TiGerTomb
+=======
+Built-By: Administrator
+>>>>>>> 668779d79222f07329845b23af78552e441e6167
 Build-Jdk: 1.8.0_162
 Created-By: Maven Integration for Eclipse
 
