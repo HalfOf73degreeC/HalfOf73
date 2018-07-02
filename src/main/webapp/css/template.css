@@ -254,7 +254,7 @@ img.img-full-width {
 #nino-header {
 	position: relative;
 	font-family: 'Montserrat', 'Microsoft JhengHei', sans-serif;
-	background: url(../images/bg-header.jpg) no-repeat center center / cover;
+	background: url(../images/ico/Indonesia.jpg) no-repeat center center / cover;
 
 }
 #nino-header:after {
