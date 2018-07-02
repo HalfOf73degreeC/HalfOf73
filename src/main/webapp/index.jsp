@@ -83,7 +83,7 @@
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Sharing Love</span>
 							<span class="nino-subHeadingnn"><br><br>愛的溫度，是我能為你做的事情<br>
-							<br><br>點亮愛，傳遞笑顏的溫暖</span>
+							<br><br>點亮盼望，傳遞愛</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
