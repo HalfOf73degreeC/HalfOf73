@@ -121,6 +121,12 @@ public class payBoxService {
 	public String queryOnePaybox2String(Integer payBoxNumber) {
 		return gson.toJson(queryOnePaybox(payBoxNumber));
 	}
+//	刪除一筆募款箱
+	@Transactional
+	public Integer delOnePaybox(Integer payBoxNumber) {
+		payboxDao.deletePayBox(payBoxNumber);
+		return 0;
+	}
 //	列出所有的募款箱
 	@Transactional
 	public List<PayBox> getAllPayBoxes() {

@@ -146,13 +146,9 @@
 					<a role="button" data-toggle="collapse" data-parent="#accordion"
 						href="#collapseOne" aria-expanded="true"
 						aria-controls="collapseOne">
-						<button type="button" class="btn btn-danger btn-lg"
-							data-toggle="modal" data-target="#myModal3"
+						<button type="button" class="btn btn-danger btn-lg" id=delPayBox
 							style="border: 0px #9ae2d5; margin-top: -35px; margin-right: 30px; margin-bottom: -35px; float: right;">
-							<i class="fas fa-plus nino-icon"
-								style="font-size: 20px; float: right; margin-top: 2px; margin-right: 1px;"></i>
-							<span
-								style="float: right; font-family: '微軟正黑體'; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>
+							
 						</button>
 					</a>
 				</div>
@@ -297,10 +293,10 @@
 
 	<!-- Modal3 -->
 	<!-- 花費細項表單-->
-	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+	<div class="modal" id="myModal3" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document"
-			style="z-index: 1042; position: relative; left: 0px; top: 50px;">
+			style="z-index: 1042; position: relative; left: 0px; top: -30px;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
@@ -497,6 +493,30 @@
 							var payBox = payBoxList[i];
 							if (payBox.payBoxNumber == payBoxNumber) {
 								payBox_now = payBox
+								$('#delPayBox').empty();
+								if(payBox.payBoxOut.length == 0){									
+									$('#delPayBox').attr("data-dismiss","modal");
+									$('#delPayBox').attr("class","btn btn-danger btn-lg");
+									$('#delPayBox').append('<i class="fas fa-trash nino-icon"'
+											+'style="font-size: 20px; float: left; margin-top: 2px; margin-right: 1px;"></i>'
+											+'<span	style="float: right; font-family: "微軟正黑體"; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>')
+								}else{
+									$('#delPayBox').removeAttr("data-dismiss");
+									if(payBox.balance > 9999999){
+										$('#delPayBox').attr("class","btn btn-primary btn-lg");
+									}else if(payBox.balance > 9999){
+										$('#delPayBox').attr("class","btn btn-success btn-lg");										
+									}else if(payBox.balance > 0){
+										$('#delPayBox').attr("class","btn btn-info btn-lg");									
+									}else if(payBox.balance > -9999){
+										$('#delPayBox').attr("class","btn btn-warning btn-lg");										
+									}else{
+										$('#delPayBox').attr("class","btn btn-danger btn-lg");										
+									}
+									
+									$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
+									+'$ '+payBox.balance+'</span>');
+								}
 								$('#payBoxName').val(payBox.payBoxName);
 								$('#payBoxName').attr("date-payBoxNumber",
 										payBoxNumber);
@@ -535,7 +555,10 @@
 						patBoxList = [];
 						console.log(funBean);
 						payBoxList = funBean.payBox;
+						console.log("清空payBox");
 						$(".PayBox").remove();
+						console.log(payBoxList);
+						console.log("重建payBox");
 						for (var i = 0; i < payBoxList.length; i++) {
 							if (payBoxList[i].payBoxType == 1) {
 								$('body').showPayBox(payBoxList[i]);
@@ -682,20 +705,6 @@
 			
 		}
 
-		jQuery.fn.clickPayBoxOut = function() {
-			$(".payBoxOut_bt").on("click",function() {
-						var Id = $(this).attr("date-Id");
-						for (var i = 0; i < payBoxOutList.length; i++) {
-							var payBoxOut = payBoxOutList[i];
-							if (Id == payBoxOut.Id) {
-								var payForName = $('#payForName_input').val(payBoxOut.payForName);
-								var payForDetail = $('#payForDetail_input').val(payBoxOut.payForDetail);
-								var payForCost = $('#payForCost_input').val(payBoxOut.payForCost);
-								var receipt = $('#receipt_input').val(payBoxOut.receipt);
-							}
-						}
-					});
-		}
 		
 		jQuery.fn.getPayBox_now = function(payBoxNumber) {
 			return this.each(function() {
@@ -712,7 +721,35 @@
 				}
 			});
 		}
+		$("#delPayBox").on("click",function() {
+			console.log(payBox_now);
+			if(payBox_now.payBoxOut.length == 0){
+				var xhr = new XMLHttpRequest();
+				var payBoxNumber = $('#payBoxName').attr(
+						"date-payBoxNumber");				
+				xhr.open("Post", "delOnePayBox?payBoxNumber="
+						+ payBoxNumber, true);
+				xhr.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						var jsonString = xhr.responseText;
+						console.log("jsonString= " + jsonString);
+						console.log("jsonString.length= "
+								+ jsonString.length);
+// 						if (jsonString.length < 10) {
+// 							alert("無法新建花費");
+// 						} else {
+// 							var payBox = JSON.parse(xhr.responseText);
+// 							console.log(payBox);
+// 						}
 
+						$('body').getPayBoxList();
+					}
+				}
+			}
+		});
 		
 	</script>
 </body>
