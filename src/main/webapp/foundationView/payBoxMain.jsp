@@ -467,17 +467,20 @@
 		});
 
 		jQuery.fn.showPayBox = function(payBox) {
-			$("#activityRow")
-					.append(
-							'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3" data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;">'
-									+ '<div class="item">'
-									+ '<div class="overlay box" href="#">'
-									+ '<div class="content">'
-									+ '<a style="font-size: 36px">'
-									+ payBox.payBoxName
-									+ '</a></div>'
-									+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
-									+ '</div></div></button>');
+			var button = $('<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3"'
+					+' data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>').appendTo($("#activityRow"));
+			
+			var paybox_info = $('<div class="item">'
+					+ '<div class="overlay box" href="#">'
+					+ '<div class="content">'
+					+ '<a style="font-size: 36px">'
+					+ payBox.balance
+					+ '</a></div>'
+					+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
+					+ '</div></div>').appendTo(button);
+			var paybox_title = $('<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
+			        + payBox.payBoxName
+			        + '</div>').appendTo(button);
 		}
 		$(".addPayBoxOut_submit").on("click", function() {
 			var payBoxName = $('#payBoxName_input').val();
