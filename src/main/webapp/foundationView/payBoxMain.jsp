@@ -505,7 +505,7 @@
 											+'<span	style="float: right; font-family: "微軟正黑體"; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>')
 								}else{
 									$('#delPayBox').removeAttr("data-dismiss");
-									if(payBox.balance > 9999999){
+									if(payBox.balance > 99999999){
 										$('#delPayBox').attr("class","btn btn-primary btn-lg");
 									}else if(payBox.balance > 9999){
 										$('#delPayBox').attr("class","btn btn-success btn-lg");										

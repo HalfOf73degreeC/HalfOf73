@@ -133,8 +133,8 @@
                                         <input type="text" class="form-control" placeholder="" required style="z-index: 1" placeholder="$">
                                     </div>
                                     <!-- 新增照片縮圖 -->
-                                    <div class="row">
-                                        <div class="col-md-3" style="margin-top:10px;">
+                                    <div class="row" id="little_img">
+                                        <div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px;">
                                             <img id="final_img" src="./img/bracelets.jpg" style="max-height:87px; border:2px #95e1d3 solid;">
                                         </div>
                                         <!-- 新增商品照片鈕 -->
@@ -195,7 +195,7 @@
 
                                         <label for="input_img" style="height:1px;">
                                             <buttom style="position:relative; top:510px; right:-190px; color: #95e1d3; font-size: 25px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;">
-                                                <span>上傳商品照片</span>
+                                                <span>選擇商品照片</span>
                                                 <input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-250px; right:210px; z-index:-2;"
                                                 />
                                             </buttom>
@@ -207,7 +207,7 @@
                     </div>
                     <div class="modal-footer" style="margin-top: 3%">
                         <button type="button" class="btn btn-default" data-dismiss="modal" style="font-family: '微軟正黑體';font-size: 15px;">取消</button>
-                        <button type="button" id="crop_img" class="btn btn-primary" style="font-family: '微軟正黑體';font-size: 15px;">確定剪裁</button>
+                        <button type="button" id="crop_img" data-dismiss="modal" class="btn btn-primary upload-result" style="font-family: '微軟正黑體';font-size: 15px;">確定剪裁</button>
                     </div>
                 </div>
             </div>
@@ -228,8 +228,19 @@
             }
         )
         wow.init();
+        
+        
     </script>
     <script>
+    
+    $("#crop_img").on("click", function() {
+		var crop_img = $("#preview_img").attr("src");
+// 		console.log(crop_img);
+		$("#little_img").append('<div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px;">'
+								+'<img id="final_img" src="'
+								+crop_img
+								+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
+	});
 
 
 

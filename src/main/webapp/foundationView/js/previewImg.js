@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	var myCroppie = $('#my-croppie').croppie(opts);
+	$('#my-modal').on('shown.bs.modal', function(){ 
+	    myCroppie.croppie('bind', bindOpts);
+	});
+	
     $("#input_img").change(function(){
 
         readURL(this);
@@ -28,8 +33,7 @@ $(document).ready(function(){
     	  enableExif: true,
     	  viewport: {
     		  width: 360,
-    		  height: 360,
-    		  type: 'circle'
+    		  height: 360
     	  },
     	  boundary: {
     		  width: 555,
@@ -37,6 +41,7 @@ $(document).ready(function(){
     	  }
       });
 });
+
 $(document).ready(function(){
     $("#input_img2").change(function(){
 
