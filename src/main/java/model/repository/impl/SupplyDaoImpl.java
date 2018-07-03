@@ -7,75 +7,78 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import _00.utils.HibernateUtil;
 import model.bean.GoodsBean_HO73;
 import model.bean.SupplyBean_HO73;
 import model.repository.SupplyDao;
 
+@Repository
 public class SupplyDaoImpl implements SupplyDao {
+	
+	@Autowired
 	SessionFactory factory;
 
 	public SupplyDaoImpl() {
-		factory = HibernateUtil.getSessionFactory();
+//		factory = HibernateUtil.getSessionFactory();
 	}
 
 	@Override
-	public void save(SupplyBean_HO73 sb) {
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			session.save(sb); // session.update(object), session.delete(object);
-			tx.commit();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			if (tx != null)
-				tx.rollback();
-		} finally {
-			session.close();
-		}
+	public int save(SupplyBean_HO73 sb) {
+		int n = 0;
+		Session session = getSession();
+		session.save(sb);
+		n++;
+		return n;
 	}
 
-	// get資料庫單筆資料
-	@Override
-	public SupplyBean_HO73 getSupplyBean(int supUid) {
-		Session session = factory.openSession();
-		SupplyBean_HO73 gb = null;
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			gb = (SupplyBean_HO73) session.get(SupplyBean_HO73.class, supUid);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			System.out.println(e.getMessage());
-		} finally {
-			session.close();
-		}
-		return gb;
-	}
-
-	// select 全部資料
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<SupplyBean_HO73> getAllSupply() {
-		List<SupplyBean_HO73> allSupply= new ArrayList<SupplyBean_HO73>();
-		Session session = factory.openSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			Query query = session.createQuery("From SupplyBean_HO73");
-			allSupply = query.getResultList();
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			System.out.println(e.getMessage());
-		} finally {
-			session.close();
+		List<SupplyBean_HO73> allSupply = new ArrayList<>();
+		String hql = "FROM SupplyBean_HO73";
+		Session session = getSession();
+		allSupply = (List<SupplyBean_HO73>) session.createQuery(hql)
+												   .getResultList();
+		if(allSupply.size() > 0) {
+		    return allSupply;
+		} else {
+		    return null;
 		}
-		return allSupply;
 	}
+
+	@Override
+	public int update(SupplyBean_HO73 sb) {
+		int n = 0;
+		Session session = getSession();
+		session.merge(sb);
+		n++;
+		return n;
+	}
+
+	@Override
+	public int delete(int supUid) {
+		int n = 0;
+		Session session = getSession();
+		SupplyBean_HO73 sb = new SupplyBean_HO73();
+		sb.setSupUid(supUid);
+		session.delete(sb);
+		return n;
+	}
+
+	@Override
+	public SupplyBean_HO73 getOneSupply(int supUid) {
+		SupplyBean_HO73 sb = null;
+		Session session = getSession();
+		sb = session.get(SupplyBean_HO73.class, supUid);
+		return sb;
+	}
+	
+	private Session getSession() {
+		return factory.getCurrentSession();
+	}
+
+
 }
