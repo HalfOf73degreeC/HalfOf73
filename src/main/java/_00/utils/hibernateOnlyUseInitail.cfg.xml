@@ -38,8 +38,8 @@
 	<mapping class="model.bean.SupplyBean_HO73"/>
 	<mapping class="model.bean.GoodsBean_HO73"/>	
 	<mapping class="model.bean.PayBox"/>	
-	<mapping class="model.bean.PaymentIn"/>	
-	<mapping class="model.bean.PaymentOut"/>	
+	<mapping class="model.bean.PayBoxIn"/>	
+	<mapping class="model.bean.PayBoxOut"/>	
 	<mapping class="model.bean.NewsBean_HO73"/>
 	<mapping class="model.bean.DeliveryBean_HO73"/>
 	<mapping class="model.bean.PaymentBean_HO73"/>

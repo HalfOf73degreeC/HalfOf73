@@ -409,7 +409,7 @@
 						<div class="item" style="border-radius: 12px;">
 							<div class="overlay" href="#">
 								<div class="content">
-									<a href="volunteer.html" style="font-size: 36px" >我要捐物</a>
+									<a href="supply/queryAllSupply_HO73.do" style="font-size: 36px" >我要捐物</a>
 								</div>
 								<img src="images/our-team/487227763.jpg" alt="" style="border-radius:12px;">
 							</div>
