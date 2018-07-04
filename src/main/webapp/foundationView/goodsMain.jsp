@@ -89,7 +89,7 @@
                                 <div class="col-md-4">
                                     <div class="text-center" id="changePic" style="margin-top: 0px; margin-left:-10px;">
 
-                                        <img id="" src="./img/no_image6.png">
+                                        <img id="showImg" style="width: 250px;height:250px;" src="./img/no_image6.png">
 
                                         <!-- <label for="input_img" style="height:1px;">
                                             <buttom style="position:relative; top:350px; right:50px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;">
@@ -276,14 +276,21 @@
     $("#crop_img").on("click", function() {
 		var crop_img = $("#preview_img").attr("src");
 // 		console.log(crop_img);
-		$("#little_img").append('<div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px;">'
-								+'<img id="final_img" src="'
+		$("#little_img").append('<div class="col-md-2 col-sm-2" id="final_img" style="margin-top:10px;padding:5px 5px; cursor: pointer; ">'
+								+'<img src="'
 								+crop_img
 								+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
-    	
+		
+		$('body').clickImg();
 	});
-
-
+    jQuery.fn.clickImg = function(payBoxNumber) {
+	    $("#final_img").on("click", function() {
+	    	console.log("click");
+	    	var src = $(this).find("img").attr("src");
+	    	console.log(src);
+	    	$("#showImg").attr("src",src);
+	    });
+    }
 
     </script>
 </body>
