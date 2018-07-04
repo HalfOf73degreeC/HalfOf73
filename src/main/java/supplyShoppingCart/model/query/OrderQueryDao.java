@@ -2,18 +2,18 @@ package supplyShoppingCart.model.query;
 
 import java.util.List;
 
-import shoppingCart.model.OrderBean_HO73;
+import supplyShoppingCart.model.OrderBean;
 
 public interface OrderQueryDao {
 
-	OrderBean_HO73 getOrder(int orderNo);
+	OrderBean getOrder(int orderNo);
 
-	List<OrderBean_HO73> getAllOrders();
+	List<OrderBean> getAllOrders();
 
-	List<OrderBean_HO73> getMemberOrders() ;
+	List<OrderBean> getMemberOrders() ;
 
-	String getMemAccount();
+	String getMemberId();
 
-	void setMemAccount(String memAccount);
+	void setMemberId(String memberId);
 
 }
