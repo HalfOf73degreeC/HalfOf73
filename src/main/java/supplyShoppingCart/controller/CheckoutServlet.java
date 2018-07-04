@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import shoppingCart.model.ShoppingCart;
 
-@WebServlet("/_04_SupplyShoppingCart/checkout.do")
+@WebServlet("/supplyShoppingCart/checkout.do")
 public class CheckoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
