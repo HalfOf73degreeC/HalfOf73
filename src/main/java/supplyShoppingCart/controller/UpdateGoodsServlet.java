@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import shoppingCart.model.ShoppingCart;
 // 本類別可修改購物車內的商品資料，包括刪除某項商品，修改某項商品的數量
-@WebServlet("/shoppingCart/UpdateItem.do")
+@WebServlet("/SupplyshoppingCart/UpdateItem.do")
 public class UpdateGoodsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session = null;

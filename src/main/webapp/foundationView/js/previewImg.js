@@ -1,8 +1,4 @@
 $(document).ready(function(){
-	var myCroppie = $('#my-croppie').croppie(opts);
-	$('#my-modal').on('shown.bs.modal', function(){ 
-	    myCroppie.croppie('bind', bindOpts);
-	});
 	
     $("#input_img").change(function(){
 

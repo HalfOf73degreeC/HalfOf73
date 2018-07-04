@@ -29,7 +29,7 @@ import shoppingCart.model.ShoppingCart;
 import shoppingCart.model.service.OrderService;
 import shoppingCart.model.service.impl.OrderServiceImpl;
 // OrderConfirm.jsp 呼叫本程式。
-@WebServlet("/shoppingCart/ProcessOrder.do")
+@WebServlet("/SupplyshoppingCart/ProcessOrder.do")
 public class ProcessOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
