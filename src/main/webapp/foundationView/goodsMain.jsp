@@ -188,15 +188,15 @@
                     <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body" style="height: auto;">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="">
                                     <div class="text-center" id="changePic" style="margin-top: -55px; margin-left:-10px;">
-
-                                        <img id="preview_img" src="./img/no_image4.png" width="100%" height="">
-
-                                        <label for="input_img" style="height:1px;">
-                                            <buttom style="position:relative; top:510px; right:-190px; color: #95e1d3; font-size: 25px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;">
+										<div style="margin-top: 50px;">
+                                        	<img id="preview_img" src="" width="100%" height="">
+										</div>
+                                        <label for="input_img" style="">
+                                            <buttom id="input_img_chouse" style="color: #95e1d3; font-size: 25px;font-weight:bold;z-index:2; cursor:pointer;">
                                                 <span>選擇商品照片</span>
-                                                <input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative; top:-250px; right:210px; z-index:-2;"
+                                                <input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position:relative;top:-100; z-index:-2;height:0px;"
                                                 />
                                             </buttom>
                                         </label>
@@ -205,7 +205,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer" style="margin-top: 3%">
+                    <div class="modal-footer" style="">
                         <button type="button" class="btn btn-default" data-dismiss="modal" style="font-family: '微軟正黑體';font-size: 15px;">取消</button>
                         <button type="button" id="crop_img" data-dismiss="modal" class="btn btn-primary upload-result" style="font-family: '微軟正黑體';font-size: 15px;">確定剪裁</button>
                     </div>

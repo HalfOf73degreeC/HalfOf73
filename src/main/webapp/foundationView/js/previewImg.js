@@ -15,9 +15,20 @@ $(document).ready(function(){
           reader.onload = function (e) {
       
             $("#preview_img").attr('src', e.target.result);
-            $uploadCrop.croppie('bind', {   
-                url: e.target.result   
-            });  
+            $uploadCrop = $("#preview_img").croppie({
+          	  enableExif: true,
+          	  viewport: {
+          		  width: 360,
+          		  height: 360
+          	  },
+          	  boundary: {
+          		  width: 555,
+          		  height: 400
+          	  },
+          	  bind:{
+          		  url: e.target.result 
+          	  }
+            });
   
          }
      
@@ -25,17 +36,7 @@ $(document).ready(function(){
        }
      
      }
-      $uploadCrop = $("#preview_img").croppie({
-    	  enableExif: true,
-    	  viewport: {
-    		  width: 360,
-    		  height: 360
-    	  },
-    	  boundary: {
-    		  width: 555,
-    		  height: 400
-    	  }
-      });
+      
 });
 
 $(document).ready(function(){
