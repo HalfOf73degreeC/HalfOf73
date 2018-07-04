@@ -195,6 +195,7 @@ public class SupplyBean_HO73 {
 				+ ", insertDate=" + insertDate + ", foundationBean_HO73=" + foundationBean_HO73 + "]";
 	}
 
+
 	
 	
 	
