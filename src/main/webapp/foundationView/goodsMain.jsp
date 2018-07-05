@@ -27,7 +27,7 @@
     <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="js/unslider-min.js"></script>
     <script type="text/javascript" src="js/croppie.js"></script>
-    <Script type="text/javascript" src="js/previewImg.js"></Script>
+<!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
     <title>paymentMain</title>
 </head>
 
@@ -89,7 +89,7 @@
                                 <div class="col-md-4">
                                     <div class="text-center" id="changePic" style="margin-top: 0px; margin-left:-10px;">
 
-                                        <img id="" src="./img/no_image6.png">
+                                        <img id="showImg" style="width: 250px;height:250px;" src="./img/no_image6.png">
 
                                         <!-- <label for="input_img" style="height:1px;">
                                             <buttom style="position:relative; top:350px; right:50px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;">
@@ -134,11 +134,11 @@
                                     </div>
                                     <!-- 新增照片縮圖 -->
                                     <div class="row" id="little_img">
-                                        <div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px;">
-                                            <img id="final_img" src="./img/bracelets.jpg" style="max-height:87px; border:2px #95e1d3 solid;">
-                                        </div>
+<!--                                         <div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px;"> -->
+<!--                                             <img id="final_img" src="./img/bracelets.jpg" style="max-height:87px; border:2px #95e1d3 solid;"> -->
+<!--                                         </div> -->
                                         <!-- 新增商品照片鈕 -->
-                                        <button type="button" data-toggle="modal" data-target="#myModal2" style="width:100px; border:0px #fff none;background-color:#fff; outline: 0px none;">
+                                        <button type="button" id="startToCropImg" data-toggle="modal" data-target="#myModal2" style="width:100px; border:0px #fff none;background-color:#fff; outline: 0px none;">
                                             <div class="item">
                                                 <div class="overlay box" href="#">
                                                     <img src="./img/plus2.png" alt="" style="border-radius: 15%; ">
@@ -189,8 +189,8 @@
                         <div class="panel-body" style="height: auto;">
                             <div class="row">
                                 <div class="">
-                                    <div class="text-center" id="changePic" style="margin-top: -55px; margin-left:-10px;">
-										<div style="margin-top: 50px;">
+                                    <div class="text-center" style="margin-top: -55px; margin-left:-10px;">
+										<div id="div_changePic" style="margin-top: 50px;">
                                         	<img id="preview_img" src="" width="100%" height="">
 										</div>
                                         <label for="input_img" style="">
@@ -232,17 +232,65 @@
         
     </script>
     <script>
-    
+
+    $("#startToCropImg").on("click", function(){
+
+  	  $uploadCrop=null;
+        $("#div_changePic").empty();
+    	$("#div_changePic").append('<img id="preview_img" src="" width="100%" height="">');
+        $("#input_img").change(function(){
+            readURL(this);
+          });
+
+          function readURL(input){
+            if(input.files && input.files[0]){
+              var reader = new FileReader();
+          
+              reader.onload = function (e) {
+            	  $("#preview_img").attr('src', e.target.result);
+            	  if($uploadCrop==null){
+	            	  $uploadCrop = $("#preview_img").croppie({
+	               	    enableExif: true,
+	               	    viewport: {
+	               	        width: 300,
+	               	        height: 300,
+	//               	        type: 'circle'
+	               	    },
+	               	    boundary: {
+	               	        width: 400,
+	               	        height: 400
+	               	    }
+	               	});
+            	  }
+            	  
+                  $uploadCrop.croppie('bind', {   
+                      url: e.target.result   
+                  });   
+               }
+               reader.readAsDataURL(input.files[0]);
+             }
+           }
+           
+          
+    });
     $("#crop_img").on("click", function() {
 		var crop_img = $("#preview_img").attr("src");
 // 		console.log(crop_img);
-		$("#little_img").append('<div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px;">'
-								+'<img id="final_img" src="'
+		$("#little_img").append('<div class="col-md-2 col-sm-2" id="final_img" style="margin-top:10px;padding:5px 5px; cursor: pointer; ">'
+								+'<img src="'
 								+crop_img
 								+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
+		
+		$('body').clickImg();
 	});
-
-
+    jQuery.fn.clickImg = function(payBoxNumber) {
+	    $("#final_img").on("click", function() {
+	    	console.log("click");
+	    	var src = $(this).find("img").attr("src");
+	    	console.log(src);
+	    	$("#showImg").attr("src",src);
+	    });
+    }
 
     </script>
 </body>
