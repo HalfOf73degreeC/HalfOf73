@@ -4,8 +4,11 @@ import java.sql.Blob;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +25,6 @@ public class MemberBean_HO73 {
 	String memMobile;			//行動電話
 	String memAddress;			//地址
 	Integer memType;			//會員類別		"0:系統管理員	1:一般會員	 2:基金會會員"
-	Integer memFoundation;		//基金會代碼	"memType=2	foundation.funUid"
 	String memWhySupply;		//為什麼加入公益
 	Timestamp insertDate;		//新增日期
 	Integer memStatus;			//狀態		"0:無效		1:有效"
@@ -30,6 +32,7 @@ public class MemberBean_HO73 {
 	Blob memPhoto;           //更換頭像
 	String fileName;            //頭像檔名
 	Double unpaidAmount;        //限制購買金額
+	FoundationBean_HO73 foundationBean_HO73;
 	
 	public MemberBean_HO73() {
 		super();
@@ -65,10 +68,11 @@ public class MemberBean_HO73 {
 		this.memEmail = memEmail;
 		this.memPicUrl = memPicUrl;
 	}
+	
 	public MemberBean_HO73(String memAccount, String memName, String memIdcard, String memEmail, String memEmail2,
-			String memGender, Date memBirthday, String memTel, String memMobile, String memAddress,
-			Integer memType, Integer memFoundation, String memWhySupply, Timestamp insertDate, Integer memStatus,
-			String memPicUrl) {
+			String memGender, Date memBirthday, String memTel, String memMobile, String memAddress, Integer memType,
+			String memWhySupply, Timestamp insertDate, Integer memStatus, String memPicUrl, Blob memPhoto,
+			String fileName, Double unpaidAmount, FoundationBean_HO73 foundationBean_HO73) {
 		super();
 		this.memAccount = memAccount;
 		this.memName = memName;
@@ -81,11 +85,14 @@ public class MemberBean_HO73 {
 		this.memMobile = memMobile;
 		this.memAddress = memAddress;
 		this.memType = memType;
-		this.memFoundation = memFoundation;
 		this.memWhySupply = memWhySupply;
 		this.insertDate = insertDate;
 		this.memStatus = memStatus;
 		this.memPicUrl = memPicUrl;
+		this.memPhoto = memPhoto;
+		this.fileName = fileName;
+		this.unpaidAmount = unpaidAmount;
+		this.foundationBean_HO73 = foundationBean_HO73;
 	}
 	@Id
 	public String getMemAccount() {
@@ -154,12 +161,7 @@ public class MemberBean_HO73 {
 	public void setMemType(Integer memType) {
 		this.memType = memType;
 	}
-	public Integer getMemFoundation() {
-		return memFoundation;
-	}
-	public void setMemFoundation(Integer memFoundation) {
-		this.memFoundation = memFoundation;
-	}
+	
 	public String getMemWhySupply() {
 		return memWhySupply;
 	}
@@ -190,12 +192,20 @@ public class MemberBean_HO73 {
 	public void setUnpaidAmount(Double unpaidAmount) {
 		this.unpaidAmount = unpaidAmount;
 	}
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="funIdcard") 
+	public FoundationBean_HO73 getFoundationBean_HO73() {
+		return foundationBean_HO73;
+	}
+	public void setFoundationBean_HO73(FoundationBean_HO73 foundationBean_HO73) {
+		this.foundationBean_HO73 = foundationBean_HO73;
+	}
 	@Override
 	public String toString() {
 		return "MemberBean_HO73 [memAccount=" + memAccount + ", memName=" + memName + ", memIdcard=" + memIdcard
 				+ ", memEmail=" + memEmail + ", memEmail2=" + memEmail2 + ", memGender=" + memGender + ", memBirthday="
 				+ memBirthday + ", memTel=" + memTel + ", memMobile=" + memMobile + ", memAddress=" + memAddress
-				+ ", memType=" + memType + ", memFoundation=" + memFoundation + ", memWhySupply=" + memWhySupply
+				+ ", memType=" + memType  + ", memWhySupply=" + memWhySupply
 				+ ", insertDate=" + insertDate + ", memStatus=" + memStatus + ", memPicUrl=" + memPicUrl + ", memPhoto="
 				+ memPhoto + ", fileName=" + fileName + ", unpaidAmount=" + unpaidAmount + "]";
 	}
