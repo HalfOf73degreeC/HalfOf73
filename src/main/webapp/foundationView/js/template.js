@@ -99,4 +99,16 @@ jQuery(function($) {
 		$('html, body').animate({scrollTop : 0},300);
 		return false;
 	});
+	// 縮短文字
+	$(function() {
+		var len = 50; 
+		$(".articleDesc").each(function(i) {
+			if ($(this).text().length > len) {
+				$(this).attr("title", $(this).text());
+				var text = $(this).text().substring(0, len - 1) + "...";
+				$(this).text(text);
+			}
+		});
+
+	});
 });

@@ -395,7 +395,7 @@
 						<div class="item" style="border-radius:12px;">
 							<div class="overlay" href="#" >
 								<div class="content" >
-									<a href="supply.html#nino-portfolio" style="font-size: 36px">我要捐款</a>
+									<a href="foundationView/paymentMember.jsp" style="font-size: 36px">我要捐款</a>
 								</div>
 								<img src="images/our-team/499808264.jpg" alt="" style="border-radius:12px;">
 							</div>
