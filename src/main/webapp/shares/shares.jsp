@@ -122,7 +122,7 @@
 										var $newscol = $(
 												'<div class="col-md-4 col-sm-4 animated fadeInUp" id="newscol" style="margin-top: 30px">')
 												.appendTo($row);
-										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-OneNews-modal-lg" date-newsId="'+ shares.sharesUid +'" style="cursor:pointer">').appendTo(
+										var $article = $('<article class="article" data-toggle="modal" data-target=".bs-OneNews-modal-lg" date-sharesId="'+ shares.sharesUid +'" style="cursor:pointer">').appendTo(
 												$newscol);
 										var $articleThumb = $(
 												'<div class="articleThumb">')
@@ -180,7 +180,7 @@
 // 								    <!-- 	dialog視窗.內容  -->
 								    $( ".article" ).on( "click", function() {
 										$("#oneNews").empty();
-										var sharesId = $(this).attr("date-newsId");
+										var sharesId = $(this).attr("date-sharesId");
 // 								        <!-- 	News資料庫連線  -->
 								        var xhr_oneNews = new XMLHttpRequest();								        
 								        xhr_oneNews.open("Post", "getLoveSharesPage?sharesUid="+sharesId , true);
@@ -191,7 +191,7 @@
 											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
 												var oneNews = JSON.parse(xhr_oneNews.responseText);
 // 												console.log(oneNews);
-												$(".article[date-newsId="+oneNews.sharesUid+"]").children(".articleMeta").children("a:nth-child(1)").html('<i class="mdi mdi-eye nino-icon"></i>'+ oneNews.sharesView);
+												$(".article[date-sharesId="+oneNews.sharesUid+"]").children(".articleMeta").children("a:nth-child(1)").html('<i class="mdi mdi-eye nino-icon"></i>'+ oneNews.sharesView);
 											}}
 								        for (var i = 0; i < newslist.length; i++) {
 											var shares = newslist[i];
