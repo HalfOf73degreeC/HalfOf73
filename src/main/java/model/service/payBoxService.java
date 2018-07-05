@@ -93,7 +93,7 @@ public class payBoxService {
 	
 //	一筆募款箱的花費(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePayBoxOut(Integer payBoxNumber, String fk_payIdcard, String payForName, String payForDetail, Integer payForCost,
+	public PayBoxOut addOnePayBoxOut(Integer payBoxNumber, String fk_payIdcard, String payForName, String payForDetail, Integer payForCost,
 			String receipt) {
 		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
 		FoundationBean_HO73 foundationBean = foundationDao.getOneFoundation(fk_payIdcard);
@@ -103,8 +103,14 @@ public class payBoxService {
 		balance-=pbo.getPayForCost();
 		payBox.setBalance(balance);
 		payboxDao.save(payBox);
-		return 0;
+		return pbo;
 	}
+	@Transactional
+	public String addOnePayBoxOut2String(Integer payBoxNumber, String fk_payIdcard, String payForName, String payForDetail, Integer payForCost,
+			String receipt) {
+		return gson.toJson(addOnePayBoxOut(payBoxNumber, fk_payIdcard, payForName, payForDetail, payForCost, receipt)); 
+	}
+	
 //	查詢一筆募款箱
 	@Transactional
 	public PayBox queryOnePaybox(Integer payBoxNumber) {
@@ -114,6 +120,12 @@ public class payBoxService {
 	@Transactional
 	public String queryOnePaybox2String(Integer payBoxNumber) {
 		return gson.toJson(queryOnePaybox(payBoxNumber));
+	}
+//	刪除一筆募款箱
+	@Transactional
+	public Integer delOnePaybox(Integer payBoxNumber) {
+		payboxDao.deletePayBox(payBoxNumber);
+		return 0;
 	}
 //	列出所有的募款箱
 	@Transactional

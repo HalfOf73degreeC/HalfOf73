@@ -7,7 +7,7 @@ public class supplyDBTest {
 
 	public static void main(String[] args) {
 		SupplyDao sdao = new SupplyDaoImpl();
-		System.out.println(sdao.getSupplyBean(1));
+		System.out.println(sdao.getOneSupply(1));
 		
 		System.out.println(sdao.getAllSupply());
 

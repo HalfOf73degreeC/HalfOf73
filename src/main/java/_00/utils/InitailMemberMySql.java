@@ -149,7 +149,7 @@ public class InitailMemberMySql {
 					bean.setMemMobile(sa[8]);
 					bean.setMemAddress(sa[9]);
 					bean.setMemType(Integer.parseInt(sa[10]));
-					bean.setMemFoundation(Integer.parseInt(sa[11]));
+//					bean.setMemFoundation(Integer.parseInt(sa[11]));
 					bean.setMemWhySupply(sa[12]);
 					bean.setInsertDate(Timestamp.valueOf(sa[13]));
 					bean.setMemStatus(Integer.parseInt(sa[14]));
@@ -189,13 +189,13 @@ public class InitailMemberMySql {
 			pstmt.setString(9, mb.getMemMobile());
 			pstmt.setString(10, mb.getMemAddress());
 			pstmt.setInt(11, mb.getMemType());
-			pstmt.setInt(12, mb.getMemFoundation());
-			pstmt.setString(13, mb.getMemWhySupply());
+//			pstmt.setInt(12, mb.getMemFoundation());
+			pstmt.setString(12, mb.getMemWhySupply());
 //or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //			pstmt.setClob(13, clob);
-			pstmt.setTimestamp(14, mb.getInsertDate());
-			pstmt.setInt(15, mb.getMemStatus());
-			pstmt.setString(16, mb.getMemPicUrl());
+			pstmt.setTimestamp(13, mb.getInsertDate());
+			pstmt.setInt(14, mb.getMemStatus());
+			pstmt.setString(15, mb.getMemPicUrl());
 			n = pstmt.executeUpdate();
 		} catch (Exception ex) {
 			ex.printStackTrace();

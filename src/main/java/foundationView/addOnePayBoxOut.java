@@ -40,16 +40,19 @@ public class addOnePayBoxOut extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		payBoxService pbs = ctx.getBean(payBoxService.class);
-		Integer payBoxNumber = Integer.parseInt(request.getParameter("payBoxNumber"));
-//		String fk_payIdcard = request.getParameter("fk_payIdcard");
+		payBoxService fs = ctx.getBean(payBoxService.class);
+		Integer payBoxNumber = Integer.valueOf(request.getParameter("payBoxNumber"));
+		String fk_payIdcard = request.getParameter("fk_payIdcard");
 		String payForName = request.getParameter("payForName");
 		String payForDetail = request.getParameter("payForDetail");
-		Integer payForCost = Integer.parseInt(request.getParameter("payForCost"));		
+		Integer payForCost = Integer.valueOf(request.getParameter("payForCost"));
 		String receipt = request.getParameter("receipt");		
-		String fk_payIdcard = "1235";
-		pbs.addOnePayBoxOut(payBoxNumber, fk_payIdcard, payForName, payForDetail, payForCost, receipt); 
-
+		fs.addOnePayBoxOut2String(payBoxNumber, fk_payIdcard, payForName, payForDetail, payForCost, receipt);
+		String gString = fs.queryOnePaybox2String(payBoxNumber);
+		response.setContentType("application/json; charset=UTF8");
+		try (PrintWriter out = response.getWriter();) {
+			out.println(gString);
+		}
 	}
 
 }

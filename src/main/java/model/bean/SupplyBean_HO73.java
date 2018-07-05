@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,39 +18,47 @@ public class SupplyBean_HO73 {
 	Integer		supUid;
 	String		supName;
 	Blob		supImg;
+	String      supImgFileName;
+	String      supIntro;
 	Clob		supArticle;
 	Timestamp	supStartTime;
 	Timestamp	supEndTime;
-	Integer		supNeedAmt;
-	Integer		supFinalAmt;
+	Integer		supNeedStock;
+	Integer		supFinalStock;
 	String		supSize;
 	Integer		supState;
-	Integer		funUid;
 	Integer		views;
 	Timestamp	insertDate;
+	FoundationBean_HO73 foundationBean_HO73;
+	
 	
 	public SupplyBean_HO73() {
 		super();
 	}
 
-	public SupplyBean_HO73(Integer supUid, String supName, Blob supImg, Clob supArticle, Timestamp supStartTime,
-			Timestamp supEndTime, Integer supNeedAmt, Integer supFinalAmt, String supSize, Integer supState, Integer funUid,
-			Integer views, Timestamp insertDate) {
+
+	public SupplyBean_HO73(Integer supUid, String supName, Blob supImg, String supImgFileName, String supIntro,
+			Clob supArticle, Timestamp supStartTime, Timestamp supEndTime, Integer supNeedStock, Integer supFinalStock,
+			String supSize, Integer supState, Integer views, Timestamp insertDate,
+			FoundationBean_HO73 foundationBean_HO73) {
 		super();
 		this.supUid = supUid;
 		this.supName = supName;
 		this.supImg = supImg;
+		this.supImgFileName = supImgFileName;
+		this.supIntro = supIntro;
 		this.supArticle = supArticle;
 		this.supStartTime = supStartTime;
 		this.supEndTime = supEndTime;
-		this.supNeedAmt = supNeedAmt;
-		this.supFinalAmt = supFinalAmt;
+		this.supNeedStock = supNeedStock;
+		this.supFinalStock = supFinalStock;
 		this.supSize = supSize;
 		this.supState = supState;
-		this.funUid = funUid;
 		this.views = views;
 		this.insertDate = insertDate;
+		this.foundationBean_HO73 = foundationBean_HO73;
 	}
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -100,22 +110,6 @@ public class SupplyBean_HO73 {
 		this.supEndTime = supEndTime;
 	}
 
-	public Integer getSupNeedAmt() {
-		return supNeedAmt;
-	}
-
-	public void setSupNeedAmt(Integer supNeedAmt) {
-		this.supNeedAmt = supNeedAmt;
-	}
-
-	public Integer getSupFinalAmt() {
-		return supFinalAmt;
-	}
-
-	public void setSupFinalAmt(Integer supFinalAmt) {
-		this.supFinalAmt = supFinalAmt;
-	}
-
 	public String getSupSize() {
 		return supSize;
 	}
@@ -130,14 +124,6 @@ public class SupplyBean_HO73 {
 
 	public void setSupState(Integer supState) {
 		this.supState = supState;
-	}
-
-	public Integer getFunUid() {
-		return funUid;
-	}
-
-	public void setFunUid(Integer funUid) {
-		this.funUid = funUid;
 	}
 
 	public Integer getViews() {
@@ -156,13 +142,60 @@ public class SupplyBean_HO73 {
 		this.insertDate = insertDate;
 	}
 
+	public String getSupImgFileName() {
+		return supImgFileName;
+	}
+
+	public void setSupImgFileName(String supImgFileName) {
+		this.supImgFileName = supImgFileName;
+	}
+
+	public String getSupIntro() {
+		return supIntro;
+	}
+
+	public void setSupIntro(String supIntro) {
+		this.supIntro = supIntro;
+	}
+
+	public Integer getSupNeedStock() {
+		return supNeedStock;
+	}
+
+	public void setSupNeedStock(Integer supNeedStock) {
+		this.supNeedStock = supNeedStock;
+	}
+
+	public Integer getSupFinalStock() {
+		return supFinalStock;
+	}
+
+	public void setSupFinalStock(Integer supFinalStock) {
+		this.supFinalStock = supFinalStock;
+	}
+	
+	@ManyToOne  // 多對ㄧ，多方(Item類別)內有個儲存ㄧ方(Cart類別)物件參考的實例變數
+	// @JoinColumn: 定義多方(Items)所對應表格中的外來鍵為何。省略此註釋，
+	// Hibernate會自動產生ㄧ個外來鍵，預設名稱為: 此性質名稱_外來鍵對應的主鍵名稱
+	@JoinColumn(name="funUid")  
+	public FoundationBean_HO73 getFoundationBean_HO73() {
+		return foundationBean_HO73;
+	}
+
+	public void setFoundationBean_HO73(FoundationBean_HO73 foundationBean_HO73) {
+		this.foundationBean_HO73 = foundationBean_HO73;
+	}
+
 	@Override
 	public String toString() {
-		return "Supply_HO73 [supUid=" + supUid + ", supName=" + supName + ", supImg=" + supImg + ", supArticle="
-				+ supArticle + ", supStartTime=" + supStartTime + ", supEndTime=" + supEndTime + ", supNeedAmt=" + supNeedAmt
-				+ ", supFinalAmt=" + supFinalAmt + ", supSize=" + supSize + ", supState=" + supState + ", funUid="
-				+ funUid + ", views=" + views + ", insertDate=" + insertDate + "]";
+		return "SupplyBean_HO73 [supUid=" + supUid + ", supName=" + supName + ", supImg=" + supImg + ", supImgFileName="
+				+ supImgFileName + ", supIntro=" + supIntro + ", supArticle=" + supArticle + ", supStartTime="
+				+ supStartTime + ", supEndTime=" + supEndTime + ", supNeedStock=" + supNeedStock + ", supFinalStock="
+				+ supFinalStock + ", supSize=" + supSize + ", supState=" + supState + ", views=" + views
+				+ ", insertDate=" + insertDate + ", foundationBean_HO73=" + foundationBean_HO73 + "]";
 	}
+
+
 	
 	
 	

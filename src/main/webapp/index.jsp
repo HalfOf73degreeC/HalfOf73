@@ -69,7 +69,7 @@
 			<section id="nino-slider" class="carousel slide container" data-ride="carousel">
 				
 				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
+				<div class="carousel-inner" role="listbox" style="margin-top:70px;">
 					<div class="item active">
 						<h2 class="nino-sectionHeading">
 <!-- 						<i class="glyphicon glyphicon-heart"></i> -->
@@ -79,15 +79,15 @@
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
-					<div class="item" style="margin-top:70px;">
+					<div class="item" style="margin-top:0px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Sharing Love</span>
 							<span class="nino-subHeadingnn"><br><br>愛的溫度，是我能為你做的事情<br>
-							<br><br>點亮愛，傳遞笑顏的溫暖</span>
+							<br><br>點亮盼望，傳遞愛</span>
 						</h2>
 						<!-- <a href="#" class="nino-btn">Learn more</a> -->
 					</div>
-					<div class="item" style="margin-top:70px;">
+					<div class="item" style="margin-top:0px;">
 						<h2 class="nino-sectionHeading">
 							<span class="nino-subHeading">Be Together</span>
 							<span class="nino-subHeadingnn"><br><br>別讓他們的無助，成為彼此的遺憾<br>
@@ -409,7 +409,7 @@
 						<div class="item" style="border-radius: 12px;">
 							<div class="overlay" href="#">
 								<div class="content">
-									<a href="volunteer.html" style="font-size: 36px" >我要捐物</a>
+									<a href="supply/queryAllSupply_HO73.do" style="font-size: 36px" >我要捐物</a>
 								</div>
 								<img src="images/our-team/487227763.jpg" alt="" style="border-radius:12px;">
 							</div>

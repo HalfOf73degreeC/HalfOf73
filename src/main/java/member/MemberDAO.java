@@ -110,7 +110,7 @@ public class MemberDAO {
 	public int insert(MemberBean_HO73 mb) {
 		int n = 0 ;
 		String sql = "INSERT INTO MemberBean_HO73 "
-				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try (
 		  Connection con = ds.getConnection();
 		  PreparedStatement pstmt = con.prepareStatement(sql);		
@@ -127,13 +127,12 @@ public class MemberDAO {
 			pstmt.setString(9, mb.getMemMobile());
 			pstmt.setString(10, mb.getMemAddress());
 			pstmt.setInt(11, mb.getMemType());
-			pstmt.setInt(12, mb.getMemFoundation());
-			pstmt.setString(13, mb.getMemWhySupply());
+			pstmt.setString(12, mb.getMemWhySupply());
 //or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //			pstmt.setClob(13, clob);
-			pstmt.setTimestamp(14, mb.getInsertDate());
-			pstmt.setInt(15, mb.getMemStatus());
-			pstmt.setString(16, mb.getMemPicUrl());
+			pstmt.setTimestamp(13, mb.getInsertDate());
+			pstmt.setInt(14, mb.getMemStatus());
+			pstmt.setString(15, mb.getMemPicUrl());
 			n = pstmt.executeUpdate();
 			System.out.println("表格記錄成功, memAccount=" + mb.getMemAccount());
 		} catch (SQLException ex) {
@@ -238,14 +237,13 @@ public class MemberDAO {
 			pstmt.setString(7, mb.getMemMobile());
 			pstmt.setString(8, mb.getMemAddress());
 			pstmt.setInt(9, mb.getMemType());
-			pstmt.setInt(10, mb.getMemFoundation());
-			pstmt.setString(11, mb.getMemWhySupply());
+			pstmt.setString(10, mb.getMemWhySupply());
 //or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //			pstmt.setClob(13, clob);
-			pstmt.setTimestamp(12, mb.getInsertDate());
-			pstmt.setInt(13, mb.getMemStatus());
-			pstmt.setString(14, mb.getMemPicUrl());
-			pstmt.setString(15, mb.getMemAccount());
+			pstmt.setTimestamp(11, mb.getInsertDate());
+			pstmt.setInt(12, mb.getMemStatus());
+			pstmt.setString(13, mb.getMemPicUrl());
+			pstmt.setString(14, mb.getMemAccount());
 			n = pstmt.executeUpdate();
 			System.out.println("修改記錄成功, memAccount=" + mb.getMemAccount());
 		} catch (SQLException ex) {
@@ -295,7 +293,6 @@ public class MemberDAO {
 					mb.setMemMobile(rs.getString(9));
 					mb.setMemAddress(rs.getString(10));
 					mb.setMemType(rs.getInt(11));
-					mb.setMemFoundation(rs.getInt(12));
 					mb.setMemWhySupply(rs.getString(13));
 //or		        SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //					pstmt.setClob(13, clob);
@@ -336,13 +333,12 @@ public class MemberDAO {
 				pstmt.setString(9, mb.getMemMobile());
 				pstmt.setString(10, mb.getMemAddress());
 				pstmt.setInt(11, mb.getMemType());
-				pstmt.setInt(12, mb.getMemFoundation());
-				pstmt.setString(13, mb.getMemWhySupply());
+				pstmt.setString(12, mb.getMemWhySupply());
 	//or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //				pstmt.setClob(13, clob);
-				pstmt.setTimestamp(14, mb.getInsertDate());
-				pstmt.setInt(15, mb.getMemStatus());
-				pstmt.setString(16, mb.getMemPicUrl());
+				pstmt.setTimestamp(13, mb.getInsertDate());
+				pstmt.setInt(14, mb.getMemStatus());
+				pstmt.setString(15, mb.getMemPicUrl());
 				list.add(mb);
 			}
 			System.out.println("查詢多筆記錄成功");

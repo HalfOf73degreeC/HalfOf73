@@ -445,15 +445,13 @@
 						<div class="item">
 							<div class="overlay" href="#">
 								<div class="content"></div>
-								<img
-									src="https://nie.res.netease.com/r/pic/20180331/bda67d83-4431-4efa-8698-7ea5aa1bda86.png"
-									alt="">
+								
 							</div>
 						</div>
 						<div class="info">
-							<a href="https://www.google.com.tw/intl/zh-TW/analytics/"
+							<a href="memberAdvantage.jsp"
 								class="nino-icon" style="font-size: 20px">Half of 73°C 的特色</a><br>
-							<span class="regency"><br>　　我們提供一個簡單快速地流程，讓大家都能更直覺的付出愛心。因為不需要太過冗長的使用導覽，相信也能增加各大基金會曝光各種需求的管道。
+							<span class="articleDesc"><br>　　我們提供一個簡單快速地流程，讓大家都能更直覺的付出愛心。因為不需要太過冗長的使用導覽，相信也能增加各大基金會曝光各種需求的管道。
 							一個便於操作、為他人付出的地方，一直都是我們的核心理念。<br>　　相對於其他的公益平台，我們更增加了愛心義賣的區域，主要提供給各家基金會在募集物資的同時，將募集多餘的物資進行更有效地利用；
 							次要提共給所有有意願的廠商，可以利用義賣與點數兌換商品的方式盡一份心力。</span>
 						</div>
@@ -462,14 +460,12 @@
 						<div class="item">
 							<div class="overlay" href="#">
 								<div class="content"></div>
-								<img
-									src="https://nie.res.netease.com/r/pic/20180331/bbb003b0-da5c-4902-a8d5-5c9a412ed5f5.png"
-									alt="">
+								
 							</div>
 						</div>
 						<div class="info">
-							<a href="memberzone3.html" class="nino-icon"
-								style="font-size: 20px">使用規範</a><br> <span class="regency"><br>
+							<a href="memberLaw.jsp" class="nino-icon"
+								style="font-size: 20px">使用規範</a><br> <span class="articleDesc"><br>
 								　　各基金會依作業原則規定，於Half of 73°C平臺(以下簡稱本平臺)，集中公開列式之資料，以無償及非專屬授權方式授權使用者得不限時間及地域，重製、改作、編輯、公開傳輸或為其他利用方式，
 								開發各種產品或服務（以下簡稱加值衍生物）。提供公眾使用，須取得各資料提供機關(以下簡稱各機關)之書面或其他方式授權，授權範圍不包含商標權及專利權。
 								本平臺集中列式之商品、捐款資料，由各基金會維護管理。使用者不得公開發行、公開展示或其他利用本平臺開放資料產生之加值衍生物。	資料來源基金會如於資料集註明另訂使用規範或收費標準者，應依其規定辦理。</span>
@@ -479,15 +475,13 @@
 						<div class="item">
 							<div class="overlay" href="#">
 								<div class="content"></div>
-								<img
-									src="https://nie.res.netease.com/r/pic/20180331/79797299-6d44-48d9-be1b-6b1c9c21afa1.png"
-									alt="">
+								
 							</div>
 						</div>
 						<div class="info">
 							<a href="../foundation/foundation_register.jsp" class="nino-icon"
 
-								style="font-size: 20px">立即加入</a><br> <span class="regency"><br>邀請您一同投入分享善意的行列！<br>我們即是缺少了另一半的您=)</span>
+								style="font-size: 20px">立即加入</a><br> <span class="articleDesc"><br>邀請您一同投入分享善意的行列！<br>我們即是缺少了另一半的您=)</span>
 
 						</div>
 					</div>
@@ -524,16 +518,15 @@
 		<script type="text/javascript"
 			src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript" src="js/unslider-min.js"></script>
-		<script type="text/javascript" src="js/template.js"></script>
+		<script type="text/javascript" src="../js/template.js"></script>
 		<script type="text/javascript" src="js/croppie.js"></script>
 		<script type="text/javascript" src="js/previewImg.js"></script>
-<<<<<<< HEAD
-=======
+
 		<script src="https://www.w3schools.com/lib/w3.js"></script>
 		<script>
 			w3.includeHTML();
 		</script>
->>>>>>> f400de1959fc82d9a34096b78ae57d223c24f690
+
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
