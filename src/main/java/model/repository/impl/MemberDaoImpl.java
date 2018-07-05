@@ -99,18 +99,6 @@ public class MemberDaoImpl implements Serializable, MemberDao {
 			}
 		return result;
 	}
-
-	@Override
-	public void updateMemType(int memType, String funIdCard, String memAccount ) {
-		String hql2 = " UPDATE MemberBean_HO73 m SET m.memType = :memType, m.foundationBean_HO73.funIdcard = :funIdCard where m.memAccount = :memAccount ";
-		Session session = factory.getCurrentSession();	
-	     session.createQuery(hql2)
-		   .setParameter("memType", memType)
-		   .setParameter("funIdCard", funIdCard)
-		   .setParameter("memAccount", memAccount)
-		   .executeUpdate();
-		
-	}
 	
 
 }

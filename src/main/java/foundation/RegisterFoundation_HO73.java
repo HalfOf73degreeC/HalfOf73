@@ -1,6 +1,7 @@
 package foundation;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,9 +18,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import member.MemberDAO;
 import model.bean.FoundationBean_HO73;
 import model.bean.MemberBean_HO73;
-import model.service.MemberService;
+import model.repository.FoundationDao;
+import model.repository.impl.FoundationDaoImpl;
 import model.service.foundationService;
 
 @WebServlet("/foundation/registerFoundation_HO73.do")
@@ -28,8 +31,6 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
-		WebApplicationContext ctx = 
-				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		// 準備存放錯誤訊息的 List 物件
 		HttpSession session = request.getSession();
 		Map<String, String> errorMsg = new HashMap<>();
@@ -63,12 +64,12 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		String[] funService = request.getParameterValues("funService");
 		String funArticle = request.getParameter("funArticle");
 		String funImage = request.getParameter("funImage");
-		
-		//更新會員資料將一般會員轉換為基金會會員
-		int updateMemType = 2;
-		String updateFunIdCard = funIdcard;
-		String updateMemAccount = funAccount;
-		
+		//另將基金會會員於Member的table新增memType == 2，表示其為基金會會員。
+		MemberBean_HO73 mb = new MemberBean_HO73();
+		mb.setMemAccount(funAccount);
+		mb.setMemType(2);
+		MemberDAO mdao = new MemberDAO();
+		mdao.update_fun(mb);
 		// 2. 進行必要的資料轉換
 		// int experience = 0;
 		// try {
@@ -104,16 +105,15 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		if(funCreateDate != null)
 		jqd = new java.sql.Date(funCreateDate.getTime());
 		// 4. 進行 Business Logic 運算
-		FoundationBean_HO73 fb = new FoundationBean_HO73();
-		fb = new FoundationBean_HO73(funAccount, funName, funIdcard, funImage,
+		FoundationBean_HO73 fb = new FoundationBean_HO73(funAccount, funName, funIdcard, funImage,
 				funCeo, funContact, funTel, funFax, funDomain, funEmail, funEmail2, 
 				funAddress, funFounder, jqd, funAllowOrg, funIntent, funArticle, funArea, funServiceUser,
 				funService);
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		foundationService fs = ctx.getBean(foundationService.class);
-		fs.creatOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount) ;
-
-
-
+		fs.creatOneFoundation(fb);
+//		fb = fs.getOneFoundation(funIdcard);
 //將原本暫存在request物件內、要與顯示成功訊息的JSP網頁共用的資訊改為暫存到session物件內。
 		session.setAttribute("foundationBean", fb);
 //將屬於forward()給顯示成功訊息的JSP網頁的相關程式碼改為response.sendRedirect(新網頁)的敘述。

@@ -512,18 +512,25 @@
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="" href="" OnClick="window.open('shares/shares.jsp','_self')">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="家庭暴力下成長的孩子，更需要溫暖的愛。<br>不論是捐款或是課餘時光的陪伴，都由衷感謝你們" href="images/halfof73/child.jpg">
 						<img src="images/halfof73/child.jpg" />
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-guitar-electric nino-icon"></i> -->
-								<h4 class="title" style='font-size:25px;'>了解更多</h4>
-								<span class="desc" style='font-size:15px;'>謝謝你們的善意，讓我們有更好的未來</span>
+								<h4 class="title" style='font-size:25px;'>孩子的心願</h4>
+								<span class="desc" style='font-size:15px;'>謝謝你們的捐款，讓孩子們有更好的未來</span>
 							</div>
 						</div>
 					</a>
 				</li>
 			</ul>
+		</div>
+		<div class="container">
+    		<h2 class="nino-sectionHeading">
+				<span class="nino-subHeading-2" style="margin-top:20px;">
+			    <br><a href="shares/shares.jsp">了解更多</a>
+			    </span>
+			</h2>
 		</div>
 	</section><!--/#nino-portfolio-->
 
