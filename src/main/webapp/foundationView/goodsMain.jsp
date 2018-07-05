@@ -273,24 +273,27 @@
            
           
     });
+    var pic_count=0;
     $("#crop_img").on("click", function() {
-		var crop_img = $("#preview_img").attr("src");
-// 		console.log(crop_img);
-		$("#little_img").append('<div class="col-md-2 col-sm-2" id="final_img" style="margin-top:10px;padding:5px 5px; cursor: pointer; ">'
-								+'<img src="'
-								+crop_img
-								+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
-		
-		$('body').clickImg();
+    	if(pic_count<4){
+	    	pic_count++;
+			var crop_img = $("#preview_img").attr("src");
+	// 		console.log(crop_img);
+			$("#little_img").append('<div class="col-md-2 col-sm-2" style="margin-top:10px;padding:5px 5px; cursor: pointer; ">'
+									+'<img id="final_img'+pic_count+'" src="'
+									+crop_img
+									+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
+			
+			$('#final_img'+pic_count).on("click", function() {
+		    	console.log("click");
+		    	var src = $(this).attr("src");
+		    	console.log(src);
+		    	$("#showImg").attr("src",src);
+		    });
+    	}else{
+    		alert("圖片已達上限");
+    	}
 	});
-    jQuery.fn.clickImg = function(payBoxNumber) {
-	    $("#final_img").on("click", function() {
-	    	console.log("click");
-	    	var src = $(this).find("img").attr("src");
-	    	console.log(src);
-	    	$("#showImg").attr("src",src);
-	    });
-    }
 
     </script>
 </body>
