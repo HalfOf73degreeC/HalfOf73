@@ -31,7 +31,7 @@
 <script type="text/javascript" src="js/unslider-min.js"></script>
 <script type="text/javascript" src="js/croppie.js"></script>
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
-<title>paymentMain</title>
+<title>supplyMain</title>
 </head>
 
 <body style="background: #FFF0F5;">
@@ -55,7 +55,7 @@
 							<div class="item">
 								<div class="overlay box" href="#">
 									<div class="content box-top">
-										<a style="font-size: 36px">上架愛心商品</a>
+										<a style="font-size: 36px">所需物資</a>
 
 									</div>
 									<img src="./img/plus.png" alt="" style="border-radius: 15%;">
@@ -70,7 +70,7 @@
 						<div class="item">
 							<div class="overlay box" href="#">
 								<div class="content">
-									<a style="font-size: 36px">${商品名稱}</a>
+									<a style="font-size: 36px">${物資名稱}</a>
 								</div>
 								<img src="./img/box1.png" alt="" style="border-radius: 15%;">
 							</div>
@@ -95,7 +95,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel"
-						style="font-family: '微軟正黑體'; font-size: 20px;">新增商品圖片</h4>
+						style="font-family: '微軟正黑體'; font-size: 20px;">新增物資圖片</h4>
 				</div>
 				<div class="modal-body">
 					<div id="collapseOne1" class="panel-collapse collapse in"
@@ -111,7 +111,7 @@
 										<label for="input_img" style=""> <buttom
 												id="input_img_chouse"
 												style="color: #95e1d3; font-size: 25px;font-weight:bold;z-index:2; cursor:pointer;">
-											<span>選擇商品照片</span> <input id="input_img"
+											<span>選擇物資照片</span> <input id="input_img"
 												accept="image/gif, image/jpeg, image/png" type="file"
 												name="file1"
 												style="position: relative; top: -100; z-index: -2; height: 0px;" />
@@ -288,7 +288,7 @@
 				+'<span aria-hidden="true">&times;</span>'
 				+'</button>'
 				+'<h4 class="modal-title" id="myModalLabel"'
-				+'style="font-family: "微軟正黑體"; font-size: 20px;">新增愛心商品</h4>'
+				+'style="font-family: "微軟正黑體"; font-size: 20px;">新增所需物資</h4>'
 				+'</div>'
 				+'<div class="modal-body">'
 				+'<div id="collapseOne1" class="panel-collapse collapse in"'
@@ -306,24 +306,24 @@
 				+'<div class="input-group input-group-lg">'
 				+'<span class="input-group-btn">'
 				+'<button class="btn btn-success" type="submit"'
-				+'style="width: 130px">商品名稱 :</button>'
+				+'style="width: 130px">物資名稱 :</button>'
 				+'</span> <input type="text" class="form-control" placeholder=""'
 				+'required style="z-index: 1" id="goodsName">'
 				+'</div>'
 				+'<div class="input-group input-group-lg">'
 				+'<span class="input-group-btn">'
 				+'<button class="btn btn-success" type="submit"'
-				+'style="width: 130px">上架數量 :</button>'
+				+'style="width: 130px">所需數量 :</button>'
 				+'</span> <input type="text" class="form-control" placeholder=""'
 				+'required style="z-index: 1" id="goodsStock">'
 				+'</div>'
 				+'<div class="input-group input-group-lg">'
-				+'<span class="input-group-btn">'
-				+'<button class="btn btn-success" type="submit"'
-				+'style="width: 130px">單價 :</button>'
-				+'</span> <input type="text" class="form-control" placeholder=""'
-				+'required style="z-index: 1" placeholder="$" id="goodsPrice">'
-				+'</div>'
+// 				+'<span class="input-group-btn">'
+// 				+'<button class="btn btn-success" type="submit"'
+// 				+'style="width: 130px">單價 :</button>'
+// 				+'</span> <input type="text" class="form-control" placeholder=""'
+// 				+'required style="z-index: 1" placeholder="$" id="goodsPrice">'
+// 				+'</div>'
 				+'<div class="row" style="padding: 10px;" id="little_img">'
 				+'<button type="button" id="startToCropImg" data-toggle="modal"'
 				+'data-target="#myModal2"'
@@ -339,7 +339,7 @@
 				+'role="tabpanel" aria-labelledby="headingOne">'
 				+'<div class="panel-body" style="height: 167px;">'
 				+'<h4 class="panel-title">'
-				+'<div style="font-family: "微軟正黑體"; font-size: 16px;">商品詳述</div>'
+				+'<div style="font-family: "微軟正黑體"; font-size: 16px;">物資用途詳述</div>'
 				+'</h4>'
 				+'<textarea class="form-control" id="goodsArticle"'
 				+'placeholder="" rows="6" style="resize : none;"></textarea>'
@@ -348,7 +348,7 @@
 				+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 				+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
 				+'<button type="button" class="btn btn-primary" id="addNewGoods_bt" data-dismiss="modal"'
-				+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
+				+'style="font-family: "微軟正黑體"; font-size: 15px;">提出需求</button>'
 				+'</div></div></div>');
 		
 		$('body').startToCropImg();

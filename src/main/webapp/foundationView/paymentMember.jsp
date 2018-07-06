@@ -114,7 +114,7 @@
 							</div>
 							<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 								<div class="panel-body" style="height: 227px;">
-									<textarea class="form-control" id="payBoxDetail_input" placeholder="" rows="10"></textarea>
+									<textarea class="form-control" id="payBoxDetail_input" placeholder="" rows="10" style="resize : none;"></textarea>
 								</div>
 							</div>
 						</div>

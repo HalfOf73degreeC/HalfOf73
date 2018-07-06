@@ -223,7 +223,7 @@
 										<div class="panel-body" style="height: 175px;">
 											<%-- 									<input type="text" name="memWhySupply" class="form-control" placeholder="" value="${param.memWhySupply}${mem.memWhySupply}" style="z-index: 1"> --%>
 											<textarea class="form-control" name="memWhySupply"
-												placeholder="因為..." rows="6">${mem.memWhySupply}</textarea>
+												placeholder="因為..." rows="6" style="resize : none;">${mem.memWhySupply}</textarea>
 										</div>
 									</div>
 								</div>

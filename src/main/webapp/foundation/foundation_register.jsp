@@ -248,7 +248,7 @@
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 227px;">
-											<textarea  name="funIntent" class="form-control" placeholder="" rows="7">${fun.funIntent}</textarea>
+											<textarea  name="funIntent" class="form-control" placeholder="" rows="7" style="resize : none;">${fun.funIntent}</textarea>
 										</div>
 									</div>
 								</div>
@@ -523,7 +523,7 @@
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 427px;">
-											<textarea  name="funArticle" class="form-control" placeholder="" rows="19">${fun.funArticle}</textarea>
+											<textarea  name="funArticle" class="form-control" placeholder="" rows="19" style="resize : none;">${fun.funArticle}</textarea>
 										</div>
 									</div>
 								</div>
