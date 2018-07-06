@@ -7,12 +7,16 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.bean.DeliveryBean_HO73;
 import model.repository.DeliveryDao;
 
-@Repository
+@Transactional
+@Repository("deliveryDao")
+@Scope("prototype")
 public class DeliveryDaoImpl implements Serializable, DeliveryDao {
 	private static final long serialVersionUID = 1L;
 	@Autowired

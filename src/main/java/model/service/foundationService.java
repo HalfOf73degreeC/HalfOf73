@@ -1,5 +1,6 @@
 package model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -9,10 +10,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
+import member.MemberDAO;
 import model.bean.FoundationBean_HO73;
+import model.bean.MemberBean_HO73;
+import model.bean.PayBox;
+import model.bean.PayBoxIn;
+import model.bean.PayBoxOut;
 import model.repository.FoundationDao;
-import model.repository.MemberDao;
+import model.repository.PayBoxDao;
+import model.repository.PayBoxInDao;
+import model.repository.PayBoxOutDao;
 
 
 @Service
@@ -26,16 +35,13 @@ public class foundationService {
 	@Autowired
 	FoundationDao foundationDao;
 	@Autowired
-	MemberDao memberDao;
-	@Autowired
 	Gson gson;
 //	
 		
 //	新建基金會帳號(將Member的帳號類型改成2)
 	@Transactional
-	public int creatOneFoundation(FoundationBean_HO73 fb, int memType, String funIdCard, String memAccount) {		
+	public int creatOneFoundation(FoundationBean_HO73 fb) {		
 		foundationDao.save(fb);		
-		memberDao.updateMemType(memType, funIdCard, memAccount);
 //		MemberBean_HO73 mb = MemberDAO.getOneMember();
 //		mb.setMemType(2);
 //		MemberDAO.update();

@@ -81,14 +81,19 @@ public class payBoxService {
 	}
 //	一筆捐款至募款箱(同時改動募款箱的balance)
 	@Transactional
-	public int addOnePayBoxIn(PayBoxIn pi) {
-		payBoxInDao.save(pi);
-		PayBox pb =  payboxDao.getPayBox(pi.getId());
-		Integer balance = pb.getBalance();
-		balance+=pi.getPayAmount();
-		pb.setBalance(balance);
-		payboxDao.save(pb);
-		return 0;
+	public PayBoxIn addOnePayBoxIn(Integer payBoxNumber, String memAccount, Integer payAmount) {
+		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
+		PayBoxIn pbi = new PayBoxIn(payBox,memAccount,payAmount);
+		payBoxInDao.save(pbi);
+		Integer balance = payBox.getBalance();
+		balance+=pbi.getPayAmount();
+		payBox.setBalance(balance);
+		payboxDao.save(payBox);
+		return pbi;
+	}
+	@Transactional
+	public String addOnePayBoxIn2String(Integer payBoxNumber, String memAccount, Integer payAmount) {
+		return gson.toJson(addOnePayBoxIn(payBoxNumber, memAccount, payAmount));
 	}
 	
 //	一筆募款箱的花費(同時改動募款箱的balance)
