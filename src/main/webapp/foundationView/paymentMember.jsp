@@ -32,6 +32,7 @@
 
 <!-- <body style="background: #FFF0F5;"> -->
 <!-- 主要畫面 -->
+<c:set var="mem" value="${memberBean}"></c:set>
 <section id="nino-ourTeam">
 	<div class="container">
 		<h2 class="nino-sectionHeading title wow fadeInDown">
@@ -87,12 +88,12 @@
 						<div class="modal-body">
 							<div id="collapseOne1" class="" role="tabpanel" aria-labelledby="headingOne" style="height:120px;">
 								<div class="" style="margin:2%;">
-									<!-- <div class="input-group input-group-lg">
+									<div class="input-group input-group-lg">
 										<span class="input-group-btn">
 											<button class="btn btn-success" type="submit" style="width: 130px">捐款箱名稱 :</button>
 										</span>
 										<input type="text" id="payBoxName" class="form-control" date-payBoxNumber="" placeholder="" required style="z-index: 1">
-									</div> -->
+									</div>
 									<div class="input-group input-group-lg">
 										<span class="input-group-btn">
 											<button class="btn btn-success" type="submit" style="width: 130px">ATM銀行代號 :</button>
@@ -185,7 +186,7 @@
 
 <!-- Modal3 -->
 <!-- 捐款清單-->
-<div class="modal " id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:-715px; height:1000px;">
+<div class="modal " id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:-715px;width:1400px; height:1000px;">
 	<div class="modal-dialog " role="document" style="z-index:1042;">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -238,8 +239,8 @@
 				</button>
 				<h4 class="modal-title" id="myModalLabel" style="font-family: '微軟正黑體';font-size: 20px;">確認捐款</h4>
 			</div>
-			<div class="modal-body">
-				${王大大}您好:<br>
+			<div class="modal-body" id="paymentMsg" style="color: #888;">
+				${mem.memName}您好:<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次捐款金額:<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基金會ATM銀行代號:<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基金會ATM帳號:{...}
@@ -248,7 +249,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal" style="font-family: '微軟正黑體';font-size: 15px;">取消</button>
-				<button type="button" class="btn btn-primary"  style="font-family: '微軟正黑體';font-size: 15px;">再次確認</button>
+				<button type="button" id="createPayBoxIn" class="btn btn-primary"  style="font-family: '微軟正黑體';font-size: 15px;">再次確認</button>
 			</div>
 		</div>
 	</div>
@@ -269,6 +270,7 @@
 	wow.init();
 </script>
 <script>
+var payBox_now;
 	$(document).ready(function () {
 		var payment = 0;
 		$('#commit_Payment').click(function () {
@@ -289,7 +291,53 @@
 			payment += 1000;
 			$('#show_Payment').val("$" + (payment));
 		});
+		
+		$('#send2Final').click(function () {
+			payATMAccount = $('#payATMAccount').val();
+			payBankId = $('#payBankId').val();
+			$('#paymentMsg').html('${mem.memName}您好:<br>'
+					+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次捐款金額:'
+					+ payment +'NTD<br>'
+					+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基金會ATM銀行代號:'
+					+ payBankId +'<br>'
+					+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基金會ATM帳號:'
+					+ payATMAccount
+					+'<br>若確認無誤，請按下方再次確認。'
+					+'<br>感謝您對敝基金會的付出與關懷。');
+			
+			$('#createPayBoxIn').on("click", function() {
+				console.log("準備新建payboxIn");
+				var xhr = new XMLHttpRequest();
+				var payBoxNumber = $('#payBoxName').attr("date-payBoxNumber");
+				var payAmount = payment;
+				xhr.open("Post", "addOnePayBoxIn?payBoxNumber="
+						+ payBoxNumber + "&payAmount=" + payAmount, true);
+				xhr.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						var jsonString = xhr.responseText;
+						console.log("jsonString= " + jsonString);
+						console.log("jsonString.length= "
+								+ jsonString.length);
+						if (jsonString.length < 10) {
+							alert("無法新建花費");
+						} else {
+							var payBox = JSON.parse(xhr.responseText);
+							console.log(payBox);
+						}
+// 						$('body').getPayBox_now(payBoxNumber);
+						
+					}
+				}
+
+			});
+			
+			
+		});
 	});	
+
 // 背景刷暗
 	
 	$('#commit_Payment').click(function(){
@@ -389,6 +437,7 @@ var payBoxList;
 							}
 							$("#payBoxType").attr("date-payBoxNumber",
 									payBoxNumber);
+							
 							$('#payATMAccount').val(payBox.payATMAccount);
 							$('#payBankId').val(payBox.payBankId);
 							$('#payBoxDetail').val(payBox.payBoxDetail);
