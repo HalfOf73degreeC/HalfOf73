@@ -45,7 +45,7 @@
 			<div class="row nino-hoverEffect">
 				<div class="row" id="activityRow">
 				
-					<div class="col-sm-3 col-md-3 PayBox">
+					<div class="col-sm-3 col-md-3">
 						<div class="thumbnail" data-toggle="modal" data-target="#editPatBox" style="border-radius:5%; border-style:solid; border-width:2px; border-color:#9ae2d5;">
 							<img src="./img/news.jpg" style="border-radius:5%;" alt="">
 							<div class="caption">
@@ -301,27 +301,19 @@
 	});	
 	
 // getPayBoxList
+var payBoxList;
 	jQuery.fn.getPayBoxList = function() {
 			return this.each(function() {
 				var xhr = new XMLHttpRequest();
 				xhr.open("Get", "getPayBoxList",true);
-				xhr.setRequestHeader("Content-Type",
-						"application/x-www-form-urlencoded");
 				xhr.send();
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
-						var funBean = JSON.parse(xhr.responseText);
-						patBoxList = [];
-						console.log(funBean);
-						payBoxList = funBean.payBox;
-						console.log("清空payBox");
+						payBoxList = JSON.parse(xhr.responseText);
 						$(".PayBox").remove();
-						console.log(payBoxList);
-						console.log("重建payBox");
 						for (var i = 0; i < payBoxList.length; i++) {
 							$('body').showPayBox(payBoxList[i]);
-						}
-						
+						}						
 						$('body').clickPayBox();
 
 					}
@@ -329,18 +321,19 @@
 			});
 		}
 	jQuery.fn.showPayBox = function(payBox) {
-		var button = $('<div class="col-sm-3 col-md-3 PayBox">'
+		var button = $('<div class="col-sm-3 col-md-3 PayBox" date-payBoxNumber='
+				+payBox.payBoxNumber+'>'
 				+'<div class="thumbnail" data-toggle="modal" data-target="#editPatBox" style="border-radius:5%; border-style:solid; border-width:2px; border-color:#9ae2d5;">'
 				+'<img src="./img/news.jpg" style="border-radius:5%;" alt="">'
 				+'<div class="caption">'
-				+'<h3>'+唐氏症基金會+'</h3>'
+				+'<h3>'+payBox.payBoxName+'</h3>'
 				+'<p class="articleDesc" style="text-align: left;">'
-				+唐寶寶...+'</p>'
+				+payBox.payBoxDetail+'</p>'
 				+'<div style="text-align:left; float:left;">'
 				+'<a href="#" style="margin-right:40%; font-size:16px;">$'
-				10000+'</a></div><div style="text-align:right;">'
+				+payBox.balance+'</a></div><div style="text-align:right;">'
 				+'<a href="#" class="btn btn-primary" role="button">了解更多</a>'
-				'</div></div></div></div>').appendTo($("#activityRow"));
+				+'</div></div></div></div>').appendTo($("#activityRow"));
 		
 // 		var paybox_info = $('<div class="item">'
 // 				+ '<div class="overlay box" href="#">'
@@ -410,6 +403,7 @@
 				});
 	}
 
+	$('body').getPayBoxList();
 </script>
 </body>
 
