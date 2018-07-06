@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.repository.MemberDao;
-import supplyShoppingCart.model.OrderBean;
-import supplyShoppingCart.model.OrderItemBean;
+import supplyShoppingCart.model.SupplyOrderBean_HO73;
+import supplyShoppingCart.model.SupplyOrderItemBean_HO73;
 import supplyShoppingCart.model.dao.OrderDao;
 import supplyShoppingCart.model.dao.OrderItemDao;
-import supplyShoppingCart.model.service.OrderService;
+import supplyShoppingCart.model.service.SupplyOrderService;
 
 @Service
-public class OrderServiceImpl_Spring implements OrderService {
+public class SupplyOrderServiceImpl_Spring implements SupplyOrderService {
 
 	@Autowired
 	private OrderItemDao oidao;
@@ -23,21 +23,21 @@ public class OrderServiceImpl_Spring implements OrderService {
 	@Autowired
 	private MemberDao mdao;
 
-	public OrderServiceImpl_Spring() {
+	public SupplyOrderServiceImpl_Spring() {
 	}
     @Transactional
 	
 	// 這是一個交易
-	public void processOrder(OrderBean ob) {
+	public void processOrder(SupplyOrderBean_HO73 ob) {
     	// 儲存訂單
     	odao.insertOrder(ob);
     	// 檢查所有訂單明細所訂購之商品的庫存數量是否足夠
     	checkStock(ob);
 	}
 
-	public void checkStock(OrderBean ob) {
-		Set<OrderItemBean> items = ob.getItems();
-		for (OrderItemBean oib : items) {
+	public void checkStock(SupplyOrderBean_HO73 ob) {
+		Set<SupplyOrderItemBean_HO73> items = ob.getItems();
+		for (SupplyOrderItemBean_HO73 oib : items) {
 			oidao.updateProductStock(oib);
 		}
 	}
@@ -51,7 +51,7 @@ public class OrderServiceImpl_Spring implements OrderService {
 	}
 
 	@Override
-	public OrderBean getOrder(int orderNo) {
+	public SupplyOrderBean_HO73 getOrder(int orderNo) {
 		return odao.getOrder(orderNo);
 	}
 

@@ -5,6 +5,8 @@
 <ul class="nino-iconsGroup nav navbar-nav" style="max-height: 44px;">
 	<li><a href="${pageContext.request.contextPath}/goods/goodsCarts1.jsp"><i
 			class="mdi mdi-cart-outline nino-icon"></i></a></li>
+	<li><a href="${pageContext.request.contextPath}/supply/supplyCarts1.jsp"><i
+			class="mdi mdi-gift nino-icon"></i></a></li>
 	<li><a href="#" class="nino-search" style="padding-right: 13px;"><i
 			class="mdi mdi-magnify nino-icon"></i></a></li>
 	<c:if test="${not empty mem.memPicUrl}">

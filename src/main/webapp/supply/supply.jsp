@@ -81,8 +81,8 @@
 					<c:if test="${stVar.index % 4 == 0}">
 						<div class="row">
 					</c:if>
+					<form action="BuySupply.do" method="post">
 						<div class="col-md-3 col-sm-6 col-xs-12">
-						<form action="" method="post">
 							<div class="thumbnail">
 								<div class="subImgSize" style="width:250px; height:300px; text-align : center;">
 									<img src="showPicture.do?supUid=${SupplyBean.supUid}" style="width:auto; height:250px; margin:5px; vertical-align : middle;">
@@ -97,13 +97,44 @@
 										<p>${SupplyBean.supIntro}</p>
 									</c:if>
 									<p><h2 class="bg-danger">需求量:${SupplyBean.supNeedStock}<h2></p>
+									<div class="row">
+										<div class="col-sm-5">
+											<h5>捐贈量:</h5>
+												<select name='qty' class="form-control form-control-sm" style="width: 70px;">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+												</select>
+										</div>
+									</div>
+									<Input type='hidden' name='funUid' value='${SupplyBean.foundationBean_HO73.funIdcard}'>
+									<Input type='hidden' name='funName' value='${SupplyBean.foundationBean_HO73.funName}'>
+									<Input type='hidden' name='funAddress' value='${SupplyBean.foundationBean_HO73.funAddress}'>
+									<Input type='hidden' name='funTel' value='${SupplyBean.foundationBean_HO73.funTel}'>
+									<Input type='hidden' name='supUid' value='${SupplyBean.supUid}'>
+									<Input type='hidden' name='supName' value='${SupplyBean.supName}'>
+
+									<Input type='hidden' name='pageNo' value='${param.pageNo}'>
 									<p style="margin: 0px 0px 0px 60%;">
-										<a href="#" class="btn btn-primary" role="button"><i class="icon-cc-jcb custumStyle"></i>我要捐贈</a>
+<!-- 										<a href="BuySupply.do" class="btn btn-primary" role="button"><i class="icon-cc-jcb custumStyle"></i>我要捐贈</a> -->
+									<c:if test="${empty SupplyShoppingCart.content}">
+										<Input class="btn btn-primary" type='submit' value='我要捐贈'>
+									</c:if>
+									<c:if test="${not empty SupplyShoppingCart.content}">
+										<Input class="btn btn-primary disabled" type='submit' value='我要捐贈' disabled>
+									</c:if>
 									</p>
 								</div>
 							</div>
-						</form>
 						</div>
+						</form>
 					<c:if test="${stVar.index % 4 == 3}">
 						</div>
 					</c:if>

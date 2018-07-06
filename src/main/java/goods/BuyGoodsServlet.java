@@ -1,6 +1,7 @@
 package goods;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import goods.OrderItem;
+import model.bean.MemberBean_HO73;
 import shoppingCart.model.ShoppingCart;
 
 // 當使用者按下『加入購物車』時，瀏覽器會送出請求到本程式
@@ -22,11 +24,20 @@ public class BuyGoodsServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		// 只要舊的Session物件，如果找不到，不要建立新的Session物件，直接傳回 null
 		HttpSession session = request.getSession(false); 
+		PrintWriter out = response.getWriter();
 		if (session == null) {      
 			// 如果傳回值為null，表示找不到舊的Session物件，請瀏覽器對首頁發出請求
-			response.sendRedirect(getServletContext().getContextPath() + "index.jsp");
+			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
+			return;
+		}
+		MemberBean_HO73 mb = (MemberBean_HO73) session.getAttribute("memberBean");
+		if (mb == null) {
+			out.println("<script>alert('若需購買義賣商品需登入')</script>");
+			out.println("<script>window.location.href='../goods/queryAllGoods_HO73.do'</script>");
+//			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
 			return;
 		}
 		

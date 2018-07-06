@@ -91,56 +91,31 @@
 	<!--/#header-->
 
 	<!-- 捐贈箱資訊 -->
-	<form action="${pageContext.request.contextPath}/goods/BuyGoodsSend.do" method="post">
+	<form action="${pageContext.request.contextPath}/supply/BuySupplySend.do" method="post">
 		<div class="foundationList">
 			<!--<div class="container foundationTitle">台灣之心愛護動物協會</div>-->
 			<div class="container supplyBox">
 				<table class="table">
 					<tr>
 						<td></td>
-						<td>愛心義賣商品名稱</td>
-						<td>愛心義賣金額</td>
-						<td>愛心義賣數量</td>
-						<td>小計</td>
-						<td>操作</td>
+						<td>捐贈物資名稱</td>
+						<td>捐贈物資數量</td>
 					</tr>
-					<c:forEach varStatus="vs" var="anEntry"
-						items="${ShoppingCart.content}">
+					<c:forEach varStatus="vs" var="anEntry" items="${SupplyShoppingCart.content}">
 						<tr>
 							<td><div style="height: 64px; width: 64px;">
 									<img
-										src="../goods/showPicture.do?goodsUid=${anEntry.value.goodsUid}"
+										src="../supply/showPicture.do?supUid=${anEntry.value.supUid}"
 										height="64px">
 								</div></td>
-							<td>${anEntry.value.goodsName}</td>
-							<td>$<fmt:formatNumber value="${anEntry.value.goodsPrice}"
-									pattern="#,###" /></td>
-							<td><Input class="form-control" id="newQty${vs.index}"
-								style="width: 70px; text-align: right" name="newQty" type="text"
-								value="<fmt:formatNumber value="${anEntry.value.qty}" />"
-								name="qty" onkeypress="return isNumberKey(event)" /></td>
-							<td>$<fmt:formatNumber
-									value="${anEntry.value.goodsPrice * anEntry.value.qty}"
-									pattern="#,###,###" /></td>
-							<td><Input class="btn btn-info" type="button" name="update"
-								value="修改"
-								onclick="modify(${anEntry.key}, ${anEntry.value.qty}, ${vs.index})">
-								<Input class="btn btn-danger" type="button" name="delete"
-								value="刪除" onclick="confirmDelete(${anEntry.key})"></td>
+							<td>${anEntry.value.supName}</td>
+							<td><fmt:formatNumber value="${anEntry.value.qty}" /></td>
+							
 							<!-- <td><a href="#"><i class="fa fa-trash-o"style="color: #000; font-size: 32px"></i></a> -->
 							<!-- <button type="button" class="goods-delete-body"></button> -->
 						</tr>
 
 					</c:forEach>
-					<tr>
-						<td width="15%"></td>
-						<td>愛心義賣合計</td>
-						<td width="15%"></td>
-						<td width="20%"></td>
-						<td>$<fmt:formatNumber value="${subtotal}"
-								pattern="#,###,###" /></td>
-						<td></td>
-					</tr>
 				</table>
 			</div>
 		</div>
@@ -160,9 +135,9 @@
 		-->
 		<div class="foundationList">
 			<div class="container groupButton">
-				<button type="submit" class="btn btn-info"
-					onClick="this.form.action='${pageContext.request.contextPath}/goods/queryAllGoods_HO73.do';this.form.method='GET';this.form.submit();">回愛心商品列表</button>
-				<button type="submit" class="btn btn-warning">下一步:選擇付款及寄送方式</button>
+<!-- 				<button type="submit" class="btn btn-info" -->
+<%-- 					onClick="this.form.action='${pageContext.request.contextPath}/supply/queryAllSupply_HO73.do';this.form.method='GET';this.form.submit();">回捐贈物資列表</button> --%>
+				<button type="submit" class="btn btn-warning">下一步:選擇寄送方式</button>
 			</div>
 		</div>
 	</form>

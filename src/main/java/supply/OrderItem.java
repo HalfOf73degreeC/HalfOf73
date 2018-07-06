@@ -3,6 +3,8 @@ package supply;
 public class OrderItem {
 	String supName;
 	String funName;
+	String funAddress;
+	String funTel;
 	Integer qty = 0 ; 
 	Integer supUid = 0 ;
 	
@@ -15,6 +17,35 @@ public class OrderItem {
 		this.funName = funName;
 		this.qty = qty;
 		this.supUid = supUid;
+	}
+
+	
+
+	public OrderItem(String supName, String funName, String funAddress, String funTel, Integer qty, Integer supUid) {
+		super();
+		this.supName = supName;
+		this.funName = funName;
+		this.funAddress = funAddress;
+		this.funTel = funTel;
+		this.qty = qty;
+		this.supUid = supUid;
+	}
+
+	public String getFunAddress() {
+		return funAddress;
+	}
+
+	public void setFunAddress(String funAddress) {
+		this.funAddress = funAddress;
+	}
+
+
+	public String getFunTel() {
+		return funTel;
+	}
+
+	public void setFunTel(String funTel) {
+		this.funTel = funTel;
 	}
 
 	public String getSupName() {

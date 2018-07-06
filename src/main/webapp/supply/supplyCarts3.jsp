@@ -69,15 +69,14 @@
 	<!--/#header-->
 
 	<!-- 捐贈箱資訊 -->
-	<c:set var="OrderBean" value="${OrderBean}"></c:set>
+<%-- 	<c:set var="OrderBean" value="${OrderBean}"></c:set> --%>
 	<form action="${pageContext.request.contextPath}/index.jsp" method="post">
 		<div class="foundationList">
-			<div class="container foundationTitle"><h1>${memName} 您好</h1> <h2>愛心商品訂購單已成立</h2></div>
+			<div class="container foundationTitle"><h1>${memName} 您好</h1> <h2>捐贈物資單已成立</h2></div>
 			<div class="container supplyBox">
-				<label><h2>感謝您的購買</h2></label><br>
-				<label><h2>匯款銀行代碼:${paymentATMBankId}</h2></label><br>
-				<label><h2>匯款銀行帳號:${paymentATMAccount}</h2></label><br>
-				<label style="color: red">請於三日內匯款，若未匯款將自動取消訂單</label>
+				<label><h2>${funName}，感謝您的捐贈</h2></label><br>
+				<label><h2>物資寄送地址:${funAddress}</h2></label><br>
+				<label style="color: red">請於7日內寄送完畢，若未寄送取消捐物單</label>
 			</div>
 		</div>
 		<div class="foundationList">

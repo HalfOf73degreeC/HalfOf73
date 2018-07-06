@@ -31,7 +31,7 @@ public class BuySupplySend_HO73 extends HttpServlet {
 		List<DeliveryBean_HO73> list = service.getAllDelivery();
 		request.setAttribute("AllDelivery", list);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("goodsCarts2.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("supplyCarts2.jsp");
 		rd.forward(request, response);
 		return;
 	

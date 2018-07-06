@@ -1,4 +1,5 @@
 package supplyShoppingCart.model;
+import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -24,6 +25,15 @@ public class SupplyShoppingCart {
 			// 加購的數量：oi.getQty()
 			// 原有的數量：oib.getQty()			
 			oib.setQty(oi.getQty() + oib.getQty());
+		}
+	}
+	public void oneToCart(int supUid, OrderItem  oi) {
+		if (oi.getQty() <= 0 ) {
+			return;
+		}
+		// 如果客戶在伺服器端沒有此項商品的資料，則客戶第一次購買此項商品
+		if ( cart.get(supUid) == null && cart.size() < 1) {
+		    cart.put(supUid, oi);
 		}
 	}
 	// 修改商品的數量

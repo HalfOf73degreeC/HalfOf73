@@ -1,6 +1,6 @@
 package supplyShoppingCart.model.service;
 
-import supplyShoppingCart.model.OrderBean;
+import supplyShoppingCart.model.SupplyOrderBean_HO73;
 // 本介面處理訂單。一張訂單的所有資訊是存放在OrderBean內，而訂單明細是存放在  
 // Set<OrderItemBean> items 屬性內。
 // 
@@ -14,8 +14,8 @@ import supplyShoppingCart.model.OrderBean;
 //
 // 實作此介面的類別為 _04_ShoppingCart.model.service.impl.OrderServiceImpl
 // 
-public interface OrderService {
-     void processOrder(OrderBean ob);
+public interface SupplyOrderService {
+     void processOrder(SupplyOrderBean_HO73 ob);
      //double findTotalOrderAmount(OrderBean ob);
-     OrderBean getOrder(int orderNo);
+     SupplyOrderBean_HO73 getOrder(int orderNo);
 }

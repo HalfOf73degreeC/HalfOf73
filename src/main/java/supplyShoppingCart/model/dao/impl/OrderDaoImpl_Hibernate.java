@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import supplyShoppingCart.model.OrderBean;
+import supplyShoppingCart.model.SupplyOrderBean_HO73;
 import supplyShoppingCart.model.dao.OrderDao;
 
 // 本類別
@@ -28,14 +28,14 @@ public class OrderDaoImpl_Hibernate implements OrderDao {
 	}
 
 	@Override
-	public void insertOrder(OrderBean ob) {
+	public void insertOrder(SupplyOrderBean_HO73 ob) {
 		Session session = getSession();
 		session.save(ob);
 	}
 
-	public OrderBean getOrder(int orderNo) {
+	public SupplyOrderBean_HO73 getOrder(int orderNo) {
 		Session session = getSession();
-		OrderBean ob = session.get(OrderBean.class, orderNo);
+		SupplyOrderBean_HO73 ob = session.get(SupplyOrderBean_HO73.class, orderNo);
 		return ob;
 	}
 

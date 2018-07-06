@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import model.bean.SupplyBean_HO73;
 import shoppingCart.model.ude.ProductStockException;
-import supplyShoppingCart.model.OrderItemBean;
+import supplyShoppingCart.model.SupplyOrderItemBean_HO73;
 import supplyShoppingCart.model.dao.OrderItemDao;
 import supplyShoppingCart.model.ude.ProductNotFoundException;
 /*
@@ -48,10 +48,10 @@ public class OrderItemDaoImpl_Hibernate implements OrderItemDao {
 	 * 步驟：2. 更新Book表格的stock欄位: Book表格的stock -= orderedQuantity;
 	 */
 	@Override
-	public int updateProductStock(OrderItemBean oib) {
+	public int updateProductStock(SupplyOrderItemBean_HO73 oib) {
 		SupplyBean_HO73 bean = null;
 		int n = 0 ;
-		String hql = "FROM SupplyBean_HO73 bb WHERE bb.bookId = :id";
+		String hql = "FROM SupplyBean_HO73 bb WHERE bb.supUid = :id";
 		Session session = getSession();
 		try {
 			bean = (SupplyBean_HO73) session.createQuery(hql)
@@ -59,15 +59,15 @@ public class OrderItemDaoImpl_Hibernate implements OrderItemDao {
 				      .getSingleResult();
 		} catch(NoResultException ex) {
 			throw new ProductNotFoundException
-			          ("Book表格中無此紀錄...bookId=" + oib.getSupId());
+			          ("SupplyBean_HO73表格中無此紀錄...supUid=" + oib.getSupId());
 		}
 		int stock = bean.getSupNeedStock();
 		if (stock < oib.getQuantity()) {
-			throw new ProductStockException("庫存數量不足: BookId: " 
+			throw new ProductStockException("庫存數量不足: supUid: " 
 					+ oib.getSupId() + ", 在庫量: " + stock+ ", 訂購量: " + oib.getQuantity());
 		} 
-		String hql2 = "UPDATE BookBean bb SET bb.stock = bb.stock - :amount "
-				+ " WHERE bb.bookId = :id";
+		String hql2 = "UPDATE SupplyBean_HO73 bb SET bb.supNeedStock = bb.supNeedStock - :amount"
+				+ " WHERE bb.supUid = :id";
 		 n =   session.createQuery(hql2)
 			      .setParameter("amount",  oib.getQuantity())
 			      .setParameter("id", oib.getSupId())

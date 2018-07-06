@@ -2,15 +2,15 @@ package supplyShoppingCart.model.query;
 
 import java.util.List;
 
-import supplyShoppingCart.model.OrderBean;
+import supplyShoppingCart.model.SupplyOrderBean_HO73;
 
 public interface OrderQueryDao {
 
-	OrderBean getOrder(int orderNo);
+	SupplyOrderBean_HO73 getOrder(int orderNo);
 
-	List<OrderBean> getAllOrders();
+	List<SupplyOrderBean_HO73> getAllOrders();
 
-	List<OrderBean> getMemberOrders() ;
+	List<SupplyOrderBean_HO73> getMemberOrders() ;
 
 	String getMemberId();
 
