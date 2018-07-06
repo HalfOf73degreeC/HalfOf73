@@ -12,4 +12,5 @@ public interface MemberDao {
 	int update(MemberBean_HO73 mb);
 	int delete(String memAccount);
 	MemberBean_HO73 getOneMember(String memAccout);
+	void updateMemType(int memType, String funIdCard, String memAccount);
 }

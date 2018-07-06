@@ -50,10 +50,10 @@ public class BuySupplyServlet extends HttpServlet {
 			// 並將此新建ShoppingCart的物件放到session物件內，成為它的屬性物件
 			session.setAttribute("SupplyShoppingCart", cart);   
 		}
-		String supName 	= request.getParameter("supName");
+		String supName 	    = request.getParameter("supName");
 		String funName  	= request.getParameter("funName");
 		String funAddress  	= request.getParameter("funAddress");
-		String funPhone 	= request.getParameter("funPhone");
+		String funTel 	    = request.getParameter("funTel");
 		String pageNo 		= request.getParameter("pageNo");
 		String qtyStr 		= request.getParameter("qty");
 		String idStr 		= request.getParameter("supUid");
@@ -80,7 +80,7 @@ public class BuySupplyServlet extends HttpServlet {
 			throw new ServletException(e); 
 		}
 		// 將訂單資料封裝到OrderItem物件內
-		OrderItem oi = new OrderItem(supName, funName, funAddress, funPhone, qty, supUid);
+		OrderItem oi = new OrderItem(supName, funName, funAddress, funTel, qty, supUid);
 		// 將OrderItem物件內加入ShoppingCart的物件內
 		cart.oneToCart(supUid, oi);
 		RequestDispatcher rd = request.getRequestDispatcher("../supply/supplyCarts1.jsp");

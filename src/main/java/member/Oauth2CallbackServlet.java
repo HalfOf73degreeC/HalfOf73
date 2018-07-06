@@ -91,6 +91,7 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 				mb.setMemName(memName);
 				mb.setMemEmail(memEmail);
 				mb.setMemPicUrl(memPicUrl);
+				mb.setMemType(1);
 				memberService.save(mb);
 				System.out.println("資料新增成功");
 		}

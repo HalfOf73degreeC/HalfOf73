@@ -38,14 +38,12 @@ public class ProcessOrderServlet extends HttpServlet {
 		
 //		String finalDecision = request.getParameter("finalDecision");		
 		HttpSession session = request.getSession(false);
-		System.out.println("Process000001");
 		if (session == null) {   // 使用逾時
 			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
 			return;
 		}
 		MemberBean_HO73 mb = (MemberBean_HO73) session.getAttribute("memberBean");
 		if (mb == null) {
-			System.out.println("Process000002");
 			out.println("<script>alert('若需購買義賣商品需登入')</script>");
 			out.println("<script>window.location.href='../index.jsp'</script>");
 //			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
@@ -55,7 +53,6 @@ public class ProcessOrderServlet extends HttpServlet {
 		if (sc == null) {
 			// 處理訂單時如果找不到購物車(通常是Session逾時)，沒有必要往下執行
 			// 導向首頁
-			System.out.println("Process000003");
 			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
 			return;
 		}

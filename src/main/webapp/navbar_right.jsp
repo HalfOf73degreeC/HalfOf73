@@ -5,8 +5,6 @@
 <ul class="nino-iconsGroup nav navbar-nav" style="max-height: 44px;">
 	<li><a href="${pageContext.request.contextPath}/goods/goodsCarts1.jsp"><i
 			class="mdi mdi-cart-outline nino-icon"></i></a></li>
-	<li><a href="${pageContext.request.contextPath}/supply/supplyCarts1.jsp"><i
-			class="mdi mdi-gift nino-icon"></i></a></li>
 	<li><a href="#" class="nino-search" style="padding-right: 13px;"><i
 			class="mdi mdi-magnify nino-icon"></i></a></li>
 	<c:if test="${not empty mem.memPicUrl}">
@@ -20,13 +18,19 @@
 				</c:if>
 				<c:if test="${not empty mem.fileName}">
 				<img src="${pageContext.request.contextPath}/member/showPicture.do?memAccount=${mem.memAccount}"
-					style="border-radius: 50%; max-width: 30px; height: auto;">
+					style="border-radius: 50%; max-width: 30px; height: 30px;">
 				</c:if>
 			</div>
 			<ul class="dropdown-menu dropdown-menu-right"
 				style="margin-top: 5.5px; background-color: rgba(56, 56, 56, 0.55);">
+				<c:if test="${mem.memType == '1'}">
 				<li><a href="${pageContext.request.contextPath}/member/memberZone.jsp"
 					style="font-size: 13px; color: white;">會員專區</a></li>
+				</c:if>
+				<c:if test="${mem.memType == '2'}">
+				<li><a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp"
+					style="font-size: 13px; color: white;">捐款箱</a></li>
+				</c:if>
 				<li><a href="${pageContext.request.contextPath}/member/logout"
 					style="font-size: 13px; color: white;">登出</a></li>
 				<!-- 							            <li><a href="#">Something else here</a></li> -->

@@ -110,7 +110,7 @@ public class MemberDAO {
 	public int insert(MemberBean_HO73 mb) {
 		int n = 0 ;
 		String sql = "INSERT INTO MemberBean_HO73 "
-				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try (
 		  Connection con = ds.getConnection();
 		  PreparedStatement pstmt = con.prepareStatement(sql);		
@@ -127,13 +127,12 @@ public class MemberDAO {
 			pstmt.setString(9, mb.getMemMobile());
 			pstmt.setString(10, mb.getMemAddress());
 			pstmt.setInt(11, mb.getMemType());
-			pstmt.setInt(12, mb.getMemFoundation());
-			pstmt.setString(13, mb.getMemWhySupply());
+			pstmt.setString(12, mb.getMemWhySupply());
 //or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //			pstmt.setClob(13, clob);
-			pstmt.setTimestamp(14, mb.getInsertDate());
-			pstmt.setInt(15, mb.getMemStatus());
-			pstmt.setString(16, mb.getMemPicUrl());
+			pstmt.setTimestamp(13, mb.getInsertDate());
+			pstmt.setInt(14, mb.getMemStatus());
+			pstmt.setString(15, mb.getMemPicUrl());
 			n = pstmt.executeUpdate();
 			System.out.println("表格記錄成功, memAccount=" + mb.getMemAccount());
 		} catch (SQLException ex) {
@@ -238,14 +237,13 @@ public class MemberDAO {
 			pstmt.setString(7, mb.getMemMobile());
 			pstmt.setString(8, mb.getMemAddress());
 			pstmt.setInt(9, mb.getMemType());
-			pstmt.setInt(10, mb.getMemFoundation());
-			pstmt.setString(11, mb.getMemWhySupply());
+			pstmt.setString(10, mb.getMemWhySupply());
 //or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //			pstmt.setClob(13, clob);
-			pstmt.setTimestamp(12, mb.getInsertDate());
-			pstmt.setInt(13, mb.getMemStatus());
-			pstmt.setString(14, mb.getMemPicUrl());
-			pstmt.setString(15, mb.getMemAccount());
+			pstmt.setTimestamp(11, mb.getInsertDate());
+			pstmt.setInt(12, mb.getMemStatus());
+			pstmt.setString(13, mb.getMemPicUrl());
+			pstmt.setString(14, mb.getMemAccount());
 			n = pstmt.executeUpdate();
 			System.out.println("修改記錄成功, memAccount=" + mb.getMemAccount());
 		} catch (SQLException ex) {
@@ -295,7 +293,6 @@ public class MemberDAO {
 					mb.setMemMobile(rs.getString(9));
 					mb.setMemAddress(rs.getString(10));
 					mb.setMemType(rs.getInt(11));
-					mb.setMemFoundation(rs.getInt(12));
 					mb.setMemWhySupply(rs.getString(13));
 //or		        SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //					pstmt.setClob(13, clob);
@@ -316,7 +313,7 @@ public class MemberDAO {
     
 	public List<MemberBean_HO73> memberList() {
 		List<MemberBean_HO73> list = new ArrayList<>();
-		String sql = "SELECT * FROM Member_HO73 ";
+		String sql = "SELECT * FROM MemberBean_HO73 ";
 		try (Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();) {
@@ -336,13 +333,12 @@ public class MemberDAO {
 				pstmt.setString(9, mb.getMemMobile());
 				pstmt.setString(10, mb.getMemAddress());
 				pstmt.setInt(11, mb.getMemType());
-				pstmt.setInt(12, mb.getMemFoundation());
-				pstmt.setString(13, mb.getMemWhySupply());
+				pstmt.setString(12, mb.getMemWhySupply());
 	//or		SerialClob clob = new SerialClob(mb.getMemWhySupply());
 //				pstmt.setClob(13, clob);
-				pstmt.setTimestamp(14, mb.getInsertDate());
-				pstmt.setInt(15, mb.getMemStatus());
-				pstmt.setString(16, mb.getMemPicUrl());
+				pstmt.setTimestamp(13, mb.getInsertDate());
+				pstmt.setInt(14, mb.getMemStatus());
+				pstmt.setString(15, mb.getMemPicUrl());
 				list.add(mb);
 			}
 			System.out.println("查詢多筆記錄成功");
@@ -438,7 +434,7 @@ public class MemberDAO {
 		double currentAmount = ob.getTotalAmount(); // 取出該訂單的總金額
 		Double unpaidAmount = 0.0;
 		// 讀取Member表格中，該客戶的未付款金額(unpaid_amount)
-		String sql = "SELECT unpaidAmount FROM Member_HO73 m WHERE m.memAccount = ? ";
+		String sql = "SELECT unpaidAmount FROM MemberBean_HO73 m WHERE m.memAccount = ? ";
 		try (
 			PreparedStatement ps = conn.prepareStatement(sql);
 		) {
@@ -459,7 +455,7 @@ public class MemberDAO {
 			;
 		}
 		// 更新Member表格之未付款餘額欄位 unpaid_amount
-		String sql1 = "UPDATE Member_HO73 SET unpaidAmount = unpaidAmount + ? " 
+		String sql1 = "UPDATE MemberBean_HO73 SET unpaidAmount = unpaidAmount + ? " 
 		            + " WHERE memAccount = ?";
 		
 		try (
