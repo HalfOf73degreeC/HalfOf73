@@ -85,8 +85,8 @@
 				<div class="row">
 					<div class="col-md-5">
 						<div class="modal-body">
-							<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" style="height:120px;">
-								<div class="panel-body">
+							<div id="collapseOne1" class="" role="tabpanel" aria-labelledby="headingOne" style="height:120px;">
+								<div class="" style="margin:2%;">
 									<!-- <div class="input-group input-group-lg">
 										<span class="input-group-btn">
 											<button class="btn btn-success" type="submit" style="width: 130px">捐款箱名稱 :</button>
@@ -113,7 +113,7 @@
 								</h4>
 							</div>
 							<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-								<div class="panel-body" style="height: 227px;">
+								<div class="" style="height: 227px; margin:2%;">
 									<textarea class="form-control" id="payBoxDetail_input" placeholder="" rows="10" style="resize : none;"></textarea>
 								</div>
 							</div>
