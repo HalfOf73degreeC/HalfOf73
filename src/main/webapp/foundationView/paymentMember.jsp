@@ -43,8 +43,9 @@
 		<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 		<div class="sectionContent">
 			<div class="row nino-hoverEffect">
-				<div class="row">
-					<div class="col-sm-3 col-md-3">
+				<div class="row" id="activityRow">
+				
+					<div class="col-sm-3 col-md-3 PayBox">
 						<div class="thumbnail" data-toggle="modal" data-target="#editPatBox" style="border-radius:5%; border-style:solid; border-width:2px; border-color:#9ae2d5;">
 							<img src="./img/news.jpg" style="border-radius:5%;" alt="">
 							<div class="caption">
@@ -59,6 +60,7 @@
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -297,6 +299,117 @@
 	$('#send2Final').click(function(){
 		$('#myModal4').css('background-color', '#333333cc')
 	});	
+	
+// getPayBoxList
+	jQuery.fn.getPayBoxList = function() {
+			return this.each(function() {
+				var xhr = new XMLHttpRequest();
+				xhr.open("Get", "getPayBoxList",true);
+				xhr.setRequestHeader("Content-Type",
+						"application/x-www-form-urlencoded");
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.status == 200 && xhr.readyState == 4) {
+						var funBean = JSON.parse(xhr.responseText);
+						patBoxList = [];
+						console.log(funBean);
+						payBoxList = funBean.payBox;
+						console.log("清空payBox");
+						$(".PayBox").remove();
+						console.log(payBoxList);
+						console.log("重建payBox");
+						for (var i = 0; i < payBoxList.length; i++) {
+							$('body').showPayBox(payBoxList[i]);
+						}
+						
+						$('body').clickPayBox();
+
+					}
+				}
+			});
+		}
+	jQuery.fn.showPayBox = function(payBox) {
+		var button = $('<div class="col-sm-3 col-md-3 PayBox">'
+				+'<div class="thumbnail" data-toggle="modal" data-target="#editPatBox" style="border-radius:5%; border-style:solid; border-width:2px; border-color:#9ae2d5;">'
+				+'<img src="./img/news.jpg" style="border-radius:5%;" alt="">'
+				+'<div class="caption">'
+				+'<h3>'+唐氏症基金會+'</h3>'
+				+'<p class="articleDesc" style="text-align: left;">'
+				+唐寶寶...+'</p>'
+				+'<div style="text-align:left; float:left;">'
+				+'<a href="#" style="margin-right:40%; font-size:16px;">$'
+				10000+'</a></div><div style="text-align:right;">'
+				+'<a href="#" class="btn btn-primary" role="button">了解更多</a>'
+				'</div></div></div></div>').appendTo($("#activityRow"));
+		
+// 		var paybox_info = $('<div class="item">'
+// 				+ '<div class="overlay box" href="#">'
+// 				+ '<div class="content">'
+// 				+ '<a style="font-size: 36px">'
+// 				+ payBox.balance
+// 				+ '</a></div>'
+// 				+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
+// 				+ '</div></div>').appendTo(button);
+// 		var paybox_title = $('<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
+// 		        + payBox.payBoxName
+// 		        + '</div>').appendTo(button);
+	}
+	jQuery.fn.clickPayBox = function() {
+		$(".PayBox").on("click",function() {
+					var payBoxNumber = $(this).attr("date-payBoxNumber")
+					console.log("檢視PayBox");
+					for (var i = 0; i < payBoxList.length; i++) {
+						var payBox = payBoxList[i];
+						if (payBox.payBoxNumber == payBoxNumber) {
+							payBox_now = payBox
+							$('#delPayBox').empty();
+							if(payBox.payBoxOut.length == 0){									
+								$('#delPayBox').attr("data-dismiss","modal");
+								$('#delPayBox').attr("class","btn btn-danger btn-lg");
+								$('#delPayBox').append('<i class="fas fa-trash nino-icon"'
+										+'style="font-size: 20px; float: left; margin-top: 2px; margin-right: 1px;"></i>'
+										+'<span	style="float: right; font-family: "微軟正黑體"; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>')
+							}else{
+								$('#delPayBox').removeAttr("data-dismiss");
+								if(payBox.balance > 99999999){
+									$('#delPayBox').attr("class","btn btn-primary btn-lg");
+								}else if(payBox.balance > 9999){
+									$('#delPayBox').attr("class","btn btn-success btn-lg");										
+								}else if(payBox.balance > 0){
+									$('#delPayBox').attr("class","btn btn-info btn-lg");									
+								}else if(payBox.balance > -9999){
+									$('#delPayBox').attr("class","btn btn-warning btn-lg");										
+								}else{
+									$('#delPayBox').attr("class","btn btn-danger btn-lg");										
+								}
+								
+								$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
+								+'$ '+payBox.balance+'</span>');
+							}
+							$('#payBoxName').val(payBox.payBoxName);
+							$('#payBoxName').attr("date-payBoxNumber",
+									payBoxNumber);
+							if (payBox.payBoxType == 1) {
+								$('#payBoxType').prop("checked", true);
+							} else {
+								$('#payBoxType').prop("checked", false);
+							}
+							$("#payBoxType").attr("date-payBoxNumber",
+									payBoxNumber);
+							$('#payATMAccount').val(payBox.payATMAccount);
+							$('#payBankId').val(payBox.payBankId);
+							$('#payBoxDetail').val(payBox.payBoxDetail);
+							
+							var PayBoxOutList = payBox.payBoxOut;
+							console.log(PayBoxOutList);
+//								
+							$('body').showPayBoxOut();
+							
+						}
+					}
+				});
+	}
+
 </script>
 </body>
 
