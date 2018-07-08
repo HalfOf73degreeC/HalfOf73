@@ -507,29 +507,22 @@
 	}
 	jQuery.fn.showPayBox_D = function(payBoxNumber) {
 		$('#delPayBox').empty();
-		if(payBox_now.payBoxOut.length == 0){									
-			$('#delPayBox').attr("data-dismiss","modal");
-			$('#delPayBox').attr("class","btn btn-danger btn-lg");
-			$('#delPayBox').append('<i class="fas fa-trash nino-icon"'
-					+'style="font-size: 20px; float: left; margin-top: 2px; margin-right: 1px;"></i>'
-					+'<span	style="float: right; font-family: "微軟正黑體"; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>')
+		$('#delPayBox').removeAttr("data-dismiss");
+		if(payBox_now.balance > 99999999){
+			$('#delPayBox').attr("class","btn btn-primary btn-lg");
+		}else if(payBox_now.balance > 9999){
+			$('#delPayBox').attr("class","btn btn-success btn-lg");										
+		}else if(payBox_now.balance > 0){
+			$('#delPayBox').attr("class","btn btn-info btn-lg");									
+		}else if(payBox_now.balance > -9999){
+			$('#delPayBox').attr("class","btn btn-warning btn-lg");										
 		}else{
-			$('#delPayBox').removeAttr("data-dismiss");
-			if(payBox_now.balance > 99999999){
-				$('#delPayBox').attr("class","btn btn-primary btn-lg");
-			}else if(payBox_now.balance > 9999){
-				$('#delPayBox').attr("class","btn btn-success btn-lg");										
-			}else if(payBox_now.balance > 0){
-				$('#delPayBox').attr("class","btn btn-info btn-lg");									
-			}else if(payBox_now.balance > -9999){
-				$('#delPayBox').attr("class","btn btn-warning btn-lg");										
-			}else{
-				$('#delPayBox').attr("class","btn btn-danger btn-lg");										
-			}
-			
-			$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
-			+'$ '+payBox_now.balance+'</span>');
+			$('#delPayBox').attr("class","btn btn-danger btn-lg");										
 		}
+		
+		$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
+		+'$ '+payBox_now.balance+'</span>');
+		
 		$('#payBoxName').val(payBox_now.payBoxName);
 		$('#payBoxName').attr("date-payBoxNumber",
 				payBoxNumber);
