@@ -248,7 +248,7 @@
 <!-- 捐款清單-->
 <div class="modal " id="myModal3" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel"
-	style="margin-top: -715px; width: 1400px; height: 1000px;">
+	style="margin-top: -315px; width: 1400px; height: 1000px;">
 	<div class="modal-dialog " role="document" style="z-index: 1042;">
 		<div class="modal-content">
 			<div class="modal-header">
