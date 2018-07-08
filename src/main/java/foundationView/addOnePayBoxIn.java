@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import model.bean.MemberBean_HO73;
 import model.service.payBoxService;
 
 /**
@@ -42,7 +43,9 @@ public class addOnePayBoxIn extends HttpServlet {
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		payBoxService fs = ctx.getBean(payBoxService.class);
 		Integer payBoxNumber = Integer.valueOf(request.getParameter("payBoxNumber"));
-		String memAccount = (String) request.getSession().getAttribute("memAccount");
+		MemberBean_HO73 memberBean = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
+		String memAccount = memberBean.getMemAccount();
+		System.out.println(memAccount);
 		Integer payAmount = Integer.valueOf(request.getParameter("payAmount"));
 		fs.addOnePayBoxIn2String(payBoxNumber, memAccount, payAmount);
 		String gString = fs.queryOnePaybox2String(payBoxNumber);

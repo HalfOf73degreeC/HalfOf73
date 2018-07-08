@@ -13,7 +13,7 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">
 				<c:if test="${empty mem.fileName}">
-				<img src="${mem.memPicUrl}"
+				<img id="memberBean" src="${mem.memPicUrl}" data-memName="${mem.memName}"
 					style="border-radius: 50%; max-width: 30px; height: auto;">
 				</c:if>
 				<c:if test="${not empty mem.fileName}">
