@@ -417,9 +417,10 @@
 															console
 																	.log(payBox);
 														}
+														$('body').getPayBoxList();
+														$('body').getPayBox_now(payBoxNumber);
 														$("#myModal3").modal('hide');
 														$("#myModal4").modal('hide');
-														$('body').getPayBox_now(payBoxNumber);
 
 													}
 												}

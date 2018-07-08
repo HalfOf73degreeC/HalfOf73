@@ -690,6 +690,7 @@
 						console.log(payBox);
 					}
 					$("#myModal3").modal('hide');
+					$('body').getPayBoxList();
 					$('body').getPayBox_now(payBoxNumber);
 					
 				}
