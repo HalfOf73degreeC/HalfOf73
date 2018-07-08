@@ -87,7 +87,7 @@ public class payBoxService {
 	@Transactional
 	public PayBoxIn addOnePayBoxIn(Integer payBoxNumber, String memAccount, Integer payAmount) {
 		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
-		Integer hideWordCount = 4;
+		Integer hideWordCount = 5;
 		String hideWord = "*";
 		MemberBean_HO73 mb = memberDao.getOneMember(memAccount);
 		String MemName = mb.getMemName();

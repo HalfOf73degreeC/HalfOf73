@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import model.bean.MemberBean_HO73;
 import model.service.payBoxService;
 
 /**
@@ -46,8 +47,8 @@ public class createPayBox extends HttpServlet {
 		String payBoxDetail = request.getParameter("payBoxDetail");
 		String payBoxName = request.getParameter("payBoxName");
 		Integer payBoxType = Integer.parseInt(request.getParameter("payBoxType"));
-		String fk_payIdcard = "1235";
-//		String fk_payIdcard = request.getParameter("fk_payIdcard");
+		MemberBean_HO73 memberBean = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
+		String fk_payIdcard = memberBean.getFoundationBean_HO73().getFunIdcard();
 		String gString = pbs.creatOnePayBox2String(payBoxName, payBoxDetail, payBankId, payATMAccount, payBoxType, fk_payIdcard); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
