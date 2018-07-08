@@ -13,10 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.Gson;
 
 import model.bean.FoundationBean_HO73;
+import model.bean.MemberBean_HO73;
 import model.bean.PayBox;
 import model.bean.PayBoxIn;
 import model.bean.PayBoxOut;
 import model.repository.FoundationDao;
+import model.repository.MemberDao;
 import model.repository.PayBoxDao;
 import model.repository.PayBoxInDao;
 import model.repository.PayBoxOutDao;
@@ -28,6 +30,8 @@ public class payBoxService {
 
 	@Autowired
 	SessionFactory factory;
+	@Autowired
+	MemberDao memberDao;
 	@Autowired
 	FoundationDao foundationDao;
 	@Autowired
@@ -83,7 +87,24 @@ public class payBoxService {
 	@Transactional
 	public PayBoxIn addOnePayBoxIn(Integer payBoxNumber, String memAccount, Integer payAmount) {
 		PayBox payBox = payboxDao.getPayBox(payBoxNumber);
-		PayBoxIn pbi = new PayBoxIn(payBox,memAccount,payAmount);
+		Integer hideWordCount = 5;
+		String hideWord = "*";
+		MemberBean_HO73 mb = memberDao.getOneMember(memAccount);
+		String MemName = mb.getMemName();
+		String simpleMemName="";
+		for(int i = 0;i<MemName.length();i++) {
+			String oneWord = MemName.substring(i,i+1);
+			if(i%hideWordCount!=0) {
+				simpleMemName += hideWord;
+				System.out.println("if-simpleMemName: "+simpleMemName);
+				System.out.println("if-hideWord: "+hideWord);
+			}else {
+				simpleMemName += oneWord;
+				System.out.println("else-simpleMemName: "+simpleMemName);
+				System.out.println("else-oneWord: "+oneWord);
+			}
+		}
+		PayBoxIn pbi = new PayBoxIn(payBox,memAccount,simpleMemName,payAmount);
 		payBoxInDao.save(pbi);
 		Integer balance = payBox.getBalance();
 		balance+=pbi.getPayAmount();
