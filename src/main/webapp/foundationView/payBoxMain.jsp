@@ -270,8 +270,8 @@
 									</div>
 									<div id="payBoxInList" class="panel-collapse collapse"
 										role="tabpanel" aria-labelledby="headingTwo">
-										<div class="panel-body" style="height: auto;">
-											<div class="input-group input-group-lg payBoxIn_list" style="height: 15px;">
+										<div class="panel-body payBoxIn_list" style="height: auto;">
+											<div class="input-group input-group-lg" style="height: 15px;">
 												<span class="input-group-btn">
 													<div class="btn-warning btn"
 														style="width: 300px; cursor: default; font-style: normal; font-size: 18px; text-align: left;">捐款人</div>
@@ -362,7 +362,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"
 						style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal" id="createPayBoxOut"
+					<button type="button" class="btn btn-primary" id="createPayBoxOut"
 						style="font-family: '微軟正黑體'; font-size: 15px;">確認送出</button>
 				</div>
 			</div>
@@ -487,7 +487,51 @@
 			        + payBox.payBoxName
 			        + '</div>').appendTo(button);
 		}
-
+		
+		jQuery.fn.showPayBox_D = function(payBoxNumber) {
+			$('#delPayBox').empty();
+			if(payBox_now.payBoxOut.length == 0){									
+				$('#delPayBox').attr("data-dismiss","modal");
+				$('#delPayBox').attr("class","btn btn-danger btn-lg");
+				$('#delPayBox').append('<i class="fas fa-trash nino-icon"'
+						+'style="font-size: 20px; float: left; margin-top: 2px; margin-right: 1px;"></i>'
+						+'<span	style="float: right; font-family: "微軟正黑體"; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>')
+			}else{
+				$('#delPayBox').removeAttr("data-dismiss");
+				if(payBox_now.balance > 99999999){
+					$('#delPayBox').attr("class","btn btn-primary btn-lg");
+				}else if(payBox_now.balance > 9999){
+					$('#delPayBox').attr("class","btn btn-success btn-lg");										
+				}else if(payBox_now.balance > 0){
+					$('#delPayBox').attr("class","btn btn-info btn-lg");									
+				}else if(payBox_now.balance > -9999){
+					$('#delPayBox').attr("class","btn btn-warning btn-lg");										
+				}else{
+					$('#delPayBox').attr("class","btn btn-danger btn-lg");										
+				}
+				
+				$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
+				+'$ '+payBox_now.balance+'</span>');
+			}
+			$('#payBoxName').val(payBox_now.payBoxName);
+			$('#payBoxName').attr("date-payBoxNumber",
+					payBoxNumber);
+			if (payBox_now.payBoxType == 1) {
+				$('#payBoxType').prop("checked", true);
+			} else {
+				$('#payBoxType').prop("checked", false);
+			}
+			$("#payBoxType").attr("date-payBoxNumber",
+					payBoxNumber);
+			$('#payATMAccount').val(payBox_now.payATMAccount);
+			$('#payBankId').val(payBox_now.payBankId);
+			$('#payBoxDetail').val(payBox_now.payBoxDetail);
+			
+			var PayBoxOutList = payBox_now.payBoxOut;
+			console.log(PayBoxOutList);
+//				
+			$('body').showPayBoxOut();
+		}
 		jQuery.fn.clickPayBox = function() {
 			$(".PayBox").on("click",function() {
 						var payBoxNumber = $(this).attr("date-payBoxNumber")
@@ -496,48 +540,7 @@
 							var payBox = payBoxList[i];
 							if (payBox.payBoxNumber == payBoxNumber) {
 								payBox_now = payBox
-								$('#delPayBox').empty();
-								if(payBox.payBoxOut.length == 0){									
-									$('#delPayBox').attr("data-dismiss","modal");
-									$('#delPayBox').attr("class","btn btn-danger btn-lg");
-									$('#delPayBox').append('<i class="fas fa-trash nino-icon"'
-											+'style="font-size: 20px; float: left; margin-top: 2px; margin-right: 1px;"></i>'
-											+'<span	style="float: right; font-family: "微軟正黑體"; font-size: 16px; margin-right: 15px;">刪除捐款箱</span>')
-								}else{
-									$('#delPayBox').removeAttr("data-dismiss");
-									if(payBox.balance > 99999999){
-										$('#delPayBox').attr("class","btn btn-primary btn-lg");
-									}else if(payBox.balance > 9999){
-										$('#delPayBox').attr("class","btn btn-success btn-lg");										
-									}else if(payBox.balance > 0){
-										$('#delPayBox').attr("class","btn btn-info btn-lg");									
-									}else if(payBox.balance > -9999){
-										$('#delPayBox').attr("class","btn btn-warning btn-lg");										
-									}else{
-										$('#delPayBox').attr("class","btn btn-danger btn-lg");										
-									}
-									
-									$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
-									+'$ '+payBox.balance+'</span>');
-								}
-								$('#payBoxName').val(payBox.payBoxName);
-								$('#payBoxName').attr("date-payBoxNumber",
-										payBoxNumber);
-								if (payBox.payBoxType == 1) {
-									$('#payBoxType').prop("checked", true);
-								} else {
-									$('#payBoxType').prop("checked", false);
-								}
-								$("#payBoxType").attr("date-payBoxNumber",
-										payBoxNumber);
-								$('#payATMAccount').val(payBox.payATMAccount);
-								$('#payBankId').val(payBox.payBankId);
-								$('#payBoxDetail').val(payBox.payBoxDetail);
-								
-								var PayBoxOutList = payBox.payBoxOut;
-								console.log(PayBoxOutList);
-// 								
-								$('body').showPayBoxOut();
+								$('body').showPayBox_D(payBoxNumber);
 								
 							}
 						}
@@ -686,6 +689,7 @@
 						var payBox = JSON.parse(xhr.responseText);
 						console.log(payBox);
 					}
+					$("#myModal3").modal('hide');
 					$('body').getPayBox_now(payBoxNumber);
 					
 				}
@@ -704,6 +708,16 @@
 				var payForCost = $('<div id="payBoxOut_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
 						+'$'+payBoxOut.payForCost+'</div>').appendTo(payBoxOut_bt);
 			}
+			$(".payBoxIn_bt").remove();
+			for(var i = 0; i < payBox_now.payBoxIn.length; i++){
+				var payBoxIn = payBox_now.payBoxIn[i];
+				var payBoxIn_bt = $('<div class="input-group input-group-lg payBoxIn_bt" date-Id="'+payBoxIn.Id+'">').appendTo($('.payBoxIn_list'));
+				var MemName = $('<span class="input-group-btn">' 
+						+'<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #9ae2d5; text-align: left;">'
+						+payBoxIn.MemName+'</div></span>').appendTo(payBoxIn_bt);
+				var payAmount = $('<div id="payBoxIn_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
+						+'$'+payBoxIn.payAmount+'</div>').appendTo(payBoxIn_bt);
+			}
 			
 			
 		}
@@ -719,7 +733,7 @@
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						payBox_now = JSON.parse(xhr.responseText);
-						$('body').showPayBoxOut();
+						$('body').showPayBox_D();
 					}
 				}
 			});

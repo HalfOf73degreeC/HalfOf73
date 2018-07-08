@@ -17,16 +17,19 @@ public class PayBoxIn {
 	private 			Integer 	Id;
 	private transient	PayBox	 	payBoxNumber;
 	private 			String 		MemAccount;
+	private				String		MemName;
 	private 			Integer 	payAmount;
 	private 			String 		payMemBankId;
 	private 			String 		payMemAccount;
 	private 			Date 		payDate;
 	
-	public PayBoxIn(PayBox payBoxNumber, String memAccount, Integer payAmount) {
+	public PayBoxIn(PayBox payBoxNumber, String memAccount, String MemName, Integer payAmount) {
 		super();
 		this.payBoxNumber = payBoxNumber;
 		MemAccount = memAccount;
+		this.MemName = MemName;
 		this.payAmount = payAmount;
+		payDate = new Date();
 	}
 	
 	public PayBoxIn(Integer id, PayBox payBoxNumber, String memAccount, Integer payAmount, String payMemBankId,
@@ -88,6 +91,13 @@ public class PayBoxIn {
 	/**
 	 * @return the payAmount
 	 */
+	public String getMemName() {
+		return MemName;
+	}
+
+	public void setMemName(String memName) {
+		MemName = memName;
+	}
 	public Integer getPayAmount() {
 		return payAmount;
 	}
