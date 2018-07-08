@@ -201,14 +201,14 @@
 					</tr>
 				</div>
 				</table>
-<%-- 			<c:set var="mem" value="${memberBean}"></c:set> --%>
-<%-- 				<c:if test = "${mem.memType == 2}">	 --%>
+			<c:set var="mem" value="${memberBean}"></c:set>
+				<c:if test = "${mem.memType == '2'&& (mem.foundationBean_HO73.funIdcard == fun.funIdcard)}">	
 					<span class="input-group-btn" align="right">
 					  <a href="../foundation/queryOneFoundation_HO73.do?funIdcard=${fun.funIdcard}">
 						<button class="btn btn-success"style=" background:#95e1d3; border-color: #95e1d3;width: 200px; z-index: 1">返回更新</button>
 					  </a>
 					</span>
-<%-- 				</c:if> --%>
+				</c:if>
 			</section>
 		</article>
 	</div>
