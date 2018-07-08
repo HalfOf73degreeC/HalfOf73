@@ -28,8 +28,14 @@
 					style="font-size: 13px; color: white;">會員專區</a></li>
 				</c:if>
 				<c:if test="${mem.memType == '2'}">
+				<li><a href="${pageContext.request.contextPath}/foundation/foundation_register.jsp"
+					style="font-size: 13px; color: white;">資料維護</a></li>
 				<li><a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp"
-					style="font-size: 13px; color: white;">捐款箱</a></li>
+					style="font-size: 13px; color: white;">捐款管理</a></li>
+				<li><a href="${pageContext.request.contextPath}/foundationView/goodsMain.jsp"
+					style="font-size: 13px; color: white;">義賣管理</a></li>
+				<li><a href="${pageContext.request.contextPath}/foundationView/supplyMain.jsp"
+					style="font-size: 13px; color: white;">物資管理</a></li>
 				</c:if>
 				<li><a href="${pageContext.request.contextPath}/member/logout"
 					style="font-size: 13px; color: white;">登出</a></li>

@@ -34,7 +34,7 @@ public class foundationService {
 //	新建基金會帳號(將Member的帳號類型改成2)
 	@Transactional
 	public int creatOneFoundation(FoundationBean_HO73 fb, int memType, String funIdCard, String memAccount) {		
-		foundationDao.save(fb);		
+		foundationDao.saveOrUpdate(fb);		
 		memberDao.updateMemType(memType, funIdCard, memAccount);
 //		MemberBean_HO73 mb = MemberDAO.getOneMember();
 //		mb.setMemType(2);

@@ -30,9 +30,9 @@
                         <div class="item">
                             <div class="overlay box" href="#">
                                 <div class="content box-top">
-                                    <a href="http://localhost:8080/HalfOf73/goods/queryAllGoods_HO73.do" style="font-size: 36px">最新消息管理</a>
+                                    <a href="http://localhost:8080/HalfOf73/goods/queryAllGoods_HO73.do" style="font-size: 36px">義賣商品上架</a>
                                 </div>
-                                <img src="./img/news.jpg" alt=""style="border-radius: 15%;">
+                                <img src="./img/sale.jpg" alt=""style="border-radius: 15%;">
                             </div>
                         </div>
                     </div>
@@ -40,9 +40,9 @@
                         <div class="item">
                             <div class="overlay box" href="#">
                                 <div class="content">
-                                    <a href="http://localhost:8080/HalfOf73/supply.html#nino-portfolio" style="font-size: 36px">愛的回饋</a>
+                                    <a href="http://localhost:8080/HalfOf73/supply.html#nino-portfolio" style="font-size: 36px">捐款管理</a>
                                 </div>
-                                <img src="./img/love.jpg" alt=""style="border-radius: 15%;">
+                                <img src="./img/499808264.jpg" alt=""style="border-radius: 15%;">
                             </div>
                         </div>
                         <!-- 						<div class="info">
@@ -60,30 +60,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row nino-hoverEffect">
-                        <div class="col-md-4 col-sm-4 box-down1">
-                            <div class="item">
-                                <div class="overlay box" href="#">
-                                    <div class="content">
-                                        <a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp" style="font-size: 36px">捐款管理</a>
-                                    </div>
-                                    <img src="./img/499808264.jpg" alt=""style="border-radius: 15%;">
-                                </div>
-                            </div>
-                        </div>
+<!--                     <div class="row nino-hoverEffect"> -->
+<!--                         <div class="col-md-4 col-sm-4 box-down1"> -->
+<!--                             <div class="item"> -->
+<!--                                 <div class="overlay box" href="#"> -->
+<!--                                     <div class="content"> -->
+<%--                                         <a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp" style="font-size: 36px">愛的回饋</a> --%>
+<!--                                     </div> -->
+<!--                                     <img src="./img/love.jpg" alt=""style="border-radius: 15%;"> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
 
-                        <div class="col-md-4 col-sm-4 box-down2">
-                            <div class="item">
-                                <div class="overlay box" href="#">
-                                    <div class="content">
-                                        <a href="${pageContext.request.contextPath}/foundationView/goodsMain.jsp" style="font-size: 36px">義賣商品上架</a>
-                                    </div>
-                                    <img src="./img/sale.jpg" alt=""style="border-radius: 15%;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" style="font-size: 20px;color: #FF5511;">會員資料設定</a>
+<!--                         <div class="col-md-4 col-sm-4 box-down2"> -->
+<!--                             <div class="item"> -->
+<!--                                 <div class="overlay box" href="#"> -->
+<!--                                     <div class="content"> -->
+<%--                                         <a href="${pageContext.request.contextPath}/foundationView/goodsMain.jsp" style="font-size: 36px">最新消息管理</a> --%>
+<!--                                     </div> -->
+<!--                                     <img src="./img/news.jpg " alt=""style="border-radius: 15%;"> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                     <a href="#" style="font-size: 20px;color: #FF5511;">會員資料設定</a> -->
                 </div>
             </div>
         </div>
