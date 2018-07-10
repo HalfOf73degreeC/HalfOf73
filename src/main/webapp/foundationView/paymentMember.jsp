@@ -32,6 +32,7 @@
 	"></script>
 <title>paymentMain</title>
 </head>
+<div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body>
 	<header id="nino-story">
 		<nav id="nino-navbar" class="navbar navbar-default"
@@ -73,23 +74,23 @@
 				<div class="row nino-hoverEffect">
 					<div class="row" id="activityRow">
 
-						<div class="col-sm-3 col-md-3">
-							<div class="thumbnail" data-toggle="modal"
-								data-target="#editPatBox"
-								style="border-radius: 5%; border-style: solid; border-width: 2px; border-color: #9ae2d5;">
-								<img src="./img/news.jpg" style="border-radius: 5%;" alt="">
-								<div class="caption">
-									<h3>唐氏症基金會</h3>
-									<p class="articleDesc" style="text-align: left;">唐寶寶與心智障礙者的工作環境和流程，都需經過個別觀察和設計，也需要較高的人力及成本。唐氏症基金會的「工作訓練計畫」，以「庇護商店」做為訓練場域，除了基本的就業技能，生活自理能力、社會互動、作業態度等等，都是我們的培訓重點。希望協助他們培養就業能力跟增加工作機會，進而到職場任職，讓他們經濟獨立、自給自足，讓爸爸媽媽卸下心中最沉重的憂慮，知道孩子能靠自己的雙腳在社會中立足，也是減少依賴社會福利資源的積極出路。</p>
-									<div style="text-align: left; float: left;">
-										<a href="#" style="margin-right: 40%; font-size: 16px;">$10000</a>
-									</div>
-									<div style="text-align: right;">
-										<a href="#" class="btn btn-primary" role="button">了解更多</a>
-									</div>
-								</div>
-							</div>
-						</div>
+<!-- 						<div class="col-sm-3 col-md-3"> -->
+<!-- 							<div class="thumbnail" data-toggle="modal" -->
+<!-- 								data-target="#editPatBox" -->
+<!-- 								style="border-radius: 5%; border-style: solid; border-width: 2px; border-color: #9ae2d5;"> -->
+<!-- 								<img src="./img/news.jpg" style="border-radius: 5%;" alt=""> -->
+<!-- 								<div class="caption"> -->
+<!-- 									<h3>唐氏症基金會</h3> -->
+<!-- 									<p class="articleDesc" style="text-align: left;">唐寶寶與心智障礙者的工作環境和流程，都需經過個別觀察和設計，也需要較高的人力及成本。唐氏症基金會的「工作訓練計畫」，以「庇護商店」做為訓練場域，除了基本的就業技能，生活自理能力、社會互動、作業態度等等，都是我們的培訓重點。希望協助他們培養就業能力跟增加工作機會，進而到職場任職，讓他們經濟獨立、自給自足，讓爸爸媽媽卸下心中最沉重的憂慮，知道孩子能靠自己的雙腳在社會中立足，也是減少依賴社會福利資源的積極出路。</p> -->
+<!-- 									<div style="text-align: left; float: left;"> -->
+<!-- 										<a href="#" style="margin-right: 40%; font-size: 16px;">$10000</a> -->
+<!-- 									</div> -->
+<!-- 									<div style="text-align: right;"> -->
+<!-- 										<a href="#" class="btn btn-primary" role="button">了解更多</a> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 
 					</div>
 				</div>
@@ -248,7 +249,7 @@
 <!-- 捐款清單-->
 <div class="modal " id="myModal3" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel"
-	style="margin-top: -715px; width: 1400px; height: 1000px;">
+	style="margin-top: -315px; width: 1400px; height: 1000px;">
 	<div class="modal-dialog " role="document" style="z-index: 1042;">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -329,9 +330,9 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal"
 					style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
-				<button type="button" id="createPayBoxIn" class="btn btn-primary"
+				<button type="button" id="createPayBoxIn" class="btn btn-primary" data-toggle="modal" data-target="#modal_loading"
 					style="font-family: '微軟正黑體'; font-size: 15px;">再次確認</button>
-			</div>
+			</div> 
 		</div>
 	</div>
 </div>
@@ -372,63 +373,58 @@
 			$('#show_Payment').val("$" + (payment));
 		});
 
-		$('#send2Final')
-				.click(
-						function() {
-							var memName = $('#memberBean').attr("data-memName")
-							var payATMAccount = $('#payATMAccount').val();
-							var payBankId = $('#payBankId').val();
-							$('#paymentMsg').html(''+memName+'您好:<br>'
-										+ '本次捐款金額:' + payment + 'NTD<br>'
-										+ '基金會ATM銀行代號:' + payBankId + '<br>'
-										+ '基金會ATM帳號:' + payATMAccount + '<br>'
-										+ '若確認無誤，請按下方再次確認。<br>'
-										+ '感謝您對敝基金會的付出與關懷。');
-
-							$('#createPayBoxIn').on("click",function() {
-												console.log("準備新建payboxIn");
-												var xhr = new XMLHttpRequest();
-												var payBoxNumber = $('#payBoxName')
-														.attr("date-payBoxNumber");
-												var payAmount = payment;
-												xhr.open("Post","addOnePayBoxIn?payBoxNumber="
-																		+ payBoxNumber
-																		+ "&payAmount="
-																		+ payAmount,true);
-												xhr.setRequestHeader(
-																"Content-Type",
-																"application/x-www-form-urlencoded");
-												xhr.send();
-												xhr.onreadystatechange = function() {
-													if (xhr.status == 200
-															&& xhr.readyState == 4) {
-														var jsonString = xhr.responseText;
-														console
-																.log("jsonString= "
-																		+ jsonString);
-														console
-																.log("jsonString.length= "
-																		+ jsonString.length);
-														if (jsonString.length < 10) {
-															alert("無法新建花費");
-														} else {
-															var payBox = JSON
-																	.parse(xhr.responseText);
-															console
-																	.log(payBox);
-														}
-														$('body').getPayBoxList();
-														$('body').getPayBox_now(payBoxNumber);
-														$("#myModal3").modal('hide');
-														$("#myModal4").modal('hide');
-
-													}
-												}
-
-											});
+		
+		$('#send2Final').click(function() {
+			var memName = $('#memberBean').attr("data-memName")
+			var payATMAccount = $('#payATMAccount').val();
+			var payBankId = $('#payBankId').val();
+			$('#paymentMsg').html(''+memName+'您好:<br>'
+						+ '本次捐款金額:' + payment + 'NTD<br>'
+						+ '基金會ATM銀行代號:' + payBankId + '<br>'
+						+ '基金會ATM帳號:' + payATMAccount + '<br>'
+						+ '若確認無誤，請按下方再次確認。<br>'
+											+ '感謝您對敝基金會的付出與關懷。');
 
 						});
-					});
+				$('#createPayBoxIn').on(
+						"click",
+						function() {
+							console.log("準備新建payboxIn");
+							var xhr = new XMLHttpRequest();
+							var payBoxNumber = $('#payBoxName').attr(
+									"date-payBoxNumber");
+							var payAmount = payment;
+							xhr.open("Post", "addOnePayBoxIn?payBoxNumber="
+									+ payBoxNumber + "&payAmount=" + payAmount,
+									true);
+							xhr.setRequestHeader("Content-Type",
+									"application/x-www-form-urlencoded");
+							xhr.send();
+							xhr.onreadystatechange = function() {
+								if (xhr.status == 200 && xhr.readyState == 4) {
+									var jsonString = xhr.responseText;
+									$('#modal_loading').modal('hide');
+									console.log("jsonString= " + jsonString);
+									console.log("jsonString.length= "
+											+ jsonString.length);
+									if (jsonString.length < 10) {
+										alert("無法新建花費");
+									} else {
+										var payBox = JSON
+												.parse(xhr.responseText);
+										console.log(payBox);
+									}
+									$('body').getPayBoxList();
+									$('body').getPayBox_now(payBoxNumber);
+									$("#myModal3").modal('hide');
+									$("#myModal4").modal('hide');
+
+								}
+							}
+
+						});
+
+			});
 
 	// 背景刷暗
 
@@ -443,6 +439,7 @@
 	// getPayBoxList
 	var payBoxList;
 	jQuery.fn.getPayBoxList = function() {
+		$loadingGIF = $('<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>').appendTo($('#nino-ourTeam'));
 		return this.each(function() {
 			var xhr = new XMLHttpRequest();
 			xhr.open("Get", "getPayBoxList", true);
@@ -451,6 +448,7 @@
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					payBoxList = JSON.parse(xhr.responseText);
 					$(".PayBox").remove();
+					$(loadingGif).hide(500);
 					for (var i = 0; i < payBoxList.length; i++) {
 						$('body').showPayBox(payBoxList[i]);
 					}
@@ -474,7 +472,7 @@
 	}
 	jQuery.fn.showPayBox = function(payBox) {
 		var button = $(
-				'<div class="col-sm-3 col-md-3 PayBox" date-payBoxNumber='
+				'<div class=" focus wow bounceIn col-sm-3 col-md-3 PayBox" date-payBoxNumber='
 				+payBox.payBoxNumber+'>'
 						+ '<div class="thumbnail" data-toggle="modal" data-target="#editPatBox" style="border-radius:5%; border-style:solid; border-width:2px; border-color:#9ae2d5;">'
 						+ '<img src="./img/news.jpg" style="border-radius:5%;" alt="">'
@@ -508,59 +506,59 @@
 	jQuery.fn.showPayBox_D = function(payBoxNumber) {
 		$('#delPayBox').empty();
 		$('#delPayBox').removeAttr("data-dismiss");
-		if(payBox_now.balance > 99999999){
-			$('#delPayBox').attr("class","btn btn-primary btn-lg");
-		}else if(payBox_now.balance > 9999){
-			$('#delPayBox').attr("class","btn btn-success btn-lg");										
-		}else if(payBox_now.balance > 0){
-			$('#delPayBox').attr("class","btn btn-info btn-lg");									
-		}else if(payBox_now.balance > -9999){
-			$('#delPayBox').attr("class","btn btn-warning btn-lg");										
-		}else{
-			$('#delPayBox').attr("class","btn btn-danger btn-lg");										
+		if (payBox_now.balance > 99999999) {
+			$('#delPayBox').attr("class", "btn btn-primary btn-lg");
+		} else if (payBox_now.balance > 9999) {
+			$('#delPayBox').attr("class", "btn btn-success btn-lg");
+		} else if (payBox_now.balance > 0) {
+			$('#delPayBox').attr("class", "btn btn-info btn-lg");
+		} else if (payBox_now.balance > -9999) {
+			$('#delPayBox').attr("class", "btn btn-warning btn-lg");
+		} else {
+			$('#delPayBox').attr("class", "btn btn-danger btn-lg");
 		}
-		
-		$('#delPayBox').append('<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
-		+'$ '+payBox_now.balance+'</span>');
-		
+
+		$('#delPayBox')
+				.append(
+						'<span	style="float: right; font-family: "微軟正黑體"; font-size: 18px; margin-right: 15px;">'
+								+ '$ ' + payBox_now.balance + '</span>');
+
 		$('#payBoxName').val(payBox_now.payBoxName);
-		$('#payBoxName').attr("date-payBoxNumber",
-				payBoxNumber);
+		$('#payBoxName').attr("date-payBoxNumber", payBoxNumber);
 		if (payBox_now.payBoxType == 1) {
 			$('#payBoxType').prop("checked", true);
 		} else {
 			$('#payBoxType').prop("checked", false);
 		}
-		$("#payBoxType").attr("date-payBoxNumber",
-				payBoxNumber);
+		$("#payBoxType").attr("date-payBoxNumber", payBoxNumber);
 		$('#payATMAccount').val(payBox_now.payATMAccount);
 		$('#payBankId').val(payBox_now.payBankId);
 		$('#payBoxDetail').val(payBox_now.payBoxDetail);
-		
+
 		var PayBoxOutList = payBox_now.payBoxOut;
 		console.log(PayBoxOutList);
-//			
+		//			
 		$('body').showPayBoxOut();
 	}
 	jQuery.fn.clickPayBox = function() {
-		$(".PayBox").on("click",function() {
-							var payBoxNumber = $(this).attr("date-payBoxNumber")
-							console.log("檢視PayBox");
-							for (var i = 0; i < payBoxList.length; i++) {
-								var payBox = payBoxList[i];
-								if (payBox.payBoxNumber == payBoxNumber) {
-									payBox_now = payBox
-									$('body').showPayBox_D(payBoxNumber);
+		$(".PayBox").on("click", function() {
+			var payBoxNumber = $(this).attr("date-payBoxNumber")
+			console.log("檢視PayBox");
+			for (var i = 0; i < payBoxList.length; i++) {
+				var payBox = payBoxList[i];
+				if (payBox.payBoxNumber == payBoxNumber) {
+					payBox_now = payBox
+					$('body').showPayBox_D(payBoxNumber);
 
-								}
-							}
-						});
+				}
+			}
+		});
 	}
 
 	jQuery.fn.getPayBox_now = function(payBoxNumber) {
 		return this.each(function() {
 			var xhr = new XMLHttpRequest();
-			xhr.open("Post", "getPayBox?payBoxNumber=" + payBoxNumber,true);
+			xhr.open("Post", "getPayBox?payBoxNumber=" + payBoxNumber, true);
 			xhr.setRequestHeader("Content-Type",
 					"application/x-www-form-urlencoded");
 			xhr.send();
@@ -574,27 +572,38 @@
 	}
 	jQuery.fn.showPayBoxOut = function() {
 		$(".payBoxOut_bt").remove();
-		for(var i = 0; i < payBox_now.payBoxOut.length; i++){
+		for (var i = 0; i < payBox_now.payBoxOut.length; i++) {
 			var payBoxOut = payBox_now.payBoxOut[i];
-			var payBoxOut_bt = $('<div class="input-group input-group-lg payBoxOut_bt" date-Id="'+payBoxOut.Id+'">').appendTo($('.payBoxOut_list'));
-			var payForName = $('<span class="input-group-btn">' 
-					+'<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #ffc107; text-align: left;">'
-					+payBoxOut.payForName+'</div></span>').appendTo(payBoxOut_bt);
-			var payForCost = $('<div id="payBoxOut_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
-					+'$'+payBoxOut.payForCost+'</div>').appendTo(payBoxOut_bt);
+			var payBoxOut_bt = $(
+					'<div class="input-group input-group-lg payBoxOut_bt" date-Id="'+payBoxOut.Id+'">')
+					.appendTo($('.payBoxOut_list'));
+			var payForName = $(
+					'<span class="input-group-btn">'
+							+ '<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #ffc107; text-align: left;">'
+							+ payBoxOut.payForName + '</div></span>').appendTo(
+					payBoxOut_bt);
+			var payForCost = $(
+					'<div id="payBoxOut_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
+							+ '$' + payBoxOut.payForCost + '</div>').appendTo(
+					payBoxOut_bt);
 		}
 		$(".payBoxIn_bt").remove();
-		for(var i = 0; i < payBox_now.payBoxIn.length; i++){
+		for (var i = 0; i < payBox_now.payBoxIn.length; i++) {
 			var payBoxIn = payBox_now.payBoxIn[i];
-			var payBoxIn_bt = $('<div class="input-group input-group-lg payBoxIn_bt" date-Id="'+payBoxIn.Id+'">').appendTo($('.payBoxIn_list'));
-			var MemName = $('<span class="input-group-btn">' 
-					+'<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #9ae2d5; text-align: left;">'
-					+payBoxIn.MemName+'</div></span>').appendTo(payBoxIn_bt);
-			var payAmount = $('<div id="payBoxIn_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
-					+'$'+payBoxIn.payAmount+'</div>').appendTo(payBoxIn_bt);
+			var payBoxIn_bt = $(
+					'<div class="input-group input-group-lg payBoxIn_bt" date-Id="'+payBoxIn.Id+'">')
+					.appendTo($('.payBoxIn_list'));
+			var MemName = $(
+					'<span class="input-group-btn">'
+							+ '<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #9ae2d5; text-align: left;">'
+							+ payBoxIn.MemName + '</div></span>').appendTo(
+					payBoxIn_bt);
+			var payAmount = $(
+					'<div id="payBoxIn_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
+							+ '$' + payBoxIn.payAmount + '</div>').appendTo(
+					payBoxIn_bt);
 		}
-		
-		
+
 	}
 	$('body').getPayBoxList();
 </script>
