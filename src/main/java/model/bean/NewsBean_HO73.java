@@ -2,12 +2,16 @@ package model.bean;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +27,7 @@ public class NewsBean_HO73 {
 	Date		insertDate;
 	String  	insertMonth;
 	String 		insertDay;
+	private Set<Message> Messages = new LinkedHashSet<>();
 	public NewsBean_HO73() {
 		super();
 	}
@@ -40,6 +45,7 @@ public class NewsBean_HO73 {
 		insertDay = dateFormatDay.format(insertDate);
 		newsView = 0;
 	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getNewsUid() {
@@ -103,7 +109,14 @@ public class NewsBean_HO73 {
 	public void setInsertDay(String insertDay) {
 		this.insertDay = insertDay;
 	}	
-	
+	@OneToMany(mappedBy="newsBean_HO73", cascade={CascadeType.ALL})  
+	public Set<Message> getMessages() {
+		return Messages;
+	}
+
+	public void setMessages(Set<Message> Messages) {
+		this.Messages = Messages;
+	}
 
 	
 	
