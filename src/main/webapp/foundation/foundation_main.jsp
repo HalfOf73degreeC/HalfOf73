@@ -69,6 +69,7 @@
 		<div class="container">
 			<h2 class="nino-sectionHeading">
 				<span class="nino-subHeading">基金會</span>
+	<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>
 			</h2>
 			<div class="sectionContent" id='somedivS'></div>
 		</div>
@@ -95,6 +96,7 @@
 			if (xhr.status == 200 && xhr.readyState == 4) {
 				var str = "<table border='1'>";
 				var arr = JSON.parse(xhr.responseText);
+				$(loadingGif).hide(500);
 				for (var i = 0; i < arr.length; i++) {
 					var foundation = arr[i];
 				    var $row;
