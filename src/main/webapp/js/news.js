@@ -54,10 +54,10 @@ jQuery(function($) {
 						$article).html(news.newsArticle);
 				var $articleMeta = $('<div class="articleMeta">').appendTo(
 						$article).append(
-						'<a href="#"><i class="mdi mdi-eye nino-icon"></i>'
+						'<a><i class="mdi mdi-eye nino-icon"></i>'
 								+ news.newsView + '</a>').append(
-						'<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
-								+ news.newsUid + '</a>')
+						'<a><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
+								+ news.newsUid + '</a>');
 
 			}
 			var len = 80; // 文字>80變成"..."
@@ -85,7 +85,7 @@ jQuery(function($) {
 						var newsId = $(this).attr("date-newsId");
 						// <!-- News資料庫連線 -->
 						var xhr_oneNews = new XMLHttpRequest();
-						xhr_oneNews.open("Post", "getNewsPage?newsUid="
+						xhr_oneNews.open("Post", "/HalfOf73/news/getNewsPage?newsUid="
 								+ newsId, true);
 						xhr_oneNews.setRequestHeader("Content-Type",
 								"application/x-www-form-urlencoded");
@@ -119,6 +119,36 @@ jQuery(function($) {
 								$("#oneNews").append(
 										'<img width="100%" src="'
 												+ news.newsImg + '"/>');
+								var $articleMeta = $('<div class="articleMeta" style="border-top: 1px solid #e5e5e5;margin-top: 15px;font-size: 18px;">').append(
+										'<a style="margin-right: 15px;"><i class="mdi mdi-eye nino-icon"></i>'
+												+ news.newsView + '</a>').append(
+										'<a style="margin-right: 15px;"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
+												+ news.newsUid + '</a>');
+								$("#oneNews").append($articleMeta);
+								
+								var $message= $('<div class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
+										+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
+										+'<li class="unslider-active" style="width: 33.3333%;">'
+										+'<div layout="row" class="verticalCenter">'
+										+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
+											+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
+											+'https://scontent.ftpe8-2.fna.fbcdn.net/v/t1.0-0/p370x247/15202501_395181680872386_3870395997474049651_n.jpg?_nc_cat=0&oh=0c765db9fd64e5c3791d8e82ae328959&oe=5BD65D9B'
+											+'" alt="">'
+										+'</div>'
+										+'<div style="padding:8px;border:2px #ccc solid;border-radius:10px;background-color:#eee;">'
+											+'<span style="font-size:16px;font-weight:bold;color:steelblue;">'
+												+'陰陽師'
+											+'</span>'
+											+'<p style="font-size:15px">'
+											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
+											+'</p>'	
+											+'<p style="margin:0px;">'
+											+'Jul 8, 2018 7:21:56 PM'
+											+'</p>'
+										+'</div>'										
+										+'</div></li></ul></div>');
+								$("#oneNews").append($message);
+								
 							}
 						}
 

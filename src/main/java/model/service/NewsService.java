@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.google.gson.Gson;
 
+import model.bean.Message;
 import model.bean.NewsBean_HO73;
+import model.repository.MessageDao;
 import model.repository.NewsDao;
 
 
@@ -25,6 +27,8 @@ public class NewsService {
 	SessionFactory factory;
 	@Autowired
 	NewsDao newsDao;
+	@Autowired
+	MessageDao messageDao;
 	@Autowired
 	Gson gson;
 //	
@@ -59,7 +63,14 @@ public class NewsService {
 	public String getOneNews2String(Integer newsUid) {
 		return gson.toJson(getOneNews(newsUid));		
 	}
-	
+//	新建一則Message
+	@Transactional
+	public int creatOneMessage(String talkerID, String msg, Integer newsUid) {
+		NewsBean_HO73 nb = newsDao.getOneNew(newsUid);
+		Message msgBeen = new Message(talkerID, msg, nb);
+		messageDao.save(msgBeen);
+		return 0;
+	}
 	
 //	
 //	
