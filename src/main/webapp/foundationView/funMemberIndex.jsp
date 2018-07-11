@@ -7,19 +7,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap2.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/prettyPhoto.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" type="text/css" href="./css/template.css">
-    <link rel="stylesheet" href="./resource/WOW-master/css/libs/animate.css">
-    <title>Foundation Backstage</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="./css/bootstrap2.min.css">
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css" />
+<link rel="stylesheet" type="text/css" href="../css/unslider.css" />
+<link rel="stylesheet" type="text/css" href="./css/template.css" />
+<link rel="stylesheet" type="text/css" href="../css/halfOf73.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" href="./resource/WOW-master/css/libs/animate.css">
+<title>後台管理 - Half Of 73°C</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
+<!-- javascript -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
 </head>
 
 <body style="background: #FFF0F5;">
+    <header id="nino-story">
+		<nav id="nino-navbar" class="navbar navbar-default"
+			style="background-color: rgba(243, 129, 129, 0.8);">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header" w3-include-html="../logo.jsp"></div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="nino-menuItem pull-right">
+					<div class="collapse navbar-collapse pull-left"
+						id="nino-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
+							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
+							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+					<div class="nino-menuItem pull-right"
+						w3-include-html="../navbar_right.jsp"></div>
+				</div>
+			</div>
+		</nav>
+	</header>
     <section id="nino-ourTeam">
         <div class="container">
             <h2 class="nino-sectionHeading title wow fadeInDown">
-                <span class="nino-subHeading" style="font-family: '微軟正黑體';font-size: 40px;">會員管理</span>
+                <span class="nino-subHeading" style="font-family: '微軟正黑體';font-size: 40px;">後台管理</span>
             </h2>
             <p class="nino-sectionDesc wow fadeInDown" style="font-family: '微軟正黑體';font-size: 20px;">
                 誠摯地感謝您一同參與HalfOf73的傳愛平台，世界因為我們而更值得期待！
@@ -30,7 +65,7 @@
                         <div class="item">
                             <div class="overlay box" href="#">
                                 <div class="content box-top">
-                                    <a href="http://localhost:8080/HalfOf73/goods/queryAllGoods_HO73.do" style="font-size: 36px">義賣商品上架</a>
+                                    <a href="${pageContext.request.contextPath}/foundationView/goodsMain.jsp" style="font-size: 36px">義賣商品上架</a>
                                 </div>
                                 <img src="./img/sale.jpg" alt=""style="border-radius: 15%;">
                             </div>
@@ -40,7 +75,7 @@
                         <div class="item">
                             <div class="overlay box" href="#">
                                 <div class="content">
-                                    <a href="http://localhost:8080/HalfOf73/supply.html#nino-portfolio" style="font-size: 36px">捐款管理</a>
+                                    <a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp" style="font-size: 36px">捐款管理</a>
                                 </div>
                                 <img src="./img/499808264.jpg" alt=""style="border-radius: 15%;">
                             </div>
@@ -54,7 +89,7 @@
                         <div class="item">
                             <div class="overlay box" href="#">
                                 <div class="content">
-                                    <a href="http://localhost:8080/HalfOf73/volunteer.html" style="font-size: 36px">需求物資管理</a>
+                                    <a href="${pageContext.request.contextPath}/foundationView/supplyMain.jsp" style="font-size: 36px">需求物資管理</a>
                                 </div>
                                 <img src="./img/stuff.jpg" alt=""style="border-radius: 15%;">
                             </div>
@@ -88,6 +123,7 @@
             </div>
         </div>
     </section>
+    <div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
     <script src="./resource/WOW-master/dist/wow.min.js"></script>
     <script>
         wow = new WOW(
@@ -101,6 +137,11 @@
         )
         wow.init();
     </script>
+    <!-- 	include -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
+	</script>
 </body>
 
 </html>

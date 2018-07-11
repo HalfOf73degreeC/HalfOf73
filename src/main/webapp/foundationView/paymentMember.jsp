@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="./css/template.css">
 <link rel="stylesheet" type="text/css" href="./css/switch.css">
 <link rel="stylesheet" href="./resource/WOW-master/css/libs/animate.css">
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
 <!-- javascript -->
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
@@ -25,12 +26,12 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/jquery.hoverdir.js"></script>
 <script type="text/javascript" src="../js/modernizr.custom.97074.js"></script>
-<script type="text/javascript"
-	src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="../js/unslider-min.js"></script>
-<script type="text/javascript" src="./js/template.js
-	"></script>
-<title>paymentMain</title>
+<script type="text/javascript" src="./js/template.js"></script>
+<title>愛心捐款 - Half Of 73°C</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
 </head>
 <div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body>
@@ -96,7 +97,7 @@
 				</div>
 			</div>
 	</section>
-
+	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 </body>
 <!-- Modal2 -->
 <!-- 了解更多表單 -->

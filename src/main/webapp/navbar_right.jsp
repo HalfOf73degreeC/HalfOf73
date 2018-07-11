@@ -3,8 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="mem" value="${memberBean}"></c:set>
 <ul class="nino-iconsGroup nav navbar-nav" style="max-height: 44px;">
+    <c:if test="${mem.memType == '1'}">
 	<li><a href="${pageContext.request.contextPath}/goods/goodsCarts1.jsp"><i
 			class="mdi mdi-cart-outline nino-icon"></i></a></li>
+	</c:if>
 	<li><a href="#" class="nino-search" style="padding-right: 13px;"><i
 			class="mdi mdi-magnify nino-icon"></i></a></li>
 	<c:if test="${not empty mem.memPicUrl}">
@@ -29,9 +31,9 @@
 				</c:if>
 				<c:if test="${mem.memType == '2'}">
 				<li><a href="${pageContext.request.contextPath}/foundation/foundation_register.jsp"
-					style="font-size: 13px; color: white;">資料維護</a></li>
+					style="font-size: 13px; color: white;">資料修改</a></li>
 				<li><a href="${pageContext.request.contextPath}/foundationView/funMemberIndex.jsp"
-					style="font-size: 13px; color: white;">會員管理</a></li>
+					style="font-size: 13px; color: white;">後台管理</a></li>
 <%-- 				<li><a href="${pageContext.request.contextPath}/foundationView/payBoxMain.jsp" --%>
 <!-- 					style="font-size: 13px; color: white;">捐款管理</a></li> -->
 <%-- 				<li><a href="${pageContext.request.contextPath}/foundationView/goodsMain.jsp" --%>

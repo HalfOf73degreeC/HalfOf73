@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="./css/template.css">
 <link rel="stylesheet" type="text/css" href="./css/switch.css">
 <link rel="stylesheet" href="./resource/WOW-master/css/libs/animate.css">
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
 <!-- javascript -->
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
@@ -28,11 +29,13 @@
 <script type="text/javascript"
 	src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="../js/unslider-min.js"></script>
-<title>payBoxMain</title>
+<title>後台管理-捐款管理</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
 </head>
 
 <body style="background: #FFF0F5;">
-	<header id="nino-story">
+		<header id="nino-story">
 		<nav id="nino-navbar" class="navbar navbar-default"
 			style="background-color: rgba(243, 129, 129, 0.8);">
 			<div class="container">
@@ -88,6 +91,7 @@
 				</div>
 			</div>
 	</section>
+	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<!-- Modal -->
 	<!-- 募款箱表單 -->
 	<div class="modal fade" id="createPatBox" tabindex="-1" role="dialog"

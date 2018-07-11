@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="ninodezign.com, ninodezign@gmail.com">
 <meta name="copyright" content="ninodezign.com">
-<title>最新消息 - Half Of 73°C</title>
+<title>愛的傳遞 - Half Of 73°C</title>
 
 <!-- favicon -->
 <link rel="shortcut icon" href="../images/ico/like.png">
