@@ -76,10 +76,10 @@
 	<section id="nino-latestBlog" >
 		<div class="container" >
 			<div class="sectionContent" id='NewsPage' date-newsMuch="0" data-contextPath="${pageContext.request.contextPath}"></div>
+			<script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>
 		</div>
 	</section>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>
-
+	
 	<!--/#nino-latestBlog-->
 	<!--footer-->
 
