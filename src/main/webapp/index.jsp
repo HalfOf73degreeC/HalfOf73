@@ -27,6 +27,9 @@
 	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
 	<link rel="stylesheet" type="text/css" href="css/unslider.css" />
 	<link rel="stylesheet" type="text/css" href="css/template.css" />
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>	
 </head>
 <body data-target="#nino-navbar" data-spy="scroll">
 <c:set var="mem" value="${memberBean}"></c:set>
@@ -129,187 +132,8 @@
     		<h2 class="nino-sectionHeading">
 				<span class="nino-subHeading" style="font-size: 30px">最新消息</span>
 			</h2>
-			<div class="sectionContent">
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/kid.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">助孩童遠離暴力威脅，平安長大‎</a></h3>
-							<p class="articleDesc">
-								邀請您透過公益捐款「終止兒童受暴」行動，一同挺身捍衛兒童平安成長的權利！<br><br>
-							</p>
-
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/doctor.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">14</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">小小益善 支持無國界醫生 </a></h3>
-							<p class="articleDesc">
-								約3萬5千名救援人員每年為超過80萬人接種麻疹疫苗，立即捐款，支持搶救生命！覆蓋近70個國家 · 數以萬計專業人士投身參與 · 服務超過45年 · 人道救援組織
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/donateLove.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">12</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">捐款幫助他們 讓他們走向快樂‎</a></h3>
-							<p class="articleDesc">
-								用小錢幫助他們走向夢想，伊甸邀您加入公益行列，讓他們彩繪不一樣的人生，快點行動！小錢力量大，捐款做愛心 · 捐款送愛，照護偏鄉長輩 · 一塊捐伊甸，一塊做善事
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-							</div>
-						</article>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/countryKids.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">偏鄉促進會</a></h3>
-							<p class="articleDesc">
-								讓我們一同協助偏鄉地區的小朋友，給予他們更好的生活品質與教育環境，擁有更良好的學習資源
-								，需要你我一起努力！...
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/sameLove.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">14</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">享愛人權基金會</a></h3>
-							<p class="articleDesc">
-								愛，沒有分別......讓我們一同放下成見，為弱勢族群發聲。也許每個人的力量是渺小的，但是因為有您，所以我們就有力量繼續努力！
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/woman.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">12</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">婦孺保育協會</a></h3>
-							<p class="articleDesc">
-								關懷婦孺，你我有責。請正視社會冷暴力的問題，讓我們一同站出來，彼此陪伴度過難關......
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-							</div>
-						</article>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/together.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">15</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">高齡化社會福利聯盟</a></h3>
-							<p class="articleDesc">
-								老人安養問題日漸嚴重，懇請支持年長者社會福利制度，讓我們一起把愛傳出去....
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 543</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 15</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/pets.php" alt=""></a>
-								<div class="date">
-									<span class="number">14</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">流浪動物之家</a></h3>
-							<p class="articleDesc">
-								沒有購買，就沒有棄養。以領養代替購買杜絕浪浪來源，以認養代替安樂死......<br><br>
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 995</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 42</a>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<article>
-							<div class="articleThumb">
-								<a href="#"><img src="./images/halfof73/earthquake.jpg" alt=""></a>
-								<div class="date">
-									<span class="number">12</span>
-									<span class="text">Jan</span>
-								</div>
-							</div>
-							<h3 class="articleTitle"><a href="">震災援助基金會</a></h3>
-							<p class="articleDesc">
-								天佑花蓮！為花蓮的同胞們盡一份心力！您的微光將會是他們的希望。<br><br>
-							</p>
-							<div class="articleMeta">
-								<a href="#"><i class="mdi mdi-eye nino-icon"></i> 1264</a>
-								<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i> 69</a>
-							</div>
-						</article>
-					</div>
-				</div>
-			</div>
+			<div class="sectionContent" id='NewsPage' date-newsMuch="3" data-contextPath="${pageContext.request.contextPath}"></div>
+			<script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>
     	</div>
     	<!-- <section id="nino-services"> -->
     	<div class="container">
@@ -575,7 +399,6 @@
 	<a href="#" id="nino-scrollToTop">Go to Top</a>
 	
 	<!-- javascript -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>	
 	<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
