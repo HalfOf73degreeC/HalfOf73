@@ -12,7 +12,7 @@ jQuery(function($) {
 			'<div w3-include-html="'+$('#NewsPage').attr("data-contextPath")+'/loading.jsp"></div>')
 			.appendTo($('#NewsPage'));
 	var xhr = new XMLHttpRequest();
-	xhr.open("Get", "getNewsPage", true);
+	xhr.open("Get", "/HalfOf73/news/getNewsPage", true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (xhr.status == 200 && xhr.readyState == 4) {

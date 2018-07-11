@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%-- <jsp:useBean id="baBean" class="_03_listBooks.model.BookAccessBean_Hibernate" scope='request'/> --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,10 +75,10 @@
 	<section id="nino-latestBlog" >
 		<div class="container" >
 			<div class="sectionContent" id='NewsPage' date-newsMuch="0" data-contextPath="${pageContext.request.contextPath}"></div>
+			<script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>
 		</div>
 	</section>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>
-
+	
 	<!--/#nino-latestBlog-->
 	<!--footer-->
 
