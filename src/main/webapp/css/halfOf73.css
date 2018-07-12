@@ -49,14 +49,14 @@
 	text-align:  center;
 }
 .goodsDetailImageSize {
-	width:500px;
-	height:500px;
+	width:400px;
+	height:400px;
 	text-align:  center;
 }
 
 .goodsDetailImageSize img{
 	width:auto;
-	height:500px;
+	height:400px;
 	text-align:  center;
 }
 .addressSelector{

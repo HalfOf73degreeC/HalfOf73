@@ -1,9 +1,9 @@
 package model.bean;
 
 import java.sql.Blob;
-import java.sql.Clob;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +18,7 @@ public class GoodsBean_HO73 {
 	String		goodsName;
 	Blob        goodsImg;
 	String      goodsIntro;
-	Clob        goodsArticle;
+	String      goodsArticle;
 	Timestamp	goodsStartTime;
 	Timestamp	goodsEndTime;
 	Integer		goodsStock;
@@ -29,6 +29,12 @@ public class GoodsBean_HO73 {
 	Integer		goodsView;
 	Timestamp	insertDate;
 	String      goodsImgFileName;
+	Blob        goodsImg1;
+	Blob        goodsImg2;
+	Blob        goodsImg3;
+	Blob        goodsImg4;
+	Blob        goodsImg5;
+	String      goodsImgString;
 	FoundationBean_HO73 foundationBean_HO73;
 	
 	
@@ -36,7 +42,7 @@ public class GoodsBean_HO73 {
 		super();
 	}
 
-	public GoodsBean_HO73(Integer goodsUid, String goodsName, Blob goodsImg, String goodsIntro, Clob goodsArticle,
+	public GoodsBean_HO73(Integer goodsUid, String goodsName, Blob goodsImg, String goodsIntro, String goodsArticle,
 			Timestamp goodsStartTime, Timestamp goodsEndTime, Integer goodsStock, Integer goodsSafeStock,
 			String goodsSize, Integer goodsPrice, Integer goodsState, Integer goodsView, Timestamp insertDate,
 			FoundationBean_HO73 foundationBean_HO73) {
@@ -59,7 +65,7 @@ public class GoodsBean_HO73 {
 	}
 
 
-	public GoodsBean_HO73(Integer goodsUid, String goodsName, Blob goodsImg, String goodsIntro, Clob goodsArticle,
+	public GoodsBean_HO73(Integer goodsUid, String goodsName, Blob goodsImg, String goodsIntro, String goodsArticle,
 			Timestamp goodsStartTime, Timestamp goodsEndTime, Integer goodsStock, Integer goodsSafeStock,
 			String goodsSize, Integer goodsPrice, Integer goodsState, Integer goodsView, Timestamp insertDate) {
 		super();
@@ -77,6 +83,28 @@ public class GoodsBean_HO73 {
 		this.goodsState = goodsState;
 		this.goodsView = goodsView;
 		this.insertDate = insertDate;
+	}
+	
+
+	public GoodsBean_HO73(String goodsName, String goodsIntro, String goodsArticle, Integer goodsStock,
+			Integer goodsPrice, String goodsImgFileName, Integer goodsView, Timestamp insertDate, Blob goodsImg, Blob goodsImg1, 
+			 Blob goodsImg2, Blob goodsImg3, Blob goodsImg4, Blob goodsImg5, FoundationBean_HO73 foundationBean_HO73) {
+		super();
+		this.goodsName = goodsName;
+		this.goodsIntro = goodsIntro;
+		this.goodsArticle = goodsArticle;
+		this.goodsStock = goodsStock;
+		this.goodsPrice = goodsPrice;
+		this.goodsImgFileName = goodsImgFileName;
+		this.goodsView = goodsView;
+		this.insertDate = insertDate;
+		this.goodsImg = goodsImg;
+		this.goodsImg1 = goodsImg1;
+		this.goodsImg2 = goodsImg2;
+		this.goodsImg3 = goodsImg3;
+		this.goodsImg4 = goodsImg4;
+		this.goodsImg5 = goodsImg5;
+		this.foundationBean_HO73 = foundationBean_HO73;
 	}
 
 	@Id
@@ -169,18 +197,19 @@ public class GoodsBean_HO73 {
 		this.goodsImg = goodsImg;
 	}
 
-	public Clob getGoodsArticle() {
+	@Column(length = 5000)
+	public String getGoodsArticle() {
 		return goodsArticle;
 	}
 
-	public void setGoodsArticle(Clob goodsArticle) {
+	public void setGoodsArticle(String goodsArticle) {
 		this.goodsArticle = goodsArticle;
 	}
 
 	@ManyToOne  // 多對ㄧ，多方(Item類別)內有個儲存ㄧ方(Cart類別)物件參考的實例變數
 	// @JoinColumn: 定義多方(Items)所對應表格中的外來鍵為何。省略此註釋，
 	// Hibernate會自動產生ㄧ個外來鍵，預設名稱為: 此性質名稱_外來鍵對應的主鍵名稱
-	@JoinColumn(name="funUid")  
+	@JoinColumn(name="funIdCard")  
 	public FoundationBean_HO73 getFoundationBean_HO73() {
 		return foundationBean_HO73;
 	}
@@ -196,6 +225,54 @@ public class GoodsBean_HO73 {
 
 	public void setFoundationBean_HO73(FoundationBean_HO73 foundationBean_HO73) {
 		this.foundationBean_HO73 = foundationBean_HO73;
+	}
+
+	public Blob getGoodsImg1() {
+		return goodsImg1;
+	}
+
+	public void setGoodsImg1(Blob goodsImg1) {
+		this.goodsImg1 = goodsImg1;
+	}
+
+	public Blob getGoodsImg2() {
+		return goodsImg2;
+	}
+
+	public void setGoodsImg2(Blob goodsImg2) {
+		this.goodsImg2 = goodsImg2;
+	}
+
+	public Blob getGoodsImg3() {
+		return goodsImg3;
+	}
+
+	public void setGoodsImg3(Blob goodsImg3) {
+		this.goodsImg3 = goodsImg3;
+	}
+
+	public Blob getGoodsImg4() {
+		return goodsImg4;
+	}
+
+	public void setGoodsImg4(Blob goodsImg4) {
+		this.goodsImg4 = goodsImg4;
+	}
+
+	public Blob getGoodsImg5() {
+		return goodsImg5;
+	}
+
+	public void setGoodsImg5(Blob goodsImg5) {
+		this.goodsImg5 = goodsImg5;
+	}
+
+	public String getGoodsImgString() {
+		return goodsImgString;
+	}
+
+	public void setGoodsImgString(String goodsImgString) {
+		this.goodsImgString = goodsImgString;
 	}
 
 	@Override
