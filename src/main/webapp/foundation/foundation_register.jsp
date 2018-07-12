@@ -70,7 +70,7 @@
 		<section id="nino-whatWeDo">
 			<div class="container">
 				<h2 class="nino-sectionHeading">
-					<span class="nino-subHeading" width="350px" style="cursor: default;">基金會申請</span>
+					<span class="nino-subHeading" width="350px" >基金會申請</span>
 				</h2>
 				<div class="sectionContent">
 					<div class="row">
@@ -105,11 +105,9 @@
 													<button class="btn btn-success" type="submit"
 														style="width: 130px; cursor: default;">愛心碼 :</button>
 												</span>
-												<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
 												<input type="text" name="funIdcard" class="form-control"
 													placeholder="" value="${fun.funIdcard}"
 													style="z-index: 1">
-<%-- 												<input type="text" class="form-control" name="funIdcard" placeholder="" id="userId" size="10" maxlength="7"  value="<%=${fun.funIdcard}%>" onblur="validate(this)"> --%>
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -511,7 +509,7 @@
 									</div>
 								</div>
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingOne" >
+									<div class="panel-heading" role="tab" id="headingOne">
 										<h4 class="panel-title">
 											<a role="button" data-toggle="collapse"
 												data-parent="#accordion" href="#collapseOne"
