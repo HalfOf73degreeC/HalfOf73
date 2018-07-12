@@ -150,11 +150,11 @@
 										var $articleMeta = $(
 												'<div class="articleMeta">')
 												.appendTo($article).append(
-														'<a href="#"><i class="mdi mdi-eye nino-icon"></i>'
+														'<a><i class="mdi mdi-eye nino-icon"></i>'
 																+ shares.sharesView
 																+ '</a>')
 												.append(
-														'<a href="#"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
+														'<a><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
 																+ shares.sharesUid
 																+ '</a>')
 															

@@ -293,7 +293,7 @@
 						<div class="overlay">
 							<div class="content">
 								<!-- <i class="mdi mdi-guitar-electric nino-icon"></i> -->
-								<h4 class="title" style='font-size:25px;'>孩子的心願</h4>
+								<h4 class="title" style='font-size:25px;'>了解更多</h4>
 								<span class="desc" style='font-size:15px;'>謝謝你們的善心，讓我們有更好的未來</span>
 							</div>
 						</div>
