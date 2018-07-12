@@ -128,7 +128,7 @@
 										<div class="panel-body" style="height: 175px;">
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">姓名:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">姓名:</div>
 												</span> <input type="text" name="memName" class="form-control"
 													placeholder="" value="${mem.memName}" style="z-index: 1">
 												<div
@@ -136,7 +136,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">生日:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">生日:</div>
 												</span>
 												<fmt:formatDate value="${mem.memBirthday}"
 													var="formatMemBirthdayDate" type="date"
@@ -148,7 +148,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">性別:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">性別:</div>
 												</span> <input type="text" name="memGender" class="form-control"
 													placeholder="M/F" value="${mem.memGender}"
 													style="z-index: 1">
@@ -175,7 +175,7 @@
 										<div class="panel-body" style="height: 175px;">
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">郵件:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">郵件:</div>
 												</span>
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<c:if test="${mem.memEmail2 == null}">
@@ -191,14 +191,14 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">電話:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">電話:</div>
 												</span> <input type="text" name="memMobile" class="form-control"
 													placeholder="" value="${mem.memMobile}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">住址:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">住址:</div>
 												</span> <input type="text" name="memAddress" class="form-control"
 													placeholder="" value="${mem.memAddress}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
@@ -244,7 +244,7 @@
 										<div class="panel-body" style="height: 175px;">
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">身分證號:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">身分證號:</div>
 												</span>
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<input type="text" name="memIdcard" class="form-control"
@@ -254,7 +254,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">會員類別:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">會員類別:</div>
 												</span> <input type="text" class="form-control" disabled="disabled"
 													value="${mem.memType}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
@@ -262,7 +262,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit">帳號狀態:</div>
+													<div class="btn btn-success" type="submit" style="cursor: default">帳號狀態:</div>
 												</span> <input type="text" class="form-control" disabled="disabled"
 													value="${mem.memStatus}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
