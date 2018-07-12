@@ -259,6 +259,7 @@
 			var goodsPrice = $('#goodsPrice').val();
 			var goodsArticle = $('#goodsArticle').val();
 			var goodsIntro = $('#goodsIntro').val();
+			
 			var goodsImg1 = $('#input_img1');
 			var goodsImg2 = $('#input_img2');
 			var goodsImg3 = $('#input_img3');
@@ -385,6 +386,63 @@
 		
 		$('body').startToCropImg();
 	});
+	jQuery.fn.showPayBox = function(payBox) {
+		var button = $(
+				'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3"'
+				+' data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
+				.appendTo($("#activityRow"));
+
+		var paybox_info = $(
+				'<div class="item">'
+						+ '<div class="overlay box" href="#">'
+						+ '<div class="content">'
+						+ '<a style="font-size: 36px">'
+						+ payBox.balance
+						+ '</a></div>'
+						+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
+						+ '</div></div>').appendTo(button);
+		var paybox_title = $(
+				'<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
+						+ payBox.payBoxName + '</div>').appendTo(button);
+	}
+	$(document).ready(function() {
+		fk_payIdcard = 1235;
+		$('body').getPayBoxList();
+	});
+	jQuery.fn.getPayBoxList = function() {
+		return this.each(function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
+					true);
+			xhr.setRequestHeader("Content-Type",
+					"application/x-www-form-urlencoded");
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.status == 200 && xhr.readyState == 4) {
+					var funBean = JSON.parse(xhr.responseText);
+					payBoxList = [];
+					console.log(funBean);
+					payBoxList = funBean.payBox;
+					console.log("清空payBox");
+					$(".PayBox").remove();
+					console.log(payBoxList);
+					console.log("重建payBox");
+					for (var i = 0; i < payBoxList.length; i++) {
+						if (payBoxList[i].payBoxType == 1) {
+							$('body').showPayBox(payBoxList[i]);
+						}
+					}
+					for (var i = 0; i < payBoxList.length; i++) {
+						if (payBoxList[i].payBoxType == 0) {
+							$('body').showPayBox(payBoxList[i]);
+						}
+					}
+					$('body').clickPayBox();
+
+				}
+			}
+		});
+	}
 	</script>
 	<!-- 	include -->
 	<script src="https://www.w3schools.com/lib/w3.js"></script>

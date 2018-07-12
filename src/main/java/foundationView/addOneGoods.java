@@ -66,8 +66,9 @@ public class addOneGoods extends HttpServlet {
 					if (p.getContentType() != null) {   // 表示 p 為一般欄位而非上傳的表單
 						sizeInBytes = p.getSize();
 						is = p.getInputStream();
-						if (fldName.equals("goodsImg1")) {
+						if (fldName.equals("goodsImg")) {
 							goodsImg = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("goodsImg1")) {
 							goodsImg1 = SystemUtils2018.fileToBlob(is, sizeInBytes);
 						} else if (fldName.equals("goodsImg2")) {
 							goodsImg2 = SystemUtils2018.fileToBlob(is, sizeInBytes);
@@ -77,7 +78,7 @@ public class addOneGoods extends HttpServlet {
 							goodsImg4 = SystemUtils2018.fileToBlob(is, sizeInBytes);
 						} else if (fldName.equals("goodsImg5")) {
 							goodsImg5 = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						}
+						} 
 					} 
 				}
 			} 

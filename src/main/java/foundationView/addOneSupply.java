@@ -65,8 +65,9 @@ public class addOneSupply extends HttpServlet {
 					if (p.getContentType() != null) {   // 表示 p 為一般欄位而非上傳的表單
 						sizeInBytes = p.getSize();
 						is = p.getInputStream();
-						if (fldName.equals("supImg1")) {
+						if (fldName.equals("supImg")) {
 							supImg = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("supImg1")) {
 							supImg1 = SystemUtils2018.fileToBlob(is, sizeInBytes);
 						} else if (fldName.equals("supImg2")) {
 							supImg2 = SystemUtils2018.fileToBlob(is, sizeInBytes);
