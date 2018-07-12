@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="mem" value="${memberBean}"></c:set>	
 <!DOCTYPE html>
 <html lang="en">
 <!-- icon -->
@@ -169,15 +170,22 @@
 					<div class="col-md-6" style="margin: 30px 30px;">
 						<a role="button" data-toggle="collapse" data-parent="#accordion"
 							href="#collapseOne" aria-controls="collapseOne">
-							<button id="commit_Payment" type="button"
-								class="btn btn-primary btn-lg" data-toggle="modal"
-								data-target="#myModal3"
-								style="float: right; border: 0px #9ae2d5; width: 130px; padding-bottom: 10px; margin-top: -12px;">
-								<i class="fas fa-dollar-sign nino-icon"
-									style="font-size: 22px; margin-top: 2px; margin-right: 1px;"></i>
-								<span
-									style="font-family: '微軟正黑體'; font-weight: bold; font-size: 18px; margin-right: 15px;">立即捐款</span>
-							</button>
+							<c:choose>
+								<c:when test="${mem.memType == '1'}">
+     								<button id="commit_Payment" type="button"class="btn btn-primary btn-lg" data-toggle="modal"data-target="#myModal3"style="float: right; border: 0px #9ae2d5; width: 130px; padding-bottom: 10px; margin-top: -12px;">
+										<i class="fas fa-dollar-sign nino-icon"style="font-size: 22px; margin-top: 2px; margin-right: 1px;"></i>
+										<span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 18px; margin-right: 15px;">立即捐款</span>
+									</button>
+   								</c:when>
+   								<c:otherwise>
+   									<button id="commit_Payment" type="button"class="btn btn-primary btn-lg"style="float: right; border: 0px #9ae2d5; width: 130px; padding-bottom: 10px; margin-top: -12px;">
+										<i class="fas fa-sign-out-alt nino-icon"style="font-size: 22px; margin-top: 2px; margin-right: 1px; color:#fff;"></i>
+										<a href="${pageContext.request.contextPath}/member/login"style="font-size: 13px; color: white;">
+											<span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 18px; margin-right: 15px;">登入捐款</span>
+										</a>
+									</button>
+   								</c:otherwise>
+							</c:choose>
 						</a>
 						<div style="clear: both;"></div>
 
@@ -473,7 +481,7 @@
 	}
 	jQuery.fn.showPayBox = function(payBox) {
 		var button = $(
-				'<div class=" focus wow bounceIn col-sm-3 col-md-3 PayBox" date-payBoxNumber='
+				'<div class=" focus wow fadeInUp col-sm-3 col-md-3 PayBox" date-payBoxNumber='
 				+payBox.payBoxNumber+'>'
 						+ '<div class="thumbnail" data-toggle="modal" data-target="#editPatBox" style="border-radius:5%; border-style:solid; border-width:2px; border-color:#9ae2d5;">'
 						+ '<img src="./img/news.jpg" style="border-radius:5%;" alt="">'

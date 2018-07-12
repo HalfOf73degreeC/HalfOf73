@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<section id="nino-ourTeam">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
 				<span class="nino-subHeading" style="font-size: 30px">捐款募資</span>
@@ -57,4 +56,3 @@
 				</div>
 			</div>
 		</div>
-	</section>
