@@ -191,14 +191,16 @@
 
 	<!-- Portfolio
     ================================================== -->
-<c:choose>
-   <c:when test="${mem.memType == '2'}">
-     <div w3-include-html="${pageContext.request.contextPath}/funMemberIndex.jsp"></div>
-   </c:when>
-   <c:otherwise>
-   	 <div w3-include-html="${pageContext.request.contextPath}/visitorIndex.jsp"></div>
-   </c:otherwise>
-</c:choose>
+	<section id="nino-ourTeam">
+		<c:choose>
+		   <c:when test="${mem.memType == '2'}">
+		     <div w3-include-html="${pageContext.request.contextPath}/funMemberIndex.jsp"></div>
+		   </c:when>
+		   <c:otherwise>
+		   	 <div w3-include-html="${pageContext.request.contextPath}/visitorIndex.jsp"></div>
+		   </c:otherwise>
+		</c:choose>
+	</section>
     <!-- Happy Client
     ================================================== -->
     <section id="nino-portfolio">

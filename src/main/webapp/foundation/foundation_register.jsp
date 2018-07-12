@@ -70,7 +70,7 @@
 		<section id="nino-whatWeDo">
 			<div class="container">
 				<h2 class="nino-sectionHeading">
-					<span class="nino-subHeading" width="350px">基金會申請</span>
+					<span class="nino-subHeading" width="350px" style="cursor: default;">基金會申請</span>
 				</h2>
 				<div class="sectionContent">
 					<div class="row">
@@ -83,7 +83,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>聯絡資訊
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>聯絡資訊
 											</a>
 										</h4>
 									</div>
@@ -93,7 +93,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">名稱 :</button>
+														style="width: 130px; cursor: default;">名稱 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="黃中平" rows="1"></textarea> -->
 												<input type="text" name="funName" class="form-control"
@@ -103,17 +103,18 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">愛心碼 :</button>
+														style="width: 130px; cursor: default;">愛心碼 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
 												<input type="text" name="funIdcard" class="form-control"
 													placeholder="" value="${fun.funIdcard}"
 													style="z-index: 1">
+<%-- 												<input type="text" class="form-control" name="funIdcard" placeholder="" id="userId" size="10" maxlength="7"  value="<%=${fun.funIdcard}%>" onblur="validate(this)"> --%>
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">執行長 :</button>
+														style="width: 130px; cursor: default;">執行長 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funCeo" class="form-control"
@@ -123,7 +124,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">聯絡人 :</button>
+														style="width: 130px; cursor: default;">聯絡人 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funContact" class="form-control" placeholder=""
@@ -133,7 +134,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">網址 :</button>
+														style="width: 130px; cursor: default;">網址 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funDomain" class="form-control" placeholder=""
@@ -143,7 +144,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">電話 :</button>
+														style="width: 130px; cursor: default;">電話 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funTel" class="form-control" placeholder=""
@@ -152,7 +153,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">傳真 :</button>
+														style="width: 130px; cursor: default;">傳真 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funFax" class="form-control" placeholder=""
@@ -161,7 +162,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">E-mail :</button>
+														style="width: 130px; cursor: default;">E-mail :</button>
 												</span>
 												<c:if test="${empty fun.funEmail2}">
 												<input type="email" name="funEmail" class="form-control" placeholder=""
@@ -176,7 +177,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">地址 :</button>
+														style="width: 130px; cursor: default;">地址 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funAddress" class="form-control" placeholder=""
@@ -193,7 +194,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>基本資料
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>基本資料
 											</a>
 										</h4>
 									</div>
@@ -203,7 +204,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">創辦人 :</button>
+														style="width: 130px; cursor: default;">創辦人 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="黃中平" rows="1"></textarea> -->
 												<input type="text" name="funFounder" class="form-control" placeholder=""
@@ -213,7 +214,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">成立日期 :</button>
+														style="width: 130px; cursor: default;">成立日期 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="YYYY/MM/DD" rows="1"></textarea> -->
 												<input type="date" name="funCreateDate" class="form-control"
@@ -224,7 +225,7 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" type="submit"
-														style="width: 130px">許可機關 :</button>
+														style="width: 130px; cursor: default;">許可機關 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funAllowOrg" class="form-control" placeholder=""
@@ -241,7 +242,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>成立主旨
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>成立主旨
 											</a>
 										</h4>
 									</div>
@@ -263,7 +264,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>服務地區
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務地區
 											</a>
 										</h4>
 									</div>
@@ -325,7 +326,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>服務對象
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務對象
 											</a>
 										</h4>
 									</div>
@@ -392,7 +393,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>服務項目
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務項目
 											</a>
 										</h4>
 									</div>
@@ -510,13 +511,13 @@
 									</div>
 								</div>
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingOne">
+									<div class="panel-heading" role="tab" id="headingOne" >
 										<h4 class="panel-title">
 											<a role="button" data-toggle="collapse"
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon"></i>工作重點
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>工作重點
 											</a>
 										</h4>
 									</div>
