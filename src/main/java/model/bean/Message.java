@@ -25,9 +25,8 @@ public class Message {
 		super();
 	}
 	
-	public Message(Integer messageUid, String talkerID, String msg, NewsBean_HO73 newsBean_HO73, Date insertDate) {
+	public Message(String talkerID, String msg, NewsBean_HO73 newsBean_HO73) {
 		super();
-		MessageUid = messageUid;
 		this.talkerID = talkerID;
 		this.msg = msg;
 		this.newsBean_HO73 = newsBean_HO73;
