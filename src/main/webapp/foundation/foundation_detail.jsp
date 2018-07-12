@@ -290,7 +290,7 @@ function codeAddress() {
 		  });
       }, 1000);
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+//       alert('尚無地圖資訊' + status);
     }
   });
 }
