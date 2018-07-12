@@ -38,7 +38,7 @@ public class InitailGoodsMysql_hibernate {
 				gb.setGoodsImgFileName(imageFileName);
 
 				Clob clob = SystemUtils2018.fileToClob(sa[2].trim());
-				gb.setGoodsArticle(clob);
+//				gb.setGoodsArticle(clob);
 				
 				String startTime = sa[3].trim();
 				Timestamp goodsStartTime = new Timestamp(System.currentTimeMillis());
