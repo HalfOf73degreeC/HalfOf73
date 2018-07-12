@@ -71,8 +71,7 @@ public class GoodsService {
 			Integer goodsStock, String funIdCard, Integer goodsView, Timestamp insertDate, Blob goodsImg, Blob goodsImg1, Blob goodsImg2, Blob goodsImg3
 			, Blob goodsImg4, Blob goodsImg5) {
 		GoodsBean_HO73 gb = null;
-		FoundationBean_HO73 fb = new FoundationBean_HO73();
-		fb.setFunIdcard(funIdCard);
+		FoundationBean_HO73 fb = fdao.getOneFoundation(funIdCard); 
 		gb = new GoodsBean_HO73(goodsName, goodsIntro, goodsArticle, goodsStock, goodsPrice, goodsImgFileName, goodsView, insertDate, goodsImg, goodsImg1, 
 				goodsImg2, goodsImg3, goodsImg4, goodsImg5,fb);
 		gdao.save(gb);

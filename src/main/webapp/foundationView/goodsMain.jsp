@@ -35,6 +35,30 @@
 </head>
 
 <body style="background: #FFF0F5;">
+<header id="nino-story">
+		<nav id="nino-navbar" class="navbar navbar-default"
+			style="background-color: rgba(243, 129, 129, 0.8);">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header" w3-include-html="../logo.jsp"></div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="nino-menuItem pull-right">
+					<div class="collapse navbar-collapse pull-left"
+						id="nino-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
+							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
+							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+					<div class="nino-menuItem pull-right"
+						w3-include-html="../navbar_right.jsp"></div>
+				</div>
+			</div>
+		</nav>
+	</header>
 	<!-- 主要畫面 -->
 	<section id="nino-ourTeam">
 		<div class="container">
@@ -79,6 +103,7 @@
 				</div>
 			</div>
 	</section>
+	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<!-- Modal -->
 	<!-- 募款箱表單 -->
 	<div class="modal fade" id="addNewGoodsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -360,6 +385,11 @@
 		
 		$('body').startToCropImg();
 	});
+	</script>
+	<!-- 	include -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
 	</script>
 </body>
 

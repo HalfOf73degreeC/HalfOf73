@@ -62,8 +62,7 @@ public class SupplyService {
 			Integer supNeedStock, String funIdCard, Integer supView, Timestamp insertDate, Blob supImg, Blob supImg1, Blob supImg2, Blob supImg3
 			, Blob supImg4, Blob supImg5) {
 		SupplyBean_HO73 sb = null;
-		FoundationBean_HO73 fb = new FoundationBean_HO73();
-		fb.setFunIdcard(funIdCard);
+		FoundationBean_HO73 fb = fdao.getOneFoundation(funIdCard); 
 		sb = new SupplyBean_HO73(supName, supImg, supImgFileName, supIntro, supArticle, supNeedStock, supView, insertDate, supImg1, supImg2, supImg3, supImg4, supImg5, fb);
 		sdao.save(sb);
 		return sb;

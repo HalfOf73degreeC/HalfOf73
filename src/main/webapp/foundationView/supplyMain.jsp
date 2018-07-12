@@ -35,6 +35,31 @@
 </head>
 
 <body style="background: #FFF0F5;">
+<header id="nino-story">
+		<nav id="nino-navbar" class="navbar navbar-default"
+			style="background-color: rgba(243, 129, 129, 0.8);">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header" w3-include-html="../logo.jsp"></div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="nino-menuItem pull-right">
+					<div class="collapse navbar-collapse pull-left"
+						id="nino-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
+							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
+							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+					<div class="nino-menuItem pull-right"
+						w3-include-html="../navbar_right.jsp"></div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
 	<!-- 主要畫面 -->
 	<section id="nino-ourTeam">
 		<div class="container">
@@ -79,6 +104,7 @@
 				</div>
 			</div>
 	</section>
+	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<!-- Modal -->
 	<!-- 募款箱表單 -->
 	<div class="modal fade" id="addNewGoodsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -114,7 +140,7 @@
 											<span>選擇物資照片</span> <input id="input_img"
 												accept="image/gif, image/jpeg, image/png" type="file"
 												name="file1"
-												style="position: relative; top: -100; z-index: -2; height: 0px;" />
+												style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;" />
 											</buttom>
 										</label>
 									</div>
@@ -202,6 +228,10 @@
 								}else{
 									$('#startToCropImg').show();
 								}
+								$('#input_img').appendTo($("#addNewGoodsModal"));
+								$('#input_img').attr("id","input_img"+pic_count);
+								$('#input_img_chouse').append('<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;">');
+								
 								var crop_img = $("#preview_img").attr("src");
 								// 		console.log(crop_img);
 								$("#little_img")
@@ -228,17 +258,11 @@
 		$('#addNewGoods_bt').on("click", function() {
 			console.log("準備新建Supply");
 			var xhr = new XMLHttpRequest();
-			var supName = $('#supName').attr(
-					"date-payBoxNumber");
+			var supName = $('#supName').val();
 			var supNeedStock = $('#supNeedStock').val();
 			var supArticle = $('#supArticle').val();
 			var supIntro = $('#supIntro').val();
 			
-// 			var ImgBox=[]			
-// 			for(var i = 0; i < pic_count; i++){
-// 				var supImg = $('#supImg'+i).attr("src");
-// 				ImgBox.add(goodsImg);
-// 			}
 			var supImg1 = $('#supImg1').attr("src");
 			var supImg2 = $('#supImg2').attr("src");
 			var supImg3 = $('#supImg3').attr("src");
@@ -250,11 +274,12 @@
             fd.append("supNeedStock", supNeedStock);
             fd.append("supArticle", supArticle);
             fd.append("supIntro", supIntro);
-            fd.append("supImg1", supImg1);
-            fd.append("supImg2", supImg2);
-            fd.append("supImg3", supImg3);
-            fd.append("supImg4", supImg4);
-            fd.append("supImg5", supImg5);
+            fd.append("supImg", $('#input_img1')[0].files[0]);
+            fd.append("supImg1", $('#input_img1')[0].files[0]);
+            fd.append("supImg2", $('#input_img2')[0].files[0]);
+            fd.append("supImg3", $('#input_img3')[0].files[0]);
+            fd.append("supImg4", $('#input_img4')[0].files[0]);
+            fd.append("supImg5", $('#input_img5')[0].files[0]);
 
 			xhr.open("POST", "addOneSupply", true);
 			xhr.send(fd);
@@ -267,10 +292,10 @@
 					if (jsonString.length < 10) {
 						alert("無法新建商品");
 					} else {
-// 						var payBox = JSON.parse(xhr.responseText);
-// 						console.log(payBox);
+						var payBox = JSON.parse(xhr.responseText);
+						console.log(payBox);
 					}
-// 					$('body').getPayBox_now(payBoxNumber);
+					$('body').getPayBox_now(payBoxNumber);
 					
 				}
 			}
@@ -368,6 +393,11 @@
 		
 		$('body').startToCropImg();
 	});
+	</script>
+	<!-- 	include -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
 	</script>
 </body>
 
