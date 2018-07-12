@@ -19,7 +19,6 @@
 <link rel="stylesheet" type="text/css" href="css/switch.css">
 <link rel="stylesheet" href="resource/WOW-master/css/libs/animate.css">
 <link rel="stylesheet" href="css/croppie.css">
-<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
 <!-- javascript -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
@@ -32,36 +31,10 @@
 <script type="text/javascript" src="js/unslider-min.js"></script>
 <script type="text/javascript" src="js/croppie.js"></script>
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
-<title>後台管理-上架愛心商品</title>
-<!-- favicon -->
-<link rel="shortcut icon" href="../images/ico/like.png">
+<title>商品建檔</title>
 </head>
 
 <body style="background: #FFF0F5;">
-	<header id="nino-story">
-		<nav id="nino-navbar" class="navbar navbar-default"
-			style="background-color: rgba(243, 129, 129, 0.8);">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header" w3-include-html="../logo.jsp"></div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="nino-menuItem pull-right">
-					<div class="collapse navbar-collapse pull-left"
-						id="nino-navbar-collapse">
-						<ul class="nav navbar-nav">
-							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
-							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
-							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
-					<div class="nino-menuItem pull-right"
-						w3-include-html="../navbar_right.jsp"></div>
-				</div>
-			</div>
-		</nav>
-	</header>
 	<!-- 主要畫面 -->
 	<section id="nino-ourTeam">
 		<div class="container">
@@ -106,62 +79,60 @@
 				</div>
 			</div>
 	</section>
-	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<!-- Modal -->
 	<!-- 募款箱表單 -->
 	<div class="modal fade" id="addNewGoodsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	</div>
 	<!-- Modal2 -->
 	<!-- 新增照片&圖片裁切-->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" style="z-index: 1050;">
-		<div class="modal-dialog" role="document" style="">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel"
-						style="font-family: '微軟正黑體'; font-size: 20px;">新增商品圖片</h4>
-				</div>
-				<div class="modal-body">
-					<div id="collapseOne1" class="panel-collapse collapse in"
-						role="tabpanel" aria-labelledby="headingOne">
-						<div class="panel-body" style="height: auto;">
-							<div class="row">
-								<div class="">
-									<div class="text-center"
-										style="margin-top: -55px; margin-left: -10px;">
-										<div id="div_changePic" style="margin-top: 50px;">
-											<img id="preview_img" src="" width="100%" height="">
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" style="z-index: 1050;">
+			<div class="modal-dialog" role="document" style="">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel"
+							style="font-family: '微軟正黑體'; font-size: 20px;">新增商品圖片</h4>
+					</div>
+					<div class="modal-body">
+						<div id="collapseOne1" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body" style="height: auto;">
+								<div class="row">
+									<div class="">
+										<div class="text-center"
+											style="margin-top: -55px; margin-left: -10px;">
+											<div id="div_changePic" style="margin-top: 50px;">
+												<img id="preview_img" src="" width="100%" height="">
+											</div>
+											<label for="input_img" style=""> <buttom
+													id="input_img_chouse"
+													style="color: #95e1d3; font-size: 25px;font-weight:bold;z-index:2; cursor:pointer;">
+												<span>選擇商品照片</span> <input id="input_img"
+													accept="image/gif, image/jpeg, image/png" type="file"
+													name="file1"
+													style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;" />
+												</buttom>
+											</label>
 										</div>
-										<label for="input_img" style=""> <buttom
-												id="input_img_chouse"
-												style="color: #95e1d3; font-size: 25px;font-weight:bold;z-index:2; cursor:pointer;">
-											<span>選擇商品照片</span> <input id="input_img"
-												accept="image/gif, image/jpeg, image/png" type="file"
-												name="file1"
-												style="position: relative; top: -100; z-index: -2; height: 0px;" />
-											</buttom>
-										</label>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="modal-footer" style="">
-						<button type="button" class="btn btn-default" data-dismiss="modal"
-							style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
-						<button type="button" id="crop_img" data-dismiss="modal"
-							class="btn btn-primary upload-result"
-							style="font-family: '微軟正黑體'; font-size: 15px;">確定</button>
+						<div class="modal-footer" style="">
+							<button type="button" class="btn btn-default" data-dismiss="modal"
+								style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
+							<button type="button" id="crop_img" data-dismiss="modal"
+								class="btn btn-primary upload-result"
+								style="font-family: '微軟正黑體'; font-size: 15px;">確定</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	</div>
 
 
 	<script src="./resource/WOW-master/dist/wow.min.js"></script>
@@ -177,7 +148,6 @@
 		wow.init();
 	</script>
 	<script>
-	
 	jQuery.fn.startToCropImg = function() {
 	//選擇圖片用	
 		$("#startToCropImg").on("click",function() {			
@@ -230,8 +200,11 @@
 								}else{
 									$('#startToCropImg').show();
 								}
+								$('#input_img').appendTo($("#addNewGoodsModal"));
+								$('#input_img').attr("id","input_img"+pic_count);
+								$('#input_img_chouse').append('<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;">');
 								var crop_img = $("#preview_img").attr("src");
-								// 		console.log(crop_img);
+										console.log(crop_img);
 								$("#little_img")
 										.append(
 												'<div class="col-md-2 col-sm-2" style="width: 87px;margin-top:10px;padding:5px 5px; cursor: pointer; ">'
@@ -256,30 +229,32 @@
 		$('#addNewGoods_bt').on("click", function() {
 			console.log("準備新建Goods");
 			var xhr = new XMLHttpRequest();
-			var goodsName = $('#goodsName').attr(
-					"date-payBoxNumber");
+			var goodsName = $('#goodsName').val();
 			var goodsStock = $('#goodsStock').val();
 			var goodsPrice = $('#goodsPrice').val();
 			var goodsArticle = $('#goodsArticle').val();
-			
-			var ImgBox=[]			
-			for(var i = 0; i < pic_count; i++){
-				var goodsImg = $('#goodsImg'+i).attr("src");
-				ImgBox.add(goodsImg);
-			}
-			var goodsImg1 = $('#goodsImg1').attr("src");
-			var goodsImg2 = $('#goodsImg2').attr("src");
-			var goodsImg3 = $('#goodsImg3').attr("src");
-			var goodsImg4 = $('#goodsImg4').attr("src");
-			var goodsImg5 = $('#goodsImg5').attr("src");
-			xhr.open("Post", "addOnePayBoxOut?payBoxNumber="
-					+ payBoxNumber + "&fk_payIdcard=" + fk_payIdcard
-					+ "&payForName=" + payForName + "&payForDetail="
-					+ payForDetail + "&payForCost=" + payForCost
-					+ "&receipt=" + receipt, true);
-			xhr.setRequestHeader("Content-Type",
-					"application/x-www-form-urlencoded");
-			xhr.send();
+			var goodsIntro = $('#goodsIntro').val();
+			var goodsImg1 = $('#input_img1');
+			var goodsImg2 = $('#input_img2');
+			var goodsImg3 = $('#input_img3');
+			var goodsImg4 = $('#input_img4');
+			var goodsImg5 = $('#input_img5');
+
+            var fd = new FormData();
+            fd.append("goodsName", goodsName);
+            fd.append("goodsStock", goodsStock);
+            fd.append("goodsPrice", goodsPrice);
+            fd.append("goodsArticle", goodsArticle);
+            fd.append("goodsIntro", goodsIntro);
+            fd.append("goodsImg", $('#input_img1')[0].files[0]);
+            fd.append("goodsImg1", $('#input_img1')[0].files[0]);
+            fd.append("goodsImg2", $('#input_img2')[0].files[0]);
+            fd.append("goodsImg3", $('#input_img3')[0].files[0]);
+            fd.append("goodsImg4", $('#input_img4')[0].files[0]);
+            fd.append("goodsImg5", $('#input_img5')[0].files[0]);
+
+			xhr.open("POST", "addOneGoods", true);
+			xhr.send(fd);
 			xhr.onreadystatechange = function() {
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					var jsonString = xhr.responseText;
@@ -287,28 +262,23 @@
 					console.log("jsonString.length= "
 							+ jsonString.length);
 					if (jsonString.length < 10) {
-						alert("無法新建花費");
+						alert("無法新建商品");
 					} else {
-						var payBox = JSON.parse(xhr.responseText);
-						console.log(payBox);
+// 						var payBox = JSON.parse(xhr.responseText);
+// 						console.log(payBox);
 					}
-					$('body').getPayBox_now(payBoxNumber);
+// 					$('body').getPayBox_now(payBoxNumber);
 					
 				}
 			}
 
 		});
-		
-		
-		
-		
-		
 	}
 	//ReNew
 	$("#addNewGoods").on("click",function() {
 		pic_count = 0;
 		$('#addNewGoodsModal').empty();
-		$('#addNewGoodsModal').append('<div class="modal-dialog modal-lg" role="document">'
+		$('#addNewGoodsModal').append('<form action="addOneGoods" enctype="multipart/form-data"><div class="modal-dialog modal-lg" role="document">'
 				+'<div class="modal-content">'
 				+'<div class="modal-header">'
 				+'<button type="button" class="close" data-dismiss="modal"'
@@ -365,6 +335,15 @@
 				+'style="margin-top: 50px;">'
 				+'<div id="collapseOne1" class="panel-collapse collapse in"'
 				+'role="tabpanel" aria-labelledby="headingOne">'
+				+'<div class="panel-body" style="height: 120px;">'
+				+'<h4 class="panel-title">'
+				+'<div style="font-family: "微軟正黑體"; font-size: 16px;">商品簡介</div>'
+				+'</h4>'
+				+'<textarea class="form-control" id="goodsIntro"'
+				+'placeholder="" rows="3" style="resize : none;" onKeyDown="if (this.value.length>=200){event.returnValue=false}"></textarea>'
+				+'</div></div>'
+				+'<div id="collapseOne1" class="panel-collapse collapse in"'
+				+'role="tabpanel" aria-labelledby="headingOne">'
 				+'<div class="panel-body" style="height: 167px;">'
 				+'<h4 class="panel-title">'
 				+'<div style="font-family: "微軟正黑體"; font-size: 16px;">商品詳述</div>'
@@ -377,15 +356,10 @@
 				+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
 				+'<button type="button" class="btn btn-primary" id="addNewGoods_bt" data-dismiss="modal"'
 				+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
-				+'</div></div></div>');
+				+'</div></div></div></form>');
 		
 		$('body').startToCropImg();
 	});
-	</script>
-	<!-- 	include -->
-	<script src="https://www.w3schools.com/lib/w3.js"></script>
-	<script>
-		w3.includeHTML();
 	</script>
 </body>
 

@@ -32,7 +32,7 @@ public class InitailSupplyMysql_hibernate {
 				sb.setSupImgFileName(imgPath);
 				sb.setSupImg(SystemUtils2018.fileToBlob(imgPath));
 				String articlePath = sa[2].trim();
-				sb.setSupArticle(SystemUtils2018.fileToClob(articlePath));
+//				sb.setSupArticle(SystemUtils2018.fileToClob(articlePath));
 				String startTime = sa[3].trim();
 				Timestamp supStartTime = new Timestamp(System.currentTimeMillis());
 				supStartTime = Timestamp.valueOf(startTime);
