@@ -3,6 +3,8 @@ package model.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.bean.FunIdcardBean;
+import model.bean.PayBox;
 import model.repository.FunIdcardDao;
 @Transactional
 @Repository("funIdcardDao")
@@ -49,16 +52,30 @@ public class FunIdcardDaoImpl implements FunIdcardDao {
 	}
 
 	@Override
-	public FunIdcardBean getOneFunIdcard(Integer funId) {
+	public FunIdcardBean getOneFunId(Integer funId) {
 		Session session = factory.getCurrentSession();
 		FunIdcardBean fb = null;
 		fb = (FunIdcardBean) session.get(FunIdcardBean.class, funId);
 		if(fb==null) {
-			System.out.println("找不到newsUid="+funId+"的資訊");
+			System.out.println("找不到funId="+funId+"的資訊");
 		}
 		return fb;
 	}
 
+	@Override
+	public FunIdcardBean getOneFunIdcard(String funIdcard) {
+		FunIdcardBean fib = null;
+		String hql = "FROM FunIdcardBean fib where fib.funIdcard = :funIdcard";
+		Session session = factory.getCurrentSession();
+		try {
+			fib = (FunIdcardBean) session.createQuery(hql).setParameter("funIdcard", funIdcard).getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println("發生NoResultException...");
+		}
+
+		return fib;
+	}
+	
 	@Override
 	public int merge(FunIdcardBean fb) {
 		Session session = factory.getCurrentSession();
@@ -72,5 +89,7 @@ public class FunIdcardDaoImpl implements FunIdcardDao {
 		session.delete(funId);
 		return 0;
 	}
+
+
 
 }

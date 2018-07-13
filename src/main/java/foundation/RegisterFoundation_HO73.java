@@ -110,9 +110,19 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 				funAddress, funFounder, jqd, funAllowOrg, funIntent, funArticle, funArea, funServiceUser,
 				funService);
 		foundationService fs = ctx.getBean(foundationService.class);
-		fs.creatOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount) ;
 
-
+		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
+		if(mb.getMemType() == 2 && (mb.getFoundationBean_HO73().getFunIdcard() == fb.getFunIdcard())) {
+			fs.updateOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
+			System.out.println("getMemType() == 2");
+		}else{
+			fs.creatOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
+		    MemberService ms = ctx.getBean(MemberService.class);
+		    mb = ms.getOneMember(mb.getMemAccount());
+			request.getSession().setAttribute("memberBean", mb);
+		};
+		
+		
 
 //將原本暫存在request物件內、要與顯示成功訊息的JSP網頁共用的資訊改為暫存到session物件內。
 		session.setAttribute("foundationBean", fb);

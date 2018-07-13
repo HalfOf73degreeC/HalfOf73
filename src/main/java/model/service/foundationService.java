@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.Gson;
 
 import model.bean.FoundationBean_HO73;
+import model.bean.FunIdcardBean;
 import model.repository.FoundationDao;
+import model.repository.FunIdcardDao;
 import model.repository.MemberDao;
 
 
@@ -28,19 +30,46 @@ public class foundationService {
 	@Autowired
 	MemberDao memberDao;
 	@Autowired
+	FunIdcardDao funIdcardDao;
+	@Autowired
 	Gson gson;
 //	
 		
 //	新建基金會帳號(將Member的帳號類型改成2)
 	@Transactional
 	public int creatOneFoundation(FoundationBean_HO73 fb, int memType, String funIdCard, String memAccount) {		
+		
+		FunIdcardBean fib = funIdcardDao.getOneFunIdcard(funIdCard);
+		System.out.println("fib.getFunType(): "+fib.getFunType());
+		if(fib.getFunType() == 0) {
+			fib.setFunType(1);
+			funIdcardDao.saveOrUpdate(fib);
+			foundationDao.saveOrUpdate(fb);		
+			memberDao.updateMemType(memType, funIdCard, memAccount);
+//			MemberBean_HO73 mb = MemberDAO.getOneMember();
+//			mb.setMemType(2);
+//			MemberDAO.update();
+			return 1;
+		}else {
+			return 0;
+		}		
+	}
+//	更新基金會帳號
+	@Transactional
+	public int updateOneFoundation(FoundationBean_HO73 fb, int memType, String funIdCard, String memAccount) {		
+		
+		FunIdcardBean fib = funIdcardDao.getOneFunIdcard(funIdCard);
+		fib.setFunType(1);
+		funIdcardDao.saveOrUpdate(fib);
 		foundationDao.saveOrUpdate(fb);		
 		memberDao.updateMemType(memType, funIdCard, memAccount);
-//		MemberBean_HO73 mb = MemberDAO.getOneMember();
-//		mb.setMemType(2);
-//		MemberDAO.update();
-		return 0;
-	}
+//			MemberBean_HO73 mb = MemberDAO.getOneMember();
+//			mb.setMemType(2);
+//			MemberDAO.update();
+		
+			return 0;
+		}		
+
 //	查詢所有基金會
 	@Transactional
 	public List<FoundationBean_HO73> getAllFoundations() {

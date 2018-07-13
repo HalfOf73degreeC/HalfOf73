@@ -11,7 +11,8 @@ public interface FunIdcardDao{
 	void save(FunIdcardBean fb);
 	void saveOrUpdate(FunIdcardBean fb);
 	List<FunIdcardBean> getAllFunIdcard();
-	FunIdcardBean getOneFunIdcard(Integer funId);
+	FunIdcardBean getOneFunId(Integer funId);
+	FunIdcardBean getOneFunIdcard(String funIdcard);
 	int merge(FunIdcardBean fb);
 	int delete(Integer funId);
     
