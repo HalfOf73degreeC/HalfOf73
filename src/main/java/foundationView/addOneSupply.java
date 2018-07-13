@@ -21,15 +21,15 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import _00.utils.GlobalService;
 import _00.utils.SystemUtils2018;
 import model.bean.MemberBean_HO73;
-import model.service.GoodsService;
+import model.service.SupplyService;
 
 /**
  * Servlet implementation class getMemberPage
  */
 @MultipartConfig(location = "", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 500, maxRequestSize = 1024
 * 1024 * 500 * 5)
-@WebServlet("/foundationView/addOneGoods")
-public class addOneGoods extends HttpServlet {
+@WebServlet("/foundationView/addOneSupply")
+public class addOneSupply extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -37,22 +37,21 @@ public class addOneGoods extends HttpServlet {
 		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		GoodsService gs = ctx.getBean(GoodsService.class);
+		SupplyService ss = ctx.getBean(SupplyService.class);
 		
-		String goodsName = request.getParameter("goodsName");
-		Integer goodsStock = Integer.parseInt(request.getParameter("goodsStock"));
-		Integer goodsPrice = Integer.parseInt(request.getParameter("goodsPrice"));
-		String goodsArticle = request.getParameter("goodsArticle");
-		String goodsIntro = request.getParameter("goodsIntro");
+		String supName = request.getParameter("supName");
+		Integer supNeedStock = Integer.parseInt(request.getParameter("supNeedStock"));
+		String supArticle = request.getParameter("supArticle");
+		String supIntro = request.getParameter("supIntro");
 		Timestamp insertDate = new Timestamp(System.currentTimeMillis());
-		Integer goodsView=0;
-		Blob goodsImg = null;
-		Blob goodsImg1 = null;
-		Blob goodsImg2 = null;
-		Blob goodsImg3 = null;
-		Blob goodsImg4 = null;
-		Blob goodsImg5 = null;
-		String goodsImgFileName=null;
+		Integer supView=0;
+		Blob supImg = null;
+		Blob supImg1 = null;
+		Blob supImg2 = null;
+		Blob supImg3 = null;
+		Blob supImg4 = null;
+		Blob supImg5 = null;
+		String supImgFileName=null;
 		long sizeInBytes = 0;
 		InputStream is = null;
 			
@@ -66,19 +65,19 @@ public class addOneGoods extends HttpServlet {
 					if (p.getContentType() != null) {   // 表示 p 為一般欄位而非上傳的表單
 						sizeInBytes = p.getSize();
 						is = p.getInputStream();
-						if (fldName.equals("goodsImg")) {
-							goodsImg = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						} else if (fldName.equals("goodsImg1")) {
-							goodsImg1 = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						} else if (fldName.equals("goodsImg2")) {
-							goodsImg2 = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						} else if (fldName.equals("goodsImg3")) {
-							goodsImg3 = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						} else if (fldName.equals("goodsImg4")) {
-							goodsImg4 = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						} else if (fldName.equals("goodsImg5")) {
-							goodsImg5 = SystemUtils2018.fileToBlob(is, sizeInBytes);
-						} 
+						if (fldName.equals("supImg")) {
+							supImg = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("supImg1")) {
+							supImg1 = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("supImg2")) {
+							supImg2 = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("supImg3")) {
+							supImg3 = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("supImg4")) {
+							supImg4 = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						} else if (fldName.equals("supImg5")) {
+							supImg5 = SystemUtils2018.fileToBlob(is, sizeInBytes);
+						}
 					} 
 				}
 			} 
@@ -86,8 +85,8 @@ public class addOneGoods extends HttpServlet {
 			e.printStackTrace();
 		}
 		String funIdCard = mb.getFoundationBean_HO73().getFunIdcard();	
-		String gString = gs.createOneGoods2String(goodsName, goodsArticle, goodsIntro, goodsPrice, goodsImgFileName, goodsStock, funIdCard, 
-				goodsView, insertDate, goodsImg, goodsImg1, goodsImg2, goodsImg3, goodsImg4, goodsImg5);
+		System.out.println("funIdCard= "+funIdCard);
+		String gString = ss.createOneSupply2String(supName, supArticle, supIntro, supImgFileName, supNeedStock, funIdCard, supView, insertDate, supImg, supImg1, supImg2, supImg3, supImg4, supImg5);
 		response.setContentType("application/json; charset=UTF8");			
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);

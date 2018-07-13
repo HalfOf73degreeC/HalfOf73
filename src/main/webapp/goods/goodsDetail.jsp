@@ -109,8 +109,10 @@
 					<dl>
 						<dt>付款方式</dt>
 						<dd>
-							<span class="form-check-label">信用卡</span> <span
-								class="form-check-label">/</span> <span class="form-check-label">ATM</span>
+							<span class="form-check-label">${AllPayment.paymentName}/</span>
+							<c:forEach varStatus="stVar" var="AllPayment" items="${AllPayment}">
+							<span class="form-check-label">${AllPayment.paymentName}/</span>
+							</c:forEach>
 						</dd>
 					</dl>
 					<!-- item-property-hor .// -->

@@ -35,6 +35,30 @@
 </head>
 
 <body style="background: #FFF0F5;">
+<header id="nino-story">
+		<nav id="nino-navbar" class="navbar navbar-default"
+			style="background-color: rgba(243, 129, 129, 0.8);">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header" w3-include-html="../logo.jsp"></div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="nino-menuItem pull-right">
+					<div class="collapse navbar-collapse pull-left"
+						id="nino-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
+							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
+							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+					<div class="nino-menuItem pull-right"
+						w3-include-html="../navbar_right.jsp"></div>
+				</div>
+			</div>
+		</nav>
+	</header>
 	<!-- 主要畫面 -->
 	<section id="nino-ourTeam">
 		<div class="container">
@@ -79,6 +103,7 @@
 				</div>
 			</div>
 	</section>
+	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<!-- Modal -->
 	<!-- 募款箱表單 -->
 	<div class="modal fade" id="addNewGoodsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -234,6 +259,7 @@
 			var goodsPrice = $('#goodsPrice').val();
 			var goodsArticle = $('#goodsArticle').val();
 			var goodsIntro = $('#goodsIntro').val();
+			
 			var goodsImg1 = $('#input_img1');
 			var goodsImg2 = $('#input_img2');
 			var goodsImg3 = $('#input_img3');
@@ -360,6 +386,68 @@
 		
 		$('body').startToCropImg();
 	});
+	jQuery.fn.showPayBox = function(payBox) {
+		var button = $(
+				'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3"'
+				+' data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
+				.appendTo($("#activityRow"));
+
+		var paybox_info = $(
+				'<div class="item">'
+						+ '<div class="overlay box" href="#">'
+						+ '<div class="content">'
+						+ '<a style="font-size: 36px">'
+						+ payBox.balance
+						+ '</a></div>'
+						+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
+						+ '</div></div>').appendTo(button);
+		var paybox_title = $(
+				'<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
+						+ payBox.payBoxName + '</div>').appendTo(button);
+	}
+	$(document).ready(function() {
+		fk_payIdcard = 1235;
+		$('body').getPayBoxList();
+	});
+	jQuery.fn.getPayBoxList = function() {
+		return this.each(function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
+					true);
+			xhr.setRequestHeader("Content-Type",
+					"application/x-www-form-urlencoded");
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.status == 200 && xhr.readyState == 4) {
+					var funBean = JSON.parse(xhr.responseText);
+					payBoxList = [];
+					console.log(funBean);
+					payBoxList = funBean.payBox;
+					console.log("清空payBox");
+					$(".PayBox").remove();
+					console.log(payBoxList);
+					console.log("重建payBox");
+					for (var i = 0; i < payBoxList.length; i++) {
+						if (payBoxList[i].payBoxType == 1) {
+							$('body').showPayBox(payBoxList[i]);
+						}
+					}
+					for (var i = 0; i < payBoxList.length; i++) {
+						if (payBoxList[i].payBoxType == 0) {
+							$('body').showPayBox(payBoxList[i]);
+						}
+					}
+					$('body').clickPayBox();
+
+				}
+			}
+		});
+	}
+	</script>
+	<!-- 	include -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
 	</script>
 </body>
 
