@@ -43,6 +43,8 @@ public class FoundationBean_HO73{
 	String funService;
 	Integer funStatus;
 	Timestamp insertDate;
+	Double funLat;
+	Double funLng;
 	private Set<PayBox> payBox = new LinkedHashSet<>();
 	private Set<PayBoxOut> payBoxOut = new LinkedHashSet<>();
 	
@@ -63,7 +65,7 @@ public class FoundationBean_HO73{
 	public FoundationBean_HO73(String funAccount, String funName, String funIdcard, String funImage, String funCeo,
 			String funContact, String funTel, String funFax, String funDomain, String funEmail, String funEmail2,
 			String funAddress, String funFounder, Date funCreateDate, String funAllowOrg, String funIntent,
-			String funArticle, String[] funArea, String[] funServiceUser, String[] funService) {
+			String funArticle, String[] funArea, String[] funServiceUser, String[] funService, Double funLat, Double funLng) {
 		super();
 		this.funAccount = funAccount;
 		this.funName = funName;
@@ -82,6 +84,8 @@ public class FoundationBean_HO73{
 		this.funAllowOrg = funAllowOrg;
 		this.funIntent = funIntent;
 		this.funArticle = funArticle;
+		this.funLat = funLat;
+		this.funLng = funLng;
 		
 		if(funArea == null) {
 		  this.funArea = " ";
@@ -347,6 +351,22 @@ public class FoundationBean_HO73{
 		this.insertDate = insertDate;
 	}
 
+	public Double getFunLat() {
+		return funLat;
+	}
+
+	public void setFunLat(Double funLat) {
+		this.funLat = funLat;
+	}
+
+	public Double getFunLng() {
+		return funLng;
+	}
+
+	public void setFunLng(Double funLng) {
+		this.funLng = funLng;
+	}
+
 	@OneToMany(mappedBy="foundationBean", cascade= CascadeType.ALL) 
 	public Set<PayBox> getPayBox() {
 		return payBox;
@@ -361,6 +381,12 @@ public class FoundationBean_HO73{
 	}
 	public void setpayBoxOut(Set<PayBoxOut> paymentOut) {
 		this.payBoxOut = paymentOut;
+	}
+
+	@Override
+	public String toString() {
+		return "FoundationBean_HO73 [funAccount=" + funAccount + ", funName=" + funName + ", funIdcard=" + funIdcard
+				+ ", funLat=" + funLat + ", funLng=" + funLng + "]";
 	}
 
 }
