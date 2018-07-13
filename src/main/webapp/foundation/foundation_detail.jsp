@@ -64,7 +64,8 @@
 	<!-- Testimonial
     ================================================== -->
    <section id="nino-latestBlog">
-   <c:set var="fun" value="${foundationBean}"></c:set>
+   <c:set var="mem" value="${memberBean}"></c:set>
+   <c:set var="fun" value="${mem.foundationBean_HO73}"></c:set>
 	<div class="content_nosplit_left">
 	
 		<article>			
@@ -201,7 +202,6 @@
 					</tr>
 				</div>
 				</table>
-			<c:set var="mem" value="${memberBean}"></c:set>
 				<c:if test = "${mem.memType == '2'&& (mem.foundationBean_HO73.funIdcard == fun.funIdcard)}">	
 					<span class="input-group-btn" align="right">
 					  <a href="../foundation/queryOneFoundation_HO73.do?funIdcard=${fun.funIdcard}">
@@ -263,7 +263,7 @@ var geocoder;
 var map;
 var name = document.getElementById('funName').value;
 var website = document.getElementById('funDomain').value;
-console.log(name);
+// console.log(name);
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var mapOptions = {

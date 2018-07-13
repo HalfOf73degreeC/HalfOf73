@@ -9,9 +9,6 @@
 	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
 	crossorigin="anonymous">
 <head>
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/styles.css'
-	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -32,13 +29,12 @@
 
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="css/materialdesignicons.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css" />
 <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
 <link rel="stylesheet" type="text/css" href="css/unslider.css" />
 <link rel="stylesheet" type="text/css" href="css/template.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
 
 </head>
 
@@ -63,10 +59,13 @@
     ================================================== -->
     
 <c:set var="mem" value="${memberBean}"></c:set>
-<c:set var="fun" value="${foundationBean}"></c:set>
+<c:set var="fun" value="${mem.foundationBean_HO73}"></c:set>
 	<Form Action="registerFoundation_HO73.do" method="POST">	
 	<input type="hidden" name="funImage" value="${mem.memPicUrl}">
 	<input type="hidden" name="funAccount" value="${mem.memAccount}">
+<!--送回基金會經緯度 -->
+	<input type="hidden" id="funLat" name="funLat" value="">
+	<input type="hidden" id="funLng" name="funLng" value="">
 		<section id="nino-whatWeDo">
 			<div class="container">
 				<h2 class="nino-sectionHeading">
@@ -178,7 +177,7 @@
 														style="width: 130px; cursor: default;">地址 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
-												<input type="text" name="funAddress" class="form-control" placeholder=""
+												<input id="funAddress"  type="text" name="funAddress" class="form-control" placeholder=""
 													value="${fun.funAddress}"
 													style="z-index: 1">
 											</div>
@@ -581,16 +580,34 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<script type="text/javascript" src="js/fun.js"></script>
 		<script src="https://www.w3schools.com/lib/w3.js"></script>
-			<script>
+		<script>
 				w3.includeHTML();
-			</script>
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-		<!-- css3-mediaqueries.js for IE less than 9 -->
-		<!--[if lt IE 9]>
-	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<![endif]-->
+		</script>
+<!-- 	GoogleMap取經緯度      -->
+		<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCw9eOBahNDm7_9km8-qvhuH7YjRK8scwU"></script>
+		<script type="text/javascript">
+
+			$('#funAddress').blur(function(){   
+			    $funAddress=$("#funAddress").val();   
+// 				alert($funAddress);
+			    var geocoder = new google.maps.Geocoder();  //定義一個Geocoder物件   
+			    geocoder.geocode(   
+			        { address: '['+$funAddress+']' },    //設定地址的字串   
+			        function(results, status) {    //callback function   
+			            if (status == google.maps.GeocoderStatus.OK) {    //判斷狀態   
+// 			                alert(results[0].geometry.location);             //取得座標 
+			            	$lat=results[0].geometry.location.lat();   
+			                $("#funLat").val($lat);     
+			                $lng=results[0].geometry.location.lng();   
+			                $("#funLng").val($lng);     
+// 			                alert("$lat: "+$lat+", $lng: "+$lng);
+			            } else {   
+			                alert('Error');   
+			            }   
+			      	}   
+			 	);   
+			});   
+		</script>
+		
 </body>
 </html>

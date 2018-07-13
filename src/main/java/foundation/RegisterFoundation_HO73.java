@@ -63,6 +63,11 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		String[] funService = request.getParameterValues("funService");
 		String funArticle = request.getParameter("funArticle");
 		String funImage = request.getParameter("funImage");
+		//取得經緯度
+		String String_funLat = request.getParameter("funLat");
+		Double funLat = Double.parseDouble(String_funLat);
+		String String_funLng = request.getParameter("funLng");
+		Double funLng = Double.parseDouble(String_funLng);
 		
 		//更新會員資料將一般會員轉換為基金會會員
 		int updateMemType = 2;
@@ -108,11 +113,11 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		fb = new FoundationBean_HO73(funAccount, funName, funIdcard, funImage,
 				funCeo, funContact, funTel, funFax, funDomain, funEmail, funEmail2, 
 				funAddress, funFounder, jqd, funAllowOrg, funIntent, funArticle, funArea, funServiceUser,
-				funService);
+				funService, funLat, funLng);
 		foundationService fs = ctx.getBean(foundationService.class);
 
 		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
-		if(mb.getMemType() == 2 && (mb.getFoundationBean_HO73().getFunIdcard() == fb.getFunIdcard())) {
+		if(mb.getMemType() == 2 && (mb.getFoundationBean_HO73().getFunIdcard().equals(fb.getFunIdcard()))) {
 			fs.updateOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
 			System.out.println("getMemType() == 2");
 		}else{
@@ -122,10 +127,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 			request.getSession().setAttribute("memberBean", mb);
 		};
 		
-		
 
-//將原本暫存在request物件內、要與顯示成功訊息的JSP網頁共用的資訊改為暫存到session物件內。
-		session.setAttribute("foundationBean", fb);
 //將屬於forward()給顯示成功訊息的JSP網頁的相關程式碼改為response.sendRedirect(新網頁)的敘述。
 		response.sendRedirect("foundation_detail.jsp");
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
