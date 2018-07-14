@@ -132,22 +132,21 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		if(mbh.getMemType() == 2) {
 			fs.updateOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
 			System.out.println("getMemType() == 2");
-
 		    mbh = ms.getOneMember(mbh.getMemAccount());
 			request.getSession().setAttribute("memberBean", mbh);
 		}else{
 			fs.creatOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
-
 		    mbh = ms.getOneMember(mbh.getMemAccount());
 		    System.out.println("mbh="+mbh);
 			request.getSession().setAttribute("memberBean", mbh);
+			response.sendRedirect("/HalfOf73/mail/sendMail?funEmail="+funEmail+"&funIdcard="+funIdcard);
 		};
 		
 
 //將屬於forward()給顯示成功訊息的JSP網頁的相關程式碼改為response.sendRedirect(新網頁)的敘述。
-		response.sendRedirect("/HalfOf73/foundation/eachFoundationPage.do?funIdcard="+ funIdcard);
+//		response.sendRedirect("/HalfOf73/foundation/eachFoundationPage.do?funIdcard="+ funIdcard);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
-		return;
+//		return;
 	}
 	
 	

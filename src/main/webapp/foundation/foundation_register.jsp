@@ -71,7 +71,7 @@
 <!--送回基金會經緯度 -->
 	<input type="hidden" id="funLat" name="funLat" value="${fun.funLat}">
 	<input type="hidden" id="funLng" name="funLng" value="${fun.funLng}">
-		<section id="nino-whatWeDo">
+		<section id="nino-whatWeDo">   
 			<div class="container">
 				<h2 class="nino-sectionHeading">
 					<span class="nino-subHeading" width="350px" >基金會申請</span>

@@ -49,7 +49,8 @@ public class foundationService {
 	public int creatOneFoundation(FoundationBean_HO73 fb, int memType, String funIdCard, String memAccount) {		
 		
 		FunIdcardBean fib = funIdcardDao.getOneFunIdcard(funIdCard);
-		System.out.println("fib.getFunType(): "+fib.getFunType());
+		System.out.println("funIdCard: "+funIdCard);
+		System.out.println("fib.getFunType(): "+fib);
 		if(fib.getFunType() == 0) {
 			fib.setFunType(1);
 			funIdcardDao.saveOrUpdate(fib);

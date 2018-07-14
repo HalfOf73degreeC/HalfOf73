@@ -8,9 +8,7 @@
 	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
 	crossorigin="anonymous">
 <head>
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/styles.css'
-	type="text/css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -135,7 +133,7 @@
 					<tr>
 						<th>電子郵件</th>
 						<td>
-							<A href="${fun.funEmail}">${fun.funEmail}</A>
+							<a href="mailto:${fun.funEmail}">${fun.funEmail}</a>
 						</td>
 					</tr>
 					<tr>
