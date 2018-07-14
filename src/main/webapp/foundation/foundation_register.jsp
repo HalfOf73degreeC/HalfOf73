@@ -59,7 +59,12 @@
     ================================================== -->
     
 <c:set var="mem" value="${memberBean}"></c:set>
-<c:set var="fun" value="${mem.foundationBean_HO73}"></c:set>
+<c:if test="${not empty mem.foundationBean_HO73}">
+	<c:set var="fun" value="${mem.foundationBean_HO73}"></c:set>
+</c:if>
+<c:if test="${empty mem.foundationBean_HO73}">
+	<c:set var="fun" value="${foundationBean}"></c:set>
+</c:if>
 	<Form Action="registerFoundation_HO73.do" method="POST">	
 	<input type="hidden" name="funImage" value="${mem.memPicUrl}">
 	<input type="hidden" name="funAccount" value="${mem.memAccount}">
@@ -104,8 +109,9 @@
 														style="width: 130px; cursor: default;">愛心碼 :</button>
 												</span>
 												<input type="text" id="funIdcard" name="funIdcard" class="form-control"
-													placeholder="" value="${fun.funIdcard}"
+													placeholder="" value="${fun.funIdcard}" 
 													style="z-index: 1">
+													
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -613,6 +619,7 @@
 			if($("#funUpdate").length>0){
 				$("#funName").attr('disabled', true);
 				$("#funIdcard").attr('disabled', true);
+				
 			}	
 		</script>
 		

@@ -65,7 +65,7 @@
     ================================================== -->
    <section id="nino-latestBlog">
    <c:set var="mem" value="${memberBean}"></c:set>
-   <c:set var="fun" value="${mem.foundationBean_HO73}"></c:set>
+   <c:set var="fun" value="${foundationBean}"></c:set>
 	<div class="content_nosplit_left">
 	
 		<article>			
