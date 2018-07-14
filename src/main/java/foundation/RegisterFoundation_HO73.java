@@ -134,6 +134,8 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 			System.out.println("getMemType() == 2");
 		    mbh = ms.getOneMember(mbh.getMemAccount());
 			request.getSession().setAttribute("memberBean", mbh);
+			response.sendRedirect("/HalfOf73/foundation/eachFoundationPage.do?funIdcard="+ funIdcard);
+			return;
 		}else{
 			fs.creatOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
 		    mbh = ms.getOneMember(mbh.getMemAccount());
