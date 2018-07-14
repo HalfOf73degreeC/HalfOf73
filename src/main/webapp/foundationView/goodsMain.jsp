@@ -296,7 +296,7 @@
 		readURL(srcUrl);
 		$('body').showLittlePic();
 		}
-	jQuery.fn.loadPic = function() {
+	jQuery.fn.reNewGoodModal = function() {
 			pic_count = 0;
 			$('#NewGoodsModal').empty();
 			$('#NewGoodsModal').append('<form action="addOneGoods" enctype="multipart/form-data"><div class="modal-dialog modal-lg" role="document">'
@@ -470,8 +470,11 @@
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					var funBean = JSON.parse(xhr.responseText);
 					patBoxList = [];
-					console.log(funBean);
-					GoodsList = funBean.Goods;
+					console.log("fk_payIdcard: "+fk_payIdcard);
+					console.log("funBean: "+funBean);
+					if(funBean!=null){
+						GoodsList = funBean.Goods;
+					}					
 					console.log("清空Goods");
 					$(".Goods").remove();
 					console.log(GoodsList);
