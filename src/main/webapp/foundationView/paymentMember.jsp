@@ -260,7 +260,7 @@
 	aria-labelledby="myModalLabel"
 	style="margin-top: -315px; width: 1400px; height: 1000px;">
 	<div class="modal-dialog " role="document" style="z-index: 1042;">
-		<div class="modal-content">
+		<div class="modal-content" style="margin-top: 315px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">

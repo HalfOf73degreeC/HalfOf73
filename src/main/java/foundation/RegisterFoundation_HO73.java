@@ -36,8 +36,20 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		request.setAttribute("ErrorMsg", errorMsg);
 		// 1. 讀取使用者輸入資料
 		String funAccount = request.getParameter("funAccount");
-		String funName = request.getParameter("funName");
-		String funIdcard = request.getParameter("funIdcard");
+		//判斷基金會是否要更新(memType == '2')，若要更新，因為funIdcard, funName被鎖，另從資料庫直接取值傳回
+		String funName = null;
+		String funIdcard = null;
+		MemberBean_HO73 mbh = (MemberBean_HO73) session.getAttribute("memberBean");
+		
+		int memType = mbh.getMemType();
+		if(memType == 2){
+			funName = mbh.getFoundationBean_HO73().getFunName();
+			funIdcard = mbh.getFoundationBean_HO73().getFunIdcard();
+		}else {
+			funName = request.getParameter("funName");
+			funIdcard = request.getParameter("funIdcard");
+		}
+		
 		String funCeo = request.getParameter("funCeo");
 		String funContact = request.getParameter("funContact");
 		String funDomain = request.getParameter("funDomain");
@@ -72,8 +84,8 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		//更新會員資料將一般會員轉換為基金會會員
 		int updateMemType = 2;
 		String updateFunIdCard = funIdcard;
-		String updateMemAccount = funAccount;
-		
+		System.out.println("updateFunIdCard="+updateFunIdCard);
+		String updateMemAccount = funAccount;		
 		// 2. 進行必要的資料轉換
 		// int experience = 0;
 		// try {
@@ -84,7 +96,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		// 3. 檢查使用者輸入資料
 
 //		if (memAccount == null || memAccount.trim().length() == 0) {
-//			errorMsg.put("memAccount", "帳號必須輸入");
+//			errorMsg.put("memAccount", "帳號必+須輸入");
 //		} else if (memAccount.trim().length() < 6) {
 //			errorMsg.put("memAccount", "長度必須大於6");
 //		}
@@ -116,20 +128,24 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 				funService, funLat, funLng);
 		foundationService fs = ctx.getBean(foundationService.class);
 
-		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
-		if(mb.getMemType() == 2 && (mb.getFoundationBean_HO73().getFunIdcard().equals(fb.getFunIdcard()))) {
+		MemberService ms = ctx.getBean(MemberService.class);
+		if(mbh.getMemType() == 2) {
 			fs.updateOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
 			System.out.println("getMemType() == 2");
+
+		    mbh = ms.getOneMember(mbh.getMemAccount());
+			request.getSession().setAttribute("memberBean", mbh);
 		}else{
 			fs.creatOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
-		    MemberService ms = ctx.getBean(MemberService.class);
-		    mb = ms.getOneMember(mb.getMemAccount());
-			request.getSession().setAttribute("memberBean", mb);
+
+		    mbh = ms.getOneMember(mbh.getMemAccount());
+		    System.out.println("mbh="+mbh);
+			request.getSession().setAttribute("memberBean", mbh);
 		};
 		
 
 //將屬於forward()給顯示成功訊息的JSP網頁的相關程式碼改為response.sendRedirect(新網頁)的敘述。
-		response.sendRedirect("foundation_detail.jsp");
+		response.sendRedirect("/HalfOf73/foundation/eachFoundationPage.do?funIdcard="+ funIdcard);
 		System.out.println("準備更新, FoundationBean_HO73=" + fb);
 		return;
 	}
