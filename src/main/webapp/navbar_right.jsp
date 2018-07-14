@@ -15,7 +15,7 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">
 				<c:if test="${empty mem.fileName}">
-				<img id="memberBean" src="${mem.memPicUrl}" data-memName="${mem.memName}"
+				<img id="memberBean" src="${mem.memPicUrl}" data-memName="${mem.memName}" <c:if test="${mem.memType == '2'}">data-funIdcard="${mem.foundationBean_HO73.funIdcard}"</c:if>
 					style="border-radius: 50%; max-width: 30px; height: auto;">
 				</c:if>
 				<c:if test="${not empty mem.fileName}">

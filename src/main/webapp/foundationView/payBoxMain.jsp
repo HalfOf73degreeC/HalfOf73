@@ -494,7 +494,7 @@
 		});
 
 		$(document).ready(function() {
-			fk_payIdcard = 1235;
+			fk_payIdcard = $("#memberBean").attr("data-funIdcard");
 			$('body').getPayBoxList();
 		});
 
