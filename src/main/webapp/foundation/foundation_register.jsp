@@ -64,8 +64,8 @@
 	<input type="hidden" name="funImage" value="${mem.memPicUrl}">
 	<input type="hidden" name="funAccount" value="${mem.memAccount}">
 <!--送回基金會經緯度 -->
-	<input type="hidden" id="funLat" name="funLat" value="">
-	<input type="hidden" id="funLng" name="funLng" value="">
+	<input type="hidden" id="funLat" name="funLat" value="${fun.funLat}">
+	<input type="hidden" id="funLng" name="funLng" value="${fun.funLng}">
 		<section id="nino-whatWeDo">
 			<div class="container">
 				<h2 class="nino-sectionHeading">
@@ -94,8 +94,7 @@
 													<button class="btn btn-success" type="submit"
 														style="width: 130px; cursor: default;">名稱 :</button>
 												</span>
-												<!-- <textarea class="form-control" placeholder="黃中平" rows="1"></textarea> -->
-												<input type="text" name="funName" class="form-control"
+												<input type="text" id="funName" name="funName" class="form-control"
 													placeholder="" value="${mem.memName}"
 													style="z-index: 1">
 											</div>
@@ -104,7 +103,7 @@
 													<button class="btn btn-success" type="submit"
 														style="width: 130px; cursor: default;">愛心碼 :</button>
 												</span>
-												<input type="text" name="funIdcard" class="form-control"
+												<input type="text" id="funIdcard" name="funIdcard" class="form-control"
 													placeholder="" value="${fun.funIdcard}"
 													style="z-index: 1">
 											</div>
@@ -533,13 +532,13 @@
 				<div class="input-group input-group-lg" style="padding: 30px 0px">
 				<c:if test = "${mem.memType == '1'}">	
 					<span class="input-group-btn" align="center">
-						<button class="btn btn-success" type="submit"
+						<button class="btn btn-success" id="funRegister" data-type="register" type="submit"
 							style="width: 200px; z-index: 1">申請</button>
 					</span>
 				</c:if>
 				<c:if test = "${mem.memType == '2'}">	
 					<span class="input-group-btn" align="center">
-						<button class="btn btn-success" type="submit"
+						<button class="btn btn-success" id="funUpdate" data-type="update" type="submit"
 							style="width: 200px; z-index: 1">更新</button>
 					</span>
 				</c:if>
@@ -580,14 +579,17 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<script type="text/javascript" src="js/fun.js"></script>
 		<script src="https://www.w3schools.com/lib/w3.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/checkFun.js"></script>
 		<script>
 				w3.includeHTML();
 		</script>
 <!-- 	GoogleMap取經緯度      -->
 		<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCw9eOBahNDm7_9km8-qvhuH7YjRK8scwU"></script>
 		<script type="text/javascript">
-
-			$('#funAddress').blur(function(){   
+			//取得基金會經緯度
+			$('#funAddress').blur(function(){
+				$('#funLat').attr('value', '');  
+				$('#funLng').attr('value', '');  
 			    $funAddress=$("#funAddress").val();   
 // 				alert($funAddress);
 			    var geocoder = new google.maps.Geocoder();  //定義一個Geocoder物件   
@@ -602,11 +604,16 @@
 			                $("#funLng").val($lng);     
 // 			                alert("$lat: "+$lat+", $lng: "+$lng);
 			            } else {   
-			                alert('Error');   
+// 			                alert('Error');   
 			            }   
 			      	}   
 			 	);   
-			});   
+			});  
+			// 鎖基金會名稱與愛心碼
+			if($("#funUpdate").length>0){
+				$("#funName").attr('disabled', true);
+				$("#funIdcard").attr('disabled', true);
+			}	
 		</script>
 		
 </body>

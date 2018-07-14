@@ -34,6 +34,15 @@ public class foundationService {
 	@Autowired
 	Gson gson;
 //	
+//	查詢所有愛心碼從愛心碼總表
+	@Transactional
+	public List<FunIdcardBean> getAllFunIdcard() {
+		return funIdcardDao.getAllFunIdcard();
+	}
+	@Transactional
+	public String getAllFunIdcard2String() {			
+		return gson.toJson(getAllFunIdcard());
+	}
 		
 //	新建基金會帳號(將Member的帳號類型改成2)
 	@Transactional
