@@ -161,6 +161,11 @@
 
 
 	<script src="./resource/WOW-master/dist/wow.min.js"></script>
+		<!-- 	include -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
+	</script>
 	<script>
 		wow = new WOW({
 			boxClass : 'wow', // default
@@ -182,8 +187,14 @@
 	var pic_count = 0;
 	var pic_max = 5;
 	$(document).ready(function() {
-		fk_payIdcard = $("#memberBean").attr("data-funIdcard");
-		$('body').getGoodsList();
+		setTimeout(
+				function() {
+					fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+					$('body').getGoodsList();
+				}
+				,100)
+		
+		
 	});
 	$("#crop_img").on("click",function() {
 		$('body').showLittlePic();
@@ -493,11 +504,7 @@
 	}
 
 	</script>
-	<!-- 	include -->
-	<script src="https://www.w3schools.com/lib/w3.js"></script>
-	<script>
-		w3.includeHTML();
-	</script>
+
 </body>
 
 </html>
