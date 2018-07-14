@@ -2,7 +2,10 @@ package model.bean;
 
 import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,32 +13,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class GoodsBean_HO73 {
 	
-	Integer		goodsUid;
-	String		goodsName;
-	Blob        goodsImg;
-	String      goodsIntro;
-	String      goodsArticle;
-	Timestamp	goodsStartTime;
-	Timestamp	goodsEndTime;
-	Integer		goodsStock;
-	Integer		goodsSafeStock;
-	String		goodsSize;
-	Integer     goodsPrice;
-	Integer		goodsState;
-	Integer		goodsView;
-	Timestamp	insertDate;
-	String      goodsImgFileName;
-	Blob        goodsImg1;
-	Blob        goodsImg2;
-	Blob        goodsImg3;
-	Blob        goodsImg4;
-	Blob        goodsImg5;
-	String      goodsImgString;
-	FoundationBean_HO73 foundationBean_HO73;
+	Integer							goodsUid;
+	String							goodsName;
+	Blob							goodsImg;
+	String							goodsIntro;
+	String							goodsArticle;
+	Timestamp						goodsStartTime;
+	Timestamp						goodsEndTime;
+	Integer							goodsStock;
+	Integer							goodsSafeStock;
+	String							goodsSize;
+	Integer							goodsPrice;
+	Integer							goodsState;
+	Integer							goodsView;
+	Timestamp						insertDate;
+	String							goodsImgFileName;
+	String      					goodsImgString;
+	Set<GoodsImgBean> 				GoodsImgBean = new LinkedHashSet<>();
+	transient FoundationBean_HO73 	foundationBean_HO73;
 	
 	
 	public GoodsBean_HO73() {
@@ -87,8 +87,7 @@ public class GoodsBean_HO73 {
 	
 
 	public GoodsBean_HO73(String goodsName, String goodsIntro, String goodsArticle, Integer goodsStock,
-			Integer goodsPrice, String goodsImgFileName, Integer goodsView, Timestamp insertDate, Blob goodsImg, Blob goodsImg1, 
-			 Blob goodsImg2, Blob goodsImg3, Blob goodsImg4, Blob goodsImg5, FoundationBean_HO73 foundationBean_HO73) {
+			Integer goodsPrice, String goodsImgFileName, Integer goodsView, Timestamp insertDate, Blob goodsImg, FoundationBean_HO73 foundationBean_HO73) {
 		super();
 		this.goodsName = goodsName;
 		this.goodsIntro = goodsIntro;
@@ -99,11 +98,6 @@ public class GoodsBean_HO73 {
 		this.goodsView = goodsView;
 		this.insertDate = insertDate;
 		this.goodsImg = goodsImg;
-		this.goodsImg1 = goodsImg1;
-		this.goodsImg2 = goodsImg2;
-		this.goodsImg3 = goodsImg3;
-		this.goodsImg4 = goodsImg4;
-		this.goodsImg5 = goodsImg5;
 		this.foundationBean_HO73 = foundationBean_HO73;
 	}
 
@@ -227,52 +221,20 @@ public class GoodsBean_HO73 {
 		this.foundationBean_HO73 = foundationBean_HO73;
 	}
 
-	public Blob getGoodsImg1() {
-		return goodsImg1;
-	}
-
-	public void setGoodsImg1(Blob goodsImg1) {
-		this.goodsImg1 = goodsImg1;
-	}
-
-	public Blob getGoodsImg2() {
-		return goodsImg2;
-	}
-
-	public void setGoodsImg2(Blob goodsImg2) {
-		this.goodsImg2 = goodsImg2;
-	}
-
-	public Blob getGoodsImg3() {
-		return goodsImg3;
-	}
-
-	public void setGoodsImg3(Blob goodsImg3) {
-		this.goodsImg3 = goodsImg3;
-	}
-
-	public Blob getGoodsImg4() {
-		return goodsImg4;
-	}
-
-	public void setGoodsImg4(Blob goodsImg4) {
-		this.goodsImg4 = goodsImg4;
-	}
-
-	public Blob getGoodsImg5() {
-		return goodsImg5;
-	}
-
-	public void setGoodsImg5(Blob goodsImg5) {
-		this.goodsImg5 = goodsImg5;
-	}
-
 	public String getGoodsImgString() {
 		return goodsImgString;
 	}
 
 	public void setGoodsImgString(String goodsImgString) {
 		this.goodsImgString = goodsImgString;
+	}
+	@OneToMany(mappedBy="goodsUid", cascade={CascadeType.ALL}) 
+	public Set<GoodsImgBean> getGoodsImgBean() {
+		return GoodsImgBean;
+	}
+
+	public void setGoodsImgBean(Set<GoodsImgBean> goodsImgBean) {
+		GoodsImgBean = goodsImgBean;
 	}
 
 	@Override
