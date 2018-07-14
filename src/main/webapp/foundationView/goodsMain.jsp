@@ -71,7 +71,7 @@
 				誠摯地感謝您一同參與HalfOf73的傳愛平台，世界因為我們而更值得期待！</p>
 			<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 			<div class="sectionContent">
-				<div class="row nino-hoverEffect">
+				<div class="row nino-hoverEffect" id="activityRow">
 					<div class="col-md-3 col-sm-3">
 						<button type="button" class="btn btn-primary btn-lg" id="addNewGoods"
 							data-toggle="modal" data-target="#NewGoodsModal"
@@ -87,19 +87,6 @@
 							</div>
 						</button>
 					</div>
-					<button type="button"
-						class="btn btn-primary btn-lg col-md-3 col-sm-3"
-						data-toggle="modal" data-target="#myModal2"
-						style="border: 0px #fff0f5 none; background-color: #fff0f5;">
-						<div class="item">
-							<div class="overlay box" href="#">
-								<div class="content">
-									<a style="font-size: 36px">${商品名稱}</a>
-								</div>
-								<img src="./img/box1.png" alt="" style="border-radius: 15%;">
-							</div>
-						</div>
-					</button>
 				</div>
 			</div>
 	</section>
@@ -212,11 +199,13 @@
 		var goodsPrice = $('#goodsPrice').val(Goods.goodsPrice);
 		var goodsArticle = $('#goodsArticle').val(Goods.goodsArticle);
 		var goodsIntro = $('#goodsIntro').val(Goods.goodsIntro);
-		$('body').loadPic(Goods.goodsImg1);
-		$('body').loadPic(Goods.goodsImg2);
-		$('body').loadPic(Goods.goodsImg3);
-		$('body').loadPic(Goods.goodsImg4);
-		$('body').loadPic(Goods.goodsImg5);
+		var goodImgList = Goods.GoodsImgBean;
+		for(var i = 0; i < goodImgList.length; i++){
+
+			console.log("jsaon: "+JSON.stringify(goodImgList[i].goodsImg));
+// 			objectURL = URL.createObjectURL(goodImgList[i].goodsImg);
+// 			$('body').loadPic(objectURL);
+		}
 	}
 	
 	jQuery.fn.showLittlePic = function() {
