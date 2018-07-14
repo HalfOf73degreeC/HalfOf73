@@ -13,8 +13,10 @@ import com.google.gson.Gson;
 
 import model.bean.FoundationBean_HO73;
 import model.bean.GoodsBean_HO73;
+import model.bean.GoodsImgBean;
 import model.repository.FoundationDao;
 import model.repository.GoodsDao;
+import model.repository.GoodsImgDao;
 
 @Service
 @Scope("prototype")
@@ -23,7 +25,9 @@ public class GoodsService {
 	@Autowired
     GoodsDao gdao;
 	@Autowired
-	FoundationDao fdao;	
+	FoundationDao fdao;
+	@Autowired
+	GoodsImgDao gidao;	
 	@Autowired
 	Gson gson;
     
@@ -68,21 +72,22 @@ public class GoodsService {
 
 	@Transactional
 	public GoodsBean_HO73 createOneGoods(String goodsName, String goodsArticle, String goodsIntro, Integer goodsPrice, String goodsImgFileName, 
-			Integer goodsStock, String funIdCard, Integer goodsView, Timestamp insertDate, Blob goodsImg, Blob goodsImg1, Blob goodsImg2, Blob goodsImg3
-			, Blob goodsImg4, Blob goodsImg5) {
+			Integer goodsStock, String funIdCard, Integer goodsView, Timestamp insertDate, Blob goodsImg, List<Blob> goodsImgLsit) {
 		GoodsBean_HO73 gb = null;
 		FoundationBean_HO73 fb = fdao.getOneFoundation(funIdCard); 
-		gb = new GoodsBean_HO73(goodsName, goodsIntro, goodsArticle, goodsStock, goodsPrice, goodsImgFileName, goodsView, insertDate, goodsImg, goodsImg1, 
-				goodsImg2, goodsImg3, goodsImg4, goodsImg5,fb);
+		gb = new GoodsBean_HO73(goodsName, goodsIntro, goodsArticle, goodsStock, goodsPrice, goodsImgFileName, goodsView, insertDate, goodsImg, fb);
 		gdao.save(gb);
+		for(Blob blob:goodsImgLsit) {
+			GoodsImgBean gib = new GoodsImgBean(gb ,blob);
+			gidao.save(gib);
+		}
 		return gb;
 	}
 	
 	@Transactional
 	public String createOneGoods2String(String goodsName, String goodsArticle, String goodsIntro, Integer goodsPrice, String goodsImgFileName, 
-			Integer goodsStock, String funIdCard, Integer goodsView, Timestamp insertDate, Blob goodsImg, Blob goodsImg1, Blob goodsImg2, Blob goodsImg3
-			, Blob goodsImg4, Blob goodsImg5) {
+			Integer goodsStock, String funIdCard, Integer goodsView, Timestamp insertDate, Blob goodsImg, List<Blob> goodsImgLsit) {
 		return gson.toJson(createOneGoods(goodsName, goodsArticle, goodsIntro, goodsPrice, goodsImgFileName, goodsStock, funIdCard, goodsView, insertDate,
-				goodsImg, goodsImg1, goodsImg2, goodsImg3, goodsImg4, goodsImg5));
+				goodsImg, goodsImgLsit));
 	}
 }

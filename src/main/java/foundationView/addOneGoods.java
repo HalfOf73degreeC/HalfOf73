@@ -5,7 +5,9 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -31,6 +33,7 @@ import model.service.GoodsService;
 @WebServlet("/foundationView/addOneGoods")
 public class addOneGoods extends HttpServlet {
 
+	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -85,9 +88,26 @@ public class addOneGoods extends HttpServlet {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		List<Blob> goodsImgLsit = new ArrayList<>();
+		if(goodsImg1 !=null) {
+			goodsImgLsit.add(goodsImg1);
+		}
+		if(goodsImg2 !=null) {
+			goodsImgLsit.add(goodsImg2);
+		}
+		if(goodsImg3 !=null) {
+			goodsImgLsit.add(goodsImg3);
+		}
+		if(goodsImg4 !=null) {
+			goodsImgLsit.add(goodsImg4);
+		}
+		if(goodsImg5 !=null) {
+			goodsImgLsit.add(goodsImg5);
+		}
 		String funIdCard = mb.getFoundationBean_HO73().getFunIdcard();	
 		String gString = gs.createOneGoods2String(goodsName, goodsArticle, goodsIntro, goodsPrice, goodsImgFileName, goodsStock, funIdCard, 
-				goodsView, insertDate, goodsImg, goodsImg1, goodsImg2, goodsImg3, goodsImg4, goodsImg5);
+				goodsView, insertDate, goodsImg, goodsImgLsit);
+//		System.out.println("gString = "+ gString);
 		response.setContentType("application/json; charset=UTF8");			
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);

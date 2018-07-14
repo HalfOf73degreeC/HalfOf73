@@ -47,6 +47,7 @@ public class FoundationBean_HO73{
 	Double funLng;
 	private Set<PayBox> payBox = new LinkedHashSet<>();
 	private Set<PayBoxOut> payBoxOut = new LinkedHashSet<>();
+	private Set<GoodsBean_HO73> Goods = new LinkedHashSet<>();
 	
 	public FoundationBean_HO73() {
 		super();
@@ -375,12 +376,23 @@ public class FoundationBean_HO73{
 	public void setPayBox(Set<PayBox> payBox) {
 		this.payBox = payBox;
 	}
+	
 	@OneToMany(mappedBy="foundationBean", cascade={CascadeType.ALL}) 
-	public Set<PayBoxOut> getpayBoxOut() {
+	public Set<PayBoxOut> getPayBoxOut() {
 		return payBoxOut;
 	}
-	public void setpayBoxOut(Set<PayBoxOut> paymentOut) {
-		this.payBoxOut = paymentOut;
+
+	public void setPayBoxOut(Set<PayBoxOut> payBoxOut) {
+		this.payBoxOut = payBoxOut;
+	}
+
+	@OneToMany(mappedBy="foundationBean_HO73", cascade={CascadeType.ALL}) 
+	public Set<GoodsBean_HO73> getGoods() {
+		return Goods;
+	}
+
+	public void setGoods(Set<GoodsBean_HO73> goods) {
+		Goods = goods;
 	}
 
 	@Override
