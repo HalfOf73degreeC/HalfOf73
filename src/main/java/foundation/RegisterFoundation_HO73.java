@@ -117,7 +117,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		foundationService fs = ctx.getBean(foundationService.class);
 
 		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
-		if(mb.getMemType() == 2 && (mb.getFoundationBean_HO73().getFunIdcard().equals(fb.getFunIdcard()))) {
+		if(mb.getMemType() == 2) {
 			fs.updateOneFoundation(fb, updateMemType, updateFunIdCard, updateMemAccount);
 			System.out.println("getMemType() == 2");
 		}else{
