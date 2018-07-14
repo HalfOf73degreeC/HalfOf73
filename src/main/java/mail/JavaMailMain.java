@@ -1,7 +1,6 @@
 package mail;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import model.bean.MemberBean_HO73;
-import model.service.foundationService;
+import model.bean.FoundationBean_HO73;
 
 @WebServlet("/mail/sendMail")
 public class JavaMailMain extends HttpServlet {
@@ -24,10 +22,8 @@ public class JavaMailMain extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-//		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-//		MemberBean_HO73 mb = (MemberBean_HO73) request.getSession().getAttribute("memberBean");
 		
-
+		String funIdcard = request.getParameter("funIdcard");
 		String funEmail = request.getParameter("funEmail");
 		
 		
@@ -50,5 +46,8 @@ public class JavaMailMain extends HttpServlet {
 		} else {
 			System.out.println("發信失敗");
 		}
+		
+		response.sendRedirect("/HalfOf73/foundation/eachFoundationPage.do?funIdcard="+ funIdcard);
+		return;
 	}
 }
