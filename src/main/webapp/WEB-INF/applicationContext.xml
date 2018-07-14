@@ -17,12 +17,42 @@
       <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
       <property name="user" value="${jdbc.user}"/>
       <property name="password" value="${jdbc.password}"/>
-      <property name="maxPoolSize" value='${jdbc.maxPoolSize}'/>
-      <property name="initialPoolSize" value='${jdbc.initialPoolSize}'/>
-      <property name="maxIdleTime" value='${jdbc.maxIdleTime}'/>
-      <property name="acquireRetryAttempts" value="0" />
+<!--       <property name="maxPoolSize" value='${jdbc.maxPoolSize}'/> -->
+<!--       <property name="initialPoolSize" value='${jdbc.initialPoolSize}'/> -->
+<!--       <property name="maxIdleTime" value='${jdbc.maxIdleTime}'/> -->
+<!--       <property name="acquireRetryAttempts" value="0" /> -->
 	  <property name="checkoutTimeout" value="0" />
-    </bean>
+	  <property name="maxPoolSize" value="8" />
+        <!--連線池中保留的最小連線數。-->
+        <property name="minPoolSize" value="1" />
+        <!--初始化時獲取的連線數，取值應在minPoolSize與maxPoolSize之間。Default: 3 -->
+        <property name="initialPoolSize" value="4" />
+        <!--最大空閒時間,60秒內未使用則連線被丟棄。若為0則永不丟棄。Default: 0 -->
+        <property name="maxIdleTime" value="0" />
+        <!--當連線池中的連線耗盡的時候c3p0一次同時獲取的連線數。Default: 3 -->
+        <property name="acquireIncrement" value="5" />
+        <!--JDBC的標準引數，用以控制資料來源內載入的PreparedStatements數量。但由於預快取的statements
+          屬於單個connection而不是整個連線池。所以設定這個引數需要考慮到多方面的因素。
+          如果maxStatements與maxStatementsPerConnection均為0，則快取被關閉。Default: 0-->
+        <property name="maxStatements" value="0" />
+         
+        <!--每60秒檢查所有連線池中的空閒連線。Default: 0 -->
+        <property name="idleConnectionTestPeriod" value="60" />
+         
+        <!--定義在從資料庫獲取新連線失敗後重復嘗試的次數。Default: 30 -->
+        <property name="acquireRetryAttempts" value="30" />
+        
+        <!--獲取連線失敗將會引起所有等待連線池來獲取連線的執行緒丟擲異常。但是資料來源仍有效
+          保留，並在下次呼叫getConnection()的時候繼續嘗試獲取連線。如果設為true，那麼在嘗試
+          獲取連線失敗後該資料來源將申明已斷開並永久關閉。Default: false-->
+        <property name="breakAfterAcquireFailure" value="true" />
+         
+        <!--因效能消耗大請只在需要的時候使用它。如果設為true那麼在每個connection提交的
+          時候都將校驗其有效性。建議使用idleConnectionTestPeriod或automaticTestTable
+          等方法來提升連線測試的效能。Default: false -->
+        <property name="testConnectionOnCheckout"  value="false" />    
+	  
+	</bean>
     
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
     	<property name="dataSource" ref="dataSource"></property>
