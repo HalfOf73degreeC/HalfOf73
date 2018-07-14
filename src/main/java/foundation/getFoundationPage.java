@@ -40,7 +40,16 @@ public class getFoundationPage extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		request.setCharacterEncoding("UTF-8");
+		WebApplicationContext ctx = 
+				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		foundationService fs = ctx.getBean(foundationService.class);
+		String fk_payIdcard = request.getParameter("fk_payIdcard");
+		String gString = fs.getOneFoundation2String(fk_payIdcard); 
+		response.setContentType("application/json; charset=UTF8");
+		try (PrintWriter out = response.getWriter();) {
+			out.println(gString);
+		}
 	}
 
 }
