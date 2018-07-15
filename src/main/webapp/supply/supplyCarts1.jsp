@@ -112,7 +112,7 @@
 							<td><fmt:formatNumber value="${anEntry.value.qty}" /></td>
 							
 							<!-- <td><a href="#"><i class="fa fa-trash-o"style="color: #000; font-size: 32px"></i></a> -->
-							<!-- <button type="button" class="goods-delete-body"></button> -->
+<!-- 							<button type="button" class="goods-delete-body"></button> -->
 						</tr>
 
 					</c:forEach>
@@ -137,7 +137,7 @@
 			<div class="container groupButton">
 <!-- 				<button type="submit" class="btn btn-info" -->
 <%-- 					onClick="this.form.action='${pageContext.request.contextPath}/supply/queryAllSupply_HO73.do';this.form.method='GET';this.form.submit();">回捐贈物資列表</button> --%>
-				<button type="submit" class="btn btn-warning">下一步:選擇寄送方式</button>
+					<button type="submit" class="btn btn-warning">下一步:選擇寄送方式</button>
 			</div>
 		</div>
 	</form>
@@ -157,7 +157,7 @@
 
 	<!-- javascript -->
 	
-	<div w3-include-html="../footer.html"></div>
+	<div w3-include-html="../footer.jsp"></div>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>

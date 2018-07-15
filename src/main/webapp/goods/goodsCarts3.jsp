@@ -82,13 +82,13 @@
 		</div>
 		<div class="foundationList">
 			<div class="container groupButton">
-<!-- 				<button type="submit" class="btn btn-warning">回首頁</button> -->
+				<button type="submit" class="btn btn-warning" formaction="../index.jsp">回首頁</button>
 			</div>
 		</div>
 		</div>
 	</form>
 
-	<div w3-include-html="../footer.html"></div>
+	<div w3-include-html="../footer.jsp"></div>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>

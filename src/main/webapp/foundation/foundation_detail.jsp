@@ -212,7 +212,7 @@
 	</div>
 </section>
 		<!--/#nino-whatWeDo-->
-		<div w3-include-html="../footer.html"></div>
+		<div w3-include-html="../footer.jsp"></div>
 		<!--/#footer-->
 
 		<!-- Search Form - Display when click magnify icon in menu

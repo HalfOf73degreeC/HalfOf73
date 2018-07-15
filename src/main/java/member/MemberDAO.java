@@ -50,7 +50,7 @@ public class MemberDAO {
 			DataSource ds = (DataSource) ctx.lookup(GlobalService.JNDI_NAME_MySQL);
 			conn = ds.getConnection();
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT memAccount from MemberBean_HO73");
+			ResultSet rs = stmt.executeQuery("SELECT memAccount from Member_HO73");
 			while (rs.next()) {
 				if(memAccount == rs.getString(1)) {
 					exist=true;
@@ -81,7 +81,7 @@ public class MemberDAO {
 			DataSource ds = (DataSource)ctx.lookup(GlobalService.JNDI_NAME_MySQL);
 			conn = ds.getConnection();
 			//MySQL
-			PreparedStatement stmt = conn.prepareStatement("Insert into MemberBean_HO73("
+			PreparedStatement stmt = conn.prepareStatement("Insert into Member_HO73("
 					+ "memAccount, memName, memIdcard, memEmail, memEmail2, memGender, memBirthday,"
 					+ "memTel, memMobile, memAddress, memType, memFoundation, memWhySupply,"
 					+ "insertDate, memStatus, memPicUrl) values(?, ?, null, ?, null, "
@@ -109,7 +109,7 @@ public class MemberDAO {
 	
 	public int insert(MemberBean_HO73 mb) {
 		int n = 0 ;
-		String sql = "INSERT INTO MemberBean_HO73 "
+		String sql = "INSERT INTO Member_HO73 "
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try (
 		  Connection con = ds.getConnection();
@@ -143,7 +143,7 @@ public class MemberDAO {
 	}
 	public int update_photo(MemberBean_HO73 mb) {
 		int n = 0;
-		String sql = "UPDATE MemberBean_HO73 set memPhoto = ?"
+		String sql = "UPDATE Member_HO73 set memPhoto = ?"
 				+ " WHERE memAccount = ?";
 		try (
 		    Connection con = ds.getConnection();
@@ -163,7 +163,7 @@ public class MemberDAO {
 	
 	public int update_fun(MemberBean_HO73 mb) {
 		int n = 0;
-		String sql = "UPDATE MemberBean_HO73 set memPhoto = ?, fileName = ?"
+		String sql = "UPDATE Member_HO73 set memPhoto = ?, fileName = ?"
 				+ " WHERE memAccount = ?";
 		try (
 		    Connection con = ds.getConnection();
@@ -182,7 +182,7 @@ public class MemberDAO {
 	}
 	public int update_easy(MemberBean_HO73 mb) {
 		int n = 0;
-		String sql = "UPDATE MemberBean_HO73 set memName = ?, memIdcard=?, "
+		String sql = "UPDATE Member_HO73 set memName = ?, memIdcard=?, "
 				+ " memEmail2 =?, memGender = ?, memBirthday= ?, "
 				+ " memMobile = ?, memAddress = ?,"
 				+ " memWhySupply = ?"
@@ -218,7 +218,7 @@ public class MemberDAO {
 	
 	public int update(MemberBean_HO73 mb) {
 		int n = 0;
-		String sql = "UPDATE MemberBean_HO73 set memName = ?, memIdcard=?, "
+		String sql = "UPDATE Member_HO73 set memName = ?, memIdcard=?, "
 				+ " memEmail2 =?, memGender = ?, memBirthday= ?, "
 				+ " memTel = ?, memMobile = ?, memAddress = ?, memType =? "
 				+ " memFoundation = ?, memWhySupply = ?, insertDate = ?,"
@@ -257,7 +257,7 @@ public class MemberDAO {
 	}
 	public int delete(String key) {
 		int  n = 0;
-		String sql = "DELETE FROM MemberBean_HO73 WHERE memberAccount = ?";
+		String sql = "DELETE FROM Member_HO73 WHERE memberAccount = ?";
 		try (
 		    Connection con = ds.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(sql);	
@@ -272,7 +272,7 @@ public class MemberDAO {
 	}
 	
 	public MemberBean_HO73 getOneMember(String account) {
-		String sql = "SELECT * FROM MemberBean_HO73 " + "WHERE memAccount = ?";
+		String sql = "SELECT * FROM Member_HO73 " + "WHERE memAccount = ?";
 		MemberBean_HO73 mb = new MemberBean_HO73();
 		try (
 			Connection conn = ds.getConnection();
@@ -313,7 +313,7 @@ public class MemberDAO {
     
 	public List<MemberBean_HO73> memberList() {
 		List<MemberBean_HO73> list = new ArrayList<>();
-		String sql = "SELECT * FROM MemberBean_HO73 ";
+		String sql = "SELECT * FROM Member_HO73 ";
 		try (Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();) {
@@ -405,7 +405,7 @@ public class MemberDAO {
 			ctx = new InitialContext();
 			DataSource ds = (DataSource) ctx.lookup(GlobalService.JNDI_NAME_MySQL);
 			conn = ds.getConnection();
-			PreparedStatement stmt = conn.prepareStatement("SELECT * from  MemberBean_HO73");
+			PreparedStatement stmt = conn.prepareStatement("SELECT * from  Member_HO73");
 			ResultSet rs = stmt.executeQuery();
 			MemberBean_HO73 mem = null;
 			while (rs.next()) {
@@ -434,7 +434,7 @@ public class MemberDAO {
 		double currentAmount = ob.getTotalAmount(); // 取出該訂單的總金額
 		Double unpaidAmount = 0.0;
 		// 讀取Member表格中，該客戶的未付款金額(unpaid_amount)
-		String sql = "SELECT unpaidAmount FROM MemberBean_HO73 m WHERE m.memAccount = ? ";
+		String sql = "SELECT unpaidAmount FROM Member_HO73 m WHERE m.memAccount = ? ";
 		try (
 			PreparedStatement ps = conn.prepareStatement(sql);
 		) {
@@ -455,7 +455,7 @@ public class MemberDAO {
 			;
 		}
 		// 更新Member表格之未付款餘額欄位 unpaid_amount
-		String sql1 = "UPDATE MemberBean_HO73 SET unpaidAmount = unpaidAmount + ? " 
+		String sql1 = "UPDATE Member_HO73 SET unpaidAmount = unpaidAmount + ? " 
 		            + " WHERE memAccount = ?";
 		
 		try (

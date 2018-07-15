@@ -74,7 +74,7 @@
 			<div class="sectionContent" id='somedivS'></div>
 		</div>
 	</section>
-	<div w3-include-html="../footer.html"></div>
+	<div w3-include-html="../footer.jsp"></div>
 	<!--/#nino-latestBlog-->
 	<script>
 	 //wow = new WOW().init();

@@ -7,6 +7,10 @@
 	<li><a href="${pageContext.request.contextPath}/goods/goodsCarts1.jsp"><i
 			class="mdi mdi-cart-outline nino-icon"></i></a></li>
 	</c:if>
+	<c:if test="${mem.memType == '1'}">
+	<li><a href="${pageContext.request.contextPath}/supply/supplyCarts1.jsp"><i
+			class="mdi mdi-gift nino-icon"></i></a></li>
+	</c:if>
 	<li><a href="#" class="nino-search" style="padding-right: 13px;"><i
 			class="mdi mdi-magnify nino-icon"></i></a></li>
 	<c:if test="${not empty mem.memPicUrl}">

@@ -149,11 +149,31 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit" style="cursor: default">性別:</div>
-												</span> <input type="text" name="memGender" class="form-control"
-													placeholder="M/F" value="${mem.memGender}"
-													style="z-index: 1">
-
-												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
+												</span> 
+<!-- 												<input type="text" name="memGender" class="form-control" -->
+<%-- 													placeholder="M/F" value="${mem.memGender}" --%>
+<!-- 													style="z-index: 1"> -->
+												<c:if test="${mem.memGender=='M'}">
+													<select name="memGender" class="form-control" style="z-index: 1">
+												　		<option id="empty" value=""></option>
+														<option id="Male" value="M" selected="selected">男</option>
+												　		<option id="Female" value="F">女</option>
+													</select>
+												</c:if>
+												<c:if test="${mem.memGender=='F'}">
+													<select name="memGender" class="form-control" style="z-index: 1">
+												　		<option id="empty" value=""></option>
+												        <option id="Male" value="M">男</option>
+												　		<option id="Female" value="F"selected="selected">女</option>
+													</select>
+												</c:if>
+												<c:if test="${empty mem.memGender}">
+													<select name="memGender" class="form-control" style="z-index: 1">
+												　		<option id="empty" value="" selected="selected"></option>
+												　		<option id="Male" value="M">男</option>
+												　		<option id="Female" value="F">女</option>
+													</select>
+												</c:if>
 											</div>
 										</div>
 									</div>
@@ -241,7 +261,7 @@
 									</div>
 									<div id="collapseFour" class="panel-collapse collapse"
 										role="tabpanel" aria-labelledby="headingFour">
-										<div class="panel-body" style="height: 175px;">
+										<div class="panel-body" style="height: 128px;">
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit" style="cursor: default">身分證號:</div>
@@ -255,18 +275,18 @@
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<div class="btn btn-success" type="submit" style="cursor: default">會員類別:</div>
-												</span> <input type="text" class="form-control" disabled="disabled"
+												</span> <input type="text" id="memType" class="form-control" disabled="disabled"
 													value="${mem.memType}" style="z-index: 1">
 												<!-- <textarea class="form-control" placeholder="0968018815" rows="1"></textarea> -->
 												<!-- 											<input type="text" class="form-control" placeholder="啟用" >												 -->
 											</div>
-											<div class="input-group input-group-lg">
-												<span class="input-group-btn">
-													<div class="btn btn-success" type="submit" style="cursor: default">帳號狀態:</div>
-												</span> <input type="text" class="form-control" disabled="disabled"
-													value="${mem.memStatus}" style="z-index: 1">
+<!-- 											<div class="input-group input-group-lg"> -->
+<!-- 												<span class="input-group-btn"> -->
+<!-- 													<div class="btn btn-success" type="submit" style="cursor: default">帳號狀態:</div> -->
+<!-- 												</span> <input type="text" class="form-control" disabled="disabled" -->
+<%-- 													value="${mem.memStatus}" style="z-index: 1"> --%>
 												<!-- <textarea class="form-control" placeholder="台北市新生南路一段97巷" rows="1"></textarea> -->
-											</div>
+<!-- 											</div> -->
 										</div>
 									</div>
 								</div>
@@ -492,7 +512,7 @@
 		<!--/#nino-ourTeam-->
 		<!-- Footer
     ================================================== -->
-		<div w3-include-html="${pageContext.request.contextPath}/footer.html"></div>
+		<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 		<!--/#footer-->
 
 		<!-- Search Form - Display when click magnify icon in menu
@@ -526,16 +546,13 @@
 		<script>
 			w3.includeHTML();
 		</script>
-
-
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-		<!-- css3-mediaqueries.js for IE less than 9 -->
-		<!--[if lt IE 9]>
-	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<![endif]-->
+		<script>
+			if($("#memType").val()=='2'){
+				$("#memType").val("基金會會員");
+			}else{
+				$("#memType").val("普通會員");
+			}
+		</script>
 	</CENTER>
 </body>
 </html>

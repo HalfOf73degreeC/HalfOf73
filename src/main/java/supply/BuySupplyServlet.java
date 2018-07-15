@@ -43,6 +43,7 @@ public class BuySupplyServlet extends HttpServlet {
 		
 		// 取出存放在session物件內的ShoppingCart物件
 		SupplyShoppingCart cart = (SupplyShoppingCart)session.getAttribute("SupplyShoppingCart");
+		System.out.println("cart="+cart);
 		// 如果找不到ShoppingCart物件
 		if (cart == null) {
 			// 就新建ShoppingCart物件
@@ -50,6 +51,7 @@ public class BuySupplyServlet extends HttpServlet {
 			// 並將此新建ShoppingCart的物件放到session物件內，成為它的屬性物件
 			session.setAttribute("SupplyShoppingCart", cart);   
 		}
+		System.out.println("cart2="+cart);
 		String supName 	    = request.getParameter("supName");
 		String funName  	= request.getParameter("funName");
 		String funAddress  	= request.getParameter("funAddress");
