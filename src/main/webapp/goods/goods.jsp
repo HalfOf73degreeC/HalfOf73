@@ -126,7 +126,7 @@
 	</section>
 	<!--/#nino-latestBlog-->
 
-	<div w3-include-html="../footer.html"></div>
+	<div w3-include-html="../footer.jsp"></div>
 
 	<!-- javascript -->
 

@@ -259,7 +259,7 @@
 	<!-- Scroll to top
     ================================================== -->
 	<a href="#" id="nino-scrollToTop">Go to Top</a>
-		<div w3-include-html="../footer.html"></div>
+		<div w3-include-html="../footer.jsp"></div>
 	<!-- javascript -->
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/isotope.pkgd.min.js"></script>

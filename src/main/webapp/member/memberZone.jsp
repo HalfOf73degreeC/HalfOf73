@@ -492,7 +492,7 @@
 		<!--/#nino-ourTeam-->
 		<!-- Footer
     ================================================== -->
-		<div w3-include-html="${pageContext.request.contextPath}/footer.html"></div>
+		<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 		<!--/#footer-->
 
 		<!-- Search Form - Display when click magnify icon in menu

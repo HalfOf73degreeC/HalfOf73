@@ -37,7 +37,7 @@
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
-						<a class="navbar-brand" href="index.html">Half of 73°C</a>
+						<div class="navbar-header" w3-include-html="../logo.jsp"></div>
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="nino-menuItem pull-right">
@@ -581,6 +581,7 @@
 </ol>
 
 <p><em>上次更新時間：2018 年 4 月</em></p>
+<div w3-include-html="../footer.jsp"></div>
 	                    </div>
 	                </div>
 	            </div>
@@ -609,6 +610,10 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/unslider-min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>
+		w3.includeHTML();
+	</script>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>

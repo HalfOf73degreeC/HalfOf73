@@ -6,7 +6,7 @@
         		<div class="col-md-4">
         			<div class="colInfo">
 	        			<div class="footerLogo">
-	        				<div class="navbar-header" style="width:350px" w3-include-html="logo.jsp"></div>	
+	        				<div class="navbar-header" style="width:350px" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>	
 	        			</div>
 	        			<p>
 	        				　　我們希望藉由Half of 73°C 平台創造更加完備且快速地使用方式，提供所有願意付出的人，不論是以基金會的型式或是個人的名義。我們需要您的陪伴，一起創造更好的未來。
