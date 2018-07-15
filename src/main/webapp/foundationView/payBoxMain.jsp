@@ -472,7 +472,12 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- 	include -->
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script>
+		w3.includeHTML();
+	</script>
+	
 	<script src="./resource/WOW-master/dist/wow.min.js"></script>
 	<script>
 		wow = new WOW({
@@ -494,8 +499,13 @@
 		});
 
 		$(document).ready(function() {
-			fk_payIdcard = $("#memberBean").attr("data-funIdcard");
-			$('body').getPayBoxList();
+			setTimeout(
+					  function() 
+					  {
+						  fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+							console.log("fk_payIdcard: "+fk_payIdcard)
+							$('body').getPayBoxList();
+					  }, 100);
 		});
 
 		jQuery.fn.showPayBox = function(payBox) {
@@ -817,11 +827,7 @@
 					}
 				});
 	</script>
-	<!-- 	include -->
-	<script src="https://www.w3schools.com/lib/w3.js"></script>
-	<script>
-		w3.includeHTML();
-	</script>
+
 </body>
 
 </html>

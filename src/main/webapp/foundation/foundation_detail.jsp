@@ -8,9 +8,7 @@
 	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
 	crossorigin="anonymous">
 <head>
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/styles.css'
-	type="text/css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -65,7 +63,7 @@
     ================================================== -->
    <section id="nino-latestBlog">
    <c:set var="mem" value="${memberBean}"></c:set>
-   <c:set var="fun" value="${mem.foundationBean_HO73}"></c:set>
+   <c:set var="fun" value="${foundationBean}"></c:set>
 	<div class="content_nosplit_left">
 	
 		<article>			
@@ -135,7 +133,7 @@
 					<tr>
 						<th>電子郵件</th>
 						<td>
-							<A href="${fun.funEmail}">${fun.funEmail}</A>
+							<a href="mailto:${fun.funEmail}">${fun.funEmail}</a>
 						</td>
 					</tr>
 					<tr>

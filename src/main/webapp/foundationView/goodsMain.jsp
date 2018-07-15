@@ -71,7 +71,7 @@
 				誠摯地感謝您一同參與HalfOf73的傳愛平台，世界因為我們而更值得期待！</p>
 			<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 			<div class="sectionContent">
-				<div class="row nino-hoverEffect">
+				<div class="row nino-hoverEffect" id="activityRow">
 					<div class="col-md-3 col-sm-3">
 						<button type="button" class="btn btn-primary btn-lg" id="addNewGoods"
 							data-toggle="modal" data-target="#NewGoodsModal"
@@ -87,19 +87,6 @@
 							</div>
 						</button>
 					</div>
-					<button type="button"
-						class="btn btn-primary btn-lg col-md-3 col-sm-3"
-						data-toggle="modal" data-target="#myModal2"
-						style="border: 0px #fff0f5 none; background-color: #fff0f5;">
-						<div class="item">
-							<div class="overlay box" href="#">
-								<div class="content">
-									<a style="font-size: 36px">${商品名稱}</a>
-								</div>
-								<img src="./img/box1.png" alt="" style="border-radius: 15%;">
-							</div>
-						</div>
-					</button>
 				</div>
 			</div>
 	</section>
@@ -199,55 +186,7 @@
 	$("#crop_img").on("click",function() {
 		$('body').showLittlePic();
 	});
-	//送資料給Server
-	$('#addNewGoods_bt').on("click", function() {
-		console.log("準備新建Goods");
-		var xhr = new XMLHttpRequest();
-		var goodsName = $('#goodsName').val();
-		var goodsStock = $('#goodsStock').val();
-		var goodsPrice = $('#goodsPrice').val();
-		var goodsArticle = $('#goodsArticle').val();
-		var goodsIntro = $('#goodsIntro').val();
-		
-		var goodsImg1 = $('#input_img1');
-		var goodsImg2 = $('#input_img2');
-		var goodsImg3 = $('#input_img3');
-		var goodsImg4 = $('#input_img4');
-		var goodsImg5 = $('#input_img5');
-
-        var fd = new FormData();
-        fd.append("goodsName", goodsName);
-        fd.append("goodsStock", goodsStock);
-        fd.append("goodsPrice", goodsPrice);
-        fd.append("goodsArticle", goodsArticle);
-        fd.append("goodsIntro", goodsIntro);
-        fd.append("goodsImg", $('#input_img1')[0].files[0]);
-        fd.append("goodsImg1", $('#input_img1')[0].files[0]);
-        fd.append("goodsImg2", $('#input_img2')[0].files[0]);
-        fd.append("goodsImg3", $('#input_img3')[0].files[0]);
-        fd.append("goodsImg4", $('#input_img4')[0].files[0]);
-        fd.append("goodsImg5", $('#input_img5')[0].files[0]);
-
-		xhr.open("POST", "addOneGoods", true);
-		xhr.send(fd);
-		xhr.onreadystatechange = function() {
-			if (xhr.status == 200 && xhr.readyState == 4) {
-				var jsonString = xhr.responseText;
-				console.log("jsonString= " + jsonString);
-				console.log("jsonString.length= "
-						+ jsonString.length);
-				if (jsonString.length < 10) {
-					alert("無法新建商品");
-				} else {
-//						var Goods = JSON.parse(xhr.responseText);
-//						console.log(Goods);
-				}
-//					$('body').getGoods_now(goodsUid);
-				
-			}
-		}
-
-	});
+	
 	//ReNew
 	$("#addNewGoods").on("click",function() {
 		$('body').reNewGoodModal();
@@ -260,11 +199,13 @@
 		var goodsPrice = $('#goodsPrice').val(Goods.goodsPrice);
 		var goodsArticle = $('#goodsArticle').val(Goods.goodsArticle);
 		var goodsIntro = $('#goodsIntro').val(Goods.goodsIntro);
-		$('body').loadPic(Goods.goodsImg1);
-		$('body').loadPic(Goods.goodsImg2);
-		$('body').loadPic(Goods.goodsImg3);
-		$('body').loadPic(Goods.goodsImg4);
-		$('body').loadPic(Goods.goodsImg5);
+		var goodImgList = Goods.GoodsImgBean;
+		for(var i = 0; i < goodImgList.length; i++){
+
+			console.log("jsaon: "+JSON.stringify(goodImgList[i].goodsImg));
+// 			objectURL = URL.createObjectURL(goodImgList[i].goodsImg);
+// 			$('body').loadPic(objectURL);
+		}
 	}
 	
 	jQuery.fn.showLittlePic = function() {
@@ -279,7 +220,7 @@
 			$('#input_img').attr("id","input_img"+pic_count);
 			$('#input_img_chouse').append('<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;">');
 			var crop_img = $("#preview_img").attr("src");
-					console.log(crop_img);
+// 					console.log(crop_img);
 			$("#little_img")
 					.append('<div class="col-md-2 col-sm-2" style="width: 87px;margin-top:10px;padding:5px 5px; cursor: pointer; ">'
 							+ '<img id="goodsImg'+pic_count+'" src="'
@@ -386,11 +327,15 @@
 					+'<div class="modal-footer">'
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
-					+'<button type="button" class="btn btn-primary" id="addNewGoods_bt" data-dismiss="modal"'
+					+'<button type="button" class="btn btn-primary" id="addNewGoods_bt"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
 					+'</div></div></div></form>');
 			
 			$('body').startToCropImg();
+			//新建Goods，送資料給Server
+			$('#addNewGoods_bt').on("click", function() {
+				$('body').sendDataToSever();
+			});
 		}
 	jQuery.fn.startToCropImg = function() {
 		//選擇圖片用	
@@ -502,7 +447,56 @@
 			}
 		});
 	}
+	//送資料給Server
+	jQuery.fn.sendDataToSever = function() {
+		console.log("準備新建Goods");
+		var xhr = new XMLHttpRequest();
+		var goodsName = $('#goodsName').val();
+		var goodsStock = $('#goodsStock').val();
+		var goodsPrice = $('#goodsPrice').val();
+		var goodsArticle = $('#goodsArticle').val();
+		var goodsIntro = $('#goodsIntro').val();
+		
+		var goodsImg1 = $('#input_img1');
+		var goodsImg2 = $('#input_img2');
+		var goodsImg3 = $('#input_img3');
+		var goodsImg4 = $('#input_img4');
+		var goodsImg5 = $('#input_img5');
 
+        var fd = new FormData();
+        fd.append("goodsName", goodsName);
+        fd.append("goodsStock", goodsStock);
+        fd.append("goodsPrice", goodsPrice);
+        fd.append("goodsArticle", goodsArticle);
+        fd.append("goodsIntro", goodsIntro);
+        fd.append("goodsImg", $('#input_img1')[0].files[0]);
+        for(var i = 1;i<=pic_count;i++){
+        	var goodsImg = $('#input_img'+i)[0].files[0];
+        	if(goodsImg != null){
+        		fd.append("goodsImg"+i,goodsImg);
+        	}
+        }
+		xhr.open("POST", "/HalfOf73//foundationView/addOneGoods", true);
+		xhr.send(fd);
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 && xhr.readyState == 4) {
+				$('#NewGoodsModal').hide();
+				var jsonString = xhr.responseText;
+				console.log("jsonString= " + jsonString);
+				console.log("jsonString.length= "
+						+ jsonString.length);
+				if (jsonString.length < 10) {
+					alert("無法新建商品");
+				} else {
+//						var Goods = JSON.parse(xhr.responseText);
+//						console.log(Goods);
+				}
+//					$('body').getGoods_now(goodsUid);
+				
+			}
+		}
+
+	}
 	</script>
 
 </body>

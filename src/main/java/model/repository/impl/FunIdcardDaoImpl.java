@@ -70,7 +70,7 @@ public class FunIdcardDaoImpl implements FunIdcardDao {
 		try {
 			fib = (FunIdcardBean) session.createQuery(hql).setParameter("funIdcard", funIdcard).getSingleResult();
 		} catch (NoResultException e) {
-			System.out.println("發生NoResultException...");
+			System.out.println("找不到FunIdcard，發生NoResultException...");
 		}
 
 		return fib;

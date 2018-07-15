@@ -189,7 +189,7 @@ public class payBoxService {
 	@Transactional
 	public Set<PayBoxOut> getFunPayBoxOut(String fk_payIdcard) {
 		FoundationBean_HO73 foundationBean = foundationDao.getOneFoundation(fk_payIdcard);
-		return foundationBean.getpayBoxOut();
+		return foundationBean.getPayBoxOut();
 	}
 	@Transactional
 	public String getFunPayBoxOut2String(String fk_payIdcard) {
