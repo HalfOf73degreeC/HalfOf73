@@ -10,8 +10,6 @@
 	crossorigin="anonymous">
 <head>
 
-<link rel='stylesheet'
-	href='${pageContext.request.contextPath}/css/style.css' type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -19,7 +17,7 @@
 <meta name="copyright" content="ninodezign.com">
 <title>會員專區</title>
 
-<!-- favicon -->
+<!-- 標題icon -->
 <link rel="shortcut icon" href="images/ico/like.png">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -31,14 +29,13 @@
 	href="images/ico/apple-touch-icon-57-precomposed.png">
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="../css/materialdesignicons.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="../css/jquery.mCustomScrollbar.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css" />
-<link rel="stylesheet" type="text/css" href="../css/unslider.css" />
-<link rel="stylesheet" type="text/css" href="../css/template.css" />
+<link rel='stylesheet' type="text/css" href='${pageContext.request.contextPath}/css/style.css' />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery.mCustomScrollbar.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/prettyPhoto.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/unslider.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/template.css" />
 <link rel='stylesheet' type="text/css" href='css/croppie.css' />
 
 
@@ -48,16 +45,12 @@
 
 	<CENTER>
 		<!-- Header-->
-		<!-- Story About Us
-    ================================================== -->
-		<header id="nino-story"> <nav id="nino-navbar"
+		<header id="nino-story"> 
+		<nav id="nino-navbar"
 			class="navbar navbar-default"
 			style="background-color:rgba(243,129,129,0.8);">
 		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="nino-menuItem pull-right">
 				<div class="collapse navbar-collapse pull-left"
 					id="nino-navbar-collapse">
@@ -65,19 +58,16 @@
 						<li class="active"><a href="#nino-story">我的會員資料</a></li>
 						<li><a href="#nino-services">愛心點點滴</a></li>
 						<li><a href="#nino-ourTeam">我是基金會</a></li>
-<!-- 						<li><a href="#nino-latestBlog">最新消息</a></li> -->
 					</ul>
 				</div>
-				<!-- /.navbar-collapse -->
 				<div class="nino-menuItem pull-right" w3-include-html="${pageContext.request.contextPath}/navbar_right.jsp"></div>
 			</div>
 		</div>
-		<!-- /.container-fluid --> </nav> </header>
+		</nav> </header>
 		<!--/#header-->
 
 
-		<!-- Testimonial
-    ================================================== -->
+<!-- 會員資料================================================= -->
 		<Form Action="register0403_HO73.do" method="POST"
 			enctype="multipart/form-data">
 			<c:set var="mem" value="${memberBean}"></c:set>
@@ -100,6 +90,7 @@
 										style="border-radius: 6px; box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2); max-width: 400px; height: auto; cursor: pointer;">
 
 								</c:if>
+                                <!-- 								已經寫成js -->
 								<!-- 								<label for="input_img"  style="height:1px;"> -->
 								<!-- 								<buttom style="position:relative; top:370px; right:0px; color: #95e1d3; font-size: 18px;font-weight:bold;width: 200px; height:50px;z-index:2; cursor:pointer;" > -->
 								<!-- 								<span>更改大頭貼</span> -->
@@ -304,11 +295,8 @@
 				</div>
 			</div>
 			</section>
-			<!--/#nino-whatWeDo-->
-			<div style="color: #FF0000; display: inline">${ErrorMsg.exception}</div>
 		</Form>
-		<!-- Services
-    ================================================== -->
+<!-- 愛心點點滴 ================================================== -->
 		<section id="nino-services">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
@@ -449,8 +437,7 @@
 		<!--/#nino-services-->
 
 
-		<!-- Our Team
-    ================================================== -->
+<!-- 基金會加入================================================== -->
 		<section id="nino-ourTeam">
 		<div class="container">
 			<h2 class="nino-sectionHeading">
@@ -509,9 +496,8 @@
 			</div>
 		</div>
 		</section>
-		<!--/#nino-ourTeam-->
-		<!-- Footer
-    ================================================== -->
+
+		<!-- Footer================================================== -->
 		<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 		<!--/#footer-->
 
@@ -538,7 +524,7 @@
 		<script type="text/javascript"
 			src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script type="text/javascript" src="js/unslider-min.js"></script>
-		<script type="text/javascript" src="../js/template.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
 		<script type="text/javascript" src="js/croppie.js"></script>
 		<script type="text/javascript" src="js/previewImg.js"></script>
 
