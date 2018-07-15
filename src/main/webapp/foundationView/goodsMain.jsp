@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/switch.css">
 <link rel="stylesheet" href="resource/WOW-master/css/libs/animate.css">
 <link rel="stylesheet" href="css/croppie.css">
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
 <!-- javascript -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
@@ -31,9 +32,16 @@
 <script type="text/javascript" src="js/unslider-min.js"></script>
 <script type="text/javascript" src="js/croppie.js"></script>
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 <title>商品建檔</title>
 </head>
 
+<div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body style="background: #FFF0F5;">
 <header id="nino-story">
 		<nav id="nino-navbar" class="navbar navbar-default"
@@ -251,7 +259,7 @@
 	jQuery.fn.reNewGoodModal = function() {
 			pic_count = 0;
 			$('#NewGoodsModal').empty();
-			$('#NewGoodsModal').append('<form action="addOneGoods" enctype="multipart/form-data"><div class="modal-dialog modal-lg" role="document">'
+			$('#NewGoodsModal').append('<form action="addOneGoods" enctype="multipart/form-data" style="margin-top:-2%;"><div tabindex="-1" class="modal-dialog modal-lg" role="document">'
 					+'<div class="modal-content">'
 					+'<div class="modal-header">'
 					+'<button type="button" class="close" data-dismiss="modal"'
@@ -317,7 +325,7 @@
 					+'</div></div>'
 					+'<div id="collapseOne1" class="panel-collapse collapse in"'
 					+'role="tabpanel" aria-labelledby="headingOne">'
-					+'<div class="panel-body" style="height: 167px;">'
+					+'<div class="panel-body" style="height: 160px; margin-top:-2%;">'
 					+'<h4 class="panel-title">'
 					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">商品詳述</div>'
 					+'</h4>'
@@ -327,7 +335,7 @@
 					+'<div class="modal-footer">'
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
-					+'<button type="button" class="btn btn-primary" id="addNewGoods_bt" data-dismiss="modal"'
+					+'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_loading" id="addNewGoods_bt" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
 					+'</div></div></div></form>');
 			
@@ -416,6 +424,10 @@
 
 	jQuery.fn.getGoodsList = function() {
 		return this.each(function() {
+			$loadingGIF = $(
+// 					loading
+					'<div w3-include-html=../loadingUpper.jsp></div>')
+					.appendTo($('.sectionContent'));
 			var xhr = new XMLHttpRequest();
 			xhr.open("Post", "getGoodsList?fk_payIdcard=" + fk_payIdcard,
 					true);
@@ -425,6 +437,8 @@
 			xhr.onreadystatechange = function() {
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					var funBean = JSON.parse(xhr.responseText);
+// 					loading
+					$(loadingGif).hide();
 					patBoxList = [];
 					console.log("fk_payIdcard: "+fk_payIdcard);
 					console.log("funBean: "+funBean);
@@ -456,7 +470,12 @@
 		var goodsPrice = $('#goodsPrice').val();
 		var goodsArticle = $('#goodsArticle').val();
 		var goodsIntro = $('#goodsIntro').val();
-
+		
+		var goodsImg1 = $('#input_img1');
+		var goodsImg2 = $('#input_img2');
+		var goodsImg3 = $('#input_img3');
+		var goodsImg4 = $('#input_img4');
+		var goodsImg5 = $('#input_img5');
 
         var fd = new FormData();
         fd.append("goodsName", goodsName);
@@ -464,11 +483,7 @@
         fd.append("goodsPrice", goodsPrice);
         fd.append("goodsArticle", goodsArticle);
         fd.append("goodsIntro", goodsIntro);
-        
-        var goodsImg = $('#input_img1')[0].files[0];
-        if(goodsImg !=null){
-       		fd.append("goodsImg", $('#input_img1')[0].files[0]);
-        }
+        fd.append("goodsImg", $('#input_img1')[0].files[0]);
         for(var i = 1;i<=pic_count;i++){
         	var goodsImg = $('#input_img'+i)[0].files[0];
         	if(goodsImg != null){
@@ -480,6 +495,7 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.status == 200 && xhr.readyState == 4) {
 // 				$('#NewGoodsModal').hide();
+				$('#modal_loading').modal('hide');
 				var jsonString = xhr.responseText;
 				console.log("jsonString= " + jsonString);
 				console.log("jsonString.length= "
