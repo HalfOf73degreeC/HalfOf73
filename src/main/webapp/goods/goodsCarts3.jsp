@@ -81,7 +81,8 @@
 			</div>
 		</div>
 		<div class="foundationList">
-			<div class="container groupButton">
+			<div class="container groupButton"><button type="submit" class="btn btn-info"
+					onClick="this.form.action='${pageContext.request.contextPath}/goods/queryAllGoods_HO73.do';this.form.method='GET';this.form.submit();">回愛心商品列表</button>
 				<button type="submit" class="btn btn-warning" formaction="../index.jsp">回首頁</button>
 			</div>
 		</div>

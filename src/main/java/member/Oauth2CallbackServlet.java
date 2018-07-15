@@ -96,8 +96,10 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 				System.out.println("資料新增成功");
 		}
 		request.getSession().setAttribute("memberBean", mb);
+		String backPage = (String) request.getSession().getAttribute("backPage");
+	    response.sendRedirect(backPage);
 //	    response.sendRedirect("../index.jsp");
-	    response.getWriter().print("<script type='text/javascript'>history.back()</script>");
+//	    response.getWriter().print("<script type='text/javascript'>history.back()</script>");
 	}
 
 }

@@ -621,5 +621,5 @@
 <script>
 	w3.includeHTML();
 </script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 </html>
