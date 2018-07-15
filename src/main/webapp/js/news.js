@@ -92,14 +92,10 @@ jQuery(function($) {
 						xhr_oneNews.send();
 						xhr_oneNews.onreadystatechange = function() {
 
-							if (xhr_oneNews.status == 200
-									&& xhr_oneNews.readyState == 4) {
-								var oneNews = JSON
-										.parse(xhr_oneNews.responseText);
+							if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
+								var oneNews = JSON.parse(xhr_oneNews.responseText);
 								// console.log(oneNews);
-								$(
-										".article[date-newsId="
-												+ oneNews.newsUid + "]")
+								$(".article[date-newsId="+ oneNews.newsUid + "]")
 										.children(".articleMeta").children(
 												"a:nth-child(1)").html(
 												'<i class="mdi mdi-eye nino-icon"></i>'
@@ -147,51 +143,84 @@ jQuery(function($) {
 											+'style="font-size: 15px; font-weight: bold; float: right;">發布</button>'
 										+'</div>'										
 										+'</div></li></ul></div>');
+								
+								//檢查帳號是否有登入，有就顯示可以留言
 								var loginyet = $('#memberBean').attr('data-memname');
 								if(!loginyet){
 									
 								}else{
 									$("#oneNews").append($sendMessage);
+									//發送留言
+									$("#addNewMsg_bt").on("click",function() {
+										// <!-- News資料庫連線 -->
+										var xhr_oneNews = new XMLHttpRequest();
+										xhr_oneNews.open("Post", "/HalfOf73/news/creatNewsMsg?"
+												+"talkerID=" + $('#memberBean').attr('data-memname')
+												+"&msg=" + $('.sendMessage').val()
+												+"&DnewsUid=" + newsId, true);
+										xhr_oneNews.setRequestHeader("Content-Type",
+												"application/x-www-form-urlencoded");
+										xhr_oneNews.send();
+										xhr_oneNews.onreadystatechange = function() {
+
+											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
+												var oneNews = JSON.parse(xhr_oneNews.responseText);
+												// console.log(oneNews);
+												showMsglist(oneNews);
+												$('body').getNewslist();
+											}
+										}
+									});
 								}
-								
-								
-								
 								$("textarea.sendMessage").css("overflow","hidden").bind("keydown keyup mousedown mousemove mouseout", function(){  
 							           $(this).height('0px').height(($(this).prop("scrollHeight")-12)+"px");
-							       }).focus();  
-						        
-								var $message= $('<div class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
-										+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
-										+'<li class="unslider-active" style="width: 33.3333%;">'
-										+'<div layout="row" class="verticalCenter">'
-										+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
-											+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
-											+'https://scontent.ftpe8-2.fna.fbcdn.net/v/t1.0-0/p370x247/15202501_395181680872386_3870395997474049651_n.jpg?_nc_cat=0&oh=0c765db9fd64e5c3791d8e82ae328959&oe=5BD65D9B'
-											+'" alt="">'
-										+'</div>'
-										+'<div style="padding:8px;border:2px #ccc solid;border-radius:10px;background-color:#eee;">'
-											+'<span style="font-size:16px;font-weight:bold;color:steelblue;">'
-												+'陰陽師'
-											+'</span>'
-											+'<p style="font-size:15px">'
-											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
+							       }).focus(); 
 
-											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
-											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
-											+'</p>'	
-											+'<p style="margin:0px;">'
-											+'Jul 8, 2018 7:21:56 PM'
-											+'</p>'
-										+'</div>'										
-										+'</div></li></ul></div>');
-								$("#oneNews").append($message);
-								
+								showMsglist(oneNews);
 							}
 						}
-
 					});
-
 		}
 	}
-
 });
+
+jQuery.fn.getNewslist = function() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("Get", "/HalfOf73/news/getNewsPage", true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (xhr.status == 200 && xhr.readyState == 4) {
+			newslist = JSON.parse(xhr.responseText);
+			
+		}
+	}
+}
+
+jQuery.fn.showMsglist = function(thisNews) {
+	$("#Msg").remove();
+	for(var i = 0; i<thisNews.Messages.length;i++){
+		var thisMessages = thisNews.Messages[i];
+		var $message= $('<div id="Msg" class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
+				+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
+				+'<li class="unslider-active" style="width: 33.3333%;">'
+				+'<div layout="row" class="verticalCenter">'
+				+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
+					+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
+					+'https://coffit.bg/wp-content/uploads/2012/07/nopic1-300x300.jpg'
+					+'" alt="">'
+				+'</div>'
+				+'<div style="padding:8px;border:2px #ccc solid;border-radius:10px;background-color:#eee;">'
+					+'<span style="font-size:16px;font-weight:bold;color:steelblue;">'
+						+thisMessages.talkerID
+					+'</span>'
+					+'<p style="font-size:15px">'
+						+thisMessages.msg
+					+'</p>'	
+					+'<p style="margin:0px;">'
+					+'Jul 8, 2018 7:21:56 PM'
+					+'</p>'
+				+'</div>'										
+				+'</div></li></ul></div>');
+		$("#oneNews").append($message);
+	}
+}
