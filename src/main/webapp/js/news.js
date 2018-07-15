@@ -134,7 +134,7 @@ jQuery(function($) {
 											+cpic
 											+'" alt="">'
 										+'</div>'
-										+'<div id="sendMessageF" style="padding:8px; margin-bottom: 22px; width: 100%; padding: 0px;">'
+										+'<div id="sendMessageF" style="padding:8px; width: 100%; padding: 0px;">'
 											+'<span style="font-size:16px;font-weight:bold;color:steelblue; margin-left: 4px;">'
 											+$('#memberBean').attr('data-memname')
 											+'</span>'
@@ -157,7 +157,7 @@ jQuery(function($) {
 										xhr_oneNews.open("Post", "/HalfOf73/news/creatNewsMsg?"
 												+"talkerID=" + $('#memberBean').attr('data-memname')
 												+"&msg=" + $('.sendMessage').val()
-												+"&DnewsUid=" + newsId, true);
+												+"&newsUid=" + newsId, true);
 										xhr_oneNews.setRequestHeader("Content-Type",
 												"application/x-www-form-urlencoded");
 										xhr_oneNews.send();
@@ -166,7 +166,7 @@ jQuery(function($) {
 											if (xhr_oneNews.status == 200 && xhr_oneNews.readyState == 4) {
 												var oneNews = JSON.parse(xhr_oneNews.responseText);
 												// console.log(oneNews);
-												showMsglist(oneNews);
+												$('body').showMsglist(oneNews);
 												$('body').getNewslist();
 											}
 										}
@@ -176,7 +176,7 @@ jQuery(function($) {
 							           $(this).height('0px').height(($(this).prop("scrollHeight")-12)+"px");
 							       }).focus(); 
 
-								showMsglist(oneNews);
+								$('body').showMsglist(news);
 							}
 						}
 					});
@@ -191,36 +191,41 @@ jQuery.fn.getNewslist = function() {
 	xhr.onreadystatechange = function() {
 		if (xhr.status == 200 && xhr.readyState == 4) {
 			newslist = JSON.parse(xhr.responseText);
-			
+			console.log(newslist);
 		}
 	}
 }
 
 jQuery.fn.showMsglist = function(thisNews) {
-	$("#Msg").remove();
-	for(var i = 0; i<thisNews.Messages.length;i++){
-		var thisMessages = thisNews.Messages[i];
-		var $message= $('<div id="Msg" class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
-				+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
-				+'<li class="unslider-active" style="width: 33.3333%;">'
-				+'<div layout="row" class="verticalCenter">'
-				+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
-					+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
-					+'https://coffit.bg/wp-content/uploads/2012/07/nopic1-300x300.jpg'
-					+'" alt="">'
-				+'</div>'
-				+'<div style="padding:8px;border:2px #ccc solid;border-radius:10px;background-color:#eee;">'
-					+'<span style="font-size:16px;font-weight:bold;color:steelblue;">'
-						+thisMessages.talkerID
-					+'</span>'
-					+'<p style="font-size:15px">'
-						+thisMessages.msg
-					+'</p>'	
-					+'<p style="margin:0px;">'
-					+'Jul 8, 2018 7:21:56 PM'
-					+'</p>'
-				+'</div>'										
-				+'</div></li></ul></div>');
-		$("#oneNews").append($message);
+	$(".Msg").remove();
+	if(!thisNews.Messages){
+		
+	}else{
+		for(var i = 0; i<thisNews.Messages.length;i++){
+			var thisMessages = thisNews.Messages[i];
+			console.log(thisMessages);
+			var $message= $('<div class="Msg nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;margin-top:8px;">'
+					+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
+					+'<li class="unslider-active" style="width: 33.3333%;">'
+					+'<div layout="row" class="verticalCenter">'
+					+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
+						+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
+						+'https://coffit.bg/wp-content/uploads/2012/07/nopic1-300x300.jpg'
+						+'" alt="">'
+					+'</div>'
+					+'<div style="padding:8px;border:2px #ccc solid;border-radius:10px;background-color:#eee;">'
+						+'<span style="font-size:16px;font-weight:bold;color:steelblue;">'
+							+thisMessages.talkerID
+						+'</span>'
+						+'<p style="font-size:15px">'
+							+thisMessages.msg
+						+'</p>'	
+						+'<p style="margin:0px;">'
+							+thisMessages.insertDate
+						+'</p>'
+					+'</div>'										
+					+'</div></li></ul></div>');
+			$("#oneNews").append($message);
+		}
 	}
 }
