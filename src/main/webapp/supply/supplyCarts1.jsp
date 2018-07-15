@@ -234,4 +234,5 @@
 		w3.includeHTML();
 	</script>
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 </html>
