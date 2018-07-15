@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/switch.css">
 <link rel="stylesheet" href="resource/WOW-master/css/libs/animate.css">
 <link rel="stylesheet" href="css/croppie.css">
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
 <!-- javascript -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>

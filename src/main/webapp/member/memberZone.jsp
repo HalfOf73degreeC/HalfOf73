@@ -63,7 +63,8 @@
 				<div class="nino-menuItem pull-right" w3-include-html="${pageContext.request.contextPath}/navbar_right.jsp"></div>
 			</div>
 		</div>
-		</nav> </header>
+		</nav> 
+		</header>
 		<!--/#header-->
 
 
