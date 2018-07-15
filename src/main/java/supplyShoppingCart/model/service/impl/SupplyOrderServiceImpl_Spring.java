@@ -29,10 +29,10 @@ public class SupplyOrderServiceImpl_Spring implements SupplyOrderService {
 	
 	// 這是一個交易
 	public void processOrder(SupplyOrderBean_HO73 ob) {
-    	// 儲存訂單
-    	odao.insertOrder(ob);
     	// 檢查所有訂單明細所訂購之商品的庫存數量是否足夠
     	checkStock(ob);
+    	// 儲存訂單
+    	odao.insertOrder(ob);
 	}
 
 	public void checkStock(SupplyOrderBean_HO73 ob) {

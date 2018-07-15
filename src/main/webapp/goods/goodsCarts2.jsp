@@ -207,8 +207,8 @@
 			</div>
 			<div class="foundationList">
 				<div class="container groupButton">
-					<button type="submit" class="btn btn-warning" formaction="BuyGoods.do">&nbsp;&nbsp;上一步:修改物資&nbsp;&nbsp;</button>
-					<button type="submit" class="btn btn-warning">下一步:捐贈物資完成</button>
+					<button type="submit" class="btn btn-warning" formaction="BuyGoods.do">&nbsp;&nbsp;上一步:修改義賣商品&nbsp;&nbsp;</button>
+					<button type="submit" class="btn btn-warning">下一步:義賣商品購買完成</button>
 				</div>		
 			</div>	
 		</div>

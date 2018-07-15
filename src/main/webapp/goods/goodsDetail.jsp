@@ -109,9 +109,8 @@
 					<dl>
 						<dt>付款方式</dt>
 						<dd>
-							<span class="form-check-label">${AllPayment.paymentName}/</span>
-							<c:forEach varStatus="stVar" var="AllPayment" items="${AllPayment}">
-							<span class="form-check-label">${AllPayment.paymentName}/</span>
+							<c:forEach varStatus="stVar" var="PaymentBean" items="${AllPayment}">	
+								<span class="form-check-label">${PaymentBean.paymentName}/</span>
 							</c:forEach>
 						</dd>
 					</dl>
@@ -119,8 +118,9 @@
 					<dl>
 						<dt>配送方式</dt>
 						<dd>
-							<span class="form-check-label">宅配</span> <span
-								class="form-check-label">/</span> <span class="form-check-label">7-11超商</span>
+						<c:forEach varStatus="stVar" var="DeliveryBean" items="${AllDelivery}">	
+							<span class="form-check-label">${DeliveryBean.deliveryName}/</span>
+						</c:forEach>
 						</dd>
 					</dl>
 					<!-- item-property-hor .// -->
@@ -184,65 +184,9 @@
 		<h2 class="nino-sectionHeading">
 			<span class="nino-subHeading">需求說明</span>
 		</h2>
-		<p class="nino-sectionDesc">Lorem ipsum dolor sit amet,
-			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<div class="sectionContent">
-			<div class="row nino-hoverEffect">
-				<div class="col-md-4 col-sm-4">
-					<div class="item">
-						<div class="overlay" href="#">
-							<div class="content">
-								<a href="#" class="nino-icon"><i class="mdi mdi-facebook"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-twitter"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-pinterest"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-instagram"></i></a>
-							</div>
-							<img src="images/our-team/img-1.jpg" alt="">
-						</div>
-					</div>
-					<div class="info">
-						<h4 class="name">Matthew Dix</h4>
-						<span class="regency">Graphic Design</span>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="item">
-						<div class="overlay" href="#">
-							<div class="content">
-								<a href="#" class="nino-icon"><i class="mdi mdi-facebook"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-twitter"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-pinterest"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-instagram"></i></a>
-							</div>
-							<img src="images/our-team/img-2.jpg" alt="">
-						</div>
-					</div>
-					<div class="info">
-						<h4 class="name">Christopher Campbell</h4>
-						<span class="regency">Branding/UX design</span>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="item">
-						<div class="overlay" href="#">
-							<div class="content">
-								<a href="#" class="nino-icon"><i class="mdi mdi-facebook"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-twitter"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-pinterest"></i></a>
-								<a href="#" class="nino-icon"><i class="mdi mdi-instagram"></i></a>
-							</div>
-							<img src="images/our-team/img-3.jpg" alt="">
-						</div>
-					</div>
-					<div class="info">
-						<h4 class="name">Michael Fertig</h4>
-						<span class="regency">Developer</span>
-					</div>
-				</div>
-			</div>
-		</div>
+		<p class="nino-sectionDesc">
+			${goodsBean.goodsArticle}
+		</p>
 	</div>
 	</section>
 	<!--/#nino-ourTeam-->

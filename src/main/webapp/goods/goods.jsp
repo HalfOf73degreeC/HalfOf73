@@ -77,6 +77,8 @@
 				<span class="nino-subHeading">愛心義賣商品</span>
 			</h2>
 			<div class="sectionContent">
+			<c:set var="err" value="${errorMsg}"></c:set>
+			<div>${err.noGoods}</div>
 				<c:forEach varStatus="stVar" var="GoodsBean" items="${AllGoods}">
 					<c:if test="${stVar.index % 3 == 0}">
 						<div class="row">

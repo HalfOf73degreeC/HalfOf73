@@ -126,6 +126,31 @@ jQuery(function($) {
 												+ news.newsUid + '</a>');
 								$("#oneNews").append($articleMeta);
 								
+								var $sendMessage= $('<div class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
+										+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
+										+'<li class="unslider-active" style="width: 33.3333%;">'
+										+'<div layout="row" class="verticalCenter">'
+										+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
+											+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
+											+$('#memberBean').attr('src')
+											+'" alt="">'
+										+'</div>'
+										+'<div id="sendMessageF" style="padding:8px; margin-bottom: 22px; width: 100%; padding: 0px;">'
+											+'<span style="font-size:16px;font-weight:bold;color:steelblue; margin-left: 4px;">'
+											+$('#memberBean').attr('data-memname')
+											+'</span>'
+											+'<textarea class="sendMessage form-control" placeholder="留言......" rows="1" style="resize : none; font-size:15px; width: 100%;min-height:35px;overflow:hidden;"></textarea>'
+											+'<button type="button" class="btn btn-primary" id="addNewMsg_bt"'
+											+'style="font-size: 15px; font-weight: bold; float: right;">發布</button>'
+										+'</div>'										
+										+'</div></li></ul></div>');
+								$("#oneNews").append($sendMessage);
+								
+								
+								$("textarea.sendMessage").css("overflow","hidden").bind("keydown keyup mousedown mousemove mouseout", function(){  
+							           $(this).height('0px').height(($(this).prop("scrollHeight")-12)+"px");
+							       }).focus();  
+						        
 								var $message= $('<div class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
 										+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
 										+'<li class="unslider-active" style="width: 33.3333%;">'
@@ -140,6 +165,9 @@ jQuery(function($) {
 												+'陰陽師'
 											+'</span>'
 											+'<p style="font-size:15px">'
+											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
+
+											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
 											+'請大家繼續在《陰陽師Onmyoji》遊玩，敬祝遊戲愉快！'
 											+'</p>'	
 											+'<p style="margin:0px;">'
