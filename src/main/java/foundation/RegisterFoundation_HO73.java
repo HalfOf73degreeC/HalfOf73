@@ -141,7 +141,7 @@ public class RegisterFoundation_HO73 extends HttpServlet {
 		    mbh = ms.getOneMember(mbh.getMemAccount());
 		    System.out.println("mbh="+mbh);
 			request.getSession().setAttribute("memberBean", mbh);
-			response.sendRedirect("/HalfOf73/mail/sendMail?funEmail="+funEmail+"&funIdcard="+funIdcard);
+			response.sendRedirect("/HalfOf73/mail/sendMail?funEmail="+funEmail+"&funIdcard="+funIdcard+"&funName="+funName);
 		};
 		
 
