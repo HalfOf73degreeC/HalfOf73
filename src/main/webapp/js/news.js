@@ -126,7 +126,7 @@ jQuery(function($) {
 								var $articleMeta = $('<div class="articleMeta" style="border-top: 1px solid #e5e5e5;margin: 15px 0px;font-size: 18px;">').append(
 										'<a style="margin-right: 15px;"><i class="mdi mdi-eye nino-icon"></i>'
 												+ news.newsView + '</a>').append(
-										'<a style="margin-right: 15px;"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
+										'<a id="count2Msg" style="margin-right: 15px;"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
 												+ count2Msg + '</a>');
 								$("#oneNews").append($articleMeta);
 								var cpic = $('#memberBean').attr('src');
@@ -164,8 +164,12 @@ jQuery(function($) {
 										var xhr_oneNews = new XMLHttpRequest();
 										xhr_oneNews.open("Post", "/HalfOf73/news/creatNewsMsg?"
 												+"talkerID=" + $('#memberBean').attr('data-memname')
+												+"&memPicUrl=" + $('#memberBean').attr('src')
 												+"&msg=" + $('.sendMessage').val()
 												+"&newsUid=" + newsId, true);
+										$('.sendMessage').val("");
+										$('.sendMessage').height('0px').height(($('.sendMessage').prop("scrollHeight")-12)+"px");
+																			
 										xhr_oneNews.setRequestHeader("Content-Type",
 												"application/x-www-form-urlencoded");
 										xhr_oneNews.send();
@@ -208,17 +212,20 @@ jQuery.fn.showMsglist = function(thisNews) {
 	$(".Msg").remove();
 	if(!thisNews.Messages){
 		
-	}else{
+	}else{		
 		for(var i = 0; i<thisNews.Messages.length;i++){
 			var thisMessages = thisNews.Messages[i];
-			console.log(thisMessages);
+			var memPicUrl = thisMessages.memPicUrl;
+			if (!memPicUrl){
+				memPicUrl = "https://coffit.bg/wp-content/uploads/2012/07/nopic1-300x300.jpg";
+			}
 			var $message= $('<div class="Msg nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;margin-top:8px;">'
 					+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
 					+'<li class="unslider-active" style="width: 33.3333%;">'
 					+'<div layout="row" class="verticalCenter">'
 					+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
 						+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
-						+'https://coffit.bg/wp-content/uploads/2012/07/nopic1-300x300.jpg'
+						+memPicUrl
 						+'" alt="">'
 					+'</div>'
 					+'<div style="padding:8px;border:2px #ccc solid;border-radius:10px;background-color:#eee;">'

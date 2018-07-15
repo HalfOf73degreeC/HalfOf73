@@ -65,15 +65,15 @@ public class NewsService {
 	}
 //	新建一則Message
 	@Transactional
-	public NewsBean_HO73 creatOneMessage(String talkerID, String msg, Integer newsUid) {
+	public NewsBean_HO73 creatOneMessage(String talkerID, String memPicUrl, String msg, Integer newsUid) {
 		NewsBean_HO73 nb = newsDao.getOneNew(newsUid);
-		Message msgBeen = new Message(talkerID, msg, nb);
+		Message msgBeen = new Message(talkerID, memPicUrl, msg, nb);
 		messageDao.save(msgBeen);
 		return nb;
 	}
 	@Transactional
-	public String creatOneMessage2String(String talkerID, String msg, Integer newsUid) {
-		return gson.toJson(creatOneMessage(talkerID, msg, newsUid));		
+	public String creatOneMessage2String(String talkerID, String memPicUrl, String msg, Integer newsUid) {
+		return gson.toJson(creatOneMessage(talkerID, memPicUrl, msg, newsUid));		
 	}
 //	
 //	

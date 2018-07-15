@@ -47,9 +47,11 @@ public class creatNewsMsg extends HttpServlet {
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		NewsService ns = ctx.getBean(NewsService.class);
 		String talkerID = request.getParameter("talkerID");
+		String memPicUrl = request.getParameter("memPicUrl");
+		System.out.println("-------------------------------------memPicUrl: "+memPicUrl);
 		String msg = request.getParameter("msg");
 		Integer newsUid = Integer.valueOf(request.getParameter("newsUid"));
-		String gString = ns.creatOneMessage2String(talkerID, msg, newsUid); 
+		String gString = ns.creatOneMessage2String(talkerID, memPicUrl, msg, newsUid); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);
