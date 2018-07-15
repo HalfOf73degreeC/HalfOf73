@@ -82,7 +82,7 @@
 		</div>
 		<div class="foundationList">
 			<div class="container groupButton">
-<!-- 				<button type="submit" class="btn btn-warning">回首頁</button> -->
+				<button type="submit" class="btn btn-warning" formaction="../index.jsp">回首頁</button>
 			</div>
 		</div>
 		</div>

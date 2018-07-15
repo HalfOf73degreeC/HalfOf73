@@ -1,5 +1,6 @@
 package shoppingCart.controller;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,17 +23,20 @@ public class UpdateGoodsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		session = request.getSession(false);
-		if (session == null) {      // 使用逾時
-			response.sendRedirect(getServletContext().getContextPath() + "index.jsp");
+		PrintWriter out = response.getWriter();
+		if (session == null) {  
+			out.println("<script>alert('若需購買義賣商品需登入')</script>");
+			out.println("<script>window.location.href='../goods/queryAllGoods_HO73.do'</script>");
 			return;
 		}
 		//取出session物件內的ShoppingCart物件
 		ShoppingCart sc= (ShoppingCart)session.getAttribute("ShoppingCart");
-		if (sc == null) {
-			// 如果找不到購物車(通常是Session逾時)，沒有必要往下執行
-			// 導向首頁
-			response.sendRedirect(getServletContext().getContextPath() + "index.jsp"  );
+		System.out.println(sc);
+		if (sc.getContent() == null) {
+			out.println("<script>alert('無購買義賣商品，請重新選取購買項目')</script>");
+			out.println("<script>window.location.href='../goods/queryAllGoods_HO73.do'</script>");
 			return;
         }
 		// cmd可能是DEL或是MOD
