@@ -229,4 +229,5 @@
 	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 </html>

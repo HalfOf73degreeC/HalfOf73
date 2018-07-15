@@ -100,4 +100,5 @@
   	<script type="text/javascript" src="../js/jquery.ba-outside-events.js"></script>
 
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 </html>
