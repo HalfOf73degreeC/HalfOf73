@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 	  @Override
 	  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 	      throws IOException, ServletException {
-		  String cp = req.getParameter("Page");
+		  String cp = req.getParameter("backPage");
 		  System.out.println("測試: "+cp);
 		req.getSession().setAttribute("backPage",cp);
 	    String state = new BigInteger(130, new SecureRandom()).toString(32);  // prevent request forgery
