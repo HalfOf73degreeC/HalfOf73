@@ -7,7 +7,6 @@
 	href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
 	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
 	crossorigin="anonymous">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -495,7 +494,6 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.status == 200 && xhr.readyState == 4) {
 // 				$('#NewGoodsModal').hide();
-				$('#modal_loading').modal('hide');
 				var jsonString = xhr.responseText;
 				console.log("jsonString= " + jsonString);
 				console.log("jsonString.length= "
@@ -507,7 +505,8 @@
 //						console.log(Goods);
 				}
 //					$('body').getGoods_now(goodsUid);
-				
+				$('body').getGoodsList();
+				$('#modal_loading').modal('hide');
 			}
 		}
 
