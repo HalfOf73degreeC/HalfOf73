@@ -56,11 +56,7 @@
 								<li><a href="#nino-latestBlog"></a></li> -->
 							</ul>
 						</div>
-						<!-- /.navbar-collapse -->
-						<ul class="nino-iconsGroup nav navbar-nav">
-							<li><a href="#"><i class="mdi mdi-cart-outline nino-icon"></i></a></li>
-							<li><a href="#" class="nino-search"><i class="mdi mdi-magnify nino-icon"></i></a></li>
-						</ul>
+						<div class="nino-menuItem pull-right" w3-include-html="${pageContext.request.contextPath}/navbar_right.jsp"></div>
 					</div>
 				</div><!-- /.container-fluid -->
 			</nav>

@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/switch.css">
 <link rel="stylesheet" href="resource/WOW-master/css/libs/animate.css">
 <link rel="stylesheet" href="css/croppie.css">
+<link rel="stylesheet" type="text/css" href="../css/materialdesignicons.min.css" />
 <!-- javascript -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
@@ -31,6 +32,12 @@
 <script type="text/javascript" src="js/unslider-min.js"></script>
 <script type="text/javascript" src="js/croppie.js"></script>
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 <title>商品建檔</title>
 </head>
 
@@ -416,6 +423,10 @@
 
 	jQuery.fn.getGoodsList = function() {
 		return this.each(function() {
+			$loadingGIF = $(
+// 					loading
+					'<div w3-include-html=../loadingUpper.jsp></div>')
+					.appendTo($('.sectionContent'));
 			var xhr = new XMLHttpRequest();
 			xhr.open("Post", "getGoodsList?fk_payIdcard=" + fk_payIdcard,
 					true);
@@ -425,6 +436,8 @@
 			xhr.onreadystatechange = function() {
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					var funBean = JSON.parse(xhr.responseText);
+// 					loading
+					$(loadingGif).hide(500);
 					patBoxList = [];
 					console.log("fk_payIdcard: "+fk_payIdcard);
 					console.log("funBean: "+funBean);
