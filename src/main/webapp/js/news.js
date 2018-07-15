@@ -119,20 +119,23 @@ jQuery(function($) {
 								$("#oneNews").append(
 										'<img width="100%" src="'
 												+ news.newsImg + '"/>');
-								var $articleMeta = $('<div class="articleMeta" style="border-top: 1px solid #e5e5e5;margin-top: 15px;font-size: 18px;">').append(
+								var $articleMeta = $('<div class="articleMeta" style="border-top: 1px solid #e5e5e5;margin: 15px 0px;font-size: 18px;">').append(
 										'<a style="margin-right: 15px;"><i class="mdi mdi-eye nino-icon"></i>'
 												+ news.newsView + '</a>').append(
 										'<a style="margin-right: 15px;"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
 												+ news.newsUid + '</a>');
 								$("#oneNews").append($articleMeta);
-								
+								var cpic = $('#memberBean').attr('src');
+								if(!cpic){
+									cpic = 'https://coffit.bg/wp-content/uploads/2012/07/nopic1-300x300.jpg';
+								}
 								var $sendMessage= $('<div class="nino-testimonialSlider unslider-horizontal" style="position: relative;overflow: hidden;margin:0px;">'
 										+'<ul class="unslider-wrap unslider-carousel" style="width: 300%; left: 0%;">'
 										+'<li class="unslider-active" style="width: 33.3333%;">'
 										+'<div layout="row" class="verticalCenter">'
 										+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
 											+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
-											+$('#memberBean').attr('src')
+											+cpic
 											+'" alt="">'
 										+'</div>'
 										+'<div id="sendMessageF" style="padding:8px; margin-bottom: 22px; width: 100%; padding: 0px;">'
@@ -144,7 +147,13 @@ jQuery(function($) {
 											+'style="font-size: 15px; font-weight: bold; float: right;">發布</button>'
 										+'</div>'										
 										+'</div></li></ul></div>');
-								$("#oneNews").append($sendMessage);
+								var loginyet = $('#memberBean').attr('data-memname');
+								if(!loginyet){
+									
+								}else{
+									$("#oneNews").append($sendMessage);
+								}
+								
 								
 								
 								$("textarea.sendMessage").css("overflow","hidden").bind("keydown keyup mousedown mousemove mouseout", function(){  
