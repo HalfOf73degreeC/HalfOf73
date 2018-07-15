@@ -52,12 +52,16 @@ jQuery(function($) {
 						$article).html(news.newsName);
 				var $newsArticle = $('<p class="articleDesc">').appendTo(
 						$article).html(news.newsArticle);
+				var count2Msg = news.Messages.length;
+				if (!count2Msg){
+					count2Msg = 0;
+				}
 				var $articleMeta = $('<div class="articleMeta">').appendTo(
 						$article).append(
 						'<a><i class="mdi mdi-eye nino-icon"></i>'
 								+ news.newsView + '</a>').append(
 						'<a><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
-								+ news.newsUid + '</a>');
+								+ news.Messages.length + '</a>');
 
 			}
 			var len = 80; // 文字>80變成"..."
@@ -115,11 +119,15 @@ jQuery(function($) {
 								$("#oneNews").append(
 										'<img width="100%" src="'
 												+ news.newsImg + '"/>');
+								var count2Msg = news.Messages.length;
+								if (!count2Msg){
+									count2Msg = 0;
+								}
 								var $articleMeta = $('<div class="articleMeta" style="border-top: 1px solid #e5e5e5;margin: 15px 0px;font-size: 18px;">').append(
 										'<a style="margin-right: 15px;"><i class="mdi mdi-eye nino-icon"></i>'
 												+ news.newsView + '</a>').append(
 										'<a style="margin-right: 15px;"><i class="mdi mdi-comment-multiple-outline nino-icon"></i>'
-												+ news.newsUid + '</a>');
+												+ count2Msg + '</a>');
 								$("#oneNews").append($articleMeta);
 								var cpic = $('#memberBean').attr('src');
 								if(!cpic){
