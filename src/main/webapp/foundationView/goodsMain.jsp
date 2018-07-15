@@ -327,7 +327,7 @@
 					+'<div class="modal-footer">'
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
-					+'<button type="button" class="btn btn-primary" id="addNewGoods_bt"'
+					+'<button type="button" class="btn btn-primary" id="addNewGoods_bt" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
 					+'</div></div></div></form>');
 			
@@ -480,7 +480,7 @@
 		xhr.send(fd);
 		xhr.onreadystatechange = function() {
 			if (xhr.status == 200 && xhr.readyState == 4) {
-				$('#NewGoodsModal').hide();
+// 				$('#NewGoodsModal').hide();
 				var jsonString = xhr.responseText;
 				console.log("jsonString= " + jsonString);
 				console.log("jsonString.length= "
