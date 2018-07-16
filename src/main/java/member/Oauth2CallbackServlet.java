@@ -47,11 +47,18 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 				GoogleInitData.CLIENT_ID,
 				GoogleInitData.CLIENT_SECRET,
 				GoogleInitData.SCOPE).build();
-		
-		final TokenResponse tokenResponse =
-		        flow.newTokenRequest(request.getParameter("code"))
-		        	.setRedirectUri(GoogleInitData.CALLBACK_URI)
-		            .execute();
+		final TokenResponse tokenResponse ;
+		if(request.getServerPort() == 8080) {
+			tokenResponse =
+			        flow.newTokenRequest(request.getParameter("code"))
+			        	.setRedirectUri(GoogleInitData.CALLBACK_URI)
+			            .execute();
+		} else {
+			tokenResponse =
+			        flow.newTokenRequest(request.getParameter("code"))
+			        	.setRedirectUri(GoogleInitData.CALLBACK_URI_PRO)
+			            .execute();
+		}
 		request.getSession().setAttribute("token", tokenResponse.toString());
 //		System.out.println(tokenResponse.toString());
 		final Credential credential = flow.createAndStoreCredential(tokenResponse, null);

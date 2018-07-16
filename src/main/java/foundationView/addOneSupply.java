@@ -5,7 +5,9 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -84,9 +86,29 @@ public class addOneSupply extends HttpServlet {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		List<Blob> supImgLsit = new ArrayList<>();
+		if(supImg1 !=null) {
+			supImgLsit.add(supImg1);
+		}
+		if(supImg2 !=null) {
+			supImgLsit.add(supImg2);
+		}
+		if(supImg3 !=null) {
+			supImgLsit.add(supImg3);
+		}
+		if(supImg4 !=null) {
+			supImgLsit.add(supImg4);
+		}
+		if(supImg5 !=null) {
+			supImgLsit.add(supImg5);
+		}
+		
+		
 		String funIdCard = mb.getFoundationBean_HO73().getFunIdcard();	
 		System.out.println("funIdCard= "+funIdCard);
-		String gString = ss.createOneSupply2String(supName, supArticle, supIntro, supImgFileName, supNeedStock, funIdCard, supView, insertDate, supImg, supImg1, supImg2, supImg3, supImg4, supImg5);
+		String gString = ss.createOneSupply2String(supName, supArticle, supIntro, supImgFileName, supNeedStock, funIdCard, supView, 
+				insertDate, supImg, supImgLsit);
 		response.setContentType("application/json; charset=UTF8");			
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);

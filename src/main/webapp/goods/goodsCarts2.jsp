@@ -125,7 +125,7 @@
 						<c:forEach varStatus="stVar" var="DeliveryBean" items="${AllDelivery}">		
 							<tr>
 								<td>
-									<input id="deliveryAmt" type="radio" name="deliveryAmt" value="${DeliveryBean.deliveryAmt}" onclick="addDeliveryAmt()">
+									<input id="deliveryAmt" type="radio" name="deliveryAmt" value="${DeliveryBean.deliveryAmt}" onclick="addDeliveryAmt()" required>
 								</td>
 								<td><img src="${DeliveryBean.deliveryImg}" height="80" width="80"></td>
 								<td>${DeliveryBean.deliveryName}</td>
@@ -162,7 +162,7 @@
 						<c:forEach varStatus="stVar" var="PaymentBean" items="${AllPayment}">		
 							<tr>
 								<td>
-									<input id="Payment" type="radio" name="Payment" value="${PaymentBean.paymentUid}" onclick="addPayment()">
+									<input id="Payment" type="radio" name="Payment" value="${PaymentBean.paymentUid}" onclick="addPayment()" required>
 								</td>
 								<td><img src="${PaymentBean.paymentImg}" height="80" width="80"></td>
 								<td>${PaymentBean.paymentName}</td>

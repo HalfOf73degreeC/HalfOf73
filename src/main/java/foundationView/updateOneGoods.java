@@ -1,8 +1,5 @@
 package foundationView;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -12,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -34,8 +30,8 @@ import model.service.GoodsService;
  */
 @MultipartConfig(location = "", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 500, maxRequestSize = 1024
 * 1024 * 500 * 5)
-@WebServlet("/foundationView/addOneGoods")
-public class addOneGoods extends HttpServlet {
+@WebServlet("/foundationView/updateOneGoods")
+public class updateOneGoods extends HttpServlet {
 
 	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -73,14 +69,7 @@ public class addOneGoods extends HttpServlet {
 					if (p.getContentType() != null) {   // 表示 p 為一般欄位而非上傳的表單
 						sizeInBytes = p.getSize();
 						is = p.getInputStream();
-//						BufferedImage image;
-//						ByteArrayOutputStream os;
 						if (fldName.equals("goodsImg")) {
-//							image = ImageIO.read(is); 
-//							BufferedImage goodsImgResize = SystemUtils2018.resizeImage(image, 200, 200);
-//							os = new ByteArrayOutputStream();
-//							ImageIO.write(goodsImgResize, "jpg", os);
-//							is = new ByteArrayInputStream(os.toByteArray());
 							goodsImg = SystemUtils2018.fileToBlob(is, sizeInBytes);
 						} else if (fldName.equals("goodsImg1")) {
 							goodsImg1 = SystemUtils2018.fileToBlob(is, sizeInBytes);

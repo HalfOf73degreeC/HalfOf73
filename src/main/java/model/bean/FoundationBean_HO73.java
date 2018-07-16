@@ -1,16 +1,14 @@
 package model.bean;
 
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -48,6 +46,7 @@ public class FoundationBean_HO73{
 	private Set<PayBox> payBox = new LinkedHashSet<>();
 	private Set<PayBoxOut> payBoxOut = new LinkedHashSet<>();
 	private Set<GoodsBean_HO73> Goods = new LinkedHashSet<>();
+	private Set<SupplyBean_HO73> Supply = new LinkedHashSet<>();
 	
 	public FoundationBean_HO73() {
 		super();
@@ -393,6 +392,16 @@ public class FoundationBean_HO73{
 
 	public void setGoods(Set<GoodsBean_HO73> goods) {
 		Goods = goods;
+	}
+
+
+	@OneToMany(mappedBy="foundationBean_HO73", cascade={CascadeType.ALL}) 
+	public Set<SupplyBean_HO73> getSupply() {
+		return Supply;
+	}
+
+	public void setSupply(Set<SupplyBean_HO73> supply) {
+		Supply = supply;
 	}
 
 	@Override
