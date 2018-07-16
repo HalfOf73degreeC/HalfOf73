@@ -18,6 +18,7 @@ public class Message {
 
 	private				Integer			MessageUid;
 	private				String			talkerID;
+	private				String			memPicUrl;
 	private				String			msg;
 	private transient	NewsBean_HO73	newsBean_HO73;
 	private				Date			insertDate;
@@ -25,9 +26,10 @@ public class Message {
 		super();
 	}
 	
-	public Message(String talkerID, String msg, NewsBean_HO73 newsBean_HO73) {
+	public Message(String talkerID, String memPicUrl, String msg, NewsBean_HO73 newsBean_HO73) {
 		super();
 		this.talkerID = talkerID;
+		this.memPicUrl = memPicUrl;
 		this.msg = msg;
 		this.newsBean_HO73 = newsBean_HO73;
 		insertDate = new Date();
@@ -73,7 +75,13 @@ public class Message {
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}	
-	
+	public String getMemPicUrl() {
+		return memPicUrl;
+	}
+
+	public void setMemPicUrl(String memPicUrl) {
+		this.memPicUrl = memPicUrl;
+	}
 	
 	
 }

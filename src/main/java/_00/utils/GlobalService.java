@@ -27,6 +27,7 @@ public class GlobalService {
 	public static final String SYSTEM_NAME = "Half of 73";
 	public static final String JNDI_NAME_MySQL = "java:comp/env/jdbc/HO73";
 	public static final int IMAGE_FILENAME_LENGTH = 20;
+//	public static final String DB_URLMySQL = "jdbc:mysql://172.31.18.174:6603/ho73?useUnicode=yes&characterEncoding=utf8" ;
 	public static final String DB_URLMySQL = "jdbc:mysql://35.165.226.129:6603/ho73?useUnicode=yes&characterEncoding=utf8" ;
 	public static final String KEY = "HO73";  // 16, 24, 32
 	public static final int ORDER_AMOUNT_LIMIT = 999999999;

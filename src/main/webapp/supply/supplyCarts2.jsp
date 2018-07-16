@@ -134,7 +134,7 @@
 						items="${AllDelivery}">
 						<tr>
 							<td><input id="deliveryAmt" type="radio" name="deliveryAmt"
-								value="${DeliveryBean.deliveryAmt}" onclick="addDeliveryAmt()">
+								value="${DeliveryBean.deliveryAmt}" onclick="addDeliveryAmt()" required>
 							</td>
 							<td><img src="${DeliveryBean.deliveryImg}" height="80"
 								width="80"></td>

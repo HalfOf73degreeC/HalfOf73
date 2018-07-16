@@ -3,7 +3,10 @@ package model.bean;
 import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,7 +39,8 @@ public class SupplyBean_HO73 {
 	Blob		supImg3;
 	Blob		supImg4;
 	Blob		supImg5;
-	FoundationBean_HO73 foundationBean_HO73;
+	transient FoundationBean_HO73 foundationBean_HO73;
+	Set<SupplyImgBean> 	SupplyImgBean = new LinkedHashSet<>();
 	
 	
 	public SupplyBean_HO73() {
@@ -67,8 +72,7 @@ public class SupplyBean_HO73 {
 
 
 	public SupplyBean_HO73(String supName, Blob supImg, String supImgFileName, String supIntro, String supArticle,
-			Integer supNeedStock, Integer views, Timestamp insertDate, Blob supImg1, Blob supImg2, Blob supImg3,
-			Blob supImg4, Blob supImg5, FoundationBean_HO73 foundationBean_HO73) {
+			Integer supNeedStock, Integer views, Timestamp insertDate, FoundationBean_HO73 foundationBean_HO73) {
 		super();
 		this.supName = supName;
 		this.supImg = supImg;
@@ -78,13 +82,9 @@ public class SupplyBean_HO73 {
 		this.supNeedStock = supNeedStock;
 		this.views = views;
 		this.insertDate = insertDate;
-		this.supImg1 = supImg1;
-		this.supImg2 = supImg2;
-		this.supImg3 = supImg3;
-		this.supImg4 = supImg4;
-		this.supImg5 = supImg5;
 		this.foundationBean_HO73 = foundationBean_HO73;
 	}
+	
 
 
 	@Id
@@ -262,6 +262,17 @@ public class SupplyBean_HO73 {
 	public void setFoundationBean_HO73(FoundationBean_HO73 foundationBean_HO73) {
 		this.foundationBean_HO73 = foundationBean_HO73;
 	}
+
+	@OneToMany(mappedBy="supUid", cascade={CascadeType.ALL}) 
+	public Set<SupplyImgBean> getSupplyImgBean() {
+		return SupplyImgBean;
+	}
+
+
+	public void setSupplyImgBean(Set<SupplyImgBean> supplyImgBean) {
+		SupplyImgBean = supplyImgBean;
+	}
+
 
 	@Override
 	public String toString() {

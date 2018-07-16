@@ -29,6 +29,7 @@ public class QueryAllGoods_HO73 extends HttpServlet {
 		GoodsService service = ctx.getBean(GoodsService.class);
 		List<GoodsBean_HO73> allGoods = service.getAllGoods();
 		request.setAttribute("AllGoods", allGoods);
+		System.out.println(allGoods);
 		RequestDispatcher rd = request.getRequestDispatcher("goods.jsp");
 		rd.forward(request, response);
 		return;

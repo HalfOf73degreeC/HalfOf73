@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import model.service.GoodsService;
+import model.service.SupplyService;
 import model.service.foundationService;
-import model.service.payBoxService;
 
 /**
  * Servlet implementation class getMemberPage
  */
-@WebServlet("/foundationView/getPayBoxList")
-public class getPayBoxList extends HttpServlet {
+@WebServlet("/foundationView/getSupplyList")
+public class getSupplyList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,9 +28,9 @@ public class getPayBoxList extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		WebApplicationContext ctx = 
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-		payBoxService pbs = ctx.getBean(payBoxService.class);
+		SupplyService ss = ctx.getBean(SupplyService.class);
 		// mdao.setPageNo(pageNo);
-		String gString = pbs.getAllPayBoxes2String(); 
+		String gString = ss.getAllSupply2String(); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
 			out.println(gString);
@@ -43,7 +44,6 @@ public class getPayBoxList extends HttpServlet {
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		foundationService fs = ctx.getBean(foundationService.class);
 		String fk_payIdcard = request.getParameter("fk_payIdcard");
-		System.out.println("fk_payIdcard: "+ fk_payIdcard);
 		String gString = fs.getOneFoundation2String(fk_payIdcard); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {
