@@ -7,8 +7,8 @@ import model.bean.GoodsImgBean;
 
 public interface GoodsImgDao {
 	int save(GoodsImgBean gib);
-	List<GoodsImgBean> getAllGoods();
+	List<GoodsImgBean> getOneGoodsAllImg(int goodsUid);
 	int update(GoodsImgBean gib);
 	int delete(int goodsImgUid);
-	GoodsImgBean getOneGoods(int goodsImgUid);
+	GoodsImgBean getOneGoodsImg(int goodsImgUid);
 }
