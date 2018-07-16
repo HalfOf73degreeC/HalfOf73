@@ -166,7 +166,7 @@
 	</script>
 	<script>
 
-	var GoodsList;
+	var SupplyList;
 	var fk_payIdcard;
 	var Goods_now;
 	
@@ -177,7 +177,7 @@
 		setTimeout(
 				function() {
 					fk_payIdcard = $("#memberBean").attr("data-funIdcard");
-					$('body').getGoodsList();
+					$('body').getSupplyList();
 				}
 				,100)
 		
@@ -192,14 +192,14 @@
 		$('body').reNewGoodModal();
 	});
 	//顯示商品資料
-	jQuery.fn.showGoods_D = function(Supply) {
+	jQuery.fn.showSupply_D = function(Supply) {
 		$('body').reNewGoodModal();
 		var supName = $('#supName').val(Supply.supName);
 		var supNeedStock = $('#supNeedStock').val(Supply.supNeedStock);
 		var supArticle = $('#supArticle').val(Supply.supArticle);
 		var supIntro = $('#supIntro').val(Supply.supIntro);
 		var supImgList = Supply.supImgBean;
-		for(var i = 0; i < supmgList.length; i++){
+		for(var i = 0; i < supImgList.length; i++){
 
 			console.log("jsaon: "+JSON.stringify(supImgList[i].supImg));
 // 			objectURL = URL.createObjectURL(goodImgList[i].goodsImg);
@@ -304,16 +304,16 @@
 					+'<h4 class="panel-title">'
 					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品簡介</div>'
 					+'</h4>'
-					+'<textarea class="form-control" id="goodsIntro"'
+					+'<textarea class="form-control" id="supIntro"'
 					+'placeholder="" rows="3" style="resize : none;" onKeyDown="if (this.value.length>=200){event.returnValue=false}"></textarea>'
 					+'</div></div>'
 					+'<div id="collapseOne1" class="panel-collapse collapse in"'
 					+'role="tabpanel" aria-labelledby="headingOne">'
 					+'<div class="panel-body" style="height: 167px;">'
 					+'<h4 class="panel-title">'
-					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">商品詳述</div>'
+					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品詳述</div>'
 					+'</h4>'
-					+'<textarea class="form-control" id="goodsArticle"'
+					+'<textarea class="form-control" id="supArticle"'
 					+'placeholder="" rows="6" style="resize : none;"></textarea>'
 					+'</div></div></div></div>'
 					+'<div class="modal-footer">'
@@ -372,9 +372,9 @@
 
 		}
 
-	jQuery.fn.showGoods = function(Supply) {
+	jQuery.fn.showSupply = function(Supply) {
 		var button = $(
-				'<button type="button" date-supUid="'+ Supply.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3"'
+				'<button type="button" date-supUid="'+ Supply.supUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3"'
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
 				.appendTo($("#activityRow"));
 
@@ -395,18 +395,18 @@
 		$(".Goods").on("click", function() {
 			var supUid = $(this).attr("date-supUid")
 			console.log("檢視Goods");
-			for (var i = 0; i < GoodsList.length; i++) {
-				var Supply = GoodsList[i];
-				if (Supply.goodsUid == suppUid) {
-					Goods_now = Goods
-					$('body').showGoods_D(Supply);
+			for (var i = 0; i < SupplyList.length; i++) {
+				var Supply = SupplyList[i];
+				if (Supply.supUid == supUid) {
+					Supply_now = Supply
+					$('body').showSupply_D(Supply);
 
 				}
 			}
 		});
 	}
 
-	jQuery.fn.getGoodsList = function() {
+	jQuery.fn.getSupplyList = function() {
 		return this.each(function() {
 			$loadingGIF = $(
 // 					loading
@@ -420,7 +420,7 @@
 					,100);
 			console.log("fk_payIdcard: "+fk_payIdcard);
 			console.log("getPayBoxList?fk_payIdcard="+fk_payIdcard);
-			xhr.open("Post", "getGoodsList?fk_payIdcard=" + fk_payIdcard,
+			xhr.open("Post", "getSupplyList?fk_payIdcard=" + fk_payIdcard,
 					true);
 			xhr.setRequestHeader("Content-Type",
 					"application/x-www-form-urlencoded");
@@ -438,15 +438,15 @@
 					patBoxList = [];
 					console.log("funBean: "+funBean);
 					if(funBean!=null){
-						GoodsList = funBean.Goods;
+						SupplyList = funBean.Supply;
 					}					
 					console.log("清空Goods");
-					$(".Goods").remove();
-					console.log(GoodsList);
+					$(".Supply").remove();
+					console.log(SupplyList);
 					console.log("重建Goods");
-					if(GoodsList!=null){
-						for (var i = 0; i < GoodsList.length; i++) {
-								$('body').showGoods(GoodsList[i]);
+					if(SupplyList!=null){
+						for (var i = 0; i < SupplyList.length; i++) {
+								$('body').showSupply(SupplyList[i]);
 						}
 						$('body').clickGoods();
 					}else{
@@ -458,7 +458,7 @@
 	}
 	//送資料給Server
 	jQuery.fn.sendDataToSever = function() {
-		console.log("準備新建Goods");
+		console.log("準備新建Supply");
 		var xhr = new XMLHttpRequest();
 		var supName = $('#supName').val();
 		var supNeedStock = $('#supNeedStock').val();
@@ -471,18 +471,18 @@
         fd.append("supNeedStock", supNeedStock);
         fd.append("supArticle", supArticle);
         fd.append("supIntro", supIntro);
-        
         var supImg = $('#input_img1')[0].files[0];
-        if(supImg !=null){
-       		fd.append("supImg", $('#input_img1')[0].files[0]);
+        if(supImg){
+           	fd.append("supImg", supImg);
         }
+        
         for(var i = 1;i<=pic_count;i++){
         	var supImg = $('#input_img'+i)[0].files[0];
         	if(supImg != null){
         		fd.append("supImg"+i,supImg);
         	}
         }
-		xhr.open("POST", "/HalfOf73//foundationView/addOneSupply", true);
+		xhr.open("POST", "/HalfOf73/foundationView/addOneSupply", true);
 		xhr.send(fd);
 		xhr.onreadystatechange = function() {
 			if (xhr.status == 200 && xhr.readyState == 4) {
@@ -494,10 +494,10 @@
 				if (jsonString.length < 10) {
 					alert("無法新建商品");
 				} else {
-//						var Goods = JSON.parse(xhr.responseText);
-//						console.log(Goods);
+//						var Supply = JSON.parse(xhr.responseText);
+//						console.log(Supply);
 				}
-//					$('body').getGoods_now(supUid);
+//					$('body').getSupply_now(supUid);
 				
 			}
 		}

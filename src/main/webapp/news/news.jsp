@@ -74,6 +74,9 @@
 	<!-- NewsPage -->
 	<section id="nino-latestBlog" >
 		<div class="container" >
+			<h2 class="nino-sectionHeading">
+				<span class="nino-subHeading" style="font-size: 30px">最新消息</span>
+			</h2>
 			<div class="sectionContent" id='NewsPage' date-newsMuch="0" data-contextPath="${pageContext.request.contextPath}"></div>
 			<script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>
 		</div>

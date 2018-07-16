@@ -13,8 +13,10 @@ import com.google.gson.Gson;
 
 import model.bean.FoundationBean_HO73;
 import model.bean.SupplyBean_HO73;
+import model.bean.SupplyImgBean;
 import model.repository.FoundationDao;
 import model.repository.SupplyDao;
+import model.repository.SupplyImgDao;
 
 @Service
 @Scope("prototype")
@@ -24,6 +26,8 @@ public class SupplyService {
     SupplyDao sdao;
 	@Autowired
 	FoundationDao fdao;		
+	@Autowired
+	SupplyImgDao sidao;	
 	@Autowired
 	Gson gson;
     
@@ -35,10 +39,20 @@ public class SupplyService {
 	public SupplyBean_HO73 getOneSupply(int supUid) {
 		return sdao.getOneSupply(supUid);
 	}
+	@Transactional
+	public String getOneGoods2String(Integer supUid) {
+		return gson.toJson(getOneSupply(supUid));		
+	}
 
 	@Transactional
 	public List<SupplyBean_HO73> getAllSupply() {
 		return sdao.getAllSupply();
+	}
+	
+
+	@Transactional
+	public String getAllSupply2String() {			
+		return gson.toJson(getAllSupply());
 	}
 
 	@Transactional
@@ -59,20 +73,22 @@ public class SupplyService {
 
 	@Transactional
 	public SupplyBean_HO73 createOneSupply(String supName, String supArticle, String supIntro, String supImgFileName, 
-			Integer supNeedStock, String funIdCard, Integer supView, Timestamp insertDate, Blob supImg, Blob supImg1, Blob supImg2, Blob supImg3
-			, Blob supImg4, Blob supImg5) {
+			Integer supNeedStock, String funIdCard, Integer supView, Timestamp insertDate, Blob supImg,  List<Blob> supImgLsit) {
 		SupplyBean_HO73 sb = null;
 		FoundationBean_HO73 fb = fdao.getOneFoundation(funIdCard); 
-		sb = new SupplyBean_HO73(supName, supImg, supImgFileName, supIntro, supArticle, supNeedStock, supView, insertDate, supImg1, supImg2, supImg3, supImg4, supImg5, fb);
+		sb = new SupplyBean_HO73(supName, supImg, supImgFileName, supIntro, supArticle, supNeedStock, supView, insertDate, fb);
 		sdao.save(sb);
+		for(Blob blob:supImgLsit) {
+			SupplyImgBean sib = new SupplyImgBean(sb ,blob);
+			sidao.save(sib);
+		}
 		return sb;
 	}
 	
 	@Transactional
 	public String createOneSupply2String(String supName, String supArticle, String supIntro, String supImgFileName, 
-			Integer supNeedStock, String funIdCard, Integer supView, Timestamp insertDate, Blob supImg, Blob supImg1, Blob supImg2, Blob supImg3
-			, Blob supImg4, Blob supImg5) {
-		return gson.toJson(createOneSupply(supName, supArticle, supIntro, supImgFileName, supNeedStock, funIdCard, supView, insertDate, supImg, supImg1, supImg2, supImg3, supImg4, supImg5));
+			Integer supNeedStock, String funIdCard, Integer supView, Timestamp insertDate, Blob supImg, List<Blob> supImgLsit) {
+		return gson.toJson(createOneSupply(supName, supArticle, supIntro, supImgFileName, supNeedStock, funIdCard, supView, insertDate, supImg, supImgLsit));
 	}
 
 }

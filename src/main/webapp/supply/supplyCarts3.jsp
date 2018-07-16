@@ -80,8 +80,9 @@
 			</div>
 		</div>
 		<div class="foundationList">
-			<div class="container groupButton">
-<!-- 				<button type="submit" class="btn btn-warning">回首頁</button> -->
+				<div class="container groupButton"><div class="container groupButton"><button type="submit" class="btn btn-info"
+					onClick="this.form.action='${pageContext.request.contextPath}/supply/queryAllSupply_HO73.do';this.form.method='GET';this.form.submit();">回捐贈物資列表</button>
+				<button type="submit" class="btn btn-warning">回首頁</button>
 			</div>
 		</div>
 		</div>
