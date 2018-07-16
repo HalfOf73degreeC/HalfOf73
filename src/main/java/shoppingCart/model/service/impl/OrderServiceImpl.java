@@ -2,6 +2,10 @@ package shoppingCart.model.service.impl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import javax.naming.Context;
@@ -10,6 +14,12 @@ import javax.sql.DataSource;
 
 import _00.utils.GlobalService;
 import member.MemberDAO;
+import model.bean.FoundationBean_HO73;
+import model.bean.GoodsBean_HO73;
+import model.bean.MemberBean_HO73;
+import model.mail.JavaMailUtil;
+import model.repository.GoodsDao;
+import model.repository.impl.GoodsDaoImpl;
 import shoppingCart.model.OrderBean_HO73;
 import shoppingCart.model.OrderItemBean_HO73;
 import shoppingCart.model.dao.OrderDao;
@@ -61,6 +71,53 @@ public class OrderServiceImpl implements OrderService {
 			// 儲存訂單
 			odao.setConnection(con);
 			odao.insertOrder(ob);
+			System.out.println("ob :" + ob);
+			System.out.println(ob.getMemAccount());
+			//E-mail送回訂單資料
+			MemberBean_HO73 mb = mdao.getOneMemberDetail(ob.getMemAccount());
+			List<String> to = new ArrayList<>();
+			to.add(mb.getMemEmail2());	
+			System.out.println("1");
+			String shoppingcart="";
+			String shoppingcartfun="";
+			Integer goodsUid = ob.getItems().iterator().next().getGoodsUid();
+			System.out.println("2");
+			for (OrderItemBean_HO73 oib : ob.getItems()) {		
+				int i = 1; i++;
+				String goodsName = oib.getDescription();	
+				String funName = oib.getFunName();	
+				System.out.println("3");
+				String splitString="、";
+				if(i<ob.getItems().size()) {
+					splitString="、";
+				}else {
+					splitString=" ";
+				}
+				shoppingcart += (goodsName + splitString);
+				if(!shoppingcartfun.contains(funName)) {
+					shoppingcartfun += (funName + splitString);
+				}
+			}	
+			System.out.println("4");
+			String subject = shoppingcartfun+"已收到您的訂單" ;
+			System.out.println("5");
+			
+			String text = mb.getMemName()+"您好:<br>" + 
+					"感謝您的購買品項: " + shoppingcart + "<br>" + 
+					"購買總額: " + ob.getTotalAmount() + "<br>" +
+					"匯款銀行代碼: " + ob.getPaymentATMBankId() + "<br>" + 
+					"匯款銀行帳號: " + ob.getPaymentATMAccount() + "<br>" + 
+					"感謝您對"+shoppingcartfun+"的付出與關懷。";
+		
+			System.out.println("6");
+			List<String> attachment = Arrays.asList(new String[] {
+					// "D:\\images\\photo02.jpg"
+			});
+			System.out.println("7");
+			JavaMailUtil javaMail = new JavaMailUtil(to,subject,text,attachment);
+			System.out.println("8");
+			javaMail.send();
+			System.out.println("9");
 			con.commit();
 		} catch (Exception e) {
 			try {

@@ -38,6 +38,7 @@ public class BuyGoodsSend_HO73 extends HttpServlet {
 		if (session == null) {      
 			// 如果傳回值為null，表示找不到舊的Session物件，請瀏覽器對首頁發出請求
 			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
+			System.out.println("session == null==================================================");
 			return;
 		}
 		MemberBean_HO73 mb = (MemberBean_HO73) session.getAttribute("memberBean");
@@ -45,6 +46,7 @@ public class BuyGoodsSend_HO73 extends HttpServlet {
 			out.println("<script>alert('若需購買義賣商品需登入')</script>");
 			out.println("<script>window.location.href='../goods/queryAllGoods_HO73.do'</script>");
 //			response.sendRedirect(getServletContext().getContextPath() + "/index.jsp"  );
+			System.out.println("mb == null==================================================");
 			return;
 		}
 		
@@ -56,11 +58,13 @@ public class BuyGoodsSend_HO73 extends HttpServlet {
 		if (cart == null) {
 			out.println("<script>alert('無購買義賣商品，請重新選取購買項目')</script>");
 			out.println("<script>window.location.href='../goods/queryAllGoods_HO73.do'</script>");
+			System.out.println("null=====================================================");
 			return;
 		}
 		if (cart.getContent().size()==0) {
 			out.println("<script>alert('無購買義賣商品，請重新選取購買項目')</script>");
 			out.println("<script>window.location.href='../goods/queryAllGoods_HO73.do'</script>");
+			System.out.println("size==0 =====================================================");
 			return;
 		}
 		

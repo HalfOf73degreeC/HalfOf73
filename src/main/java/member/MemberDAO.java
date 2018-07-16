@@ -270,6 +270,31 @@ public class MemberDAO {
 		}
 		return n;
 	}
+	public MemberBean_HO73 getOneMemberDetail(String account) {
+		String sql = "SELECT * FROM Member_HO73 " + "WHERE memAccount = ?";
+		MemberBean_HO73 mb = new MemberBean_HO73();
+		try (
+			Connection conn = ds.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+		) {
+			ps.setString(1, account);
+			try (ResultSet rs = ps.executeQuery();) {
+				if (rs.next()) {
+					mb.setMemAccount(rs.getString(1));
+					mb.setMemName(rs.getString(11));
+					mb.setMemEmail(rs.getString(6));
+					mb.setMemEmail2(rs.getString(7));
+					
+				}
+			}
+			System.out.println("查詢記錄成功, memAccount=" + mb.getMemAccount());
+		} catch (SQLException ex) {
+			System.out.println(ex.getSQLState() + " " + mb.getMemAccount());
+			ex.printStackTrace();
+		}
+		return mb;
+	}
 	
 	public MemberBean_HO73 getOneMember(String account) {
 		String sql = "SELECT * FROM Member_HO73 " + "WHERE memAccount = ?";
@@ -288,7 +313,12 @@ public class MemberDAO {
 					mb.setMemEmail(rs.getString(4));
 					mb.setMemEmail2(rs.getString(5));
 					mb.setMemGender(rs.getString(6));
-					mb.setMemBirthday(rs.getDate(7));
+					if(rs.getDate(7)==null) {
+						
+					}else {
+						System.out.println("rs.getDate(7)");
+						mb.setMemBirthday(rs.getDate(7));
+					}
 					mb.setMemTel(rs.getString(8));
 					mb.setMemMobile(rs.getString(9));
 					mb.setMemAddress(rs.getString(10));

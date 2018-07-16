@@ -8,6 +8,22 @@ public class OrderItemBean_HO73 {
 	Integer quantity;
 	Double unitPrice;
 	Double discount;
+	String funName;
+
+	
+
+	public OrderItemBean_HO73(Integer seqno, Integer orderNo, Integer goodsUid, String description, Integer quantity,
+			Double unitPrice, Double discount, String funName) {
+		super();
+		this.seqno = seqno;
+		this.orderNo = orderNo;
+		this.goodsUid = goodsUid;
+		this.description = description;
+		this.quantity = quantity;
+		this.unitPrice = unitPrice;
+		this.discount = discount;
+		this.funName = funName;
+	}
 
 	public OrderItemBean_HO73(Integer seqno, Integer orderNo, Integer goodsUid, String description, Integer quantity,
 			Double unitPrice, Double discount) {
@@ -92,5 +108,15 @@ public class OrderItemBean_HO73 {
 	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
+
+	public String getFunName() {
+		return funName;
+	}
+
+	public void setFunName(String funName) {
+		this.funName = funName;
+	}
+
+
 	
 }

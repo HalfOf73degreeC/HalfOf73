@@ -51,7 +51,7 @@ public class BuyGoodsServlet extends HttpServlet {
 			session.setAttribute("ShoppingCart", cart);   
 		}
 		String goodsName 	= request.getParameter("goodsName");
-		String funName  	= request.getParameter("funUid");
+		String funName  	= request.getParameter("funName");
 		String pageNo 		= request.getParameter("pageNo");
 		String qtyStr 		= request.getParameter("qty");
 		String idStr 		= request.getParameter("goodsUid");

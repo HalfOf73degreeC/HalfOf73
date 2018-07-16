@@ -1,4 +1,4 @@
-package mail;
+package model.mail;
 // https://www.google.com/settings/security/lesssecureapps
 
 /*
@@ -85,6 +85,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class JavaMailUtil {
 	private static String userid;
 	private static String password;
@@ -103,26 +106,22 @@ public class JavaMailUtil {
 	 * 設定信件內文與附件
 	 */
 
-	public JavaMailUtil(String from, List<String> to, List<String> cc,
-			List<String> bcc, String subject,  String text, List<String> attachment
+	public JavaMailUtil() {
+		super();
+		System.out.println(111111111);
+	}
+	
+	public JavaMailUtil(List<String> to, String subject,  String text, List<String> attachment
 			) {
 
-		this.from = from;
+		this.from = userid;
 		if (to == null){
 			this.to = new ArrayList<>();
 		} else {
 			this.to = to;
 		}
-		if (cc == null){
-			this.cc = new ArrayList<>();
-		} else {
-			this.cc = cc;
-		}
-		if (bcc == null){
-			this.bcc = new ArrayList<>();
-		} else {
-			this.bcc = bcc;
-		}
+		this.cc = new ArrayList<>();
+		this.bcc = new ArrayList<>();
 		if (subject == null) {
 		   this.subject = "";
 		} else {
@@ -140,6 +139,7 @@ public class JavaMailUtil {
 		}
 	}
 
+
 	public boolean send() {
 		try {
 			createSession();
@@ -154,10 +154,12 @@ public class JavaMailUtil {
 				System.out.println("請到https://www.google.com/settings/security/lesssecureapps");	
 				System.out.println("將安全性較低的應用程式存取權限改為『開啟』，然後重新執行本程式");
 			} else {
+				ex.printStackTrace();
         		System.out.println(ex.getMessage());
 			}
 			return false;
 		} catch (IOException ex) {
+			ex.printStackTrace();
 			System.out.println(ex.getMessage());
 			return false;
 		}
@@ -272,4 +274,71 @@ public class JavaMailUtil {
 		password = "java008.pro";
 		
 	}
+
+	public MimeMessage getMessage() {
+		return message;
+	}
+
+	public void setMessage(MimeMessage message) {
+		this.message = message;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public List<String> getTo() {
+		return to;
+	}
+
+	public void setTo(List<String> to) {
+		this.to = to;
+	}
+
+	public List<String> getCc() {
+		return cc;
+	}
+
+	public void setCc(List<String> cc) {
+		this.cc = cc;
+	}
+
+	public List<String> getBcc() {
+		return bcc;
+	}
+
+	public void setBcc(List<String> bcc) {
+		this.bcc = bcc;
+	}
+
+	public List<String> getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(List<String> attachment) {
+		this.attachment = attachment;
+	}
+	
+	
+	
 }
