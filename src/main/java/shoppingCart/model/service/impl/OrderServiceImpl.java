@@ -103,12 +103,12 @@ public class OrderServiceImpl implements OrderService {
 			System.out.println("5");
 			
 			String text = mb.getMemName()+"您好:<br>" + 
-					"感謝您的購買品項: " + shoppingcart + "<br>" + 
+					"購買品項: " + shoppingcart + "<br>" + 
 					"購買總額: " + ob.getTotalAmount() + "<br>" +
 					"匯款銀行代碼: " + ob.getPaymentATMBankId() + "<br>" + 
 					"匯款銀行帳號: " + ob.getPaymentATMAccount() + "<br>" + 
-					"感謝您對"+shoppingcartfun+"的付出與關懷。";
-		
+					"感謝您對"+shoppingcartfun+"的付出與關懷。<br><br>"+
+					"<font color='blue'>請於三日內匯款，若未匯款將自動取消訂單</font>";
 			System.out.println("6");
 			List<String> attachment = Arrays.asList(new String[] {
 					// "D:\\images\\photo02.jpg"
