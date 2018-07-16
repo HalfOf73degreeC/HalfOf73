@@ -43,6 +43,7 @@ public class getGoodsList extends HttpServlet {
 				WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		foundationService fs = ctx.getBean(foundationService.class);
 		String fk_payIdcard = request.getParameter("fk_payIdcard");
+		System.out.println("--------------fun"+fs.getOneFoundation(fk_payIdcard));
 		String gString = fs.getOneFoundation2String(fk_payIdcard); 
 		response.setContentType("application/json; charset=UTF8");
 		try (PrintWriter out = response.getWriter();) {

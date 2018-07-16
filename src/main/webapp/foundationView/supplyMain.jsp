@@ -408,7 +408,18 @@
 
 	jQuery.fn.getGoodsList = function() {
 		return this.each(function() {
+			$loadingGIF = $(
+// 					loading
+					'<div w3-include-html=../loadingUpper.jsp></div>')
+					.appendTo($('.sectionContent'));
 			var xhr = new XMLHttpRequest();
+			setTimeout(
+					function() {
+						fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+					}
+					,100);
+			console.log("fk_payIdcard: "+fk_payIdcard);
+			console.log("getPayBoxList?fk_payIdcard="+fk_payIdcard);
 			xhr.open("Post", "getGoodsList?fk_payIdcard=" + fk_payIdcard,
 					true);
 			xhr.setRequestHeader("Content-Type",
@@ -417,8 +428,14 @@
 			xhr.onreadystatechange = function() {
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					var funBean = JSON.parse(xhr.responseText);
+					if(!$(".loadingGif")){	
+									
+					}else{
+//				 		loading
+						$(".loadingGif").hide();	
+					}
+					
 					patBoxList = [];
-					console.log("fk_payIdcard: "+fk_payIdcard);
 					console.log("funBean: "+funBean);
 					if(funBean!=null){
 						GoodsList = funBean.Goods;

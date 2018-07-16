@@ -184,6 +184,7 @@
 		setTimeout(
 				function() {
 					fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+
 					$('body').getGoodsList();
 				}
 				,100)
@@ -423,25 +424,38 @@
 
 	jQuery.fn.getGoodsList = function() {
 		return this.each(function() {
+			
 			$loadingGIF = $(
 // 					loading
 					'<div w3-include-html=../loadingUpper.jsp></div>')
 					.appendTo($('.sectionContent'));
 			var xhr = new XMLHttpRequest();
-			xhr.open("Post", "getGoodsList?fk_payIdcard=" + fk_payIdcard,
+			setTimeout(
+					function() {
+						fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+					}
+					,100);
+			console.log("fk_payIdcard: "+fk_payIdcard);
+			console.log("getPayBoxList?fk_payIdcard="+fk_payIdcard);
+			xhr.open("Post", "getPayBoxList?fk_payIdcard="+fk_payIdcard,
 					true);
 			xhr.setRequestHeader("Content-Type",
 					"application/x-www-form-urlencoded");
 			xhr.send();
 			xhr.onreadystatechange = function() {
 				if (xhr.status == 200 && xhr.readyState == 4) {
-					var funBean = JSON.parse(xhr.responseText);
-// 					loading
-					$(loadingGif).hide();
+					var funBean = JSON.parse(xhr.responseText);					
+					if(!$(".loadingGif")){	
+									
+					}else{
+//				 		loading
+						$(".loadingGif").hide();	
+					}										
 					patBoxList = [];
-					console.log("fk_payIdcard: "+fk_payIdcard);
 					console.log("funBean: "+funBean);
-					if(funBean!=null){
+					if(!funBean){
+						
+					}else{
 						GoodsList = funBean.Goods;
 					}					
 					console.log("清空Goods");
