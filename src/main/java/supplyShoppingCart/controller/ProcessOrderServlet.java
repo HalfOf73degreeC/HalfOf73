@@ -119,7 +119,10 @@ public class ProcessOrderServlet extends HttpServlet {
 			System.out.println("處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
 			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + shortMsg  + "，請調正訂單內容" );
 			//System.out.println("處理訂單時發生異常: " + message);
-			response.sendRedirect(response.encodeRedirectURL ("../supply/supplyCarts1.jsp"));
+
+	    	out.println("<script>alert('處理訂單時發生異常: \" + shortMsg  + \"，請調正訂單內容')</script>");
+			out.println("<script>window.location.href='../supply/supplyCarts1.jsp\"'</script>");
+//			response.sendRedirect(response.encodeRedirectURL ("../supply/supplyCarts1.jsp"));
 			return;
 		}
 	}
