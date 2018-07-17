@@ -32,6 +32,8 @@
 <script type="text/javascript" src="js/croppie.js"></script>
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
 <title>捐贈物資建檔</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
 </head>
 <div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body style="background: #FFF0F5;">

@@ -38,6 +38,8 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 <title>商品建檔</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
 </head>
 
 <div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>

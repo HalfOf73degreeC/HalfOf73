@@ -29,7 +29,7 @@
 <script type="text/javascript"
 	src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="../js/unslider-min.js"></script>
-<title>後台管理-捐款管理</title>
+<title>捐款建檔</title>
 <!-- favicon -->
 <link rel="shortcut icon" href="../images/ico/like.png">
 </head>
