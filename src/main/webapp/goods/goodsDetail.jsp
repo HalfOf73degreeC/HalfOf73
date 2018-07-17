@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="mem" value="${memberBean}"></c:set>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <link rel="stylesheet"
@@ -175,12 +176,31 @@
 					<P />
 <!-- 					<a href="#" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;立即購買&nbsp;&nbsp;&nbsp;&nbsp;</a> -->
 					<!-- <a href="#" class="btn btn-lg btn-primary"> <i class="fas fa-shopping-cart"></i>加入購物車-->
-					<c:if test="${goodsBean.goodsStock != 0}">
-						<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'>
-					</c:if>
-					<c:if test="${goodsBean.goodsStock == 0}">
-						<Input class="btn btn-lg btn-warning" type='submit' value='補貨中' disabled>
-					</c:if>
+					<c:choose>
+						<c:when test="${mem.memType == '1'}">
+				     		<c:if test="${goodsBean.goodsStock != 0}">
+								<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'>
+							</c:if>
+							<c:if test="${goodsBean.goodsStock == 0}">
+									<Input class="btn btn-lg btn-warning" type='submit' value='補貨中' disabled>
+							</c:if>
+				   	</c:when>
+				   	<c:otherwise>
+								<button id="commit_Payment" type="button"class="btn btn-primary btn-lg"style="float: left; border: 0px #9ae2d5; width: 130px; padding-bottom: 10px; margin-top: -12px;">
+										<i class="fas fa-sign-out-alt nino-icon"style="font-size: 22px; margin-top: 2px; margin-right: 1px; color:#fff;"></i>
+										<a href="${pageContext.request.contextPath}/member/login"style="font-size: 13px; color: white;">
+											<span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 18px; margin-right: 15px;">登入選購</span>
+										</a>
+								</button>											
+				   	</c:otherwise>
+					</c:choose>
+<!-- 					上面取代下面，下方原本跳alert -->
+<%-- 					<c:if test="${goodsBean.goodsStock != 0}"> --%>
+<!-- 						<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'> -->
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${goodsBean.goodsStock == 0}"> --%>
+<!-- 						<Input class="btn btn-lg btn-warning" type='submit' value='補貨中' disabled> -->
+<%-- 					</c:if> --%>
 					</a> </article> <!-- card-body.// --> </aside>
 					<!-- col.// -->
 				</div>
