@@ -193,11 +193,11 @@
 		var goodsIntro = $('#goodsIntro').val(Goods.goodsIntro);
 		var goodImgList = Goods.GoodsImgBean;
 		for(var i = 0; i < goodImgList.length; i++){
-
 			objectURL = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+goodImgList[i].goodsImgUid;
 			console.log("objectURL: "+objectURL);
 			$('body').showLittlePic8Url(objectURL);
 		}
+		$('.btn-addGoods').html("更新商品");
 	}
 	
 	jQuery.fn.showLittlePic = function() {
@@ -312,7 +312,7 @@
 					+'<div class="modal-footer">'
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
-					+'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_loading" id="addNewGoods_bt" data-dismiss="modal"'
+					+'<button type="button" class="btn btn-primary btn-addGoods" data-toggle="modal" data-target="#modal_loading" id="addNewGoods_bt" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
 					+'</div></div></div></form>');
 			
