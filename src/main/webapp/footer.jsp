@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-   <footer id="footer">
+   <footer id="footer" style="padding-top:20px">
         <div class="container">
         	<div class="row">
         		<div class="col-md-4">
         			<div class="colInfo">
 	        			<div class="footerLogo">
-	        				<div class="navbar-header" style="width:350px" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>	
+	        				<div class="navbar-header" style="width:390px"><a  href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/images/logo_halfof73c-03.png"  style="width:243px;margin-botton:5px"></a></div>	
 	        			</div>
 	        			<p>
 	        				　　我們希望藉由Half of 73°C 平台創造更加完備且快速地使用方式，提供所有願意付出的人，不論是以基金會的型式或是個人的名義。我們需要您的陪伴，一起創造更好的未來。
@@ -44,21 +44,21 @@
 	        					<a class="articleThumb fsr" rel="" href="${pageContext.request.contextPath}/foundation/foundation_main.jsp"><img src="${pageContext.request.contextPath}/images/goods/fundate.jpg" alt="" width="120px" height="80px"></a>
 	        					<div class="info">
 	        						<h3 class="articleTitle" style=""><a href="${pageContext.request.contextPath}/foundation/foundation_main.jsp" style="font-size:16px">基金會</a></h3>
-<!-- 	        						<div class="date">Jan 9, 2016</div> -->
+	        						<div class="date">這個世界需要您的善心，即便是微薄之力也歡迎您一同加入基金會的行列！</div>
 	        					</div>
 	        				</li>
 	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="${pageContext.request.contextPath}#nino-ourTeam"><img src="${pageContext.request.contextPath}/images/goods/donate.jpg" alt="" width="120px" height="80px"></a>
+	        					<a class="articleThumb fsr" href="${pageContext.request.contextPath}#nino-ourTeam"><img src="${pageContext.request.contextPath}/images/goods/donate.png" alt="" width="120px" height="80px"></a>
 	        					<div class="info">
 	        						<h3 class="articleTitle"><a href="${pageContext.request.contextPath}#nino-ourTeam" style="font-size:16px">捐款募資</a></h3>
-<!-- 	        						<div class="date">Jan 9, 2016</div> -->
+	        						<div class="date">無論是什麼類型的付出，我們都希望您能感受到一切並沒有白費=)</div>
 	        					</div>
 	        				</li>
 	        				<li layout="row" class="verticalCenter">
 	        					<a class="articleThumb fsr" href="${pageContext.request.contextPath}/shares/shares.jsp"><img src="${pageContext.request.contextPath}/images/goods/love.jpg" alt="" width="120px" height="80px"></a>
-	        					<div class="info"  style="text-align:center">
+	        					<div class="info">
 	        						<h3 class="articleTitle"><a href="${pageContext.request.contextPath}/shares/shares.jsp" style="font-size:16px;">愛的傳遞</a></h3>
-<!-- 	        						<div class="date">Jan 9, 2016</div> -->
+	        						<div class="date">除了您不求回報的善意，也有許多方法可以給予願意付出的人們支持喔</div>
 	        					</div>
 	        				</li>
 	        			</ul>
