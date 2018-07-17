@@ -56,7 +56,7 @@ public class Oauth2CallbackServlet  extends HttpServlet {
 		} else {
 			tokenResponse =
 			        flow.newTokenRequest(request.getParameter("code"))
-			        	.setRedirectUri(GoogleInitData.CALLBACK_URI_PRO)
+			        	.setRedirectUri(GoogleInitData.CALLBACK_URI_PRO_SSL)
 			            .execute();
 		}
 		request.getSession().setAttribute("token", tokenResponse.toString());
