@@ -33,7 +33,7 @@
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
 <title>捐贈物資建檔</title>
 </head>
-
+<div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body style="background: #FFF0F5;">
 <header id="nino-story">
 		<nav id="nino-navbar" class="navbar navbar-default"
@@ -234,7 +234,7 @@
 	jQuery.fn.reNewGoodModal = function() {
 			pic_count = 0;
 			$('#NewGoodsModal').empty();
-			$('#NewGoodsModal').append('<form action="addOneSupply" enctype="multipart/form-data"><div class="modal-dialog modal-lg" role="document">'
+			$('#NewGoodsModal').append('<form action="addOneSupply" enctype="multipart/form-data" style="margin-top:-2%;"><div tabindex="-1" div class="modal-dialog modal-lg" role="document">'
 					+'<div class="modal-content">'
 					+'<div class="modal-header">'
 					+'<button type="button" class="close" data-dismiss="modal"'
@@ -293,7 +293,7 @@
 					+'</div></div>'
 					+'<div id="collapseOne1" class="panel-collapse collapse in"'
 					+'role="tabpanel" aria-labelledby="headingOne">'
-					+'<div class="panel-body" style="height: 167px;">'
+					+'<div class="panel-body" style="height: 160px; margin-top:-2%;">'
 					+'<h4 class="panel-title">'
 					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品詳述</div>'
 					+'</h4>'
@@ -303,7 +303,7 @@
 					+'<div class="modal-footer">'
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
-					+'<button type="button" class="btn btn-primary btn-addSupply" id="addNewGoods_bt"'
+					+'<button type="button" class="btn btn-primary btn-addSupply" data-toggle="modal" data-target="#modal_loading" data-dismiss="modal" id="addNewGoods_bt"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
 					+'</div></div></div></form>');
 			
@@ -513,6 +513,8 @@
 //						console.log(Supply);
 				}
 //					$('body').getSupply_now(supUid);
+				$('body').getSupplyList();
+				$('#modal_loading').modal('hide');
 				
 			}
 		}

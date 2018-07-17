@@ -8,7 +8,7 @@
 <div class="modal fade" id="modal_loading" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel" style="z-index: 2018;">
 	<div id="loading"
-		style="height: 100%; width: 100%; background-size: cover; background-color: #333333ee;">
+		style="height: 100%; width: 110%; background-size: cover; background-color: #333333ee;">
 		<div class="focus wow fadeInDown"
 			style="width: 150px; height: 150px;	margin-top: -75px; margin-left: -75px; background-image: url('${pageContext.request.contextPath}/images/ho73Loading.gif'); background-repeat: no-repeat; background-size: cover; position: absolute; top: 50%; left:50%"></div>
 	</div>

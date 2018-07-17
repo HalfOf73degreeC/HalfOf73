@@ -102,12 +102,12 @@
 												<c:if test="${mem.memType == '1'}">
 												<input type="text" id="funName" name="funName" class="form-control"
 													placeholder="" value="${mem.memName}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 												</c:if>
 												<c:if test="${mem.memType == '2'}">
 												<input type="text" id="funName" name="funName" class="form-control"
 													placeholder="" value="${fun.funName}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 												</c:if>
 											</div>
 											<div class="input-group input-group-lg">
@@ -117,7 +117,7 @@
 												</span>
 												<input type="text" id="funIdcard" name="funIdcard" class="form-control"
 													placeholder="" value="${fun.funIdcard}" 
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 													
 											</div>
 											<div class="input-group input-group-lg">
@@ -128,7 +128,7 @@
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funCeo" class="form-control"
 													placeholder="" value="${fun.funCeo}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -138,7 +138,7 @@
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funContact" class="form-control" placeholder=""
 													value="${fun.funContact}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -148,7 +148,7 @@
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funDomain" class="form-control" placeholder=""
 													value="${fun.funDomain}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -157,16 +157,16 @@
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funTel" class="form-control" placeholder=""
-													value="${fun.funTel}" style="z-index: 1">
+													value="${fun.funTel}" style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
 													<button class="btn btn-success" 
-														style="width: 130px; cursor: default;">傳真 :</button>
+														style="width: 130px; cursor: default;" >傳真 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funFax" class="form-control" placeholder=""
-													value="${fun.funFax}" style="z-index: 1">
+													value="${fun.funFax}" style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -175,12 +175,12 @@
 												</span>
 												<c:if test="${empty fun.funEmail2}">
 												<input type="email" name="funEmail" class="form-control" placeholder=""
-													value="${mem.memEmail}"  style="z-index: 1">
+													value="${mem.memEmail}"  style="z-index: 1" required="required">
 												</c:if>
 												<c:if test="${not empty fun.funEmail2}">
 												<input type="email" name="funEmail2" class="form-control" placeholder=""
 													value="${fun.funEmail2}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 												</c:if>
 											</div>											
 											<div class="input-group input-group-lg">
@@ -191,7 +191,7 @@
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input id="funAddress"  type="text" name="funAddress" class="form-control" placeholder=""
 													value="${fun.funAddress}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 										</div>
 									</div>
@@ -218,7 +218,7 @@
 												<!-- <textarea class="form-control" placeholder="黃中平" rows="1"></textarea> -->
 												<input type="text" name="funFounder" class="form-control" placeholder=""
 													value="${fun.funFounder}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -229,7 +229,7 @@
 												<input type="date" name="funCreateDate" class="form-control"
 													placeholder=""
 													value="${fun.funCreateDate}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
@@ -239,7 +239,7 @@
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
 												<input type="text" name="funAllowOrg" class="form-control" placeholder=""
 													value="${fun.funAllowOrg}"
-													style="z-index: 1">
+													style="z-index: 1" required="required">
 											</div>
 										</div>
 									</div>
@@ -258,7 +258,7 @@
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 227px;">
-											<textarea  name="funIntent" class="form-control" placeholder="" rows="7" style="resize : none;">${fun.funIntent}</textarea>
+											<textarea  name="funIntent" class="form-control" placeholder="" rows="7" style="resize : none;" required="required">${fun.funIntent}</textarea>
 										</div>
 									</div>
 								</div>
@@ -533,7 +533,7 @@
 									<div id="collapseOne1" class="panel-collapse collapse in"
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body" style="height: 427px;">
-											<textarea  name="funArticle" class="form-control" placeholder="" rows="19" style="resize : none;">${fun.funArticle}</textarea>
+											<textarea  name="funArticle" class="form-control" placeholder="" rows="19" style="resize : none;" required="required">${fun.funArticle}</textarea>
 										</div>
 									</div>
 								</div>
