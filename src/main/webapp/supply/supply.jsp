@@ -99,19 +99,29 @@
 									<p><h2 class="bg-danger">需求量:${SupplyBean.supNeedStock}<h2></p>
 									<div class="row">
 										<div class="col-sm-5">
+										<c:choose>
+										<c:when test="${SupplyBean.supNeedStock != 0}">
 											<h5>捐贈量:</h5>
 												<select name='qty' class="form-control form-control-sm" style="width: 70px;">
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
+													<c:choose>
+														<c:when test="${SupplyBean.supNeedStock <=20 }">
+															<c:forEach var="i" begin="1" end="${SupplyBean.supNeedStock}">
+																<option value="${i}">${i}</option>
+															</c:forEach>
+														</c:when>
+														<c:when test="${SupplyBean.supNeedStock >=10 }">
+															<c:forEach var="i" begin="1" end="20">
+																<option value="${i}">${i}</option>
+															</c:forEach>
+														</c:when>
+													</c:choose>
 												</select>
+										</c:when>
+										<c:when test="${SupplyBean.supNeedStock == 0}">
+											<h5>&nbsp;</h5>
+										</c:when>
+										</c:choose>
+										
 										</div>
 									</div>
 									<Input type='hidden' name='funUid' value='${SupplyBean.foundationBean_HO73.funIdcard}'>
@@ -124,11 +134,15 @@
 									<Input type='hidden' name='pageNo' value='${param.pageNo}'>
 									<p style="margin: 0px 0px 0px 60%;">
 <!-- 										<a href="BuySupply.do" class="btn btn-primary" role="button"><i class="icon-cc-jcb custumStyle"></i>我要捐贈</a> -->
-									<c:if test="${empty SupplyShoppingCart.content}">
+									<c:if test="${empty SupplyShoppingCart.content  && (SupplyBean.supNeedStock != 0)}">
 										<Input class="btn btn-primary" type='submit' value='我要捐贈'>
 									</c:if>
 									<c:if test="${not empty SupplyShoppingCart.content}">
 										<Input class="btn btn-primary disabled" type='submit' value='我要捐贈' disabled>
+									</c:if>
+									
+									<c:if test="${SupplyBean.supNeedStock== 0}">
+										<Input class="btn" type='submit' value='已募集完畢' disabled>
 									</c:if>
 									</p>
 								</div>

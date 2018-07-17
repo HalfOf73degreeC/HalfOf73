@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-   <footer id="footer">
+   <footer id="footer" style="padding-top:20px">
         <div class="container">
         	<div class="row">
         		<div class="col-md-4">
         			<div class="colInfo">
 	        			<div class="footerLogo">
-	        				<div class="navbar-header" style="width:350px" w3-include-html="${pageContext.request.contextPath}/logo.jsp"></div>	
+	        				<div class="navbar-header" style="width:390px"><a  href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/images/logo_halfof73c-03.png"  style="width:243px;margin-botton:5px"></a></div>	
 	        			</div>
 	        			<p>
 	        				　　我們希望藉由Half of 73°C 平台創造更加完備且快速地使用方式，提供所有願意付出的人，不論是以基金會的型式或是個人的名義。我們需要您的陪伴，一起創造更好的未來。
 	        			</p>
 	        			<div class="nino-followUs">
-	        				<div class="totalFollow"><span>15k</span> followers</div>
+	        				<div class="totalFollow"><span></span></div>
 	        				<div class="socialNetwork">
 	        					<span class="text">Follow Us: </span>
 	        					<a href="https://www.facebook.com/" class="nino-icon"><i class="mdi mdi-facebook"></i></a>
@@ -32,56 +32,56 @@
 	        			</form>
         			</div>
         		</div>
-        		<div class="col-md-4 col-sm-6" style="text-align:center;padding-top:30px">
+        		<div class="col-md-4 col-sm-6">
         			<div class="colInfo">
-	        			<h3 class="nino-colHeading"><a style="color:#000" href="news/news.jsp">最新消息</a></h3>
-	        			<h3 class="nino-colHeading"><a style="color:#000" href="foundation/foundation_main.jsp">基金會</a></h3>
-	        			<h3 class="nino-colHeading"><a style="color:#000" href="${pageContext.request.contextPath}#nino-ourTeam">捐款募資</a></h3>
-	        			<h3 class="nino-colHeading"><a style="color:#000" href="shares/shares.jsp">愛的傳遞</a></h3>
-	        			<h3 class="nino-colHeading"><a style="color:#000" href="${pageContext.request.contextPath}#nino-whatWeDo">關於本站</a></h3>
-<!-- 	        			<ul class="listArticles"> -->
-<!-- 	        				<li layout="row" class="verticalCenter "> -->
-<%-- 	        					<a class="articleThumb fsr" rel="prettyPhoto[gallery1]" href="images/our-blog/img-4.jpg"><img src="${pageContext.request.contextPath}/images/our-blog/img-4.jpg" alt=""></a> --%>
-<!-- 	        					<div class="info"> -->
-<!-- 	        						<h3 class="articleTitle"><a>Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3> -->
-<!-- 	        						<div class="date">Jan 9, 2016</div> -->
-<!-- 	        					</div> -->
-<!-- 	        				</li> -->
-<!-- 	        				<li layout="row" class="verticalCenter"> -->
-<%-- 	        					<a class="articleThumb fsr" href="#"><img src="${pageContext.request.contextPath}/images/our-blog/img-5.jpg" alt=""></a> --%>
-<!-- 	        					<div class="info"> -->
-<!-- 	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3> -->
-<!-- 	        						<div class="date">Jan 9, 2016</div> -->
-<!-- 	        					</div> -->
-<!-- 	        				</li> -->
-<!-- 	        				<li layout="row" class="verticalCenter"> -->
-<%-- 	        					<a class="articleThumb fsr" href="#"><img src="${pageContext.request.contextPath}/images/our-blog/img-6.jpg" alt=""></a> --%>
-<!-- 	        					<div class="info"> -->
-<!-- 	        						<h3 class="articleTitle"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h3> -->
-<!-- 	        						<div class="date">Jan 9, 2016</div> -->
-<!-- 	        					</div> -->
-<!-- 	        				</li> -->
-<!-- 	        			</ul> -->
+	        			<h3 class="nino-colHeading"><a style="color:#000"></a></h3>
+<!-- 	        			<h3 class="nino-colHeading"><a style="color:#000" href="foundation/foundation_main.jsp">基金會</a></h3> -->
+<%-- 	        			<h3 class="nino-colHeading"><a style="color:#000" href="${pageContext.request.contextPath}#nino-ourTeam">捐款募資</a></h3> --%>
+<!-- 	        			<h3 class="nino-colHeading"><a style="color:#000" href="shares/shares.jsp">愛的傳遞</a></h3> -->
+<%-- 	        			<h3 class="nino-colHeading"><a style="color:#000" href="${pageContext.request.contextPath}#nino-whatWeDo">關於本站</a></h3> --%>
+	        			<ul class="listArticles">
+	        				<li layout="row" class="verticalCenter ">
+	        					<a class="articleThumb fsr" rel="" href="${pageContext.request.contextPath}/foundation/foundation_main.jsp"><img src="${pageContext.request.contextPath}/images/goods/fundate.jpg" alt="" width="120px" height="80px"></a>
+	        					<div class="info">
+	        						<h3 class="articleTitle" style=""><a href="${pageContext.request.contextPath}/foundation/foundation_main.jsp" style="font-size:16px">基金會</a></h3>
+	        						<div class="date">這個世界需要您的善心，即便是微薄之力也歡迎您一同加入基金會的行列！</div>
+	        					</div>
+	        				</li>
+	        				<li layout="row" class="verticalCenter">
+	        					<a class="articleThumb fsr" href="${pageContext.request.contextPath}#nino-ourTeam"><img src="${pageContext.request.contextPath}/images/goods/donate.png" alt="" width="120px" height="80px"></a>
+	        					<div class="info">
+	        						<h3 class="articleTitle"><a href="${pageContext.request.contextPath}#nino-ourTeam" style="font-size:16px">捐款募資</a></h3>
+	        						<div class="date">無論是什麼類型的付出，我們都希望您能感受到一切並沒有白費=)</div>
+	        					</div>
+	        				</li>
+	        				<li layout="row" class="verticalCenter">
+	        					<a class="articleThumb fsr" href="${pageContext.request.contextPath}/shares/shares.jsp"><img src="${pageContext.request.contextPath}/images/goods/love.jpg" alt="" width="120px" height="80px"></a>
+	        					<div class="info">
+	        						<h3 class="articleTitle"><a href="${pageContext.request.contextPath}/shares/shares.jsp" style="font-size:16px;">愛的傳遞</a></h3>
+	        						<div class="date">除了您不求回報的善意，也有許多方法可以給予願意付出的人們支持喔</div>
+	        					</div>
+	        				</li>
+	        			</ul>
         			</div>
         		</div>
         		<div class="col-md-4 col-sm-6">
         			<div class="colInfo">
-	        			<h3 class="nino-colHeading"></h3>
+	        			<h3 class="nino-colHeading" style="color:#000">愛心義賣</h3>
 	        			<div class="instagramImages clearfix">
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-1.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-2.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-3.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-4.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-5.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-6.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-7.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-8.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-9.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-3.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-4.jpg" alt=""></a>
-	        				<a href="#"><img src="${pageContext.request.contextPath}/images/instagram/img-5.jpg" alt=""></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/bag.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/blueberry_jam.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/calligraphy.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/cards.png" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/chopsticks.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/clothes.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/coffee.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/cookies.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/handmade.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/hat.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/note.jpg" alt="" width="82px" height="82px"></a>
+	        				<a ><img src="${pageContext.request.contextPath}/images/goods/paint.jpg" alt="" width="82px" height="82px"></a>
 	        			</div>
-	        			<a href="https://www.instagram.com/" class="morePhoto">View more photos</a>
+	        			<a href="${pageContext.request.contextPath}/goods/queryAllGoods_HO73.do" class="morePhoto">了解更多</a>
         			</div>
         		</div>
         	</div>
