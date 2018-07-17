@@ -67,7 +67,7 @@
 		</nav>
 	</header>
 	<!-- 主要畫面 -->
-	<section id="nino-ourTeam">
+	<section id="nino-ourTeam" style="padding-top: 50px;">
 		<div class="container">
 			<h2 class="nino-sectionHeading title wow fadeInDown">
 				<span class="nino-subHeading"
@@ -78,23 +78,10 @@
 				誠摯地感謝您一同參與HalfOf73的傳愛平台，世界因為我們而更值得期待！</p>
 			<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 			<div class="sectionContent">
-				<div class="row nino-hoverEffect" id="activityRow">
-					<div class="col-md-3 col-sm-3">
-						<button type="button" class="btn btn-primary btn-lg" id="addNewGoods"
-							data-toggle="modal" data-target="#NewGoodsModal"
-							style="border: 0px #fff0f5 none; background-color: #fff0f5;">
-							<div class="item">
-								<div class="overlay box" href="#">
-									<div class="content box-top">
-										<a style="font-size: 36px">上架愛心商品</a>
-
-									</div>
-									<img src="./img/plus.png" alt="" style="border-radius: 15%;">
-								</div>
-							</div>
-						</button>
-					</div>
-				</div>
+				<div class="row nino-hoverEffect" id="activityRow"></div>
+			</div>
+			<div style="padding-top: 200px">
+				<div w3-include-html=../loadingUpper.jsp></div>
 			</div>
 	</section>
 	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
@@ -133,7 +120,7 @@
 												<span>選擇商品照片</span> <input id="input_img"
 													accept="image/gif, image/jpeg, image/png" type="file"
 													name="file1"
-													style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;" />
+													style="position: relative; font-size: 1px; top: 50%; left:50%; z-index: -2; height: 0px;" />
 												</buttom>
 											</label>
 										</div>
@@ -195,10 +182,7 @@
 		$('body').showLittlePic();
 	});
 	
-	//ReNew
-	$("#addNewGoods").on("click",function() {
-		$('body').reNewGoodModal();
-	});
+	
 	//顯示商品資料
 	jQuery.fn.showGoods_D = function(Goods) {
 		$('body').reNewGoodModal();
@@ -210,9 +194,9 @@
 		var goodImgList = Goods.GoodsImgBean;
 		for(var i = 0; i < goodImgList.length; i++){
 
-			console.log("jsaon: "+JSON.stringify(goodImgList[i].goodsImg));
-// 			objectURL = URL.createObjectURL(goodImgList[i].goodsImg);
-// 			$('body').loadPic(objectURL);
+			objectURL = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+goodImgList[i].goodsImgUid;
+			console.log("objectURL: "+objectURL);
+			$('body').showLittlePic8Url(objectURL);
 		}
 	}
 	
@@ -224,7 +208,7 @@
 			}else{
 				$('#startToCropImg').show();
 			}
-			$('#input_img').appendTo($("#NewGoodsModal"));
+			$('#input_img').fadeIn(500).appendTo($("#NewGoodsModal"));
 			$('#input_img').attr("id","input_img"+pic_count);
 			$('#input_img_chouse').append('<input id="input_img" accept="image/gif, image/jpeg, image/png" type="file" name="file1" style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;">');
 			var crop_img = $("#preview_img").attr("src");
@@ -234,7 +218,7 @@
 							+ '<img id="goodsImg'+pic_count+'" src="'
 				+crop_img
 				+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
-
+			$("#showImg").attr("src", crop_img);
 			$('#goodsImg' + pic_count).on("click",
 					function() {
 						console.log("click");
@@ -248,14 +232,7 @@
 			alert("沒有圖片");
 		}
 	}
-	jQuery.fn.loadPic = function(srcUrl) {			
-		$uploadCrop = null;
-		has_pic = false;
-		$("#div_changePic").empty();
-		$("#div_changePic").append('<img id="preview_img" src="" width="100%" height="">');
-		readURL(srcUrl);
-		$('body').showLittlePic();
-		}
+
 	jQuery.fn.reNewGoodModal = function() {
 			pic_count = 0;
 			$('#NewGoodsModal').empty();
@@ -388,11 +365,31 @@
 
 		}
 
+	jQuery.fn.showGoodsAddBt = function() {
+		var button = $(
+				'<button type="button" class="btn btn-primary btn-lg col-md-3 col-sm-3" id="addNewGoods"'
+				+'data-toggle="modal" data-target="#NewGoodsModal"'
+				+'style="border: 0px #fff0f5 none; background-color: #fff0f5;">'
+				+'<div class="item">'
+				+'<div class="overlay box" href="#">'
+				+'<div class="content box-top">'
+				+'<a style="font-size: 36px">上架愛心商品</a>'
+				+'</div>'
+				+'<img src="./img/plus.png" alt="" style="border-radius: 15%;">'
+				+'</div>'
+				+'</div>'
+				+'/button>').fadeIn(500).appendTo($("#activityRow"));
+		//ReNew
+		$("#addNewGoods").on("click",function() {
+			$('body').reNewGoodModal();
+		});
+		
+	}
 	jQuery.fn.showGoods = function(Goods) {
 		var button = $(
 				'<button type="button" date-goodsUid="'+ Goods.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3"'
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
-				.appendTo($("#activityRow"));
+				.fadeIn(500).appendTo($("#activityRow"));
 
 		var Goods_info = $(
 				'<div class="item">'
@@ -402,10 +399,10 @@
 						+ Goods.goodsStock
 						+ '</a></div>'
 						+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
-						+ '</div></div>').appendTo(button);
+						+ '</div></div>').fadeIn(500).appendTo(button);
 		var Goods_title = $(
 				'<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
-						+ Goods.goodsName + '</div>').appendTo(button);
+						+ Goods.goodsName + '</div>').fadeIn(500).appendTo(button);
 	}
 	jQuery.fn.clickGoods = function() {
 		$(".Goods").on("click", function() {
@@ -425,10 +422,10 @@
 	jQuery.fn.getGoodsList = function() {
 		return this.each(function() {
 			
-			$loadingGIF = $(
-// 					loading
-					'<div w3-include-html=../loadingUpper.jsp></div>')
-					.appendTo($('.sectionContent'));
+// 			$loadingGIF = $(
+// // 					loading
+// 					'<div w3-include-html=../loadingUpper.jsp></div>')
+// 					.appendTo($('.sectionContent'));
 			var xhr = new XMLHttpRequest();
 			setTimeout(
 					function() {
@@ -449,7 +446,7 @@
 									
 					}else{
 //				 		loading
-						$(".loadingGif").hide();	
+						$(".loadingGif").fadeOut(300);	
 					}										
 					patBoxList = [];
 					console.log("funBean: "+funBean);
@@ -463,6 +460,8 @@
 					console.log(GoodsList);
 					console.log("重建Goods");
 					if(GoodsList!=null){
+						$('body').showGoodsAddBt();
+						
 						for (var i = 0; i < GoodsList.length; i++) {
 								$('body').showGoods(GoodsList[i]);
 						}
@@ -524,6 +523,23 @@
 			}
 		}
 
+	}
+	jQuery.fn.showLittlePic8Url = function(src) {
+			$('#startToCropImg').hide();
+
+			$("#little_img")
+					.append('<div class="col-md-2 col-sm-2" style="width: 87px;margin-top:10px;padding:5px 5px; cursor: pointer; ">'
+							+ '<img class="goodsImg" src="'
+				+src
+				+'" style="max-height:87px; border:2px #95e1d3 solid;"></div>');
+			$("#showImg").attr("src", src);
+			$('.goodsImg').on("click",
+					function() {
+						console.log("click");
+						var src = $(this).attr("src");
+						console.log(src);
+						$("#showImg").attr("src", src);
+					});		
 	}
 	</script>
 
