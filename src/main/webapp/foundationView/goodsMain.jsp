@@ -80,9 +80,7 @@
 			<div class="sectionContent">
 				<div class="row nino-hoverEffect" id="activityRow"></div>
 			</div>
-			<div style="padding-top: 200px">
-				<div w3-include-html=../loadingUpper.jsp></div>
-			</div>
+			<div style="padding-top: 200px" class="loadingUp1"></div>
 	</section>
 	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
 	<!-- Modal -->
@@ -375,7 +373,7 @@
 				+'<div class="content box-top">'
 				+'<a style="font-size: 36px">上架愛心商品</a>'
 				+'</div>'
-				+'<img src="./img/plus.png" alt="" style="border-radius: 15%;">'
+				+'<img height="250px" src="./img/plus.png" alt="" style="border-radius: 15%;">'
 				+'</div>'
 				+'</div>'
 				+'/button>').fadeIn(500).appendTo($("#activityRow"));
@@ -387,18 +385,25 @@
 	}
 	jQuery.fn.showGoods = function(Goods) {
 		var button = $(
-				'<button type="button" date-goodsUid="'+ Goods.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3"'
+				'<button type="button" date-goodsUid="'+ Goods.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3 col-4"'
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
 				.fadeIn(500).appendTo($("#activityRow"));
-
+		var Goods_pic = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+Goods.GoodsImgBean[0].goodsImgUid;
+		if(!Goods_pic){
+			Goods_pic = "./img/box1.png";
+		}else{
+			
+		}
 		var Goods_info = $(
 				'<div class="item">'
 						+ '<div class="overlay box" href="#">'
 						+ '<div class="content">'
-						+ '<a style="font-size: 36px">'
+						+ '<a style="font-size: 36px;font-weight: bold;">剩餘: '
 						+ Goods.goodsStock
 						+ '</a></div>'
-						+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
+						+ '<img height="250px" src="'
+						+ Goods_pic
+						+ '" alt="" style="border-radius: 15%;">'
 						+ '</div></div>').fadeIn(500).appendTo(button);
 		var Goods_title = $(
 				'<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
@@ -422,10 +427,12 @@
 	jQuery.fn.getGoodsList = function() {
 		return this.each(function() {
 			
-// 			$loadingGIF = $(
-// // 					loading
-// 					'<div w3-include-html=../loadingUpper.jsp></div>')
-// 					.appendTo($('.sectionContent'));
+			$loadingGIF = $(
+					'<div class="loadingGif" style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
+					+'<img id="loadingGif"'
+					+'src="${pageContext.request.contextPath}/images/ho73Loading.gif" width="150px"></img>'
+					+'</div>')
+					.appendTo($('.loadingUp1'));
 			var xhr = new XMLHttpRequest();
 			setTimeout(
 					function() {
@@ -523,7 +530,7 @@
 			}
 		}
 
-	}
+	}	
 	jQuery.fn.showLittlePic8Url = function(src) {
 			$('#startToCropImg').hide();
 
