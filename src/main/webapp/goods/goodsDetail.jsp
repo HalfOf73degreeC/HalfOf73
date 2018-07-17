@@ -131,19 +131,28 @@
 							<dl>
 								<dt>數量:</dt>
 								<dd>
-									<select name='qty' class="form-control form-control-sm"
-										style="width: 70px;">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-									</select>
+									<c:choose>
+										<c:when test="${goodsBean.goodsStock != 0}">
+											<select name='qty' class="form-control form-control-sm"
+												style="width: 70px;">
+												<c:choose>
+														<c:when test="${goodsBean.goodsStock <=20 }">
+															<c:forEach var="i" begin="1" end="${goodsBean.goodsStock}">
+																<option value="${i}">${i}</option>
+															</c:forEach>
+														</c:when>
+														<c:when test="${goodsBean.goodsStock >=10 }">
+															<c:forEach var="i" begin="1" end="20">
+																<option value="${i}">${i}</option>
+															</c:forEach>
+														</c:when>
+													</c:choose>
+												
+											</select>
+										</c:when>
+										<c:when test="${goodsBean.goodsStock == 0}">
+										</c:when>
+									</c:choose>
 								</dd>
 							</dl>
 							<!-- item-property .// -->
@@ -166,7 +175,12 @@
 					<P />
 <!-- 					<a href="#" class="btn btn-lg btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;立即購買&nbsp;&nbsp;&nbsp;&nbsp;</a> -->
 					<!-- <a href="#" class="btn btn-lg btn-primary"> <i class="fas fa-shopping-cart"></i>加入購物車-->
-					<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'>
+					<c:if test="${goodsBean.goodsStock != 0}">
+						<Input class="btn btn-lg btn-primary" type='submit' value='加入購物車'>
+					</c:if>
+					<c:if test="${goodsBean.goodsStock == 0}">
+						<Input class="btn btn-lg btn-warning" type='submit' value='補貨中' disabled>
+					</c:if>
 					</a> </article> <!-- card-body.// --> </aside>
 					<!-- col.// -->
 				</div>

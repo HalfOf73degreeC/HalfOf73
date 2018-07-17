@@ -131,14 +131,14 @@
 												'<div class="sharesImageSize">')
 												.appendTo($articleThumb)
 												.append("<img src='" + shares.sharesImg + "'>");
-										var $divdate = $('<div class="date">')
-												.appendTo($articleThumb)
-												.append('<span class="text" style="font: bolder 20px 微軟正黑體">'
-																+ shares.insertMonth
-																+ '</span>')
-												.append('<span class="number">'
-																+ shares.insertDay
-																+ '</span>');
+// 										var $divdate = $('<div class="date">')
+// 												.appendTo($articleThumb)
+// 												.append('<span class="text" style="font: bolder 20px 微軟正黑體">'
+// 																+ shares.insertMonth
+// 																+ '</span>')
+// 												.append('<span class="number">'
+// 																+ shares.insertDay
+// 																+ '</span>');
 										var $sharesTitle = $(
 												'<h3 class="articleTitle">')
 												.appendTo($article).html(
@@ -209,10 +209,6 @@
 							}
 							
 						});
-		
-		
-		
-		
 	</script>
 	<script type="text/javascript" src="../js/template.js"></script>
 <!-- 	include -->
