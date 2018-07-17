@@ -35,7 +35,7 @@ public class GoodsImgDaoImpl implements Serializable, GoodsImgDao {
 
 	// get資料庫單筆資料
 	@Override
-	public GoodsImgBean getOneGoods(int goodsImgUid) {
+	public GoodsImgBean getOneGoodsImg(int goodsImgUid) {
 		GoodsImgBean gb = null;
 		Session session = getSession();
 		gb = session.get(GoodsImgBean.class, goodsImgUid);
@@ -45,18 +45,21 @@ public class GoodsImgDaoImpl implements Serializable, GoodsImgDao {
 	// select 全部資料
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GoodsImgBean> getAllGoods() {
+	public List<GoodsImgBean> getOneGoodsAllImg(int goodsUid) {
 
-		List<GoodsImgBean> allGoods = new ArrayList<>();
-		String hql = "FROM GoodsImgBean";
+		List<GoodsImgBean> oneGoodsImg = new ArrayList<>();
+		String hql = "FROM GoodsImgBean where goodsUid.goodsUid= :goodsUid";
 		Session session = getSession();
-		allGoods = (List<GoodsImgBean>) session.createQuery(hql)
-												 .getResultList();
-		if(allGoods.size() > 0) {
-		    return allGoods;
+		oneGoodsImg = (List<GoodsImgBean>) session.createQuery(hql)
+								               .setParameter("goodsUid", goodsUid)
+											   .getResultList();
+		
+		if(oneGoodsImg.size() > 0) {
+		    return oneGoodsImg;
 		} else {
 		    return null;
 		}
+		
 	}
 
 	@Override

@@ -39,6 +39,7 @@ public class GoodsService {
 	public GoodsBean_HO73 getOneGoods(int goodsUid) {
 		return gdao.getOneGoods(goodsUid);
 	}
+	
 	@Transactional
 	public String getOneGoods2String(Integer goodsUid) {
 		return gson.toJson(getOneGoods(goodsUid));		
@@ -89,5 +90,20 @@ public class GoodsService {
 			Integer goodsStock, String funIdCard, Integer goodsView, Timestamp insertDate, Blob goodsImg, List<Blob> goodsImgLsit) {
 		return gson.toJson(createOneGoods(goodsName, goodsArticle, goodsIntro, goodsPrice, goodsImgFileName, goodsStock, funIdCard, goodsView, insertDate,
 				goodsImg, goodsImgLsit));
+	}
+	
+	@Transactional
+	public GoodsImgBean getOneGoodsImg(int goodsImgUid) {
+		return gidao.getOneGoodsImg(goodsImgUid);
+	}
+	
+	@Transactional
+	public List<GoodsImgBean> getOneGoodsAllImg(int goodsUid) {
+		return gidao.getOneGoodsAllImg(goodsUid);
+	}
+	
+	@Transactional
+	public String getOneGoodsAllImg2String(int goodsUid) {
+		return gson.toJson(getOneGoodsAllImg(goodsUid));
 	}
 }

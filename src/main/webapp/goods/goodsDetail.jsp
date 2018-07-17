@@ -152,8 +152,8 @@
 					<Input type='hidden' name='goodsName'
 						value='${goodsBean.goodsName}'>
 					<P />
-					<Input type='hidden' name='funUid'
-						value='${goodsBean.foundationBean_HO73.funIdcard}'>
+					<Input type='hidden' name='funName'
+						value='${goodsBean.foundationBean_HO73.funName}'>
 					<P />
 					<Input type='hidden' name='goodsUid' value='${goodsBean.goodsUid}'>
 					<P />

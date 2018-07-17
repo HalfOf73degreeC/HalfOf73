@@ -90,5 +90,20 @@ public class SupplyService {
 			Integer supNeedStock, String funIdCard, Integer supView, Timestamp insertDate, Blob supImg, List<Blob> supImgLsit) {
 		return gson.toJson(createOneSupply(supName, supArticle, supIntro, supImgFileName, supNeedStock, funIdCard, supView, insertDate, supImg, supImgLsit));
 	}
+	
+	@Transactional
+	public SupplyImgBean getOneSupplyImg(int supplyImgUid) {
+		return sidao.getOneSupplyImg(supplyImgUid);
+	}
+	
+	@Transactional
+	public List<SupplyImgBean> getOneSupplyAllImg(int supplyUid) {
+		return sidao.getOneSupplyAllImg(supplyUid);
+	}
+	
+	@Transactional
+	public String getOneSupplyAllImg2String(int supplyUid) {
+		return gson.toJson(getOneSupplyAllImg(supplyUid));
+	}
 
 }

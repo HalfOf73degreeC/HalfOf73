@@ -87,7 +87,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>聯絡資訊
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>聯絡資訊*
 											</a>
 										</h4>
 									</div>
@@ -196,7 +196,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>基本資料
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>基本資料*
 											</a>
 										</h4>
 									</div>
@@ -244,7 +244,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>成立主旨
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>成立主旨*
 											</a>
 										</h4>
 									</div>
@@ -266,7 +266,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務地區
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務地區*
 											</a>
 										</h4>
 									</div>
@@ -328,7 +328,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務對象
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務對象*
 											</a>
 										</h4>
 									</div>
@@ -395,7 +395,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務項目
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>服務項目*
 											</a>
 										</h4>
 									</div>
@@ -519,7 +519,7 @@
 												data-parent="#accordion" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne"> <i
 												class="mdi mdi-chevron-up nino-icon arrow"></i> <i
-												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>工作重點
+												class="fas fa-file-alt nino-icon" style="cursor: default;"></i>工作重點*
 											</a>
 										</h4>
 									</div>
@@ -538,14 +538,14 @@
 				<div class="input-group input-group-lg" style="padding: 30px 0px">
 				<c:if test = "${mem.memType == '1'}">	
 					<span class="input-group-btn" align="center">
-						<button class="btn btn-success" id="funRegister" data-type="register" type="submit"
-							style="width: 200px; z-index: 1">申請</button>
+						<button class="btn btn-success" id="funRegister" data-type="register" type="submit" value="Disabled" disabled
+							style="width: 200px; z-index: 1; background:#999;">申請</button>
 					</span>
 				</c:if>
 				<c:if test = "${mem.memType == '2'}">	
 					<span class="input-group-btn" align="center">
-						<button class="btn btn-success" id="funUpdate" data-type="update" type="submit"
-							style="width: 200px; z-index: 1">更新</button>
+						<button class="btn btn-success" id="funUpdate" data-type="update" type="submit" value="Disabled" disabled
+							style="width: 200px; z-index: 1; background:#999;">更新</button>
 					</span>
 				</c:if>
 				</div>
@@ -621,6 +621,22 @@
 				$("#funIdcard").attr('disabled', true);
 				
 			}	
+			//若符合每項勾選變色開啟submit
+// 			if(! $(':input').val() ){
+// 				$(':input[type="submit"]').css('background','#999');
+// 			}else{
+// 				$(':input[type="submit"]').css('background','#95e1d3').prop('disabled', false);
+// 			}
+// 			if($(":input").val()){
+// 				$(':input[type="submit"]').css('background','#999');
+// 			}else{
+// 				$('#funRegister').css('background','#999').prop('disabled', false);
+// 				$('#funUpdate').css('background','#999').prop('disabled', false);
+// 	 			}
+			
+// 			$("form input[type='radio']:checked").val();
+// 			$("textarea").val();
+			
 		</script>
 		
 </body>

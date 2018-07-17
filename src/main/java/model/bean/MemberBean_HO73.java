@@ -120,6 +120,9 @@ public class MemberBean_HO73 {
 		this.memEmail = memEmail;
 	}
 	public String getMemEmail2() {
+		if(memEmail2==null) {
+			return memEmail;
+		}
 		return memEmail2;
 	}
 	public void setMemEmail2(String memEmail2) {

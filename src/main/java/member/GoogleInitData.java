@@ -25,6 +25,8 @@ public final class GoogleInitData {
 	
 	public static final String CALLBACK_URI_PRO = "http://halfof73.ane.tw/HalfOf73/member/oauth2callback";
 	
+	public static final String CALLBACK_URI_PRO_SSL = "https://halfof73.ane.tw/HalfOf73/member/oauth2callback";
+	
 	// start google authentication constants
 	public static final Iterable<String> SCOPE = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));
 	public static final String USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo";

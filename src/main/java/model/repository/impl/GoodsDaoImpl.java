@@ -37,6 +37,7 @@ public class GoodsDaoImpl implements Serializable, GoodsDao {
 	public GoodsBean_HO73 getOneGoods(int goodsUid) {
 		GoodsBean_HO73 gb = null;
 		Session session = getSession();
+		System.out.println(session);
 		gb = session.get(GoodsBean_HO73.class, goodsUid);
 		return gb;
 	}

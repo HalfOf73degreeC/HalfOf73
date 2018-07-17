@@ -1,6 +1,7 @@
 package model.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import model.bean.MemberBean_HO73;
 import model.bean.PayBox;
 import model.bean.PayBoxIn;
 import model.bean.PayBoxOut;
+import model.mail.JavaMailUtil;
 import model.repository.FoundationDao;
 import model.repository.MemberDao;
 import model.repository.PayBoxDao;
@@ -40,6 +42,8 @@ public class payBoxService {
 	PayBoxInDao payBoxInDao;
 	@Autowired
 	PayBoxOutDao payBoxOutDao;
+	@Autowired
+	JavaMailUtil javaMailUtil;
 	@Autowired
 	Gson gson;
 //	
@@ -110,6 +114,23 @@ public class payBoxService {
 		balance+=pbi.getPayAmount();
 		payBox.setBalance(balance);
 		payboxDao.save(payBox);
+//		E-mail送回訂單資料
+		List<String> to = new ArrayList<>();
+		to.add(mb.getMemEmail2());
+		FoundationBean_HO73 fb = payBox.getFoundationBean();
+		String subject = fb.getFunName()+"感謝您在"+payBox.getPayBoxName()+"的捐款" ;
+		String text = mb.getMemName()+"您好:<br>" + 
+				"本次捐款金額: " + payAmount + "NTD<br>" + 
+				"基金會ATM銀行代號: " + payBox.getPayBankId() + "<br>" + 
+				"基金會ATM帳號: " + payBox.getPayATMAccount() + "<br>" + 
+				"感謝您對"+fb.getFunName()+"的付出與關懷。";
+		List<String> attachment = Arrays.asList(new String[] {
+				// "D:\\images\\photo02.jpg"
+		});
+		JavaMailUtil javaMail = new JavaMailUtil(to,subject,text,attachment);
+		javaMail.send();
+		
+		
 		return pbi;
 	}
 	@Transactional

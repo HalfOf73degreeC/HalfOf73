@@ -35,7 +35,7 @@ public class SupplyImgDaoImpl implements Serializable, SupplyImgDao {
 
 	// get資料庫單筆資料
 	@Override
-	public SupplyImgBean getOneSupply(int supImgUid) {
+	public SupplyImgBean getOneSupplyImg(int supImgUid) {
 		SupplyImgBean sb = null;
 		Session session = getSession();
 		sb = session.get(SupplyImgBean.class, supImgUid);
@@ -45,15 +45,16 @@ public class SupplyImgDaoImpl implements Serializable, SupplyImgDao {
 	// select 全部資料
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<SupplyImgBean> getAllSupply() {
+	public List<SupplyImgBean> getOneSupplyAllImg(int supUid) {
 
-		List<SupplyImgBean> allSupply = new ArrayList<>();
-		String hql = "FROM SupplyImgBean";
+		List<SupplyImgBean> oneSupplyImg = new ArrayList<>();
+		String hql = "FROM SupplyImgBean where supUid.supUid= :supUid";
 		Session session = getSession();
-		allSupply = (List<SupplyImgBean>) session.createQuery(hql)
+		oneSupplyImg = (List<SupplyImgBean>) session.createQuery(hql)
+	               								 .setParameter("supUid", supUid)
 												 .getResultList();
-		if(allSupply.size() > 0) {
-		    return allSupply;
+		if(oneSupplyImg.size() > 0) {
+		    return oneSupplyImg;
 		} else {
 		    return null;
 		}
