@@ -373,7 +373,7 @@
 				+'<div class="content box-top">'
 				+'<a style="font-size: 36px">上架愛心商品</a>'
 				+'</div>'
-				+'<img src="./img/plus.png" alt="" style="border-radius: 15%;">'
+				+'<img height="250px" src="./img/plus.png" alt="" style="border-radius: 15%;">'
 				+'</div>'
 				+'</div>'
 				+'/button>').fadeIn(500).appendTo($("#activityRow"));
@@ -385,7 +385,7 @@
 	}
 	jQuery.fn.showGoods = function(Goods) {
 		var button = $(
-				'<button type="button" date-goodsUid="'+ Goods.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3"'
+				'<button type="button" date-goodsUid="'+ Goods.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3 col-4"'
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
 				.fadeIn(500).appendTo($("#activityRow"));
 		var Goods_pic = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+Goods.GoodsImgBean[0].goodsImgUid;
@@ -401,7 +401,7 @@
 						+ '<a style="font-size: 36px;font-weight: bold;">剩餘: '
 						+ Goods.goodsStock
 						+ '</a></div>'
-						+ '<img src="'
+						+ '<img height="250px" src="'
 						+ Goods_pic
 						+ '" alt="" style="border-radius: 15%;">'
 						+ '</div></div>').fadeIn(500).appendTo(button);

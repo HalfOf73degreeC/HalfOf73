@@ -365,7 +365,7 @@
 				+'<div class="content box-top">'
 				+'<a style="font-size: 36px">上架捐贈物資</a>'
 				+'</div>'
-				+'<img src="./img/plus.png" alt="" style="border-radius: 15%;">'
+				+'<img height="250px" src="./img/plus.png" alt="" style="border-radius: 15%;">'
 				+'</div>'
 				+'</div>'
 				+'/button>').fadeIn(500).appendTo($("#activityRow"));
@@ -394,7 +394,7 @@
 						+ '<a style="font-size: 36px;font-weight: bold">缺少: '
 						+ Supply.supNeedStock
 						+ '</a></div>'
-						+ '<img src="'
+						+ '<img height="250px" src="'
 						+ Supply_pic
 						+ '" alt="" style="border-radius: 15%;">'
 						+ '</div></div>').appendTo(button);
