@@ -216,7 +216,7 @@
 		<div class="sectionContent">
 			<ul class="nino-portfolioItems">
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="這是來自蘭嶼達悟族小朋友最真摯的笑容<br>當我們苦於沒有學習環境時，謝謝你們的支持" href="images/halfof73/Lanyu.jpg">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="這是來自蘭嶼達悟族小朋友最真摯的笑容，當我們苦於沒有學習環境時，謝謝你們的支持" href="images/halfof73/Lanyu.jpg">
 						<img src="images/halfof73/Lanyu.jpg" />
 						<div class="overlay">
 							<div class="content">
@@ -228,7 +228,7 @@
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="聯合國指出: 全球每年有超過13噸的食物遭到浪費，雖然普羅大眾都過著得以溫飽的生活<br>但實際上仍然痛苦的人還很多。只要減少1/4的食物浪費，便能讓全球的人口都妮吃飽。" href="images/halfof73/Dubai.jpg">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="聯合國指出: 全球每年有超過13噸的食物遭到浪費，雖然普羅大眾都過著得以溫飽的生活，但實際上仍然痛苦的人還很多。只要減少1/4的食物浪費，便能讓全球的人口都妮吃飽。" href="images/halfof73/Dubai.jpg">
 						<img src="images/halfof73/Dubai.jpg" />
 						<div class="overlay">
 							<div class="content">
@@ -252,7 +252,7 @@
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="流浪動物的平均存活年限僅有二至三年，希望你我一同伸出援手<br>幫助他們找到一個溫暖的家" href="images/halfof73/cat.jpg">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="流浪動物的平均存活年限僅有二至三年，希望你我一同伸出援手，幫助他們找到一個溫暖的家" href="images/halfof73/cat.jpg">
 						<img src="images/halfof73/cat.jpg" />
 						<div class="overlay">
 							<div class="content">
@@ -264,7 +264,7 @@
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="有您的支持，煎熬的日子也會輕鬆一點吧！<br>謝謝您的陪伴，病痛的苦楚因為有了你們而輕減了" href="images/halfof73/cancer.jpg">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="有您的支持，煎熬的日子也會輕鬆一點吧！，謝謝您的陪伴，病痛的苦楚因為有了你們而輕減了" href="images/halfof73/cancer.jpg">
 						<img src="images/halfof73/cancer.jpg" />
 						<div class="overlay">
 							<div class="content">
@@ -276,7 +276,7 @@
 					</a>
 				</li>
 				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="在花蓮，每一分鐘就有一個家庭流離失所。謝謝你們關懷花蓮災後重建的工程項目<br>你的關注可以督促花蓮縣政府的做事態度！" href="images/halfof73/rock.jpg">
+					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="在花蓮，每一分鐘就有一個家庭流離失所。謝謝你們關懷花蓮災後重建的工程項目，你的關注可以督促花蓮縣政府的做事態度！" href="images/halfof73/rock.jpg">
 						<img src="images/halfof73/rock.jpg" />
 						<div class="overlay">
 							<div class="content">
@@ -287,17 +287,19 @@
 						</div>
 					</a>
 				</li>
-				<li class="item">
-					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="" href="" OnClick="window.open('shares/shares.jsp','_self')">
+				<li id="toShare" class="item">
+<!-- 					<a class="nino-prettyPhoto" rel="prettyPhoto[gallery1]" title="" href="shares/shares.jsp" OnClick="window.open('shares/shares.jsp','_self')"> -->
+						<a href="shares/shares.jsp">
 						<img src="images/halfof73/child.jpg" />
-						<div class="overlay">
+<!-- 						<div class="overlay"> -->
 							<div class="content">
 								<!-- <i class="mdi mdi-guitar-electric nino-icon"></i> -->
-								<h4 class="title" style='font-size:25px;'>了解更多</h4>
-								<span class="desc" style='font-size:15px;'>謝謝你們的善心，讓我們有更好的未來</span>
+								<h4 class="title" style='font-size:25px; text-align:center;'>了解更多</h4>
+								<span class="desc" style='font-size:15px; margin-left:12%; color:#fff;'>謝謝你們的善心，讓我們有更好的未來</span>
 							</div>
-						</div>
-					</a>
+<!-- 						</div> -->
+<!-- 					</a> -->
+						</a>
 				</li>
 			</ul>
 		</div>
@@ -413,16 +415,6 @@
 	<script>
 		w3.includeHTML();
 	</script>
-
-	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<!-- css3-mediaqueries.js for IE less than 9 -->
-	<!--[if lt IE 9]>
-	    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<![endif]-->
-		
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 </html>

@@ -96,16 +96,23 @@
 										<div class="panel-body" style="height: 450px;">
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">名稱 :</button>
 												</span>
+												<c:if test="${mem.memType == '1'}">
 												<input type="text" id="funName" name="funName" class="form-control"
 													placeholder="" value="${mem.memName}"
 													style="z-index: 1">
+												</c:if>
+												<c:if test="${mem.memType == '2'}">
+												<input type="text" id="funName" name="funName" class="form-control"
+													placeholder="" value="${fun.funName}"
+													style="z-index: 1">
+												</c:if>
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">愛心碼 :</button>
 												</span>
 												<input type="text" id="funIdcard" name="funIdcard" class="form-control"
@@ -115,7 +122,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">執行長 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -125,7 +132,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">聯絡人 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -135,7 +142,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">網址 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -145,7 +152,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">電話 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -154,7 +161,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">傳真 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -163,7 +170,7 @@
 											</div>
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">E-mail :</button>
 												</span>
 												<c:if test="${empty fun.funEmail2}">
@@ -178,7 +185,7 @@
 											</div>											
 											<div class="input-group input-group-lg">
 												<span class="input-group-btn">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success" 
 														style="width: 130px; cursor: default;">地址 :</button>
 												</span>
 												<!-- <textarea class="form-control" placeholder="男性" rows="1"></textarea> -->
@@ -539,13 +546,13 @@
 				<c:if test = "${mem.memType == '1'}">	
 					<span class="input-group-btn" align="center">
 						<button class="btn btn-success" id="funRegister" data-type="register" type="submit" value="Disabled" disabled
-							style="width: 200px; z-index: 1; background:#999;">申請</button>
+							style="width: 200px; z-index: 1;">申請</button>
 					</span>
 				</c:if>
 				<c:if test = "${mem.memType == '2'}">	
 					<span class="input-group-btn" align="center">
-						<button class="btn btn-success" id="funUpdate" data-type="update" type="submit" value="Disabled" disabled
-							style="width: 200px; z-index: 1; background:#999;">更新</button>
+						<button class="btn btn-success" id="funUpdate" data-type="update" type="submit"
+							style="width: 200px; z-index: 1;">更新</button>
 					</span>
 				</c:if>
 				</div>

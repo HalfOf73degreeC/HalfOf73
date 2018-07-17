@@ -80,4 +80,66 @@ $("#funName").blur(function(){
 	}
 	
 });
+//$("#funName").blur(function(){
+//	$("div").remove("#errorInfoFunName");
+//	var type;
+//	if($("#funRegister").attr("data-type")=="register"){
+//		for(var i = 0; i < funlist.length; i++){
+//			var funIdcardBean = funlist[i];
+//			if(funIdcardBean.funName == ($("#funName").val()) && funIdcardBean.funIdcard == ($("#funIdcard").val())){
+//				if(funIdcardBean.funType==0){
+//					type = 0;
+//					break;
+//				}else{
+//					type = 1;	
+//					break;		
+//				}
+//			}else if(funIdcardBean.funName != ($("#funName").val()) && funIdcardBean.funIdcard == ($("#funIdcard").val())){				
+//				if(funIdcardBean.funType==0){
+//					type = 2;
+//					break;
+//				}else{
+//					type = 3;	
+//					break;	
+//			    }
+//			}else if(funIdcardBean.funName == ($("#funName").val()) && funIdcardBean.funIdcard != ($("#funIdcard").val())){				
+//				if(funIdcardBean.funType==0){
+//					type = 4;
+//					break;
+//				}else{
+//					type = 5;	
+//					break;	
+//			    }
+//		    }else{
+		    		//
+//		    	}
+//		    }
+//	}
+//	if(type==0){
+//		$(':input[type="submit"]').prop('disabled', false);
+//	}else if(type==1){
+//		$("#funName").parent().append('<div id="errorInfoFunName" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">已經申請</div>');
+//		$("#funIdcard").parent().append('<div id="errorInfoFunIdcard" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">已經申請</div>');
+//		$(':input[type="submit"]').prop('disabled', true);
+//	}else if(type==2){
+//		$("#funName").parent().append('<div id="errorInfoFunName" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">名稱錯誤</div>');
+//		$(':input[type="submit"]').prop('disabled', true);
+//	}else if(type==3){
+//		$("#funName").parent().append('<div id="errorInfoFunName" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">名稱錯誤</div>');
+//		$("#funIdcard").parent().append('<div id="errorInfoFunIdcard" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">已經申請</div>');
+//		$(':input[type="submit"]').prop('disabled', true);
+//	}else if(type==4){
+//		$("#funIdcard").parent().append('<div id="errorInfoFunIdcard" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">號碼錯誤</div>');
+//		$(':input[type="submit"]').prop('disabled', true);
+//	}else if(type==5){
+//		$("#funName").parent().append('<div id="errorInfoFunName" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">已經申請</div>');
+//		$("#funIdcard").parent().append('<div id="errorInfoFunIdcard" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">號碼錯誤</div>');
+//		$(':input[type="submit"]').prop('disabled', true);
+//	}else{
+//		$("#funName").parent().append('<div id="errorInfoFunName" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">名稱錯誤</div>');
+//		$("#funIdcard").parent().append('<div id="errorInfoFunIdcard" style="position:absolute; right:5%; top:30%; z-index:2; font-size:15px; color:red;">號碼錯誤</div>');
+//		$(':input[type="submit"]').prop('disabled', true);
+//	}
+//	
+//});
 
