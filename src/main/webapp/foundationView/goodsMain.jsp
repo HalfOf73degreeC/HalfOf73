@@ -75,7 +75,7 @@
 			</h2>
 			<p class="nino-sectionDesc wow fadeInDown"
 				style="font-family: '微軟正黑體'; font-size: 20px;">
-				誠摯地感謝您一同參與HalfOf73的傳愛平台，世界因為我們而更值得期待！</p>
+				誠摯地感謝您一同參與Half of 73°C的傳愛平台，世界因為我們而更值得期待！</p>
 			<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 			<div class="sectionContent">
 				<div class="row nino-hoverEffect" id="activityRow">
