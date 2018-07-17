@@ -6,7 +6,7 @@
         		<div class="col-md-4">
         			<div class="colInfo">
 	        			<div class="footerLogo">
-	        				<div class="navbar-header" style="width:390px"><a  href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/images/logo_halfof73c-03.png"  style="width:243px;margin-botton:5px"></a></div>	
+	        				<div class="navbar-header" style="width:390px;height:80px"><a  href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/images/logo_halfof73c-03.png"  style="width:243px;margin-botton:5px"></a></div>	
 	        			</div>
 	        			<p>
 	        				　　我們希望藉由Half of 73°C 平台創造更加完備且快速地使用方式，提供所有願意付出的人，不論是以基金會的型式或是個人的名義。我們需要您的陪伴，一起創造更好的未來。
