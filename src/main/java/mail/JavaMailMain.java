@@ -25,15 +25,15 @@ public class JavaMailMain extends HttpServlet {
 		String funEmail = request.getParameter("funEmail");
 		String funName = request.getParameter("funName");
 		
-		
+		System.out.println("funIdcard:"+funIdcard+"funEmail: "+funEmail+"funName: "+funName);
 		String from = "java008.project@gmail.com";
 		List<String> to = Arrays.asList(new String[] { funEmail, "java008.project@gmail.com" });
 //		List<String> cc = Arrays.asList(new String[] { "java008.project@gmail.com", "java008.project@gmail.com" });
 //		List<String> bcc = Arrays.asList(new String[] { "java008.project@gmail.com" });
-		String subject = "歡迎"+funName+"加入Half Of 73°C會員";
-		String text = "<h1>謝謝"+funName+"加入Half Of 73&#176;C會員</h1>" + 
+		String subject = "歡迎您加入Half Of 73°C公益平台";
+		String text = "<h1>謝謝您加入Half Of 73&#176;C公益平台</h1>" + 
 					  "<h2>您可以按下列連結體驗最新的服務</h2>" + 
-					  "<a href='http://http://halfof73.ane.tw'>Half Of 7373&#176;C</a><br>"+
+					  "<a href='http://http://halfof73.ane.tw'>Half Of 73&#176;C</a><br>"+
 					  "<br><br><font color='blue'> 再次感謝, </font><br>Half Of 73&#176;C工作小組敬上";
 		List<String> attachment = Arrays.asList(new String[] {
 				// "D:\\images\\photo02.jpg"
