@@ -41,9 +41,9 @@
 <%-- 	        			<h3 class="nino-colHeading"><a style="color:#000" href="${pageContext.request.contextPath}#nino-whatWeDo">關於本站</a></h3> --%>
 	        			<ul class="listArticles">
 	        				<li layout="row" class="verticalCenter ">
-	        					<a class="articleThumb fsr" rel="" href="foundation/foundation_main.jsp"><img src="${pageContext.request.contextPath}/images/goods/fundate.jpg" alt="" width="120px" height="80px"></a>
+	        					<a class="articleThumb fsr" rel="" href="${pageContext.request.contextPath}/foundation/foundation_main.jsp"><img src="${pageContext.request.contextPath}/images/goods/fundate.jpg" alt="" width="120px" height="80px"></a>
 	        					<div class="info">
-	        						<h3 class="articleTitle" style=""><a href="foundation/foundation_main.jsp" style="font-size:16px">基金會</a></h3>
+	        						<h3 class="articleTitle" style=""><a href="${pageContext.request.contextPath}/foundation/foundation_main.jsp" style="font-size:16px">基金會</a></h3>
 <!-- 	        						<div class="date">Jan 9, 2016</div> -->
 	        					</div>
 	        				</li>
@@ -55,9 +55,9 @@
 	        					</div>
 	        				</li>
 	        				<li layout="row" class="verticalCenter">
-	        					<a class="articleThumb fsr" href="shares/shares.jsp"><img src="${pageContext.request.contextPath}/images/goods/love.jpg" alt="" width="120px" height="80px"></a>
+	        					<a class="articleThumb fsr" href="${pageContext.request.contextPath}/shares/shares.jsp"><img src="${pageContext.request.contextPath}/images/goods/love.jpg" alt="" width="120px" height="80px"></a>
 	        					<div class="info"  style="text-align:center">
-	        						<h3 class="articleTitle"><a href="shares/shares.jsp" style="font-size:16px;">愛的傳遞</a></h3>
+	        						<h3 class="articleTitle"><a href="${pageContext.request.contextPath}/shares/shares.jsp" style="font-size:16px;">愛的傳遞</a></h3>
 <!-- 	        						<div class="date">Jan 9, 2016</div> -->
 	        					</div>
 	        				</li>
