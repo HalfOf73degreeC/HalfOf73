@@ -357,7 +357,7 @@
 		}
 	jQuery.fn.showSupplyAddBt = function() {
 		var button = $(
-				'<button type="button" class="btn btn-primary btn-lg col-md-3 col-sm-3" id="addNewGoods"'
+				'<button type="button" class="btn btn-primary btn-addSupplyBt btn-lg col-md-3 col-sm-3" id="addNewGoods"'
 				+'data-toggle="modal" data-target="#NewGoodsModal"'
 				+'style="border: 0px #fff0f5 none; background-color: #fff0f5;">'
 				+'<div class="item">'
@@ -368,7 +368,7 @@
 				+'<img height="250px" src="./img/plus.png" alt="" style="border-radius: 15%;">'
 				+'</div>'
 				+'</div>'
-				+'/button>').fadeIn(500).appendTo($("#activityRow"));
+				+'</button>').fadeIn(500).appendTo($("#activityRow"));
 		//ReNew
 		$("#addNewGoods").on("click",function() {
 			$('body').reNewGoodModal();
@@ -381,11 +381,11 @@
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
 				.fadeIn(500).appendTo($("#activityRow"));
 
-		var Supply_pic = "http://localhost:8080/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+Supply.SupplyImgBean[0].supImgUid;
-		if(!Supply_pic){
+		var Supply_pic;
+		if(!Supply.SupplyImgBean[0]){
 			Supply_pic = "./img/box1.png";
 		}else{
-			
+			Supply_pic = "http://localhost:8080/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+Supply.SupplyImgBean[0].supImgUid;
 		}
 		var Supply_info = $(
 				'<div class="item">'
@@ -458,6 +458,7 @@
 					console.log(SupplyList);
 					console.log("重建Goods");
 					if(SupplyList!=null){
+						$(".btn-addSupplyBt").remove();
 						$('body').showSupplyAddBt();
 						for (var i = 0; i < SupplyList.length; i++) {
 								$('body').showSupply(SupplyList[i]);

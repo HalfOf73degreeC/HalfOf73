@@ -365,7 +365,7 @@
 
 	jQuery.fn.showGoodsAddBt = function() {
 		var button = $(
-				'<button type="button" class="btn btn-primary btn-lg col-md-3 col-sm-3" id="addNewGoods"'
+				'<button type="button" class="btn btn-primary btn-addGoodsBt btn-lg col-md-3 col-sm-3" id="addNewGoods"'
 				+'data-toggle="modal" data-target="#NewGoodsModal"'
 				+'style="border: 0px #fff0f5 none; background-color: #fff0f5;">'
 				+'<div class="item">'
@@ -376,7 +376,7 @@
 				+'<img height="250px" src="./img/plus.png" alt="" style="border-radius: 15%;">'
 				+'</div>'
 				+'</div>'
-				+'/button>').fadeIn(500).appendTo($("#activityRow"));
+				+'</button>').fadeIn(500).appendTo($("#activityRow"));
 		//ReNew
 		$("#addNewGoods").on("click",function() {
 			$('body').reNewGoodModal();
@@ -388,11 +388,11 @@
 				'<button type="button" date-goodsUid="'+ Goods.goodsUid +'" class="Goods btn btn-primary btn-lg col-md-3 col-sm-3 col-4"'
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
 				.fadeIn(500).appendTo($("#activityRow"));
-		var Goods_pic = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+Goods.GoodsImgBean[0].goodsImgUid;
-		if(!Goods_pic){
+		var Goods_pic;
+		if(!Goods.GoodsImgBean[0]){
 			Goods_pic = "./img/box1.png";
 		}else{
-			
+			Goods_pic = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+Goods.GoodsImgBean[0].goodsImgUid;
 		}
 		var Goods_info = $(
 				'<div class="item">'
@@ -467,6 +467,7 @@
 					console.log(GoodsList);
 					console.log("重建Goods");
 					if(GoodsList!=null){
+						$(".btn-addGoodsBt").remove();
 						$('body').showGoodsAddBt();
 						
 						for (var i = 0; i < GoodsList.length; i++) {
