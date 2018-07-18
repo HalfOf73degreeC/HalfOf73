@@ -584,6 +584,11 @@
 						.fadeIn(500).appendTo($('.loadingUp1'));
 				$("#activityRow").empty();
 				var xhr = new XMLHttpRequest();
+				setTimeout(
+						function() {
+							fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+						}
+						,100);
 				xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
 						true);
 				xhr.setRequestHeader("Content-Type",
