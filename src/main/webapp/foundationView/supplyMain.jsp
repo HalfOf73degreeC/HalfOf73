@@ -113,7 +113,7 @@
 												<span>選擇物品照片</span> <input id="input_img"
 													accept="image/gif, image/jpeg, image/png" type="file"
 													name="file1"
-													style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;" />
+													style="position: relative; font-size: 1px; top: 50%; left:50%; z-index: -2; height: 0px;" />
 												</buttom>
 											</label>
 										</div>
