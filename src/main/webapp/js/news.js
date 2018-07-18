@@ -9,15 +9,18 @@ jQuery(function($) {
 							+ '</div></div></div>');
 
 	$loadingGIF = $(
-			'<div w3-include-html="'+$('#NewsPage').attr("data-contextPath")+'/loading.jsp"></div>')
-			.appendTo($('#NewsPage'));
+			'<div class="loadingGif" style="height: 200px;">'
+			+'<div style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
+			+'<img id="loadingGif"'
+			+'src="/HalfOf73/images/ho73Loading.gif" width="150px"></img>'
+			+'</div></div>').appendTo($('#NewsPage'));
 	var xhr = new XMLHttpRequest();
 	xhr.open("Get", "/HalfOf73/news/getNewsPage", true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (xhr.status == 200 && xhr.readyState == 4) {
 			newslist = JSON.parse(xhr.responseText);
-			$("#loadingGif").hide(500);
+			$(".loadingGif").hide(500);
 			var showMuch;
 			if($('#NewsPage').attr("date-newsMuch")==0){
 				showMuch=newslist.length;
