@@ -41,7 +41,7 @@ jQuery(function($) {
 						$article);
 				var $goodsImageSize = $('<div class="newsImageSize">')
 						.appendTo($articleThumb).append(
-								"<img src='" + news.newsImg + "'>");
+								"<img height='240px' src='" + news.newsImg + "'>");
 				var $divdate = $('<div class="date">').appendTo($articleThumb)
 						.append(
 								'<span class="text" style="font: bolder 20px 微軟正黑體">'
