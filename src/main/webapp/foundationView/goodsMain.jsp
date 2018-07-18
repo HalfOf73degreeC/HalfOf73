@@ -477,6 +477,7 @@
 						}
 						$('body').clickGoods();
 					}else{
+						$('body').showGoodsAddBt();
 						alert("沒有商品")
 					}
 				}

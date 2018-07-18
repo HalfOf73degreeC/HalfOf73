@@ -467,6 +467,7 @@
 						}
 						$('body').clickGoods();
 					}else{
+						$('body').showSupplyAddBt();
 						alert("沒有物品")
 					}
 				}
