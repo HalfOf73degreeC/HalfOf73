@@ -432,7 +432,7 @@
 			$loadingGIF = $(
 					'<div class="loadingGif" style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
 					+'<img id="loadingGif"'
-					+'src="${pageContext.request.contextPath}/images/ho73Loading.gif" width="150px"></img>'
+					+'src="../images/ho73Loading.gif" width="150px"></img>'
 					+'</div>')
 					.appendTo($('.loadingUp1'));
 			var xhr = new XMLHttpRequest();
