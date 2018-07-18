@@ -49,9 +49,9 @@
 					<div class="collapse navbar-collapse pull-left"
 						id="nino-navbar-collapse">
 						<ul class="nav navbar-nav">
-							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
-							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
-							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
+							<!-- 					<li><a href="supply.html">回到物品總攬</a></li> -->
+							<!-- 					<li class="active"><a href="#nino-story">物品基本資料</a></li> -->
+							<!-- 					<li><a href="#nino-ourTeam">物品詳細資料</a></li> -->
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -66,7 +66,7 @@
 		<div class="container">
 			<h2 class="nino-sectionHeading title wow fadeInDown">
 				<span class="nino-subHeading"
-					style="font-family: '微軟正黑體'; font-size: 40px;">捐贈物資商品管理</span>
+					style="font-family: '微軟正黑體'; font-size: 40px;">捐贈物資物品管理</span>
 			</h2>
 			<p class="nino-sectionDesc wow fadeInDown"
 				style="font-family: '微軟正黑體'; font-size: 20px;">
@@ -94,7 +94,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4 class="modal-title" id="myModalLabel"
-							style="font-family: '微軟正黑體'; font-size: 20px;">新增商品圖片</h4>
+							style="font-family: '微軟正黑體'; font-size: 20px;">新增物品圖片</h4>
 					</div>
 					<div class="modal-body">
 						<div id="collapseOne1" class="panel-collapse collapse in"
@@ -110,7 +110,7 @@
 											<label for="input_img" style=""> <buttom
 													id="input_img_chouse"
 													style="color: #95e1d3; font-size: 25px;font-weight:bold;z-index:2; cursor:pointer;">
-												<span>選擇商品照片</span> <input id="input_img"
+												<span>選擇物品照片</span> <input id="input_img"
 													accept="image/gif, image/jpeg, image/png" type="file"
 													name="file1"
 													style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;" />
@@ -178,7 +178,7 @@
 	$("#addNewGoods").on("click",function() {
 		$('body').reNewGoodModal();
 	});
-	//顯示商品資料
+	//顯示物品資料
 	jQuery.fn.showSupply_D = function(Supply) {
 		$('body').reNewGoodModal();
 		var supName = $('#supName').val(Supply.supName);
@@ -244,7 +244,7 @@
 					+'<span aria-hidden="true">&times;</span>'
 					+'</button>'
 					+'<h4 class="modal-title" id="myModalLabel"'
-					+'style="font-family: "微軟正黑體"; font-size: 20px;">新增愛心商品</h4>'
+					+'style="font-family: "微軟正黑體"; font-size: 20px;">新增所需物品</h4>'
 					+'</div>'
 					+'<div class="modal-body">'
 					+'<div id="collapseOne1" class="panel-collapse collapse in"'
@@ -262,7 +262,7 @@
 					+'<div class="input-group input-group-lg">'
 					+'<span class="input-group-btn">'
 					+'<button class="btn btn-success" type="submit"'
-					+'style="width: 130px">商品名稱 :</button>'
+					+'style="width: 130px">物品名稱 :</button>'
 					+'</span> <input type="text" class="form-control" placeholder=""'
 					+'required style="z-index: 1" id="supName">'
 					+'</div>'
@@ -288,7 +288,7 @@
 					+'role="tabpanel" aria-labelledby="headingOne">'
 					+'<div class="panel-body" style="height: 120px;">'
 					+'<h4 class="panel-title">'
-					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品簡介</div>'
+					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈物品簡介</div>'
 					+'</h4>'
 					+'<textarea class="form-control" id="supIntro"'
 					+'placeholder="" rows="3" style="resize : none;" onKeyDown="if (this.value.length>=200){event.returnValue=false}"></textarea>'
@@ -297,7 +297,7 @@
 					+'role="tabpanel" aria-labelledby="headingOne">'
 					+'<div class="panel-body" style="height: 160px; margin-top:-2%;">'
 					+'<h4 class="panel-title">'
-					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品詳述</div>'
+					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈物品詳述</div>'
 					+'</h4>'
 					+'<textarea class="form-control" id="supArticle"'
 					+'placeholder="" rows="6" style="resize : none;"></textarea>'
@@ -306,7 +306,7 @@
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
 					+'<button type="button" class="btn btn-primary btn-addSupply" data-toggle="modal" data-target="#modal_loading" data-dismiss="modal" id="addNewGoods_bt"'
-					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
+					+'style="font-family: "微軟正黑體"; font-size: 15px;">物品上架</button>'
 					+'</div></div></div></form>');
 			
 			$('body').startToCropImg();
@@ -467,7 +467,7 @@
 						}
 						$('body').clickGoods();
 					}else{
-						alert("沒有商品")
+						alert("沒有物品")
 					}
 				}
 			}
@@ -509,7 +509,7 @@
 				console.log("jsonString.length= "
 						+ jsonString.length);
 				if (jsonString.length < 10) {
-					alert("無法新建商品");
+					alert("無法新建物品");
 				} else {
 //						var Supply = JSON.parse(xhr.responseText);
 //						console.log(Supply);
