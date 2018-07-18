@@ -488,7 +488,6 @@
 					  function() 
 					  {
 						  fk_payIdcard = $("#memberBean").attr("data-funIdcard");
-							console.log("fk_payIdcard: "+fk_payIdcard)
 							$('body').getPayBoxList();
 					  }, 100);
 		});
@@ -587,6 +586,7 @@
 				setTimeout(
 						function() {
 							fk_payIdcard = $("#memberBean").attr("data-funIdcard");
+							console.log("fk_payIdcard: "+fk_payIdcard)
 							xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
 									true);
 							xhr.setRequestHeader("Content-Type",
@@ -624,7 +624,7 @@
 								}
 							}
 						}
-						,300);
+						,500);
 			});
 		}
 	
