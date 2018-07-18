@@ -131,24 +131,24 @@
 									<div class="input-group input-group-lg">
 										<span class="input-group-btn">
 											<button class="btn btn-success" type="submit"
-												style="width: 130px">捐款箱名稱 :</button>
-										</span> <input type="text" id="payBoxName" class="form-control"
+												style="cursor: default;width: 130px">捐款箱名稱 :</button>
+										</span> <input type="text" id="payBoxName" class="form-control" value="Disabled" disabled
 											date-payBoxNumber="" placeholder="" required
-											style="z-index: 1">
+											style="cursor: default;z-index: 1">
 									</div>
 									<div class="input-group input-group-lg">
 										<span class="input-group-btn">
 											<button class="btn btn-success" type="submit"
-												style="width: 130px">ATM銀行代號 :</button>
-										</span> <input type="text" id="payBankId" class="form-control"
-											placeholder="" required style="z-index: 1">
+												style="cursor: default;width: 130px">ATM銀行代號 :</button>
+										</span> <input type="text" id="payBankId" class="form-control" value="Disabled" disabled
+											placeholder="" required style="cursor: default;z-index: 1">
 									</div>
 									<div class="input-group input-group-lg">
 										<span class="input-group-btn">
 											<button class="btn btn-success" type="submit"
-												style="width: 130px">ATM帳號 :</button>
-										</span> <input type="text" id="payATMAccount" class="form-control"
-											placeholder="" required style="z-index: 1">
+												style="cursor: default;width: 130px">ATM帳號 :</button>
+										</span> <input type="text" id="payATMAccount" class="form-control"  value="Disabled" disabled
+											placeholder="" required style="cursor: default;z-index: 1">
 									</div>
 								</div>
 							</div>
@@ -161,8 +161,8 @@
 							<div id="collapseOne1" class="panel-collapse collapse in"
 								role="tabpanel" aria-labelledby="headingOne">
 								<div class="" style="height: 227px; margin: 2%;">
-									<textarea class="form-control" id="payBoxDetail_input"
-										placeholder="" rows="10" style="resize: none;"></textarea>
+									<textarea class="form-control" id="payBoxDetail" value="Disabled" disabled
+										placeholder="" rows="10" style="cursor: default;resize: none;"></textarea>
 								</div>
 							</div>
 						</div>
