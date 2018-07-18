@@ -33,7 +33,7 @@
 <!-- favicon -->
 <link rel="shortcut icon" href="../images/ico/like.png">
 </head>
-
+<div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body style="background: #FFF0F5;">
 		<header id="nino-story">
 		<nav id="nino-navbar" class="navbar navbar-default"
@@ -71,24 +71,8 @@
 				誠摯地感謝您一同參與Half of 73°C的傳愛平台，世界因為我們而更值得期待！</p>
 			<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 			<div class="sectionContent">
-				<div class="row nino-hoverEffect" id="activityRow">
-					<div class="col-md-3 col-sm-3">
-						<button type="button" class="btn btn-primary btn-lg"
-							data-toggle="modal" data-target="#createPatBox"
-							style="border: 0px #fff0f5 none; background-color: #fff0f5;">
-							<div class="item">
-								<div class="overlay box" href="#">
-									<div class="content box-top">
-										<a style="font-size: 36px">建立募款箱</a>
-
-									</div>
-									<img src="./img/plus.png" alt="" style="border-radius: 15%;">
-								</div>
-							</div>
-						</button>
-					</div>
-
-				</div>
+				<div class="row nino-hoverEffect" id="activityRow"></div>
+				<div style="padding-top: 200px" class="loadingUp1"></div>
 			</div>
 	</section>
 	<div w3-include-html="${pageContext.request.contextPath}/footer.jsp"></div>
@@ -134,6 +118,7 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="panel-heading" role="tab" id="headingOne">
 						<h4 class="panel-title">
 							<div
@@ -152,7 +137,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"
 						style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal"
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_loading" data-dismiss="modal" 
 						id="createPayBox" style="font-family: '微軟正黑體'; font-size: 15px;">建立募款箱</button>
 				</div>
 			</div>
@@ -389,7 +374,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"
 						style="font-family: '微軟正黑體'; font-size: 15px;">取消</button>
-					<button type="button" class="btn btn-primary" id="createPayBoxOut"
+					<button type="button" class="btn btn-primary" id="createPayBoxOut" data-toggle="modal" data-target="#modal_loading"
 						style="font-family: '微軟正黑體'; font-size: 15px;">確認送出</button>
 				</div>
 			</div>
@@ -512,7 +497,7 @@
 			var button = $(
 					'<button type="button" date-payBoxNumber="'+ payBox.payBoxNumber +'" class="PayBox btn btn-primary btn-lg col-md-3 col-sm-3"'
 					+' data-toggle="modal" data-target="#editPatBox" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
-					.appendTo($("#activityRow"));
+					.fadeIn(500).appendTo($("#activityRow"));
 
 			var paybox_info = $(
 					'<div class="item">'
@@ -522,7 +507,7 @@
 							+ payBox.balance
 							+ '</a></div>'
 							+ '<img src="./img/box1.png" alt="" style="border-radius: 15%;">'
-							+ '</div></div>').appendTo(button);
+							+ '</div></div>').fadeIn(500).appendTo(button);
 			var paybox_title = $(
 					'<div style="font-size: 20px; text-align: center; font-weight:bold; color:#ccc;">'
 							+ payBox.payBoxName + '</div>').appendTo(button);
@@ -591,6 +576,13 @@
 
 		jQuery.fn.getPayBoxList = function() {
 			return this.each(function() {
+				$loadingGIF = $(
+						'<div class="loadingGif" style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
+						+'<img id="loadingGif"'
+						+'src="${pageContext.request.contextPath}/images/ho73Loading.gif" width="150px"></img>'
+						+'</div>')
+						.fadeIn(500).appendTo($('.loadingUp1'));
+				$("#activityRow").empty();
 				var xhr = new XMLHttpRequest();
 				xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
 						true);
@@ -600,6 +592,12 @@
 				xhr.onreadystatechange = function() {
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						var funBean = JSON.parse(xhr.responseText);
+						if(!$(".loadingGif")){	
+							
+						}else{
+//					 		loading
+							$(".loadingGif").hide();	
+						}	
 						patBoxList = [];
 						console.log(funBean);
 						payBoxList = funBean.payBox;
@@ -607,6 +605,7 @@
 						$(".PayBox").remove();
 						console.log(payBoxList);
 						console.log("重建payBox");
+						$('body').showGoodsAddBt();
 						for (var i = 0; i < payBoxList.length; i++) {
 							if (payBoxList[i].payBoxType == 1) {
 								$('body').showPayBox(payBoxList[i]);
@@ -623,7 +622,7 @@
 				}
 			});
 		}
-
+	
 		jQuery.fn.createPayBox = function() {
 			return this.each(function() {
 				var xhr = new XMLHttpRequest();
@@ -656,6 +655,7 @@
 							var payBox = JSON.parse(xhr.responseText);
 						}
 						$('body').getPayBoxList();
+						$('#modal_loading').modal('hide');
 					}
 				}
 			});
@@ -764,16 +764,16 @@
 				var payBoxIn = payBox_now.payBoxIn[i];
 				var payBoxIn_bt = $(
 						'<div class="input-group input-group-lg payBoxIn_bt" date-Id="'+payBoxIn.Id+'">')
-						.appendTo($('.payBoxIn_list'));
+						.fadeIn(500).appendTo($('.payBoxIn_list'));
 				var MemName = $(
 						'<span class="input-group-btn">'
 								+ '<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #9ae2d5; text-align: left;">'
-								+ payBoxIn.MemName + '</div></span>').appendTo(
+								+ payBoxIn.MemName + '</div></span>').fadeIn(500).appendTo(
 						payBoxIn_bt);
 				var payAmount = $(
 						'<div id="payBoxIn_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
 								+ '$' + payBoxIn.payAmount + '</div>')
-						.appendTo(payBoxIn_bt);
+						.fadeIn(500).appendTo(payBoxIn_bt);
 			}
 
 		}
@@ -791,6 +791,8 @@
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						payBox_now = JSON.parse(xhr.responseText);
 						$('body').showPayBox_D();
+
+						$('#modal_loading').modal('hide');
 					}
 				}
 			});
@@ -826,6 +828,32 @@
 						}
 					}
 				});
+		jQuery.fn.showGoodsAddBt = function() {
+			var button = $(
+					'<button type="button" class="btn btn-primary btn-addGoodsBt btn-lg col-md-3 col-sm-3" id="addNewGoods"'
+					+'data-toggle="modal" data-target="#createPatBox"'
+					+'style="border: 0px #fff0f5 none; background-color: #fff0f5;">'
+					+'<div class="item">'
+					+'<div class="overlay box" href="#">'
+					+'<div class="content box-top">'
+					+'<a style="font-size: 36px">建立募款箱</a>'
+					+'</div>'
+					+'<img src="./img/plus.png" alt="" style="border-radius: 15%;">'
+					+'</div>'
+					+'</div>'
+					+'</button>').fadeIn(500).appendTo($("#activityRow"));
+			//ReNew
+			$("#addNewGoods").on("click",function() {
+				$('body').reNewCreatPayBoxModal();
+			});
+			
+		}
+		jQuery.fn.reNewCreatPayBoxModal = function() {
+			$("#payBoxName_input").val("");
+			$("#payBankId_input").val("");
+			$("#payATMAccount_input").val("");
+			$("#payBoxDetail_input").val("");
+		}
 	</script>
 
 </body>

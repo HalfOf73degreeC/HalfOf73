@@ -248,7 +248,7 @@ jQuery.fn.showMsglist = function(thisNews) {
 					+'<li class="unslider-active" style="width: 33.3333%;">'
 					+'<div layout="row" class="verticalCenter">'
 					+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
-						+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
+						+'<img class="img-circle img-thumbnail" style="height: 75px;width: 75px; position: absolute; top: 0px;" src="'
 						+memPicUrl
 						+'" alt="">'
 					+'</div>'
