@@ -587,44 +587,44 @@
 				setTimeout(
 						function() {
 							fk_payIdcard = $("#memberBean").attr("data-funIdcard");
-						}
-						,100);
-				xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
-						true);
-				xhr.setRequestHeader("Content-Type",
-						"application/x-www-form-urlencoded");
-				xhr.send();
-				xhr.onreadystatechange = function() {
-					if (xhr.status == 200 && xhr.readyState == 4) {
-						var funBean = JSON.parse(xhr.responseText);
-						if(!$(".loadingGif")){	
-							
-						}else{
-//					 		loading
-							$(".loadingGif").hide();	
-						}	
-						patBoxList = [];
-						console.log(funBean);
-						payBoxList = funBean.payBox;
-						console.log("清空payBox");
-						$(".PayBox").remove();
-						console.log(payBoxList);
-						console.log("重建payBox");
-						$('body').showGoodsAddBt();
-						for (var i = 0; i < payBoxList.length; i++) {
-							if (payBoxList[i].payBoxType == 1) {
-								$('body').showPayBox(payBoxList[i]);
+							xhr.open("Post", "getPayBoxList?fk_payIdcard=" + fk_payIdcard,
+									true);
+							xhr.setRequestHeader("Content-Type",
+									"application/x-www-form-urlencoded");
+							xhr.send();
+							xhr.onreadystatechange = function() {
+								if (xhr.status == 200 && xhr.readyState == 4) {
+									var funBean = JSON.parse(xhr.responseText);
+									if(!$(".loadingGif")){	
+										
+									}else{
+			//					 		loading
+										$(".loadingGif").hide();	
+									}	
+									patBoxList = [];
+									console.log(funBean);
+									payBoxList = funBean.payBox;
+									console.log("清空payBox");
+									$(".PayBox").remove();
+									console.log(payBoxList);
+									console.log("重建payBox");
+									$('body').showGoodsAddBt();
+									for (var i = 0; i < payBoxList.length; i++) {
+										if (payBoxList[i].payBoxType == 1) {
+											$('body').showPayBox(payBoxList[i]);
+										}
+									}
+									for (var i = 0; i < payBoxList.length; i++) {
+										if (payBoxList[i].payBoxType == 0) {
+											$('body').showPayBox(payBoxList[i]);
+										}
+									}
+									$('body').clickPayBox();
+			
+								}
 							}
 						}
-						for (var i = 0; i < payBoxList.length; i++) {
-							if (payBoxList[i].payBoxType == 0) {
-								$('body').showPayBox(payBoxList[i]);
-							}
-						}
-						$('body').clickPayBox();
-
-					}
-				}
+						,300);
 			});
 		}
 	
