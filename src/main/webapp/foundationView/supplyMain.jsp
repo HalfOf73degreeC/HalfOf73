@@ -431,8 +431,7 @@
 			setTimeout(
 					function() {
 						fk_payIdcard = $("#memberBean").attr("data-funIdcard");
-					}
-					,100);
+					
 			console.log("fk_payIdcard: "+fk_payIdcard);
 			console.log("getPayBoxList?fk_payIdcard="+fk_payIdcard);
 			xhr.open("Post", "getSupplyList?fk_payIdcard=" + fk_payIdcard,
@@ -472,6 +471,8 @@
 					}
 				}
 			}
+					}
+					,500);
 		});
 	}
 	//送資料給Server

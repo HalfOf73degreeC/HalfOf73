@@ -74,27 +74,8 @@
 			<!--最新消息管理、需求物資管理、愛心義賣管理、愛的傳遞、捐款管理 -->
 			<div class="sectionContent">
 				<div class="row nino-hoverEffect">
-					<div class="row" id="activityRow">
-
-<!-- 						<div class="col-sm-3 col-md-3"> -->
-<!-- 							<div class="thumbnail" data-toggle="modal" -->
-<!-- 								data-target="#editPatBox" -->
-<!-- 								style="border-radius: 5%; border-style: solid; border-width: 2px; border-color: #9ae2d5;"> -->
-<!-- 								<img src="./img/news.jpg" style="border-radius: 5%;" alt=""> -->
-<!-- 								<div class="caption"> -->
-<!-- 									<h3>唐氏症基金會</h3> -->
-<!-- 									<p class="articleDesc" style="text-align: left;">唐寶寶與心智障礙者的工作環境和流程，都需經過個別觀察和設計，也需要較高的人力及成本。唐氏症基金會的「工作訓練計畫」，以「庇護商店」做為訓練場域，除了基本的就業技能，生活自理能力、社會互動、作業態度等等，都是我們的培訓重點。希望協助他們培養就業能力跟增加工作機會，進而到職場任職，讓他們經濟獨立、自給自足，讓爸爸媽媽卸下心中最沉重的憂慮，知道孩子能靠自己的雙腳在社會中立足，也是減少依賴社會福利資源的積極出路。</p> -->
-<!-- 									<div style="text-align: left; float: left;"> -->
-<!-- 										<a href="#" style="margin-right: 40%; font-size: 16px;">$10000</a> -->
-<!-- 									</div> -->
-<!-- 									<div style="text-align: right;"> -->
-<!-- 										<a href="#" class="btn btn-primary" role="button">了解更多</a> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-
-					</div>
+					<div class="row" id="activityRow"></div>
+					<div style="padding-top: 200px" class="loadingUp1"></div>
 				</div>
 			</div>
 	</section>
@@ -448,7 +429,12 @@
 	// getPayBoxList
 	var payBoxList;
 	jQuery.fn.getPayBoxList = function() {
-		$loadingGIF = $('<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>').appendTo($('#nino-ourTeam'));
+		$loadingGIF = $(
+				'<div class="loadingGif" style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
+				+'<img id="loadingGif"'
+				+'src="${pageContext.request.contextPath}/images/ho73Loading.gif" width="150px"></img>'
+				+'</div>')
+				.fadeIn(500).appendTo($('.loadingUp1'));
 		return this.each(function() {
 			var xhr = new XMLHttpRequest();
 			xhr.open("Get", "getPayBoxList", true);
@@ -457,7 +443,7 @@
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					payBoxList = JSON.parse(xhr.responseText);
 					$(".PayBox").remove();
-					$("#loadingGif").hide(500);
+					$(".loadingGif").hide(500);
 					for (var i = 0; i < payBoxList.length; i++) {
 						$('body').showPayBox(payBoxList[i]);
 					}
