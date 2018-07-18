@@ -51,7 +51,7 @@ public class PayBoxInDaoImpl implements PayBoxInDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PayBoxIn> getAllPaymentIn() {
-		String hql = "FROM PaymentIn";
+		String hql = "FROM PaymentIn Order By payDate desc";
 		List<PayBoxIn> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();

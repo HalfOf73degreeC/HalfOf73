@@ -38,7 +38,7 @@ public class SupplyDaoImpl implements SupplyDao {
 	@Override
 	public List<SupplyBean_HO73> getAllSupply() {
 		List<SupplyBean_HO73> allSupply = new ArrayList<>();
-		String hql = "FROM SupplyBean_HO73";
+		String hql = "FROM SupplyBean_HO73 Order By insertDate desc";
 		Session session = getSession();
 		allSupply = (List<SupplyBean_HO73>) session.createQuery(hql)
 												   .getResultList();

@@ -49,7 +49,7 @@ public class PayBoxOutDaoImpl implements PayBoxOutDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PayBoxOut> getAllPayBoxOut() {
-		String hql = "FROM PayBoxOut";
+		String hql = "FROM PayBoxOut Order By insertDate";
 		List<PayBoxOut> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();

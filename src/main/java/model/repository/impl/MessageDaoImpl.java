@@ -40,7 +40,7 @@ public class MessageDaoImpl implements MessageDao {
 	public List<Message> getAllMessage() {
 		List<Message> allNews = new ArrayList<Message>();
 		Session session = factory.getCurrentSession();
-		Query query = session.createQuery("From Message");
+		Query query = session.createQuery("From Message Order By insertDate desc");
 		allNews = query.getResultList();
 		return allNews;
 	}

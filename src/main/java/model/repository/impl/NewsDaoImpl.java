@@ -42,7 +42,7 @@ public class NewsDaoImpl implements NewsDao {
 	public List<NewsBean_HO73> getAllNews() {
 		List<NewsBean_HO73> allNews = new ArrayList<NewsBean_HO73>();
 		Session session = factory.getCurrentSession();
-		Query query = session.createQuery("From NewsBean_HO73");
+		Query query = session.createQuery("From NewsBean_HO73 Order By insertDate desc");
 		allNews = query.getResultList();
 		return allNews;
 	}

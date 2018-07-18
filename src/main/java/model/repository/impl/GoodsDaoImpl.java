@@ -48,7 +48,7 @@ public class GoodsDaoImpl implements Serializable, GoodsDao {
 	public List<GoodsBean_HO73> getAllGoods() {
 
 		List<GoodsBean_HO73> allGoods = new ArrayList<>();
-		String hql = "FROM GoodsBean_HO73";
+		String hql = "FROM GoodsBean_HO73 Order By insertDate desc";
 		Session session = getSession();
 		allGoods = (List<GoodsBean_HO73>) session.createQuery(hql)
 												 .getResultList();
