@@ -769,16 +769,16 @@
 				var payBoxIn = payBox_now.payBoxIn[i];
 				var payBoxIn_bt = $(
 						'<div class="input-group input-group-lg payBoxIn_bt" date-Id="'+payBoxIn.Id+'">')
-						.fadeIn(500).appendTo($('.payBoxIn_list'));
+						.appendTo($('.payBoxIn_list'));
 				var MemName = $(
 						'<span class="input-group-btn">'
 								+ '<div class="btn-warning btn" style="width: 300px; cursor: default; font-style: normal; font-size: 18px; background: #9ae2d5; text-align: left;">'
-								+ payBoxIn.MemName + '</div></span>').fadeIn(500).appendTo(
+								+ payBoxIn.MemName + '</div></span>').appendTo(
 						payBoxIn_bt);
 				var payAmount = $(
 						'<div id="payBoxIn_value" type="text" name="memName" class="form-control" style="z-index: 1; text-align: right;">'
 								+ '$' + payBoxIn.payAmount + '</div>')
-						.fadeIn(500).appendTo(payBoxIn_bt);
+						.appendTo(payBoxIn_bt);
 			}
 
 		}
