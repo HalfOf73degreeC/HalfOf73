@@ -99,7 +99,7 @@ public class OrderServiceImpl implements OrderService {
 				}
 			}	
 			System.out.println("4");
-			String subject = shoppingcartfun+"已收到您的訂單" ;
+			String subject = "Half Of 73°C already got you order." ;
 			System.out.println("5");
 			
 			String text = mb.getMemName()+"您好:<br>" + 
