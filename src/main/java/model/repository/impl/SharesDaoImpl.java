@@ -40,7 +40,7 @@ public class SharesDaoImpl implements SharesDao {
 	public List<LoveSharingBean_HO73> getAllShares() {
 		List<LoveSharingBean_HO73> allShares = new ArrayList<LoveSharingBean_HO73>();
 		Session session = factory.getCurrentSession();
-		Query query = session.createQuery("From LoveSharingBean_HO73");
+		Query query = session.createQuery("From LoveSharingBean_HO73 Order By insertDate");
 		allShares = query.getResultList();
 		return allShares;
 	}

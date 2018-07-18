@@ -3,9 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="mem" value="${memberBean}"></c:set>
 <%-- <jsp:useBean id="baBean" class="_03_listBooks.model.BookAccessBean_Hibernate" scope='request'/> --%>
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+	integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+	crossorigin="anonymous">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,11 +119,19 @@
 																<option value="${i}">${i}</option>
 															</c:forEach>
 														</c:when>
+														<c:when test="${SupplyBean.supNeedStock ==0 }">
+															<c:forEach var="i" begin="1" end="20">
+																<option value="${i}">${i}</option>
+															</c:forEach>
+														</c:when>
 													</c:choose>
 												</select>
 										</c:when>
 										<c:when test="${SupplyBean.supNeedStock == 0}">
-											<h5>&nbsp;</h5>
+											<h5>捐贈量:</h5>
+											<select name='qty' class="form-control form-control-sm" style="width: 70px;" disabled>
+												<option value="0">0</option>
+											</select>
 										</c:when>
 										</c:choose>
 										
@@ -134,16 +147,33 @@
 									<Input type='hidden' name='pageNo' value='${param.pageNo}'>
 									<p style="margin: 0px 0px 0px 60%;">
 <!-- 										<a href="BuySupply.do" class="btn btn-primary" role="button"><i class="icon-cc-jcb custumStyle"></i>我要捐贈</a> -->
-									<c:if test="${empty SupplyShoppingCart.content  && (SupplyBean.supNeedStock != 0)}">
-										<Input class="btn btn-primary" type='submit' value='我要捐贈'>
-									</c:if>
-									<c:if test="${not empty SupplyShoppingCart.content}">
-										<Input class="btn btn-primary disabled" type='submit' value='我要捐贈' disabled>
-									</c:if>
-									
-									<c:if test="${SupplyBean.supNeedStock== 0}">
-										<Input class="btn" type='submit' value='已募集完畢' disabled>
-									</c:if>
+									<c:choose>
+										<c:when test="${mem.memType == '1'}">	
+											<c:if test="${empty SupplyShoppingCart.content  && (SupplyBean.supNeedStock != 0)}">
+												<Input class="btn btn-primary" type='submit' value='我要捐贈'>
+											</c:if>
+											<c:if test="${not empty SupplyShoppingCart.content}">
+												<Input class="btn btn-primary disabled" type='submit' value='我要捐贈' disabled>
+											</c:if>
+											
+											<c:if test="${SupplyBean.supNeedStock== 0}">
+												<Input class="btn" type='submit' value='已募集完畢' disabled>
+											</c:if>
+										</c:when>
+				   						<c:otherwise>
+					   						<p style="border: 0px #9ae2d5; width: 130px; margin-left:55%;">
+					   							<a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/member/login"style="font-size: 13px; color: white;">
+													<i class="fas fa-sign-out-alt nino-icon"style="font-size: 18px; margin-top: 2px; margin-right: 1px; color:#fff;"></i><span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 14px; margin-right: 0px;">登入選購</span>
+												</a>
+											</p>
+<!-- 				   							<button id="commit_Payment" type="button"class="btn btn-primary btn-lg"style="float: left; border: 0px #9ae2d5; width: 130px; margin-left:-2%;"> -->
+<!-- 											<i class="fas fa-sign-out-alt nino-icon"style="font-size: 18px; margin-top: 2px; margin-right: 1px; color:#fff;"></i> -->
+<%-- 											<a href="${pageContext.request.contextPath}/member/login"style="font-size: 13px; color: white;"> --%>
+<!-- 												<span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 1ˋpx; margin-right: 10px;">登入選購</span> -->
+<!-- 											</a> -->
+<!-- 											</button>	 -->
+				   						</c:otherwise>
+									</c:choose>
 									</p>
 								</div>
 							</div>

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -110,6 +111,7 @@ public class NewsBean_HO73 {
 		this.insertDay = insertDay;
 	}	
 	@OneToMany(mappedBy="newsBean_HO73", cascade={CascadeType.ALL})  
+	@OrderBy(value = "insertDate DESC")
 	public Set<Message> getMessages() {
 		return Messages;
 	}

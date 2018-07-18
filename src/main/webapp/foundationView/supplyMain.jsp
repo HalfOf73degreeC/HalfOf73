@@ -32,8 +32,10 @@
 <script type="text/javascript" src="js/croppie.js"></script>
 <!--     <Script type="text/javascript" src="js/previewImg.js"></Script> -->
 <title>捐贈物資建檔</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="../images/ico/like.png">
 </head>
-
+<div w3-include-html="${pageContext.request.contextPath}/modal_loading.jsp"></div>
 <body style="background: #FFF0F5;">
 <header id="nino-story">
 		<nav id="nino-navbar" class="navbar navbar-default"
@@ -47,9 +49,9 @@
 					<div class="collapse navbar-collapse pull-left"
 						id="nino-navbar-collapse">
 						<ul class="nav navbar-nav">
-							<!-- 					<li><a href="supply.html">回到商品總攬</a></li> -->
-							<!-- 					<li class="active"><a href="#nino-story">商品基本資料</a></li> -->
-							<!-- 					<li><a href="#nino-ourTeam">商品詳細資料</a></li> -->
+							<!-- 					<li><a href="supply.html">回到物品總攬</a></li> -->
+							<!-- 					<li class="active"><a href="#nino-story">物品基本資料</a></li> -->
+							<!-- 					<li><a href="#nino-ourTeam">物品詳細資料</a></li> -->
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -64,7 +66,7 @@
 		<div class="container">
 			<h2 class="nino-sectionHeading title wow fadeInDown">
 				<span class="nino-subHeading"
-					style="font-family: '微軟正黑體'; font-size: 40px;">捐贈物資商品管理</span>
+					style="font-family: '微軟正黑體'; font-size: 40px;">捐贈物資物品管理</span>
 			</h2>
 			<p class="nino-sectionDesc wow fadeInDown"
 				style="font-family: '微軟正黑體'; font-size: 20px;">
@@ -92,7 +94,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 						<h4 class="modal-title" id="myModalLabel"
-							style="font-family: '微軟正黑體'; font-size: 20px;">新增商品圖片</h4>
+							style="font-family: '微軟正黑體'; font-size: 20px;">新增物品圖片</h4>
 					</div>
 					<div class="modal-body">
 						<div id="collapseOne1" class="panel-collapse collapse in"
@@ -108,7 +110,7 @@
 											<label for="input_img" style=""> <buttom
 													id="input_img_chouse"
 													style="color: #95e1d3; font-size: 25px;font-weight:bold;z-index:2; cursor:pointer;">
-												<span>選擇商品照片</span> <input id="input_img"
+												<span>選擇物品照片</span> <input id="input_img"
 													accept="image/gif, image/jpeg, image/png" type="file"
 													name="file1"
 													style="position: relative; top: 50%; left:50%; z-index: -2; height: 0px;" />
@@ -176,7 +178,7 @@
 	$("#addNewGoods").on("click",function() {
 		$('body').reNewGoodModal();
 	});
-	//顯示商品資料
+	//顯示物品資料
 	jQuery.fn.showSupply_D = function(Supply) {
 		$('body').reNewGoodModal();
 		var supName = $('#supName').val(Supply.supName);
@@ -234,7 +236,7 @@
 	jQuery.fn.reNewGoodModal = function() {
 			pic_count = 0;
 			$('#NewGoodsModal').empty();
-			$('#NewGoodsModal').append('<form action="addOneSupply" enctype="multipart/form-data"><div class="modal-dialog modal-lg" role="document">'
+			$('#NewGoodsModal').append('<form action="addOneSupply" enctype="multipart/form-data" style="margin-top:-2%;"><div tabindex="-1" div class="modal-dialog modal-lg" role="document">'
 					+'<div class="modal-content">'
 					+'<div class="modal-header">'
 					+'<button type="button" class="close" data-dismiss="modal"'
@@ -242,7 +244,7 @@
 					+'<span aria-hidden="true">&times;</span>'
 					+'</button>'
 					+'<h4 class="modal-title" id="myModalLabel"'
-					+'style="font-family: "微軟正黑體"; font-size: 20px;">新增愛心商品</h4>'
+					+'style="font-family: "微軟正黑體"; font-size: 20px;">新增所需物品</h4>'
 					+'</div>'
 					+'<div class="modal-body">'
 					+'<div id="collapseOne1" class="panel-collapse collapse in"'
@@ -260,7 +262,7 @@
 					+'<div class="input-group input-group-lg">'
 					+'<span class="input-group-btn">'
 					+'<button class="btn btn-success" type="submit"'
-					+'style="width: 130px">商品名稱 :</button>'
+					+'style="width: 130px">物品名稱 :</button>'
 					+'</span> <input type="text" class="form-control" placeholder=""'
 					+'required style="z-index: 1" id="supName">'
 					+'</div>'
@@ -286,16 +288,16 @@
 					+'role="tabpanel" aria-labelledby="headingOne">'
 					+'<div class="panel-body" style="height: 120px;">'
 					+'<h4 class="panel-title">'
-					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品簡介</div>'
+					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈物品簡介</div>'
 					+'</h4>'
 					+'<textarea class="form-control" id="supIntro"'
 					+'placeholder="" rows="3" style="resize : none;" onKeyDown="if (this.value.length>=200){event.returnValue=false}"></textarea>'
 					+'</div></div>'
 					+'<div id="collapseOne1" class="panel-collapse collapse in"'
 					+'role="tabpanel" aria-labelledby="headingOne">'
-					+'<div class="panel-body" style="height: 167px;">'
+					+'<div class="panel-body" style="height: 160px; margin-top:-2%;">'
 					+'<h4 class="panel-title">'
-					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈商品詳述</div>'
+					+'<div style="font-family: "微軟正黑體"; font-size: 16px;">捐贈物品詳述</div>'
 					+'</h4>'
 					+'<textarea class="form-control" id="supArticle"'
 					+'placeholder="" rows="6" style="resize : none;"></textarea>'
@@ -303,8 +305,8 @@
 					+'<div class="modal-footer">'
 					+'<button type="button" class="btn btn-default" data-dismiss="modal"'
 					+'style="font-family: "微軟正黑體"; font-size: 15px;">取消</button>'
-					+'<button type="button" class="btn btn-primary btn-addSupply" id="addNewGoods_bt"'
-					+'style="font-family: "微軟正黑體"; font-size: 15px;">商品上架</button>'
+					+'<button type="button" class="btn btn-primary btn-addSupply" data-toggle="modal" data-target="#modal_loading" data-dismiss="modal" id="addNewGoods_bt"'
+					+'style="font-family: "微軟正黑體"; font-size: 15px;">物品上架</button>'
 					+'</div></div></div></form>');
 			
 			$('body').startToCropImg();
@@ -357,7 +359,7 @@
 		}
 	jQuery.fn.showSupplyAddBt = function() {
 		var button = $(
-				'<button type="button" class="btn btn-primary btn-lg col-md-3 col-sm-3" id="addNewGoods"'
+				'<button type="button" class="btn btn-primary btn-addSupplyBt btn-lg col-md-3 col-sm-3" id="addNewGoods"'
 				+'data-toggle="modal" data-target="#NewGoodsModal"'
 				+'style="border: 0px #fff0f5 none; background-color: #fff0f5;">'
 				+'<div class="item">'
@@ -368,7 +370,7 @@
 				+'<img height="250px" src="./img/plus.png" alt="" style="border-radius: 15%;">'
 				+'</div>'
 				+'</div>'
-				+'/button>').fadeIn(500).appendTo($("#activityRow"));
+				+'</button>').fadeIn(500).appendTo($("#activityRow"));
 		//ReNew
 		$("#addNewGoods").on("click",function() {
 			$('body').reNewGoodModal();
@@ -381,11 +383,11 @@
 				+' data-toggle="modal" data-target="#NewGoodsModal" style="border:0px #fff0f5 none;background-color:#fff0f5;"></button>')
 				.fadeIn(500).appendTo($("#activityRow"));
 
-		var Supply_pic = "http://localhost:8080/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+Supply.SupplyImgBean[0].supImgUid;
-		if(!Supply_pic){
+		var Supply_pic;
+		if(!Supply.SupplyImgBean[0]){
 			Supply_pic = "./img/box1.png";
 		}else{
-			
+			Supply_pic = "http://localhost:8080/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+Supply.SupplyImgBean[0].supImgUid;
 		}
 		var Supply_info = $(
 				'<div class="item">'
@@ -422,7 +424,7 @@
 			$loadingGIF = $(
 					'<div class="loadingGif" style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
 					+'<img id="loadingGif"'
-					+'src="${pageContext.request.contextPath}/images/ho73Loading.gif" width="150px"></img>'
+					+'src="../images/ho73Loading.gif" width="150px"></img>'
 					+'</div>')
 					.appendTo($('.loadingUp1'));
 			var xhr = new XMLHttpRequest();
@@ -458,13 +460,14 @@
 					console.log(SupplyList);
 					console.log("重建Goods");
 					if(SupplyList!=null){
+						$(".btn-addSupplyBt").remove();
 						$('body').showSupplyAddBt();
 						for (var i = 0; i < SupplyList.length; i++) {
 								$('body').showSupply(SupplyList[i]);
 						}
 						$('body').clickGoods();
 					}else{
-						alert("沒有商品")
+						alert("沒有物品")
 					}
 				}
 			}
@@ -506,12 +509,14 @@
 				console.log("jsonString.length= "
 						+ jsonString.length);
 				if (jsonString.length < 10) {
-					alert("無法新建商品");
+					alert("無法新建物品");
 				} else {
 //						var Supply = JSON.parse(xhr.responseText);
 //						console.log(Supply);
 				}
 //					$('body').getSupply_now(supUid);
+				$('body').getSupplyList();
+				$('#modal_loading').modal('hide');
 				
 			}
 		}

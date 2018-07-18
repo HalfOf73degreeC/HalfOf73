@@ -457,7 +457,7 @@
 				if (xhr.status == 200 && xhr.readyState == 4) {
 					payBoxList = JSON.parse(xhr.responseText);
 					$(".PayBox").remove();
-					$(loadingGif).hide(500);
+					$("#loadingGif").hide(500);
 					for (var i = 0; i < payBoxList.length; i++) {
 						$('body').showPayBox(payBoxList[i]);
 					}

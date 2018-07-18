@@ -9,15 +9,18 @@ jQuery(function($) {
 							+ '</div></div></div>');
 
 	$loadingGIF = $(
-			'<div w3-include-html="'+$('#NewsPage').attr("data-contextPath")+'/loading.jsp"></div>')
-			.appendTo($('#NewsPage'));
+			'<div class="loadingGif" style="height: 200px;">'
+			+'<div style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
+			+'<img id="loadingGif"'
+			+'src="/HalfOf73/images/ho73Loading.gif" width="150px"></img>'
+			+'</div></div>').appendTo($('#NewsPage'));
 	var xhr = new XMLHttpRequest();
 	xhr.open("Get", "/HalfOf73/news/getNewsPage", true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 		if (xhr.status == 200 && xhr.readyState == 4) {
 			newslist = JSON.parse(xhr.responseText);
-			$(loadingGif).hide(500);
+			$(".loadingGif").hide(500);
 			var showMuch;
 			if($('#NewsPage').attr("date-newsMuch")==0){
 				showMuch=newslist.length;
@@ -41,7 +44,7 @@ jQuery(function($) {
 						$article);
 				var $goodsImageSize = $('<div class="newsImageSize">')
 						.appendTo($articleThumb).append(
-								"<img src='" + news.newsImg + "'>");
+								"<img height='240px' src='" + news.newsImg + "'>");
 				var $divdate = $('<div class="date">').appendTo($articleThumb)
 						.append(
 								'<span class="text" style="font: bolder 20px 微軟正黑體">'
@@ -248,7 +251,7 @@ jQuery.fn.showMsglist = function(thisNews) {
 					+'<li class="unslider-active" style="width: 33.3333%;">'
 					+'<div layout="row" class="verticalCenter">'
 					+'<div class="nino-avatar fsr" style="width: 75px; margin:5px;">'
-						+'<img class="img-circle img-thumbnail" style="height: 75px; position: absolute; top: 0px;" src="'
+						+'<img class="img-circle img-thumbnail" style="height: 75px;width: 75px; position: absolute; top: 0px;" src="'
 						+memPicUrl
 						+'" alt="">'
 					+'</div>'
