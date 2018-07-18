@@ -163,7 +163,7 @@
 				   						<c:otherwise>
 					   						<p style="border: 0px #9ae2d5; width: 130px; margin-left:55%;">
 					   							<a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/member/login"style="font-size: 13px; color: white;">
-													<i class="fas fa-sign-out-alt nino-icon"style="font-size: 18px; margin-top: 2px; margin-right: 1px; color:#fff;"></i><span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 1ˋpx; margin-right: 10px;">登入選購</span>
+													<i class="fas fa-sign-out-alt nino-icon"style="font-size: 18px; margin-top: 2px; margin-right: 1px; color:#fff;"></i><span style="font-family: '微軟正黑體'; font-weight: bold; font-size: 14px; margin-right: 0px;">登入選購</span>
 												</a>
 											</p>
 <!-- 				   							<button id="commit_Payment" type="button"class="btn btn-primary btn-lg"style="float: left; border: 0px #9ae2d5; width: 130px; margin-left:-2%;"> -->
