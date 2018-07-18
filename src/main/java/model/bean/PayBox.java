@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 
@@ -170,14 +171,16 @@ public class PayBox {
 	}
 	
 
-	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL}) 
+	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL})
+	@OrderBy(value = "payDate DESC")
 	public Set<PayBoxIn> getpayBoxIn() {
 		return payBoxIn;
 	}
 	public void setpayBoxIn(Set<PayBoxIn> paymentIn) {
 		this.payBoxIn = paymentIn;
 	}
-	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL}) 
+	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL})
+	@OrderBy(value = "insertDate DESC")
 	public Set<PayBoxOut> getpayBoxOut() {
 		return payBoxOut;
 	}
