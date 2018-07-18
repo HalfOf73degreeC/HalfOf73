@@ -20,7 +20,7 @@ jQuery(function($) {
 	xhr.onreadystatechange = function() {
 		if (xhr.status == 200 && xhr.readyState == 4) {
 			newslist = JSON.parse(xhr.responseText);
-			$(".loadingGif").hide(500);
+			$(".loadingGif").hide();
 			var showMuch;
 			if($('#NewsPage').attr("date-newsMuch")==0){
 				showMuch=newslist.length;

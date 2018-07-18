@@ -104,14 +104,19 @@
 			        		+'<div class="modal-content" style="padding: 50px" id="oneNews">'
 			        		+'</div></div></div>');
 			        
-					$loadingGIF = $('<div w3-include-html="${pageContext.request.contextPath}/loading.jsp"></div>').appendTo($('#NewsPage'));
+					$loadingGIF = $(
+							'<div class="loadingGif" style="height: 200px;">'
+							+'<div style="position: absolute; top: 70%; left: 50%;  margin: -75px">'
+							+'<img id="loadingGif"'
+							+'src="/HalfOf73/images/ho73Loading.gif" width="150px"></img>'
+							+'</div></div>').appendTo($('#NewsPage'));
 							var xhr = new XMLHttpRequest();
 							xhr.open("Get", "getLoveSharesPage", true);
 							xhr.send();
 							xhr.onreadystatechange = function() {
 								if (xhr.status == 200 && xhr.readyState == 4) {									
 									newslist = JSON.parse(xhr.responseText);
-									$(loadingGif).hide(500);
+									$(".loadingGif").hide();
 									for (var i = 0; i < newslist.length; i++) {
 										var shares = newslist[i];
 										var $row;
