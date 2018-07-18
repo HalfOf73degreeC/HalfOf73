@@ -55,7 +55,7 @@ public class SupplyOrderServiceImpl_Spring implements SupplyOrderService {
 		String funName = ob.getFunName();
 		Integer supUid = ob.getItems().iterator().next().getSupId();
 		SupplyBean_HO73 sb = sdao.getOneSupply(supUid);
-		String subject = funName +"感謝您在"+ob.getFunName()+"的捐款" ;
+		String subject = "Half Of 73°C Thank you for your material contribution" ;
 		String text = mb.getMemName()+"您好:<br>" + 
 				"捐贈品項: " + sb.getSupName() + "<br>" +
 				"收件地址: " + sb.getFoundationBean_HO73().getFunAddress() + "<br>" + 

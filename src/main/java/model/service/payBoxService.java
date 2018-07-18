@@ -118,7 +118,7 @@ public class payBoxService {
 		List<String> to = new ArrayList<>();
 		to.add(mb.getMemEmail2());
 		FoundationBean_HO73 fb = payBox.getFoundationBean();
-		String subject = fb.getFunName()+"感謝您在"+payBox.getPayBoxName()+"的捐款" ;
+		String subject = "Half Of 73°C  Thank you for your donation." ;
 		String text = mb.getMemName()+"您好:<br>" + 
 				"本次捐款金額: " + payAmount + "NTD<br>" + 
 				"基金會ATM銀行代號: " + payBox.getPayBankId() + "<br>" + 
