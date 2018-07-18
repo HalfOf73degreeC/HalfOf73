@@ -193,7 +193,7 @@
 		var goodsIntro = $('#goodsIntro').val(Goods.goodsIntro);
 		var goodImgList = Goods.GoodsImgBean;
 		for(var i = 0; i < goodImgList.length; i++){
-			objectURL = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+goodImgList[i].goodsImgUid;
+			objectURL = "/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+goodImgList[i].goodsImgUid;
 			console.log("objectURL: "+objectURL);
 			$('body').showLittlePic8Url(objectURL);
 		}
@@ -394,7 +394,7 @@
 		if(!Goods.GoodsImgBean[0]){
 			Goods_pic = "./img/box1.png";
 		}else{
-			Goods_pic = "http://localhost:8080/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+Goods.GoodsImgBean[0].goodsImgUid;
+			Goods_pic = "/HalfOf73/goods/showMultiplePicture.do?goodsImgUid="+Goods.GoodsImgBean[0].goodsImgUid;
 		}
 		var Goods_info = $(
 				'<div class="item">'

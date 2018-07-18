@@ -187,7 +187,7 @@
 		var supIntro = $('#supIntro').val(Supply.supIntro);
 		var supImgList = Supply.SupplyImgBean;
 		for(var i = 0; i < supImgList.length; i++){
-			objectURL = "http://localhost:8080/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+supImgList[i].supImgUid;
+			objectURL = "/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+supImgList[i].supImgUid;
 			console.log("jsaon: "+JSON.stringify(supImgList[i].supImg));
 			$('body').showLittlePic8Url(objectURL);
 		}
@@ -387,7 +387,7 @@
 		if(!Supply.SupplyImgBean[0]){
 			Supply_pic = "./img/box1.png";
 		}else{
-			Supply_pic = "http://localhost:8080/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+Supply.SupplyImgBean[0].supImgUid;
+			Supply_pic = "/HalfOf73/supply/showMultiplePicture.do?supplyImgUid="+Supply.SupplyImgBean[0].supImgUid;
 		}
 		var Supply_info = $(
 				'<div class="item">'
