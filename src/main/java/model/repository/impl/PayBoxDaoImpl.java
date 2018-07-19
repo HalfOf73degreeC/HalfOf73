@@ -50,7 +50,7 @@ public class PayBoxDaoImpl implements PayBoxDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PayBox> getAllPayBoxes() {
-		String hql = "FROM PayBox";
+		String hql = "FROM PayBox Order By balance DESC";
 		List<PayBox> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();

@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -368,6 +369,7 @@ public class FoundationBean_HO73{
 	}
 
 	@OneToMany(mappedBy="foundationBean", cascade= CascadeType.ALL) 
+	@OrderBy(value = "balance DESC")
 	public Set<PayBox> getPayBox() {
 		return payBox;
 	}

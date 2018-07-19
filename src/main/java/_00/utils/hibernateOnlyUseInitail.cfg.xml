@@ -13,7 +13,7 @@
     <!-- SQL方言，設定是MySQL -->
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-<!-- 	<property name="connection.url">jdbc:mysql://172.31.16.147:6603/ho73?useUnicode=true&amp;characterEncoding=utf8</property> -->
+<!-- 	<property name="connection.url">jdbc:mysql://172.31.18.174:6603/ho73?useUnicode=true&amp;characterEncoding=utf8</property> -->
 	<property name="connection.url">jdbc:mysql://35.165.226.129:6603/ho73?useUnicode=true&amp;characterEncoding=utf8</property>
 	<property name="connection.username">root</property>
 	<property name="connection.password">Do!ngPassW0rd</property>

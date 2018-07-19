@@ -172,7 +172,7 @@ public class PayBox {
 	
 
 	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL})
-	@OrderBy(value = "payDate DESC")
+	@OrderBy(value = "payAmount DESC")
 	public Set<PayBoxIn> getpayBoxIn() {
 		return payBoxIn;
 	}
@@ -180,7 +180,7 @@ public class PayBox {
 		this.payBoxIn = paymentIn;
 	}
 	@OneToMany(mappedBy="payBoxNumber", cascade={CascadeType.ALL})
-	@OrderBy(value = "insertDate DESC")
+	@OrderBy(value = "payForCost DESC")
 	public Set<PayBoxOut> getpayBoxOut() {
 		return payBoxOut;
 	}

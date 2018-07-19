@@ -42,6 +42,12 @@ public class LoginServlet extends HttpServlet {
 			            .setState(state)            // Prevent request forgery
 			            .build();
 				 
+			} else if(req.getServerPort() == 80) {
+				url =
+				        flow.newAuthorizationUrl()
+				            .setRedirectUri(GoogleInitData.CALLBACK_URI_PRO)
+				            .setState(state)            // Prevent request forgery
+				            .build();
 			} else {
 				url =
 					        flow.newAuthorizationUrl()
